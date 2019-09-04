@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PQSModelStoreContainer" CdmEntityContainer="PQSEntities1">
+    <EntitySetMapping Name="documents">
+      <EntityTypeMapping TypeName="PQSModel.documents">
+        <MappingFragment StoreEntitySet="documents">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="realName" ColumnName="realName" />
+          <ScalarProperty Name="doc" ColumnName="doc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

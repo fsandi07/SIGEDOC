@@ -1,0 +1,55 @@
+
+
+Como iniciar base de datos, o estilo de core, formando clases inicialmente 
+y luego formnado la base de datos.
+
+Servidores y nube
+que tipo de dominio, etc
+
+los recursos que ofrece core, por ejemplo la autenticacion, que es mejor comenzar comno lo hace 
+visual, o luego hacer la clase por aparte
+
+si el estilo del proyecto esta bien basado, o mejor otro 
+tipo de arquitectura o extructura
+
+el proyecto que dice sistema es un ejemplo de mas o emnos la 
+arquitectura que vamos a emplear en el nuestro
+
+por donde comenzamos con el sistema
+
+sabemos que con core el proyecto ya genera viustas y boostrap, pero podemos darle otro estilo de boostrap
+o css
+
+
+tengo que hacer tablas de catalogo para describir como opciones en las tablas, por ejemplo 1,2,3 si esta en proceso, a medias o no, es para categorizar
+el autoincremental hay que ver el peso para colocar bien el tamaño int, smallint
+
+ventajas de .net
+es un lenguaje mas grande que se empata con Java
+mucho soporte, robusto y bastante comunidad 
+.net con su8s herramientas facilita su desarrollo es mas rapido
+curva de aprendizaje es mucho mas rapido
+
+
+ver esto https://azure.microsoft.com/es-es/free/
+ver si en azure nos otorga ISS que es un serevidor de aplicaciones para .net
+tenecitamos instalar si fuera linuz servidore web (css,html,javascript) y uno de aplicaciones.
+
+en un servidor corremos Saplicaciones, web y bases de datos
+
+ver porque core trabaja en Linux y como obtengo los servidores , porque .net el de aplicaciones solo trrabaja con el ISS, averiguar
+si con core y colocandolo en linux si tiene esto
+
+ver si iss express lo puedo intslar en  linux o como me corre
+
+leer esto https://www.campusmvp.es/recursos/post/como-configurar-asp-net-core-2-1-en-linux-en-menos-de-10-minutos.aspx
+
+para la base de datos, es mejor es no tener los porcesos almacenados
+
+Investigar el datasouser el ado.net core, no me dio la fuincion para mapear
+
+
+
+
+
+

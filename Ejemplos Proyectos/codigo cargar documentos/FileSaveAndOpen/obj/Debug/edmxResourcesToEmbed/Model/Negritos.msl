@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Los_NegritosModelStoreContainer" CdmEntityContainer="Los_NegritosEntities">
+    <EntitySetMapping Name="Prueba">
+      <EntityTypeMapping TypeName="Los_NegritosModel.Prueba">
+        <MappingFragment StoreEntitySet="Prueba">
+          <ScalarProperty Name="id_XML" ColumnName="id_XML" />
+          <ScalarProperty Name="Archivo_XML" ColumnName="Archivo_XML" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

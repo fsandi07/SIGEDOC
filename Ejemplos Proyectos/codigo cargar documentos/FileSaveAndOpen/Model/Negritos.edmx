@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Los_NegritosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'Los_Negritos.dbo.documents' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="documents">
+          <Property Name="id" Type="int" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="realname" Type="varchar" MaxLength="50" />
+          <Property Name="doc" Type="varbinary" MaxLength="50" />
+        </EntityType>-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Los_Negritos.dbo.Prueba' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Prueba">
+          <Key>
+            <PropertyRef Name="id_XML" />
+          </Key>
+          <Property Name="id_XML" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Archivo_XML" Type="varbinary" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="Los_NegritosModelStoreContainer">
+          <EntitySet Name="Prueba" EntityType="Self.Prueba" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Prueba].[id_XML] AS [id_XML], 
+    [Prueba].[Archivo_XML] AS [Archivo_XML]
+    FROM [dbo].[Prueba] AS [Prueba]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Los_NegritosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Prueba">
+          <Key>
+            <PropertyRef Name="id_XML" />
+          </Key>
+          <Property Name="id_XML" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Archivo_XML" Type="Binary" MaxLength="50" FixedLength="false" />
+        </EntityType>
+        <EntityContainer Name="Los_NegritosEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Prueba" EntityType="Self.Prueba" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Los_NegritosModelStoreContainer" CdmEntityContainer="Los_NegritosEntities">
+          <EntitySetMapping Name="Prueba">
+            <EntityTypeMapping TypeName="Los_NegritosModel.Prueba">
+              <MappingFragment StoreEntitySet="Prueba">
+                <ScalarProperty Name="id_XML" ColumnName="id_XML" />
+                <ScalarProperty Name="Archivo_XML" ColumnName="Archivo_XML" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

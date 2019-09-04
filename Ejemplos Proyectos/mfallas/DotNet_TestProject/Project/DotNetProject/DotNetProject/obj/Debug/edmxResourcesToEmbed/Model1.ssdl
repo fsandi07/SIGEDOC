@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AppModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="UserInfo">
+    <Key>
+      <PropertyRef Name="userId" />
+    </Key>
+    <Property Name="userId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="firstName" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="lastName1" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="lastName2" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="userName" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="role" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="roleId" />
+    </Key>
+    <Property Name="roleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="displayName" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="roleDescription" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK__UserInfo__userId__20AD9DE2">
+    <End Role="UserRole" Type="Self.UserRole" Multiplicity="1" />
+    <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="UserRole">
+        <PropertyRef Name="roleId" />
+      </Principal>
+      <Dependent Role="UserInfo">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AppModelStoreContainer">
+    <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="DOTNET" store:Type="Tables" />
+    <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="DOTNET" store:Type="Tables" />
+    <AssociationSet Name="FK__UserInfo__userId__20AD9DE2" Association="Self.FK__UserInfo__userId__20AD9DE2">
+      <End Role="UserRole" EntitySet="UserRole" />
+      <End Role="UserInfo" EntitySet="UserInfo" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

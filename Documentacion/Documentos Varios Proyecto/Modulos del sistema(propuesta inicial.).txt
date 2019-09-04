@@ -1,0 +1,34 @@
+
+Modulos
+
+Autenticacion - roles de usuario
+
+que exista el administrador que pueda registrar usaurios nuevos
+el editor que realiza cambios, edita,forma y crea proyectyos etc
+El usuario que solo puede ver sin realizar cambios de nada
+
+Cliente
+
+registro de clientes nuevos, poder ver la lista
+Lleva nombre, contacto, detalles, encargado, etc, el cliente va indicarnos que detalles desea para crear su cliente
+
+proyecto
+
+se crea un proyecto, se le asigna un centro de costos, y se colocan detalles que el cliente va decidir cuales
+
+dentro del mismo proyecto se va crear un modulo para crear documento nuevo.
+este va llevar consecutivo de notas creadas para ese proyecto, consecutivo de notas totales de la empresa, año, y detalles que el cliente
+nos va indicar cuales necesita a la hora de crear un documento nuevo.
+
+En este modulo de crear docuemntos nuevos estamos analizando un tipo de barra de tareas, para el porceso de creacion de dicho documento, donde podria 
+haber un boton que diga crear docuemnto y abra un word con el machote que tenemos de referencia, y registra el usuario que lo realizo,
+para que el documento sea revisado por el jefe y lo apruebe y firme digitalmente y lo suba, para que el usuario que esta a cargo del mismo le de finalizar 
+a la tarea ya con el docuemto que se va presentar al cliente, que ya ellos lo envian por su cuenta.
+
+tambien va ver en el moudlo de proyectos otro que diga subir documentos
+son documentos del mismo proyecto que se suben polrque el cliente los envia para informacion, con una matricula similiar a la de nuevos
+pero que es totalmente aparte de la otra, para trazabilidad de los mismos.
+
+se podra realizar un busqueda por proyectos, documentos, por clientes etc
+
+un mismo cliente puede poseeder muchos proyectos.

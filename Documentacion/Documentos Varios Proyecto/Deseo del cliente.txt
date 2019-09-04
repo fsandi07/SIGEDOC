@@ -1,0 +1,39 @@
+Deseo del cliente
+
+El cliente desea poder crear un sistema que pueda manejar la trazabilidad de sus docuemntos, a la hora de participar en proyectos
+de licitaciones, los cuales van a llevar una nomenclatura formada por un estandar que ya la empresa tiene establecido.
+
+en el proyecto en en si van a crear documentos y subir documentos, los cuales van a llevar esa matriucla para su trazabilidad 
+y en el mismo sistema tener la facilidad de ir a buscarlos y revisar en que consistian.
+
+Ellos desean que el sistema se pueda acceder en cualquier lugar, y poder trabajar mediante un registro de logeo en cualquier siostema operativo y en 
+cualquier computadora, no quieren limitar el trabajo, modificaion o sugerencias del sistema a computadoras dentro de lugar fisico oficinas
+y si es posible por lo menos acceder por la web atravez de su movil en caso de emergencia revisar algun docuemnto o buscarlo para revisarlo.
+
+
+no tienen  ninmgun tipo de infrastructura de informatica, redes, dominios, etc, ellos son pocos 5 personas, con laptops cada uno, que trabajn de formna 
+individual, sin dominio, no cuientan con servidores fisicos, ni host, ni dominios solo uno de PQSdical.com que es basico en una pagina contratada en internet
+dudabi.
+
+La idea principial del clionete es manejar su base de datos, donde puedan acceder a sus docuemntos, y que a la hora de crear un documento nuevo en el proyecto
+se forme esa matricula para ese docuemnto automaticamente, ya que actualmente lo estan realizando de forma manual y estan induciendo a errores graves, para la
+comunicacion entre su cliente y ellos.
+
+Se desearia que a la hora de crear el documento traiga toda la informacion en el mismo y que la el usuario no tenga que dijjitar ese encabezado, se
+adjunta a este reporsitorio un ejemplo de docuemnto 
+
+el cliente desea guardar ambos documentos en formato WORD y PDF.
+
+El cliente deja libre la propuesta de mas agregados o soluciones que permitan un manejeo de mayor orden en el tema de documentacion e informacion 
+necesaria para cada proyecto.
+
+
+El cliente desearia su logo y nombre de empresa en el sistema
+
+El cliente desea saber la informacion del usuario que participo en l aconfeccion o modificacion del documento.
+
+El cliente participa en licitaciones al gobiero, se necesitara ingresar a la base de datos los clientes que ellos manejan de cada proyecto.
+
+
+
+

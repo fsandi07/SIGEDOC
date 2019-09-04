@@ -1,0 +1,105 @@
+﻿@model Paginacion<sistema.Models.Categoria>
+@*usamos la clase paginacion que hicimos y enviamos por parametro todo el modelode categoria*@
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Categoria de C</h2>
+
+<p>
+    @*aqui creamos el boton con la clase de boostrap*@
+    <a asp-action="Create"><button class="btn btn-prymary">Nuevo</button></a>
+</p>
+
+@*formulario para busqueda por filtro*@
+<form asp-action="Index" method="get">
+    @*utilizo el metodo get porque ocupa ser recibido en la vista por URL    *@
+    <div class="form-actions no-color">
+        <p>
+            filtro: <input type="text" name="searchString" value="@ViewData["CurrentFilter"]" />
+            <input type="submit" value="Buscar" class=" btn btn-default" />
+            <a asp-action="Index">Todos los registros</a> | Registros Mostrados @Model.TotalR
+            @*esto es un hipervinculo con asp-action*@
+        </p>
+    </div>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @*esta es la vista entonces hacemos la referencia que viene del controlador con una etiqueta
+                    y el atributo asp-action y asp-route*@
+                
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["NombreSortParm"]" asp-route-currenyFilter ="@ViewData["CurrentFilter"]">Nombre</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["DescripcionSortParm"]" asp-route-currenyFilter ="@ViewData["CurrentFilter"]">Descripción</a>
+            </th>
+            <th>
+                Estado
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Estado)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.CategoriaID">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.CategoriaID">Detalles</a> |
+                    <a asp-action="Delete" asp-route-id="@item.CategoriaID">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@*esto es para indicar que es codigo asp @*@
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : ""; /*es para ver si el boton de siguiente esta habilitado */
+    var nextDisabled = !Model.HasNextPage ? "disabled" : ""; /*si es desabilitadlo*/
+
+    //sim puedo continuar por el metodo !Model.HasNextPage que se encuentra en paginacion, ? entonces me guarda
+    //"diable" : sino me guarda "" nada, esto lo guarda en la variable nextDisable e igual paraq el otro
+}
+
+@*vamos hacer el botones, con la clase paginacion incluida, busquedas por filtros y que no se pierda elparamtro *@
+
+
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-page="@(Model.PageIndex - 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class=" btn btn-default @prevDisabled">
+    Anterior
+</a>
+@*esto es para mostrar las paginas, osea los numeros en medio de los botones*@
+@for (int i = 1; i <= Model.TotalPages; i++)
+{
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-page="@i"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class=" btn btn-default">@i
+</a>
+ }
+
+
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-page="@(Model.PageIndex + 1)" @*aqui las paginas auimentan hidden 1+1*@
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class=" btn btn-default @nextDisabled">
+    Siguiente
+</a>
