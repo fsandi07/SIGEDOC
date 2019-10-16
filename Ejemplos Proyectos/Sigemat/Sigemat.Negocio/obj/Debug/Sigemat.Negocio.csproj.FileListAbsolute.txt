@@ -1,0 +1,16 @@
+C:\Users\fabio\source\repos\Sigemat\Sigemat.Negocio\bin\Debug\Sigemat.Negocio.dll
+C:\Users\fabio\source\repos\Sigemat\Sigemat.Negocio\bin\Debug\Sigemat.Negocio.pdb
+C:\Users\fabio\source\repos\Sigemat\Sigemat.Negocio\bin\Debug\Sigemat.Datos.dll
+C:\Users\fabio\source\repos\Sigemat\Sigemat.Negocio\bin\Debug\Sigemat.Datos.pdb
+C:\Users\fabio\source\repos\Sigemat\Sigemat.Negocio\obj\Debug\Sigemat.Negocio.csprojAssemblyReference.cache
+C:\Users\fabio\source\repos\Sigemat\Sigemat.Negocio\obj\Debug\Sigemat.Negocio.csproj.CopyComplete
+C:\Users\fabio\source\repos\Sigemat\Sigemat.Negocio\obj\Debug\Sigemat.Negocio.dll
+C:\Users\fabio\source\repos\Sigemat\Sigemat.Negocio\obj\Debug\Sigemat.Negocio.pdb
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat.Negocio\bin\Debug\Sigemat.Negocio.dll
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat.Negocio\bin\Debug\Sigemat.Negocio.pdb
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat.Negocio\bin\Debug\Sigemat.Datos.dll
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat.Negocio\bin\Debug\Sigemat.Datos.pdb
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat.Negocio\obj\Debug\Sigemat.Negocio.csprojAssemblyReference.cache
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat.Negocio\obj\Debug\Sigemat.Negocio.csproj.CopyComplete
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat.Negocio\obj\Debug\Sigemat.Negocio.dll
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat.Negocio\obj\Debug\Sigemat.Negocio.pdb

@@ -1,0 +1,116 @@
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\Sigemat.dll.config
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\Sigemat.dll
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\Sigemat.pdb
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\roslyn\csc.exe
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\roslyn\csc.exe.config
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\roslyn\csc.rsp
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\roslyn\csi.exe
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\roslyn\csi.exe.config
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\roslyn\csi.rsp
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\roslyn\System.AppContext.dll
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\roslyn\System.Console.dll
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\roslyn\System.IO.Compression.dll
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\roslyn\System.IO.Pipes.dll
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\roslyn\System.Security.Claims.dll
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\roslyn\System.ValueTuple.dll
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\roslyn\System.Xml.XPath.dll
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\roslyn\vbc.exe
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\roslyn\vbc.exe.config
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\roslyn\vbc.rsp
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\roslyn\VBCSCompiler.exe
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\Sigemat.Negocio.dll
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\Sigemat.Negocio.pdb
+C:\Users\fabio\source\repos\Sigemat\Sigemat\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\fabio\source\repos\Sigemat\Sigemat\obj\Debug\Sigemat.csprojAssemblyReference.cache
+C:\Users\fabio\source\repos\Sigemat\Sigemat\obj\Debug\Sigemat.csproj.CopyComplete
+C:\Users\fabio\source\repos\Sigemat\Sigemat\obj\Debug\Sigemat.dll
+C:\Users\fabio\source\repos\Sigemat\Sigemat\obj\Debug\Sigemat.pdb
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\Sigemat.dll.config
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\Sigemat.dll
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\Sigemat.pdb
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\roslyn\csc.exe
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\roslyn\csc.exe.config
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\roslyn\csc.rsp
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\roslyn\csi.exe
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\roslyn\csi.exe.config
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\roslyn\csi.rsp
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\roslyn\System.AppContext.dll
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\roslyn\System.Console.dll
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\roslyn\System.IO.Compression.dll
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\roslyn\System.IO.Pipes.dll
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\roslyn\System.Security.Claims.dll
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\roslyn\System.ValueTuple.dll
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\roslyn\System.Xml.XPath.dll
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\roslyn\vbc.exe
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\roslyn\vbc.exe.config
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\roslyn\vbc.rsp
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\roslyn\VBCSCompiler.exe
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\Sigemat.Negocio.dll
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\Sigemat.Negocio.pdb
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\obj\Debug\Sigemat.csprojAssemblyReference.cache
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\obj\Debug\Sigemat.csproj.CopyComplete
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\obj\Debug\Sigemat.dll
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\obj\Debug\Sigemat.pdb
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\Sigemat.Datos.dll
+C:\Users\fabio\OneDrive\Fabio Sandi\UTC_Completo\programacion 6\Proyecto Final\Sigemat\Sigemat\bin\Sigemat.Datos.pdb
