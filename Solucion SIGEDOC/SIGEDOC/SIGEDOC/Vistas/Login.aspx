@@ -36,7 +36,7 @@
               <div class="col-lg-6">
                 <div class="p-5 " opacity:0 >
                   <div class="text-center">
-                    <h1 class="h4 text-gray-801 mb-4">PQS DICAL Project Management & Consultants.</h1>
+                    <h1 class="h4 text-gray-800 mb-4">PQS DICAL Project Management & Consultants.</h1>
                   </div>
                     <form id="form2">
                       <div class="form-group">

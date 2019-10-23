@@ -66,7 +66,7 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">OPCIONES:</h6>
-            <a class="collapse-item" href="ConsultaProfesor.aspx">Crear Proyecto</a>
+            <a class="collapse-item" href="CrearProyecto.aspx">Crear Proyecto</a>
             <a class="collapse-item" href="ConsultaProfesor.aspx">Consultar Proyecto</a>
            </div>
         </div>
@@ -78,7 +78,7 @@
         <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseClientes" aria-expanded="true" aria-controls="collapseTwo">
-         <%-- <i class="fas fa-fw fa-cog"></i>--%>
+          <%-- <i class="fas fa-fw fa-cog"></i>--%>
             <i class="fas fa-users"></i>
              <span><strong>CLIENTES</strong></span>
         </a>
@@ -141,7 +141,7 @@
       <!-- Nav Item - Tables -->
       <li class="nav-item">
         <a class="nav-link" href="tables.html">
-          <i class="fas fa-fw fa-table"></i>
+          <i class="fas fa-search"></i>
           <span>AYUDA</span></a>
       </li>
         <!-- Divider -->
@@ -149,7 +149,7 @@
       <!-- Nav Item - Tables -->
       <li class="nav-item">
         <a class="nav-link" href="tables.html">
-          <i class="fas fa-fw fa-table"></i>
+          <i class="fas fa-info-circle"></i>
           <span>ACERCA DE</span></a>
       </li>
       <!-- Divider -->
@@ -177,12 +177,13 @@
             <i class="fa fa-bars"></i>
           </button>
             <span class="mr-2 d-none d-lg-inline text-gray-8001">
-                   <%--ETIQUETAS DEL HEAD PARA COLOCAR LA INFORMACION QUE YO QUIERO--%>
+            <%--ETIQUETAS DEL HEAD PARA COLOCAR LA INFORMACION QUE YO QUIERO--%>
                  <img class="d-block w-auto"  src="img/PQS.png" alt="logo PQS">
              </span>
-            <h3 class="h3 mb-0 text-gray-900"><strong>SISTEMAS DE GESTION DE DOCUMENTOS</strong></h3>
+            <div class="topbar-divider d-none d-sm-block"></div>
+            <h3 class="h3 mb-0 text-gray-800">Sistema Gestion Documentos SIGEDOC</h3>
                       <!-- Topbar Search -->
-          <%--<form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+            <%--<form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
               <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
               <div class="input-group-append">
@@ -212,12 +213,10 @@
                       </button>
                     </div>
                   </div>
-                </form>
-              </div>
-            </li>
-
-            <!-- Nav Item - Alerts -->
-            <%--<li class="nav-item dropdown no-arrow mx-1">
+                    <div class="topbar-divider d-none d-sm-block"></div>
+                    
+                     <!-- Nav Item - Alerts -->
+    <%--<li class="nav-item dropdown no-arrow mx-1">
               <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-bell fa-fw"></i>
                 <!-- Counter - Alerts -->
@@ -266,7 +265,7 @@
             </li>--%>
 
             <!-- Nav Item - Messages -->
-         <%--   <li class="nav-item dropdown no-arrow mx-1">
+    <%--   <li class="nav-item dropdown no-arrow mx-1">
               <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-envelope fa-fw"></i>
                 <!-- Counter - Messages -->
@@ -330,7 +329,7 @@
             <asp:Label ID="LblNomPro" runat="server" Text="Label"></asp:Label>
                     <br/>
                     <asp:Label ID="LblIdentPro" runat="server" Text="Label"></asp:Label></span>                  
-                <img class="img-profile rounded-circle" src="img/Profesor.jpg">
+                <img class="img-profile rounded-circle" src="img/admin2.jpg">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -357,7 +356,7 @@
 
         <!-- Begin Page Content -->
          <!-- Page Heading -->
-         <%-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                <%-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
           </div>--%>
           
@@ -391,8 +390,7 @@
   </a>
 
   <!-- Logout Modal-->
-  <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -404,12 +402,14 @@
         <div class="modal-body">Seleccione "Salir" si desea salir de la aplicacion".</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-          <%--<a class="btn btn-primary" href="Login.aspx">Salir</a>--%>
-            <asp:Button class="btn btn-primary" ID="BtnSalir" runat="server" Text="Button" OnClick="BtnSalir_Click" />
+            <%--<a class="btn btn-primary" href="Login.aspx">Salir</a>--%>
+            <asp:Button class="btn btn-primary" ID="BtnSalir" runat="server" Text="Salir" OnClick="BtnSalir_Click" BackColor="#CCB210" BorderColor="#CCB210"/>
         </div>
       </div>
     </div>
   </div>
+  <!-- Logout Modal-->
+  
 
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
@@ -427,8 +427,11 @@
   <!-- Page level custom scripts -->
   <script src="js/demo/chart-area-demo.js"></script>
   <script src="js/demo/chart-pie-demo.js"></script>
+
+                </form>
+                    
                
-        
-    </form>
+         </form>
+ 
 </body>
 </html>

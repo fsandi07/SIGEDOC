@@ -49,7 +49,7 @@
                           <asp:Label  ID="LblEmail" runat="server" Text="Correo Eléctronico:"></asp:Label>
                            <br />
                           <div class="form-group">                                                       
-                          <asp:TextBox class="form-control form-control-user" ID="TxtEmail" runat="server" TextMode="Password"></asp:TextBox>
+                          <asp:TextBox class="form-control form-control-user" ID="TxtEmail" runat="server" TextMode="Email"></asp:TextBox>
                           </div>  
                     </div>
                        <asp:Button class="btn btn-primary btn-user btn-block"  ID="BtnEnvio" runat="server" Text="Enviar" BackColor="#CCB210" BorderColor="#CCB210"  />

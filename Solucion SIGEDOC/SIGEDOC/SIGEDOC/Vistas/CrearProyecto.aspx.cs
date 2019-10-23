@@ -7,15 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace SIGEDOC.Vistas
 {
-    public partial class Menu : System.Web.UI.MasterPage
+    public partial class CrearProyecto : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
-        }
-        protected void BtnSalir_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Login.aspx");
         }
     }
 }
