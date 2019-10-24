@@ -7,13 +7,11 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace SIGEDOC.Vistas
-{
-
-
-    public partial class Menu
-    {
-
+namespace SIGEDOC.Vistas {
+    
+    
+    public partial class Menu {
+        
         /// <summary>
         /// Control head.
         /// </summary>
@@ -22,7 +20,7 @@ namespace SIGEDOC.Vistas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
-
+        
         /// <summary>
         /// Control form1.
         /// </summary>
@@ -31,7 +29,25 @@ namespace SIGEDOC.Vistas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-
+        
+        /// <summary>
+        /// Control lblfecha.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblfecha;
+        
+        /// <summary>
+        /// Control lblfecha_hora.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblfecha_hora;
+        
         /// <summary>
         /// Control LblNomPro.
         /// </summary>
@@ -40,7 +56,7 @@ namespace SIGEDOC.Vistas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label LblNomPro;
-
+        
         /// <summary>
         /// Control LblIdentPro.
         /// </summary>
@@ -49,7 +65,7 @@ namespace SIGEDOC.Vistas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label LblIdentPro;
-
+        
         /// <summary>
         /// Control ContentPlaceHolder1.
         /// </summary>
@@ -58,7 +74,7 @@ namespace SIGEDOC.Vistas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
-
+        
         /// <summary>
         /// Control BtnSalir.
         /// </summary>

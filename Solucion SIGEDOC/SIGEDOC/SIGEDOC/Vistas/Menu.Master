@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
-    <title>PQS-Inicio</title>
+    <title>SISTEMA SIGEDOC</title>
     <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
       <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -43,7 +43,12 @@
       <li class="nav-item active">
         <a class="nav-link" href="Menu.aspx">
           <i ></i>
-          <span>INICIO</span></a>
+        <%--  <span>INICIO</span><br>--%>
+           <span>FECHA:</span>
+<asp:Label ID="lblfecha" runat="server" Text=""></asp:Label><br>
+             <span>HORA:</span>
+  <asp:Label ID="lblfecha_hora" runat="server" Text=""></asp:Label>
+            </a>
       </li>
         <hr class="sidebar-divider">
 

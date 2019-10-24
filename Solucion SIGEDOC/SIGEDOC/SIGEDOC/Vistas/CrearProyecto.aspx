@@ -6,16 +6,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-    <html lang="en">
-
-<head>
-
- 
-  <title>SB Admin 2 - Register</title>
-
+   
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -23,56 +14,71 @@
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
-</head>
+</asp:Content>
 
-<body class="bg-gradient-primary">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+ 
   <div class="p-5">
               <div class="text-center">
-                <h1 class="h4 text-gray-900 mb-4">Crear Proyecto Nuevo!</h1>
+                <h1 class="h4 text-gray-900 mb-4">Crear Proyecto Nuevo</h1>
               </div>
               <form class="user">
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="First Name">
+                    <%--<input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Nombre del Proyecto">--%>
+                          <asp:TextBox ID="txt_nombre_proyecto" runat="server" class="form-control form-control-user" placeholder="Nombre del Proyecto" ></asp:TextBox>
                   </div>
                </div>
                   <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="First Name">
+                    <asp:TextBox ID="txt_numero_licitacio_proyrcto" runat="server" class="form-control form-control-user" placeholder="Número de licitación" ></asp:TextBox>
                   </div>
                </div>
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                     <asp:TextBox ID="txt_cliente_proyecto" runat="server" class="form-control form-control-user" placeholder="Cliente" ></asp:TextBox>
                   </div>                  
                 </div>
                   <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="First Name">
-
+                   <asp:TextBox ID="txtDescripcion_p"  class="form-control form-control-user" runat="server" TextMode="MultiLine" Width="354px" placeholder="Descripción del Proyecto"></asp:TextBox>
                   </div>
                </div>
-               
+                    <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+               <asp:Calendar ID="date_Proyecto" runat="server" BackColor="#CCB210" BorderColor="#CCB210"></asp:Calendar>
+                  </div>
+               </div>
+
+                     <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                 <asp:TextBox ID="txt_centro_costos_proyecto" runat="server" class="form-control form-control-user" placeholder=" Centro de Costos" TextMode="Number"></asp:TextBox>
+                  </div>
+               </div>
+
                 <hr>
-                  <a href="index.html" class="btn btn-facebook btn-user btn-auto">
-                  <i class="fab fa-facebook-f fa-fw"></i> Register 
-                </a>
-                  <a class="btn btn-google btn-user btn-auto">
-                    <i class="fas fa-window-close "></i>
-                  <asp:Button ID="BtnCancelarP" runat="server" Text="Cancelar" class="btn btn-google btn-user btn-auto" />
-                   </a>                               
+                  <i class="btn btn-facebook btn-user btn-auto" >                 
+                <asp:Button ID="Button1" runat="server" Text="Crear Proyecto" BackColor="#CCB210" class="btn btn-facebook btn-user btn-auto"/>
+               <a class="fas fa-check-square">
+                      </a>
+                  </i>
+                   <i class="btn btn-google btn-user btn-auto">
+                  <asp:Button ID="BtnCancelarP" runat="server" Text="Cancelar" class="btn btn-google btn-user btn-auto" BorderColor="#CC0000"/>
+                   <a class="fas fa-window-close">
+                   </a>  
+                   </i>
               </form>
               <hr>
-              <div class="text-center">
+             <%-- <div class="text-center">
                 <a class="small" href="forgot-password.html">Forgot Password?</a>
               </div>
               <div class="text-center">
                 <a class="small" href="login.html">Already have an account? Login!</a>
-              </div>
+              </div>--%>
             </div>
 
-  <!-- Bootstrap core JavaScript-->
+<%--  <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
@@ -80,10 +86,7 @@
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="js/sb-admin-2.min.js"></script>
+  <script src="js/sb-admin-2.min.js"></script>--%>
 
-</body>
-
-</html>
 
 </asp:Content>

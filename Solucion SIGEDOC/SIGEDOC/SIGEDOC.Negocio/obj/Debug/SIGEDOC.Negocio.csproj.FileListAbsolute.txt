@@ -6,3 +6,12 @@ F:\PROYECTO_SIGEDOC\SIGEDOC\Solucion SIGEDOC\SIGEDOC\SIGEDOC.Negocio\obj\Debug\S
 F:\PROYECTO_SIGEDOC\SIGEDOC\Solucion SIGEDOC\SIGEDOC\SIGEDOC.Negocio\obj\Debug\SIGEDOC.Negocio.csproj.CopyComplete
 F:\PROYECTO_SIGEDOC\SIGEDOC\Solucion SIGEDOC\SIGEDOC\SIGEDOC.Negocio\obj\Debug\SIGEDOC.Negocio.dll
 F:\PROYECTO_SIGEDOC\SIGEDOC\Solucion SIGEDOC\SIGEDOC\SIGEDOC.Negocio\obj\Debug\SIGEDOC.Negocio.pdb
+C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC.Negocio\bin\Debug\SIGEDOC.Negocio.dll
+C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC.Negocio\bin\Debug\SIGEDOC.Negocio.pdb
+C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC.Negocio\bin\Debug\SIGEDOC.Datos.dll
+C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC.Negocio\bin\Debug\SIGEDOC.Datos.pdb
+C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC.Negocio\obj\Debug\SIGEDOC.Negocio.csprojAssemblyReference.cache
+C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC.Negocio\obj\Debug\SIGEDOC.Negocio.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC.Negocio\obj\Debug\SIGEDOC.Negocio.csproj.CopyComplete
+C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC.Negocio\obj\Debug\SIGEDOC.Negocio.dll
+C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC.Negocio\obj\Debug\SIGEDOC.Negocio.pdb

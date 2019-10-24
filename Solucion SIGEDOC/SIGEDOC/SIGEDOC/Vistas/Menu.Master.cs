@@ -11,7 +11,8 @@ namespace SIGEDOC.Vistas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            this.lblfecha_hora.Text = DateTime.Now.ToString("hh:mm");
+            this.lblfecha.Text = DateTime.Now.ToString("dd/MM/yyy");
         }
         protected void BtnSalir_Click(object sender, EventArgs e)
         {
