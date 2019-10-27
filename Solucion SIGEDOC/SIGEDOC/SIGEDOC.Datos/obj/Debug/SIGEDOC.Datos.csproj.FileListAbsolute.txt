@@ -3,3 +3,9 @@ F:\PROYECTO_SIGEDOC\SIGEDOC\Solucion SIGEDOC\SIGEDOC\SIGEDOC.Datos\bin\Debug\SIG
 F:\PROYECTO_SIGEDOC\SIGEDOC\Solucion SIGEDOC\SIGEDOC\SIGEDOC.Datos\obj\Debug\SIGEDOC.Datos.csprojAssemblyReference.cache
 F:\PROYECTO_SIGEDOC\SIGEDOC\Solucion SIGEDOC\SIGEDOC\SIGEDOC.Datos\obj\Debug\SIGEDOC.Datos.dll
 F:\PROYECTO_SIGEDOC\SIGEDOC\Solucion SIGEDOC\SIGEDOC\SIGEDOC.Datos\obj\Debug\SIGEDOC.Datos.pdb
+C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC.Datos\bin\Debug\SIGEDOC.Datos.dll
+C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC.Datos\bin\Debug\SIGEDOC.Datos.pdb
+C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC.Datos\obj\Debug\SIGEDOC.Datos.csprojAssemblyReference.cache
+C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC.Datos\obj\Debug\SIGEDOC.Datos.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC.Datos\obj\Debug\SIGEDOC.Datos.dll
+C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC.Datos\obj\Debug\SIGEDOC.Datos.pdb
