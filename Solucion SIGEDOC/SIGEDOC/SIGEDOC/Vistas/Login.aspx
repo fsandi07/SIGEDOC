@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="SIGEDOC.Vistas.Login" %>
+﻿00<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="SIGEDOC.Vistas.Login" %>
 
 <!DOCTYPE html>
 
@@ -68,7 +68,65 @@
     </div>
 
   </div>
+            <script language="JavaScript">
 
+ 
+
+            var msg="¡El botón derecho está desactivado para este sitio !";
+
+            function disableIE() {if (document.all) {alert(msg);return false;}
+
+            }
+            function disableNS(e) {
+
+            if (document.layers||(document.getElementById&&!document.all)) {
+
+            if (e.which==2||e.which==3) {return false;}
+
+            }
+
+            }
+
+            if (document.layers) {
+
+            document.captureEvents(Event.MOUSEDOWN);document.onmousedown=disableNS;
+
+            } else {
+
+            document.onmouseup=disableNS;document.oncontextmenu=disableIE;
+
+            }
+
+ 
+
+            document.oncontextmenu=new Function("return false")
+
+            </script>
+
+                  <%-- alerta de error --%>
+             <script type="text/javascript">
+
+                 function mensajeError() {
+                     swal.fire({
+                         title: '¡Error!',
+                         text: "¡EL Usuario o la Contraseña son Incorrectos por favor Verifique!",
+                         type: 'error',
+                         showConfirmButton: false,
+                         allowOutsideClick: false,
+                         timer: 4000,
+                     })
+                                         
+                 }
+                   function mensajeDeconfirmacion() {
+                             swal.fire({
+                                 title: "¡EXITO!",
+                                 text: "¡" + "La contraseña se envio a su Correo Electronico" + "!",
+                                 type: 'success',
+                                 allowOutsideClick: false,
+                             })
+
+                         }
+                 </script>
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
