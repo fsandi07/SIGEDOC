@@ -9,7 +9,7 @@
   <meta charset="UTF-8">
   <title>Formulario Login / Registro de Usuarios - HTML5, CSS3 y JS (JQuery)</title>
   <link rel="stylesheet" href="./dist/style.css">
-
+        
 
 </head>
 <body>
@@ -25,7 +25,11 @@
      <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <!-- Estilos -->
     <link rel="stylesheet" href="css/estilos.css">
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
     
 </head>
 <body>
@@ -69,12 +73,18 @@
                      </div>
 
                     <div class="contenedor-input">
-                        <asp:Label ID="Label7" runat="server" Text="Fecha del Proyecto:"></asp:Label>
-                         <asp:Calendar ID="Calendar1" runat="server" BackColor="#CCFF66" BorderColor="#CCB210"></asp:Calendar>                        
-                     </div>
-
+                        <asp:Label ID="Label7" runat="server" Text="Fecha del Proyecto:"></asp:Label>                                         
+                     <input id="datepicker" width="514" />
+                    <script>
+                        $('#datepicker').datepicker({
+                            uiLibrary: 'bootstrap4'
+                        });
+                    </script>
+                    
+                    </div>
                     <%--<input type="submit" class="button button-block" value="Iniciar Sesión">--%>
                      <asp:Button class="btn btn-primary btn-user btn-block"  ID="BtnCrear" runat="server" Text="Crear" BackColor="#CCB210" BorderColor="#CCB210" />
+                    <asp:Button class="btn btn-primary btn-user btn-block"  ID="BtnCancelar" runat="server" Text="Cancelar" BackColor="#B40404" BorderColor="#B40404" />
                 </form>
             </div>
 
