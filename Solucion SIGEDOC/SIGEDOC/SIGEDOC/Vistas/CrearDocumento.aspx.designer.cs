@@ -7,11 +7,13 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace SIGEDOC.Vistas {
-    
-    
-    public partial class CrearDocumento {
-        
+namespace SIGEDOC.Vistas
+{
+
+
+    public partial class CrearDocumento
+    {
+
         /// <summary>
         /// Control Label1.
         /// </summary>
@@ -20,7 +22,7 @@ namespace SIGEDOC.Vistas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label1;
-        
+
         /// <summary>
         /// Control TextBox1.
         /// </summary>
@@ -29,7 +31,7 @@ namespace SIGEDOC.Vistas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBox1;
-        
+
         /// <summary>
         /// Control Label2.
         /// </summary>
@@ -38,7 +40,7 @@ namespace SIGEDOC.Vistas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label2;
-        
+
         /// <summary>
         /// Control TextBox2.
         /// </summary>
@@ -47,7 +49,7 @@ namespace SIGEDOC.Vistas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBox2;
-        
+
         /// <summary>
         /// Control Label6.
         /// </summary>
@@ -56,7 +58,7 @@ namespace SIGEDOC.Vistas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label6;
-        
+
         /// <summary>
         /// Control Label3.
         /// </summary>
@@ -65,7 +67,7 @@ namespace SIGEDOC.Vistas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label3;
-        
+
         /// <summary>
         /// Control TextBox3.
         /// </summary>
@@ -74,7 +76,7 @@ namespace SIGEDOC.Vistas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBox3;
-        
+
         /// <summary>
         /// Control Label4.
         /// </summary>
@@ -83,7 +85,7 @@ namespace SIGEDOC.Vistas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label4;
-        
+
         /// <summary>
         /// Control TextBox4.
         /// </summary>
@@ -92,7 +94,7 @@ namespace SIGEDOC.Vistas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBox4;
-        
+
         /// <summary>
         /// Control Label5.
         /// </summary>
@@ -101,7 +103,7 @@ namespace SIGEDOC.Vistas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label5;
-        
+
         /// <summary>
         /// Control TextBox5.
         /// </summary>
@@ -110,7 +112,7 @@ namespace SIGEDOC.Vistas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBox5;
-        
+
         /// <summary>
         /// Control BtnCrear.
         /// </summary>
@@ -119,7 +121,7 @@ namespace SIGEDOC.Vistas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button BtnCrear;
-        
+
         /// <summary>
         /// Control Button1.
         /// </summary>
@@ -128,14 +130,23 @@ namespace SIGEDOC.Vistas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button1;
-        
+
         /// <summary>
-        /// Control Button2.
+        /// Control FileSubir.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.FileUpload FileSubir;
+
+        /// <summary>
+        /// Control BtnGuardar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnGuardar;
     }
 }

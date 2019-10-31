@@ -67,8 +67,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Vistas\AcercaDe.aspx" />
     <Content Include="Vistas\AgregarCliente.aspx" />
     <Content Include="Vistas\AgregarUsuarios.aspx" />
+    <Content Include="Vistas\Ayuda.aspx" />
+    <Content Include="Vistas\Bitacora.aspx" />
     <Content Include="Vistas\conmaster.aspx" />
     <Content Include="Vistas\ConsultarCliente.aspx" />
     <Content Include="Vistas\ConsultarDocumentos.aspx" />
@@ -149,9 +152,12 @@
     <Content Include="Vistas\js\sb-admin-2.min.js" />
     <Content Include="Vistas\Login.aspx" />
     <Content Include="Vistas\Menu.aspx" />
+    <Content Include="Vistas\ModificarUsuario.aspx" />
     <Content Include="Vistas\OlvidoClave.aspx" />
     <Content Include="Vistas\prueba.aspx" />
     <Content Include="Vistas\prueba2.aspx" />
+    <Content Include="Vistas\Reporte.aspx" />
+    <Content Include="Vistas\Rol.aspx" />
     <Content Include="Vistas\sweetalert\sweetalert2.all.js" />
     <Content Include="Vistas\sweetalert\sweetalert2.all.min.js" />
     <Content Include="Vistas\sweetalert\sweetalert2.css" />
@@ -1756,6 +1762,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Vistas\AcercaDe.aspx.cs">
+      <DependentUpon>AcercaDe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\AcercaDe.aspx.designer.cs">
+      <DependentUpon>AcercaDe.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\AgregarCliente.aspx.cs">
       <DependentUpon>AgregarCliente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1769,6 +1782,20 @@
     </Compile>
     <Compile Include="Vistas\AgregarUsuarios.aspx.designer.cs">
       <DependentUpon>AgregarUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Ayuda.aspx.cs">
+      <DependentUpon>Ayuda.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Ayuda.aspx.designer.cs">
+      <DependentUpon>Ayuda.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Bitacora.aspx.cs">
+      <DependentUpon>Bitacora.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Bitacora.aspx.designer.cs">
+      <DependentUpon>Bitacora.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vistas\conmaster.aspx.cs">
       <DependentUpon>conmaster.aspx</DependentUpon>
@@ -1833,6 +1860,13 @@
     <Compile Include="Vistas\Menu.Master.designer.cs">
       <DependentUpon>Menu.Master</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\ModificarUsuario.aspx.cs">
+      <DependentUpon>ModificarUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\ModificarUsuario.aspx.designer.cs">
+      <DependentUpon>ModificarUsuario.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\OlvidoClave.aspx.cs">
       <DependentUpon>OlvidoClave.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1853,6 +1887,20 @@
     </Compile>
     <Compile Include="Vistas\prueba2.aspx.designer.cs">
       <DependentUpon>prueba2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Reporte.aspx.cs">
+      <DependentUpon>Reporte.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Reporte.aspx.designer.cs">
+      <DependentUpon>Reporte.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Rol.aspx.cs">
+      <DependentUpon>Rol.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Rol.aspx.designer.cs">
+      <DependentUpon>Rol.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

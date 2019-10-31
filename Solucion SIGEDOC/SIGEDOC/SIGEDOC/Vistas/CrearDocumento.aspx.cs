@@ -12,6 +12,19 @@ namespace SIGEDOC.Vistas
         protected void Page_Load(object sender, EventArgs e)
         {
 
+
+            if (Label1.Text== "")
+            {
+
+                BtnGuardar.Enabled = false;
+                //Button.Enabled = HttpContext.Current.User.IsInRole("Admin");
+
+            }
+            else {
+
+                BtnGuardar.Enabled = true;
+            }
+
         }
     }
 }

@@ -38,7 +38,8 @@
                     <%--<div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>--%>
-                    <div class="sidebar-brand-text mx-3">Menú Principal</div>
+<%--                    <div class="sidebar-brand-text mx-3">Menú Principal</div>--%>
+                    <asp:Label class="sidebar-brand-text mx-3" ID="LblMenu" runat="server" Text="" BorderColor="#CC3300" ForeColor="#CCB210">Menú Principal</asp:Label>
                 </a>
 
                 <!-- Divider -->
@@ -125,8 +126,10 @@
                     <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">OPCIONES:</h6>
-                            <a class="collapse-item" href="ConsultarDocumentos.aspx">Consultar Documento</a>
                             <a class="collapse-item" href="CrearDocumento.aspx">Crear Documento</a>
+                            <a class="collapse-item" href="CrearDocumento.aspx">Subir Documento</a>
+                            <a class="collapse-item" href="ConsultarDocumentos.aspx">Consultar Documento</a>
+                            
                         </div>
                     </div>
                 </li>
@@ -143,8 +146,8 @@
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Opciones:</h6>
                             <a class="collapse-item" href="#" data-toggle="modal" data-target="#logoutModalusu">Usuarios</a>
-                            <a class="collapse-item" href="register.html">Roles</a>
-                            <a class="collapse-item" href="forgot-password.html">Bitacora Movimientos</a>
+                            <a class="collapse-item" href="Rol.aspx">Roles</a>
+                            <a class="collapse-item" href="Bitacora.aspx">Bitacora Movimientos</a>
                             <div class="collapse-divider"></div>
                         </div>
                     </div>
@@ -154,7 +157,7 @@
 
                 <!-- Nav Item - Charts -->
                 <li class="nav-item">
-                    <a class="nav-link" href="charts.html">
+                    <a class="nav-link" href="Reporte.aspx">
                         <i class="fas fa-fw fa-chart-area"></i>
                         <span>REPORTES</span></a>
                 </li>
@@ -162,7 +165,7 @@
                 <hr class="sidebar-divider my-0">
                 <!-- Nav Item - Tables -->
                 <li class="nav-item">
-                    <a class="nav-link" href="tables.html">
+                    <a class="nav-link" href="Ayuda.aspx">
                         <i class="fas fa-search"></i>
                         <span>AYUDA</span></a>
                 </li>
@@ -170,17 +173,17 @@
                 <hr class="sidebar-divider my-0">
                 <!-- Nav Item - Tables -->
                 <li class="nav-item">
-                    <a class="nav-link" href="tables.html">
+                    <a class="nav-link" href="AcercaDe.aspx">
                         <i class="fas fa-info-circle"></i>
                         <span>ACERCA DE</span></a>
                 </li>
                 <!-- Divider -->
                 <hr class="sidebar-divider d-none d-md-block">
 
-                <!-- Sidebar Toggler (Sidebar) -->
+                <%--<!-- Sidebar Toggler (Sidebar) -->
                 <div class="text-center d-none d-md-inline">
                     <button class="rounded-circle border-0" id="sidebarToggle"></button>
-                </div>
+                </div>--%>
 
             </ul>
             <!-- End of Sidebar -->
@@ -203,7 +206,8 @@
                             <img class="d-block w-auto" src="img/PQS.png" alt="logo PQS">
                         </span>
                         <div class="topbar-divider d-none d-sm-block"></div>
-                        <h3 class="h3 mb-0 text-gray-800">Sistema Gestion Documentos SIGEDOC</h3>
+                        <%--<h3 class="h3 mb-0 text-gray-800">Sistema Gestion Documentos SIGEDOC</h3>--%>
+                        <asp:Label ID="LblTituloSistema" runat="server" Text="" ForeColor="#993300" Font-Bold="True" BorderColor="Black" Font-Size="Larger">Sistema Gestion Documentos SIGEDOC</asp:Label>
                         <!-- Topbar Search -->
                         <%--<form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
@@ -443,10 +447,11 @@
                     </div>
                    <%-- <div class="modal-body">Seleccione "Salir" si desea salir de la aplicacion".</div>--%>
                     <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                        <%--<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>--%>
                         <%--<a class="btn btn-primary" href="Login.aspx">Salir</a>--%>
-                        <asp:Button class="btn btn-primary" ID="btnusuarios" runat="server" Text="Agregar Usuarios"  BackColor="#CCB210" BorderColor="#CCB210" OnClick="btnusuarios_Click" />
-                    </div>
+                        <asp:Button class="" ID="btnusuarios" runat="server" Text="Agregar Usuarios"  BackColor="#CCB210" BorderColor="#CCB210" OnClick="btnusuarios_Click" />
+                    <asp:Button class="" ID="Button1" runat="server" Text="Modificar Usuarios"  BackColor="#CCB210" BorderColor="#CCB210" OnClick="btnusuarios_Click1" />
+                        </div>
                 </div>
             </div>
         </div>
@@ -463,7 +468,7 @@
                 var hr = today.getHours();
                 var min = today.getMinutes();
                 var sec = today.getSeconds();
-                ap = (hr < 12) ? "<span>AM</span>" : "<span>PM</span>";
+                ap = (hr < 12) ? "<span> AM</span>" : "<span> PM</span>";
                 hr = (hr == 0) ? 12 : hr;
                 hr = (hr > 12) ? hr - 12 : hr;
                 //Add a zero in front of numbers<10

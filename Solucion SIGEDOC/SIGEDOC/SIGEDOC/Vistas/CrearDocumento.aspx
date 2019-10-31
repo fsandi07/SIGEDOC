@@ -54,9 +54,10 @@
                          <asp:TextBox class="req" ID="TextBox5" runat="server"></asp:TextBox>
                      </div> 
                     <%--<input type="submit" class="button button-block" value="Iniciar Sesión">--%>
-                     <asp:Button class="btn btn-primary btn-user btn-block"  ID="BtnCrear" runat="server" Text="Crear" BackColor="#CCB210" BorderColor="#CCB210" />
+                     <asp:Button class="btn btn-primary btn-user btn-block"  ID="BtnCrear" runat="server" Text="Guardar Datos" BackColor="#CCB210" BorderColor="#CCB210" />
                                  <asp:Button class="btn btn-primary btn-user btn-block"  ID="Button1" runat="server" Text="Crear Machote Documento" BackColor="#CCB210" BorderColor="#CCB210" />
-                      <asp:Button class="btn btn-primary btn-user btn-block"  ID="Button2" runat="server" Text="Guardar documento" BackColor="#CCB210" BorderColor="#CCB210" />
+                      <asp:FileUpload class="btn btn-primary btn-user btn-block" ID="FileSubir" runat="server" />
+                    <asp:Button class="btn btn-primary btn-user btn-block"  ID="BtnGuardar" runat="server" Text="Guardar documento" BackColor="#CCB210" BorderColor="#CCB210" />
                     </form>
             </div>
 

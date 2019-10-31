@@ -6,16 +6,16 @@
     <div class="card shadow mb-4">
                 <!-- Card Header - Accordion -->
                 <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
-                  <h6 class="m-0 font-weight-bold text-primary">Somos una gran Compañia.</h6>
+                  <asp:Label ID="Lblhead" runat="server" Text="Label" ForeColor="#993300" Font-Bold="True">Somos una gran Compañia</asp:Label>
                 </a>
                 <!-- Card Content - Collapse -->
                 <div class="collapse show" id="collapseCardExample">
                   <div class="card-body">
-                      <strong>PREMIUM QUALITY SERVICES DICAL S.A (PQS DICAL)</strong> 
-                       es una empresa fundada en Costa Rica en el año 2004 que cataliza mediante la modalidad de asociación la experiencia
+                       <asp:Label ID="LblTitle1" runat="server" Text="Label" ForeColor="#CCB210" Font-Bold="True">PREMIUM QUALITY SERVICES DICAL S.A (PQS DICAL)</asp:Label><br />
+                      <asp:Label ID="LblTitle2" runat="server" Text="Label" ForeColor="Black"> Una empresa fundada en Costa Rica en el año 2004 que cataliza mediante la modalidad de asociación la experiencia
                       y trayectoria de un grupo de profesionales en el desarrollo, construcción y administración de proyectos de ingeniería pesada, con validada experiencia internacional,
                       relaciones empresariales e interinstitucionales a nivel local e internacional, y persuadidos de su vocación por formar
-                      parte de las soluciones a los proyectos que desarrollan e integran la región Centroamericana y del Caribe.
+                      parte de las soluciones a los proyectos que desarrollan e integran la región Centroamericana y del Caribe.</asp:Label>
                   </div>
                 </div>
               </div>
