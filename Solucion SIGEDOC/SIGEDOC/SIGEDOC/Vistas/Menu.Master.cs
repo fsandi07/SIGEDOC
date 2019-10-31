@@ -18,5 +18,10 @@ namespace SIGEDOC.Vistas
         {
             Response.Redirect("Login.aspx");
         }
+
+        protected void btnusuarios_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AgregarUsuarios.aspx");
+        }
     }
 }
