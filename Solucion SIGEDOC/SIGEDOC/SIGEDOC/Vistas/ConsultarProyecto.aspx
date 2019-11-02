@@ -8,7 +8,6 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-    <%-- aqui se coloca todo lo referente al body pero sin la etiqueta body, pero si se deben agrgar 
-        las pertenecientes a codigo javascript y sus respectivas referencias.--%>
+    <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Vistas/img/1.PNG" />
+ 
 </asp:Content>

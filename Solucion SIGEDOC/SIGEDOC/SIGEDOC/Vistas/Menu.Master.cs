@@ -27,5 +27,15 @@ namespace SIGEDOC.Vistas
         {
             Response.Redirect("ModificarUsuarios.aspx");
         }
+
+        protected void BtnRpt_audi_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Reporte.aspx");
+        }
+
+        protected void Btnrpt_movi_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Movimientos.aspx");
+        }
     }
 }

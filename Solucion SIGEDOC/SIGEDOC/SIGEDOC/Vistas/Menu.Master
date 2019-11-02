@@ -147,7 +147,7 @@
                             <h6 class="collapse-header">Opciones:</h6>
                             <a class="collapse-item" href="#" data-toggle="modal" data-target="#logoutModalusu">Usuarios</a>
                             <a class="collapse-item" href="Rol.aspx">Roles</a>
-                            <a class="collapse-item" href="Bitacora.aspx">Bitacora Movimientos</a>
+                            <a class="collapse-item" href="Bitacora.aspx">Bitacora</a>
                             <div class="collapse-divider"></div>
                         </div>
                     </div>
@@ -157,7 +157,7 @@
 
                 <!-- Nav Item - Charts -->
                 <li class="nav-item">
-                    <a class="nav-link" href="Reporte.aspx">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModalrpt">
                         <i class="fas fa-fw fa-chart-area"></i>
                         <span>REPORTES</span></a>
                 </li>
@@ -455,10 +455,29 @@
                 </div>
             </div>
         </div>
-
         <%-- fin de la modal --%>
 
-
+        <%--  modal para Reportes de Auditoria y movimientos--%>
+           <div class="modal fade" id="logoutModalrpt" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel2">Que desea Realizar?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Cerrar">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                   <%-- <div class="modal-body">Seleccione "Salir" si desea salir de la aplicacion".</div>--%>
+                    <div class="modal-footer">
+                        <%--<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>--%>
+                        <%--<a class="btn btn-primary" href="Login.aspx">Salir</a>--%>
+                        <asp:Button  ID="BtnRpt_audi" runat="server" Text="Reporte de Auditoria"  BackColor="#CCB210" BorderColor="#CCB210" OnClick="BtnRpt_audi_Click" />
+                        <asp:Button  ID="Btnrpt_movi" runat="server" Text="Reporte de Movimientos"  BackColor="#CCB210" BorderColor="#CCB210" OnClick="Btnrpt_movi_Click" />
+                        </div>
+                </div>
+            </div>
+        </div>
+        <%-- Fin de la modal  --%>
 
         <script type="text/javascript">
 

@@ -279,7 +279,7 @@ namespace SIGEDOC.Vistas {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class RPT_ProyectoDataTable : global::System.Data.TypedTableBase<RPT_ProyectoRow> {
             
-            private global::System.Data.DataColumn columncentroCostos;
+            private global::System.Data.DataColumn columnCentro_de_Costos;
             
             private global::System.Data.DataColumn columnNombreProy;
             
@@ -334,9 +334,9 @@ namespace SIGEDOC.Vistas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn centroCostosColumn {
+            public global::System.Data.DataColumn Centro_de_CostosColumn {
                 get {
-                    return this.columncentroCostos;
+                    return this.columnCentro_de_Costos;
                 }
             }
             
@@ -449,10 +449,10 @@ namespace SIGEDOC.Vistas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public RPT_ProyectoRow AddRPT_ProyectoRow(string centroCostos, string NombreProy, string NumLicita, string detalleProyec, string periodo, string idCliente, string idUsuario, string estadoProyec, string fechaProy, string statusProyec) {
+            public RPT_ProyectoRow AddRPT_ProyectoRow(string Centro_de_Costos, string NombreProy, string NumLicita, string detalleProyec, string periodo, string idCliente, string idUsuario, string estadoProyec, string fechaProy, string statusProyec) {
                 RPT_ProyectoRow rowRPT_ProyectoRow = ((RPT_ProyectoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        centroCostos,
+                        Centro_de_Costos,
                         NombreProy,
                         NumLicita,
                         detalleProyec,
@@ -484,7 +484,7 @@ namespace SIGEDOC.Vistas {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columncentroCostos = base.Columns["centroCostos"];
+                this.columnCentro_de_Costos = base.Columns["Centro de Costos"];
                 this.columnNombreProy = base.Columns["NombreProy"];
                 this.columnNumLicita = base.Columns["NumLicita"];
                 this.columndetalleProyec = base.Columns["detalleProyec"];
@@ -499,8 +499,8 @@ namespace SIGEDOC.Vistas {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columncentroCostos = new global::System.Data.DataColumn("centroCostos", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncentroCostos);
+                this.columnCentro_de_Costos = new global::System.Data.DataColumn("Centro de Costos", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCentro_de_Costos);
                 this.columnNombreProy = new global::System.Data.DataColumn("NombreProy", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNombreProy);
                 this.columnNumLicita = new global::System.Data.DataColumn("NumLicita", typeof(string), null, global::System.Data.MappingType.Element);
@@ -661,17 +661,17 @@ namespace SIGEDOC.Vistas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string centroCostos {
+            public string Centro_de_Costos {
                 get {
                     try {
-                        return ((string)(this[this.tableRPT_Proyecto.centroCostosColumn]));
+                        return ((string)(this[this.tableRPT_Proyecto.Centro_de_CostosColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'centroCostos\' de la tabla \'RPT_Proyecto\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Centro de Costos\' de la tabla \'RPT_Proyecto\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableRPT_Proyecto.centroCostosColumn] = value;
+                    this[this.tableRPT_Proyecto.Centro_de_CostosColumn] = value;
                 }
             }
             
@@ -821,14 +821,14 @@ namespace SIGEDOC.Vistas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IscentroCostosNull() {
-                return this.IsNull(this.tableRPT_Proyecto.centroCostosColumn);
+            public bool IsCentro_de_CostosNull() {
+                return this.IsNull(this.tableRPT_Proyecto.Centro_de_CostosColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetcentroCostosNull() {
-                this[this.tableRPT_Proyecto.centroCostosColumn] = global::System.Convert.DBNull;
+            public void SetCentro_de_CostosNull() {
+                this[this.tableRPT_Proyecto.Centro_de_CostosColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

@@ -1258,12 +1258,10 @@
     <Content Include="Vistas\estilos\vendor\select2\select2.js" />
     <Content Include="Vistas\estilos\vendor\select2\select2.min.css" />
     <Content Include="Vistas\estilos\vendor\select2\select2.min.js" />
+    <Content Include="Vistas\img\1.PNG" />
+    <Content Include="Vistas\img\3.PNG" />
     <Content Include="Vistas\img\admin.png" />
     <Content Include="Vistas\img\admin2.jpg" />
-    <Content Include="Vistas\img\agregarUsuario.png" />
-    <Content Include="Vistas\img\Aula.png" />
-    <Content Include="Vistas\img\escuela-activa.jpg" />
-    <Content Include="Vistas\img\EstudianteIcon.png" />
     <Content Include="Vistas\img\Expe1.jpg" />
     <Content Include="Vistas\img\ExpeEolico.jpg" />
     <Content Include="Vistas\img\ExpeJamaica.jpg" />
@@ -1277,7 +1275,6 @@
     <Content Include="Vistas\img\olvido_pass.jpg" />
     <Content Include="Vistas\img\PQS.png" />
     <Content Include="Vistas\img\PQS1.png" />
-    <Content Include="Vistas\img\Profesor.jpg" />
     <Content Include="Vistas\js\demo\chart-area-demo.js" />
     <Content Include="Vistas\js\demo\chart-bar-demo.js" />
     <Content Include="Vistas\js\demo\chart-pie-demo.js" />
@@ -1287,6 +1284,7 @@
     <Content Include="Vistas\Login.aspx" />
     <Content Include="Vistas\Menu.aspx" />
     <Content Include="Vistas\ModificarUsuario.aspx" />
+    <Content Include="Vistas\Movimientos.aspx" />
     <Content Include="Vistas\OlvidoClave.aspx" />
     <Content Include="Vistas\prueba.aspx" />
     <Content Include="Vistas\prueba2.aspx" />
@@ -2973,6 +2971,16 @@
     <Compile Include="Vistas\CrearProyecto.aspx.designer.cs">
       <DependentUpon>CrearProyecto.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\DataSetBitacora.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetBitacora.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\DtasetMovimientos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DtasetMovimientos.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3000,6 +3008,13 @@
     </Compile>
     <Compile Include="Vistas\ModificarUsuario.aspx.designer.cs">
       <DependentUpon>ModificarUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Movimientos.aspx.cs">
+      <DependentUpon>Movimientos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Movimientos.aspx.designer.cs">
+      <DependentUpon>Movimientos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vistas\OlvidoClave.aspx.cs">
       <DependentUpon>OlvidoClave.aspx</DependentUpon>
@@ -3040,6 +3055,18 @@
     </Compile>
     <Compile Include="Vistas\Rol.aspx.designer.cs">
       <DependentUpon>Rol.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\RptBitacora.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptBitacora.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Vistas\rptMovimientos.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptMovimientos.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Vistas\rptpro.cs">
       <AutoGen>True</AutoGen>
@@ -3282,6 +3309,28 @@
     <Content Include="Vistas\ReporteProyecto.xsc">
       <DependentUpon>ReporteProyecto.xsd</DependentUpon>
     </Content>
+    <Content Include="Vistas\DataSetBitacora.xsc">
+      <DependentUpon>DataSetBitacora.xsd</DependentUpon>
+    </Content>
+    <None Include="Vistas\DataSetBitacora.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetBitacora.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Vistas\DataSetBitacora.xss">
+      <DependentUpon>DataSetBitacora.xsd</DependentUpon>
+    </Content>
+    <Content Include="Vistas\DtasetMovimientos.xsc">
+      <DependentUpon>DtasetMovimientos.xsd</DependentUpon>
+    </Content>
+    <None Include="Vistas\DtasetMovimientos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DtasetMovimientos.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Vistas\DtasetMovimientos.xss">
+      <DependentUpon>DtasetMovimientos.xsd</DependentUpon>
+    </Content>
     <None Include="Vistas\ReporteProyecto.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -3307,6 +3356,14 @@
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Vistas\RptBitacora.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptBitacora.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\rptMovimientos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptMovimientos.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vistas\rptpro.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptpro.cs</LastGenOutput>

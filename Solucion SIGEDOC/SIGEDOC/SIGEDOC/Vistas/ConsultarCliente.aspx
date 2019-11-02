@@ -6,5 +6,6 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+    <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Vistas/img/3.PNG" />
 
 </asp:Content>

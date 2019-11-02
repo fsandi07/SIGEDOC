@@ -188,3 +188,20 @@ C:\Users\Usuario\Desktop\SIGEDOC\SIGEDOC\bin\CrystalDecisions.ReportAppServer.Co
 C:\Users\Usuario\Desktop\SIGEDOC\SIGEDOC\bin\CrystalDecisions.ReportAppServer.ObjectFactory.dll
 C:\Users\Usuario\Desktop\SIGEDOC\SIGEDOC\bin\CrystalDecisions.ReportAppServer.CommonControls.dll
 C:\Users\Usuario\Desktop\SIGEDOC\SIGEDOC\bin\stdole.dll
+C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC\bin\CrystalDecisions.CrystalReports.Engine.dll
+C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC\bin\CrystalDecisions.ReportSource.dll
+C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC\bin\CrystalDecisions.Shared.dll
+C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC\bin\CrystalDecisions.Web.dll
+C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC\bin\CrystalDecisions.ReportAppServer.DataDefModel.dll
+C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC\bin\CrystalDecisions.ReportAppServer.ClientDoc.dll
+C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC\bin\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC\bin\CrystalDecisions.ReportAppServer.Controllers.dll
+C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC\bin\CrystalDecisions.ReportAppServer.CommLayer.dll
+C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC\bin\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC\bin\CrystalDecisions.ReportAppServer.Prompting.dll
+C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC\bin\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC\bin\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC\bin\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC\bin\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC\bin\CrystalDecisions.ReportAppServer.CommonControls.dll
+C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC\bin\stdole.dll

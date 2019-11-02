@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSetBitacora" targetNamespace="http://tempuri.org/DataSetBitacora.xsd" xmlns:mstns="http://tempuri.org/DataSetBitacora.xsd" xmlns="http://tempuri.org/DataSetBitacora.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSetBitacora" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetBitacora" msprop:Generator_UserDSName="DataSetBitacora">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataBitacora" msprop:Generator_TableClassName="DataBitacoraDataTable" msprop:Generator_TableVarName="tableDataBitacora" msprop:Generator_RowChangedName="DataBitacoraRowChanged" msprop:Generator_TablePropName="DataBitacora" msprop:Generator_RowDeletingName="DataBitacoraRowDeleting" msprop:Generator_RowChangingName="DataBitacoraRowChanging" msprop:Generator_RowEvHandlerName="DataBitacoraRowChangeEventHandler" msprop:Generator_RowDeletedName="DataBitacoraRowDeleted" msprop:Generator_RowClassName="DataBitacoraRow" msprop:Generator_UserTableName="DataBitacora" msprop:Generator_RowEvArgName="DataBitacoraRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Usuario" msprop:Generator_ColumnVarNameInTable="columnUsuario" msprop:Generator_ColumnPropNameInRow="Usuario" msprop:Generator_ColumnPropNameInTable="UsuarioColumn" msprop:Generator_UserColumnName="Usuario" type="xs:string" minOccurs="0" />
+              <xs:element name="Fecha" msprop:Generator_ColumnVarNameInTable="columnFecha" msprop:Generator_ColumnPropNameInRow="Fecha" msprop:Generator_ColumnPropNameInTable="FechaColumn" msprop:Generator_UserColumnName="Fecha" type="xs:string" minOccurs="0" />
+              <xs:element name="Hora_x0020_de_x0020_Ingreso" msprop:Generator_ColumnVarNameInTable="columnHora_de_Ingreso" msprop:Generator_ColumnPropNameInRow="Hora_de_Ingreso" msprop:Generator_ColumnPropNameInTable="Hora_de_IngresoColumn" msprop:Generator_UserColumnName="Hora de Ingreso" type="xs:string" minOccurs="0" />
+              <xs:element name="Hora_x0020_de_x0020_salida_x0020_" msprop:Generator_ColumnVarNameInTable="columnHora_de_salida_" msprop:Generator_ColumnPropNameInRow="Hora_de_salida_" msprop:Generator_ColumnPropNameInTable="Hora_de_salida_Column" msprop:Generator_UserColumnName="Hora de salida " type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
