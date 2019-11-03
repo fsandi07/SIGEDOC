@@ -1217,8 +1217,8 @@
     <Content Include="Vistas\dist\index.html" />
     <Content Include="Vistas\dist\script.js" />
     <Content Include="Vistas\dist\style.css" />
-    <Content Include="Vistas\estilos\css\main.css" />
-    <Content Include="Vistas\estilos\css\util.css" />
+    <Content Include="Vistas\css\main.css" />
+    <Content Include="Vistas\css\util.css" />
     <Content Include="Vistas\estilos\fonts\font-awesome-4.7.0\css\font-awesome.css" />
     <Content Include="Vistas\estilos\fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
     <Content Include="Vistas\estilos\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />

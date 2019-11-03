@@ -23,10 +23,6 @@ namespace SIGEDOC.Vistas
         {
             Response.Redirect("AgregarUsuarios.aspx");
         }
-        protected void btnusuarios_Click1(object sender, EventArgs e)
-        {
-            Response.Redirect("ModificarUsuarios.aspx");
-        }
 
         protected void BtnRpt_audi_Click(object sender, EventArgs e)
         {
@@ -36,6 +32,11 @@ namespace SIGEDOC.Vistas
         protected void Btnrpt_movi_Click(object sender, EventArgs e)
         {
             Response.Redirect("Movimientos.aspx");
+        }
+
+        protected void btn_modicar_usu_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ModificarUsuario.aspx");
         }
     }
 }

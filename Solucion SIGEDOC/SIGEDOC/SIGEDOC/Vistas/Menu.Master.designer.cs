@@ -112,13 +112,13 @@ namespace SIGEDOC.Vistas {
         protected global::System.Web.UI.WebControls.Button btnusuarios;
         
         /// <summary>
-        /// Control Button1.
+        /// Control btn_modicar_usu.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button btn_modicar_usu;
         
         /// <summary>
         /// Control BtnRpt_audi.
