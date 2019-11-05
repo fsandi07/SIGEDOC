@@ -66,6 +66,10 @@
                         });
                     </script>
                     </div>
+                    <div class="contenedor-input">
+                         <asp:Label ID="Label4" runat="server" Text="Ganado"></asp:Label>  <asp:Label ID="Label8" runat="server" Text="Perdido"></asp:Label> <asp:Label ID="Label9" runat="server" Text="En Proceso"></asp:Label>
+                        <asp:RadioButton ID="RadioButton1" runat="server" BorderColor="Red" BackColor="Yellow" Checked="True" />
+                     </div>
                      <asp:Button class="btn btn-primary btn-user btn-block"  ID="BtnCrear" runat="server" Text="Crear" BackColor="#CCB210" BorderColor="#CCB210" />
                 </form>
             </div>

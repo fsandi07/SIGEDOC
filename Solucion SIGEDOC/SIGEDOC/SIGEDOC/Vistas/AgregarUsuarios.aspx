@@ -47,10 +47,11 @@
                         <asp:Label ID="Label5" runat="server" Text=" Correo Electronico"></asp:Label>
                          <asp:TextBox class="req" ID="TextBox5" runat="server"></asp:TextBox>
                      </div> 
-                                        <div class="contenedor-input">
-                        <asp:Label ID="Label6" runat="server" Text="Observaciones"></asp:Label><br />
-                         <asp:TextBox class="form-control form-control-user" runat="server" TextMode="MultiLine" Rows="5" MaxLength="0" Columns="62" BorderColor="#CCB210"></asp:TextBox>
-                     </div>
+                    <div class="contenedor-input">
+                        <asp:Label ID="Label6" runat="server" Text="Contacto"></asp:Label>
+                         <asp:TextBox class="req" ID="txt_contacto" runat="server" TextMode="Number"></asp:TextBox>
+                     </div> 
+                      
                     <%--<input type="submit" class="button button-block" value="Iniciar Sesión">--%>
                      <asp:Button class="btn btn-primary btn-user btn-block1"  ID="BtnCrear" runat="server" Text="Crear" BackColor="#CCB210" BorderColor="#CCB210" />
                     </form>
