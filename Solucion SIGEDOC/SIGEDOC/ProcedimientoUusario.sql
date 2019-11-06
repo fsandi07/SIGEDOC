@@ -2,7 +2,7 @@
 
 create procedure SPUsuario
 @opcion int,
-@Cedula varchar(20) = null,
+@cedulaUsu varchar(20) = null,
 @nombreUsu varchar(40) = null,
 @apellidosUsu varchar(50)= null,
 @nicknameUsu varchar(30)=null,
@@ -15,7 +15,7 @@ create procedure SPUsuario
 as
 if @opcion = 1
 Begin
- insert into TbUsuario values(@Cedula,@nombreUsu,@apellidosUsu,@nicknameUsu,@correoElectUsu,CONVERT(varbinary(8000),ENCRYPTBYPASSPHRASE('password',@claveUsu)),@idRol,@estadoUsu,@contactoUsu)	
+ insert into TbUsuario values(@cedulaUsu,@nombreUsu,@apellidosUsu,@nicknameUsu,@correoElectUsu,CONVERT(varbinary(8000),ENCRYPTBYPASSPHRASE('password',@claveUsu)),@idRol,@estadoUsu,@contactoUsu)	
 end
 
 if @opcion = 2
@@ -27,5 +27,5 @@ end
 if @opcion = 3
 
 begin
-
+	update TbUsuario set nombreUsu = @nombreUsu,apellidosUsu = @apellidosUsu,nicknameUsu=@nicknameUsu,correoElectUsu=@correoElectUsu,idRol=@idRol,estadoUsu=@estadoUsu,contactoUsu=@contactoUsu,claveUsu=CONVERT(varbinary(8000),ENCRYPTBYPASSPHRASE('password',@claveUsu)) where cedulaUsu= @cedulaUsu
 end
