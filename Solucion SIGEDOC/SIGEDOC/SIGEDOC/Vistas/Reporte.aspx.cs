@@ -11,7 +11,7 @@ namespace SIGEDOC.Vistas
 {
     public partial class Reporte : System.Web.UI.Page
     {
-        String vCadenaConexion = @"Data Source=DESKTOP-GTA0ABB\SQLEXPRESS02;Initial Catalog=DBSigedoc;Integrated Security=True";
+        String vCadenaConexion = @"Data Source = den1.mssql7.gear.host; initial catalog = sigedoc; user id = sigedoc; password = Ip4805Xtg~2-";
         SqlConnection vConexion;
         SqlDataAdapter vDataAdapter;
         DataTable vDT;

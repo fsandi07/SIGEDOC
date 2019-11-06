@@ -205,3 +205,5 @@ C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC\bin\Crysta
 C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC\bin\CrystalDecisions.ReportAppServer.ObjectFactory.dll
 C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC\bin\CrystalDecisions.ReportAppServer.CommonControls.dll
 C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC\bin\stdole.dll
+C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC\bin\SIGEDOC.Datos.dll
+C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC\bin\SIGEDOC.Datos.pdb
