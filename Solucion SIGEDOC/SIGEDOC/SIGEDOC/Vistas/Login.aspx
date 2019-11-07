@@ -109,7 +109,7 @@
                  function mensajeError() {
                      swal.fire({
                          title: '¡Error!',
-                         text: "¡EL Usuario o la Contraseña son Incorrectos por favor Verifique!",
+                         text: "¡La Identificacion o la Contraseña son Incorrectos por favor Verifique!",
                          type: 'error',
                          showConfirmButton: false,
                          allowOutsideClick: false,

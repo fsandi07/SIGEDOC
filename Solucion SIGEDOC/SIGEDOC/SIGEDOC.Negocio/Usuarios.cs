@@ -13,6 +13,7 @@ namespace SIGEDOC.Negocio
 
         private string cedula_susuario;
         private string nombre_usuario;
+        private string apellidos;
         private string nicname_usuario;
         private string correo_usuario;
         private string clave_usuario;
@@ -29,9 +30,10 @@ namespace SIGEDOC.Negocio
         public int Rol_usuario { get => rol_usuario; set => rol_usuario = value; }
         public string Estado_usuarios { get => estado_usuarios; set => estado_usuarios = value; }
         public int Contacto_usuario { get => contacto_usuario; set => contacto_usuario = value; }
+        public string Apellidos { get => apellidos; set => apellidos = value; }
 
         // contructor con parametros
-        public Usuarios(int opc, string cedula_susuario, string nombre_usuario, string nicname_usuario, string correo_usuario, string clave_usuario, int rol_usuario, string estado_usuarios, int contacto_usuario)
+        public Usuarios(int opc, string cedula_susuario, string nombre_usuario, string nicname_usuario, string correo_usuario, string clave_usuario, int rol_usuario, string estado_usuarios, int contacto_usuario, string apellidos)
         {
             this.Opc = opc;
             Cedula_susuario = cedula_susuario;
@@ -42,6 +44,7 @@ namespace SIGEDOC.Negocio
             this.Rol_usuario = rol_usuario;
             Estado_usuarios = estado_usuarios;
             Contacto_usuario = contacto_usuario;
+            this.apellidos = apellidos;
         }
 
         // contructor sin parametros
@@ -56,6 +59,7 @@ namespace SIGEDOC.Negocio
             this.Rol_usuario = 0;
             Estado_usuarios = "";
             Contacto_usuario = 0;
+            apellidos = "";
         }
     }
 }

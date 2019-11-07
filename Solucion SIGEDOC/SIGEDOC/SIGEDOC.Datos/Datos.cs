@@ -22,7 +22,7 @@ namespace MVC.Modelo
 
         public Datos()
         {
-            strCadenaConexion = @"Data Source=DESKTOP-GTA0ABB\SQLEXPRESS02; Initial Catalog = DBSigedoc; Integrated Security=SSPI";
+            strCadenaConexion = @"Data Source = den1.mssql7.gear.host; initial catalog = sigedoc; user id = sigedoc; password = Ip4805Xtg~2-";
         }
 
 
