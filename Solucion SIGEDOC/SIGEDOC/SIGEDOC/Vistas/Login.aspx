@@ -16,6 +16,11 @@
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet"/>
     <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet"/>   
+    <%-- links para las alertas --%>
+     <script type="text/javascript" src="jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="sweetalert/sweetalert2.min.css"/>
+    <script type="text/javascript" src="sweetalert/sweetalert2.min.js" ></script>
+
 </head>
 <body class="bg-gradient-primary" >
     <form id="form1" runat="server">
@@ -40,7 +45,7 @@
                   </div>
                     <form id="form2">
                       <div class="form-group">
-                          <asp:Label ID="LblIndentificacion" runat="server" Text="Identificacion:"></asp:Label>
+                          <asp:Label ID="LblIndentificacion" runat="server" Text="Nickname:"></asp:Label>
                           <br />
                           <div class="form-group">
                           <asp:TextBox class="form-control form-control-user" ID="TxtIdenti" runat="server"></asp:TextBox>
@@ -70,8 +75,6 @@
   </div>
             <script language="JavaScript">
 
- 
-
             var msg="¡El botón derecho está desactivado para este sitio !";
 
             function disableIE() {if (document.all) {alert(msg);return false;}
@@ -96,9 +99,6 @@
             document.onmouseup=disableNS;document.oncontextmenu=disableIE;
 
             }
-
- 
-
             document.oncontextmenu=new Function("return false")
 
             </script>
@@ -109,7 +109,7 @@
                  function mensajeError() {
                      swal.fire({
                          title: '¡Error!',
-                         text: "¡La Identificacion o la Contraseña son Incorrectos por favor Verifique!",
+                         text: "¡El Nickname o la Contraseña son Incorrectos por favor Verifique!",
                          type: 'error',
                          showConfirmButton: false,
                          allowOutsideClick: false,
@@ -117,15 +117,6 @@
                      })
                                          
                  }
-                   function mensajeDeconfirmacion() {
-                             swal.fire({
-                                 title: "¡EXITO!",
-                                 text: "¡" + "La contraseña se envio a su Correo Electronico" + "!",
-                                 type: 'success',
-                                 allowOutsideClick: false,
-                             })
-
-                         }
                  </script>
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>

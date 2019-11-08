@@ -41,10 +41,9 @@ namespace SIGEDOC.Vistas
                 }
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError", "mensajeError('" + "" + "');", true);
-                this.TxtIdenti.Text = ex.Message;
             }
 
 

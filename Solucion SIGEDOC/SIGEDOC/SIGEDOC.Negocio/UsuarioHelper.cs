@@ -37,7 +37,7 @@ namespace SIGEDOC.Negocio
 
                 // validar usuarios.
                 parParameter[1] = new SqlParameter();
-                parParameter[1].ParameterName = "@cedulaUsu";
+                parParameter[1].ParameterName = "@nicknameUsu";
                 parParameter[1].SqlDbType = SqlDbType.VarChar;
                 parParameter[1].Size = 20;
                 parParameter[1].SqlValue = objUsuarios.Cedula_susuario;
@@ -49,7 +49,7 @@ namespace SIGEDOC.Negocio
                 parParameter[2].SqlValue = objUsuarios.Clave_usuario;
 
                 //para  mi proceso almacenado USUARIO
-                tblDatos = cnGeneral.RetornaTabla(parParameter, "SPValidacionUsu");
+                tblDatos = cnGeneral.RetornaTabla(parParameter,"SPValidacionUsu");
 
             }
             catch (Exception ex)

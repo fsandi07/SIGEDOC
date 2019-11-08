@@ -1,6 +1,6 @@
 alter procedure SPValidacionUsu
 @opcion int,
-@cedulaUsu varchar(20)=null,
+@nicknameUsu varchar(30)=null,
 @claveUsu varchar(50)=null
 as
 -- declaracion de variables para almacenar los datos a desencriptar
@@ -11,10 +11,10 @@ if @opcion=1
 
 begin 
 --- aqui llamamos el valor a desencriptar y lo saginamos a las variables 
-select @ClaveEncriptada=claveUsu from TbUsuario where cedulaUsu=@cedulaUsu
+select @ClaveEncriptada=claveUsu from TbUsuario where nicknameUsu=@nicknameUsu
 set @DesencriptarClave=convert(varchar(max),DECRYPTBYPASSPHRASE('password',@ClaveEncriptada))
 
-select *from TbUsuario where cedulaUsu=@cedulaUsu and @claveUsu=@DesencriptarClave 
+select * from TbUsuario where nicknameUsu=@nicknameUsu and @claveUsu=@DesencriptarClave 
 
 end
 
