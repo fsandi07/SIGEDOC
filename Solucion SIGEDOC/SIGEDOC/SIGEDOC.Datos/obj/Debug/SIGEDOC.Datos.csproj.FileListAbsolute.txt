@@ -9,3 +9,9 @@ C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC.Datos\obj\
 C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC.Datos\obj\Debug\SIGEDOC.Datos.csproj.CoreCompileInputs.cache
 C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC.Datos\obj\Debug\SIGEDOC.Datos.dll
 C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC.Datos\obj\Debug\SIGEDOC.Datos.pdb
+C:\Users\fabio\OneDrive\Documentos\SIGEDOC_NEW\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC.Datos\bin\Debug\SIGEDOC.Datos.dll
+C:\Users\fabio\OneDrive\Documentos\SIGEDOC_NEW\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC.Datos\bin\Debug\SIGEDOC.Datos.pdb
+C:\Users\fabio\OneDrive\Documentos\SIGEDOC_NEW\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC.Datos\obj\Debug\SIGEDOC.Datos.csprojAssemblyReference.cache
+C:\Users\fabio\OneDrive\Documentos\SIGEDOC_NEW\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC.Datos\obj\Debug\SIGEDOC.Datos.csproj.CoreCompileInputs.cache
+C:\Users\fabio\OneDrive\Documentos\SIGEDOC_NEW\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC.Datos\obj\Debug\SIGEDOC.Datos.dll
+C:\Users\fabio\OneDrive\Documentos\SIGEDOC_NEW\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC.Datos\obj\Debug\SIGEDOC.Datos.pdb

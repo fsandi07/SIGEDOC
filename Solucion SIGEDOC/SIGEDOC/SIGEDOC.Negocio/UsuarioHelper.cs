@@ -28,7 +28,7 @@ namespace SIGEDOC.Negocio
             {
                 cnGeneral = new Datos();
 
-                SqlParameter[] parParameter = new SqlParameter[4];
+                SqlParameter[] parParameter = new SqlParameter[3];
 
                 parParameter[0] = new SqlParameter();
                 parParameter[0].ParameterName = "@opcion";

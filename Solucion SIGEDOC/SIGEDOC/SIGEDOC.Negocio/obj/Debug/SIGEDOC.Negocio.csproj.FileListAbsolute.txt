@@ -15,3 +15,12 @@ C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC.Negocio\ob
 C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC.Negocio\obj\Debug\SIGEDOC.Negocio.csproj.CopyComplete
 C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC.Negocio\obj\Debug\SIGEDOC.Negocio.dll
 C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC.Negocio\obj\Debug\SIGEDOC.Negocio.pdb
+C:\Users\fabio\OneDrive\Documentos\SIGEDOC_NEW\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC.Negocio\bin\Debug\SIGEDOC.Negocio.dll
+C:\Users\fabio\OneDrive\Documentos\SIGEDOC_NEW\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC.Negocio\bin\Debug\SIGEDOC.Negocio.pdb
+C:\Users\fabio\OneDrive\Documentos\SIGEDOC_NEW\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC.Negocio\bin\Debug\SIGEDOC.Datos.dll
+C:\Users\fabio\OneDrive\Documentos\SIGEDOC_NEW\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC.Negocio\bin\Debug\SIGEDOC.Datos.pdb
+C:\Users\fabio\OneDrive\Documentos\SIGEDOC_NEW\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC.Negocio\obj\Debug\SIGEDOC.Negocio.csprojAssemblyReference.cache
+C:\Users\fabio\OneDrive\Documentos\SIGEDOC_NEW\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC.Negocio\obj\Debug\SIGEDOC.Negocio.csproj.CoreCompileInputs.cache
+C:\Users\fabio\OneDrive\Documentos\SIGEDOC_NEW\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC.Negocio\obj\Debug\SIGEDOC.Negocio.csproj.CopyComplete
+C:\Users\fabio\OneDrive\Documentos\SIGEDOC_NEW\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC.Negocio\obj\Debug\SIGEDOC.Negocio.dll
+C:\Users\fabio\OneDrive\Documentos\SIGEDOC_NEW\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC.Negocio\obj\Debug\SIGEDOC.Negocio.pdb
