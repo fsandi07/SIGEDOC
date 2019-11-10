@@ -25,7 +25,7 @@ namespace SIGEDOC.Vistas
             try
             {
                 this.usuvalid = new Usuarios();
-                this.usuvalid.Cedula_susuario = this.TxtIdenti.Text;
+                this.usuvalid.Nicname_usuario = this.TxtIdenti.Text;
                 this.usuvalid.Clave_usuario = this.TxtClave.Text;
                 this.usuvalid.Opc = 1;
                 this.usuvalidhelper = new UsuarioHelper(usuvalid);

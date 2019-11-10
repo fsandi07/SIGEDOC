@@ -92,19 +92,15 @@ namespace CrearWord1
             myWordDoc.Close();
             wordApp.Quit();
             this.lblm.Text = "Se creo el documento!";
-            Process.Start(@"C:\Users\fabio\Downloads\Word\PQS.docx");
+            Process.Start(@"C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\documentos word\documento creado\PQS.docx");
 
             //MessageBox.Show("File Created!");
         }
       
-        
-
-
         protected void btnCrear_Click(object sender, EventArgs e)
         {
-            CreateWordDocument(@"C:\Users\fabio\Downloads\Word\word\temp1.docx", @"C:\Users\fabio\Downloads\Word\PQS.docx");
-         
-
+            CreateWordDocument(@"C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\documentos word\temp1.docx", @"C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\documentos word\documento creado\PQS.docx");
+            
         }
     }
 }

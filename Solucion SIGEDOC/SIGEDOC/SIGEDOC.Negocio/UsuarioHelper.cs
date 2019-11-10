@@ -40,7 +40,7 @@ namespace SIGEDOC.Negocio
                 parParameter[1].ParameterName = "@nicknameUsu";
                 parParameter[1].SqlDbType = SqlDbType.VarChar;
                 parParameter[1].Size = 20;
-                parParameter[1].SqlValue = objUsuarios.Cedula_susuario;
+                parParameter[1].SqlValue = objUsuarios.Nicname_usuario;
 
                 parParameter[2] = new SqlParameter();
                 parParameter[2].ParameterName = "@claveUsu";

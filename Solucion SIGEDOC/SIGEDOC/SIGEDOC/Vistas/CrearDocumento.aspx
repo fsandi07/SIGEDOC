@@ -11,6 +11,10 @@
     <link rel="stylesheet" href="css/estilos.css">
 
   <link rel="stylesheet" href="./dist/style.css">
+    <%-- links Para las Alertas  --%>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="sweetalert/sweetalert2.min.css">
+    <script type="text/javascript" src="sweetalert/sweetalert2.min.js" ></script>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -34,7 +38,7 @@
                      </div>
                     <div class="contenedor-input">
                         <asp:Label ID="Label2" runat="server" Text="Asunto"></asp:Label>
-                         <asp:TextBox class="req" ID="TextBox2" runat="server"></asp:TextBox>
+                         <asp:TextBox class="req" ID="txtasunto" runat="server"></asp:TextBox>
                      </div>  
                     
                     <div class="contenedor-input">
@@ -43,19 +47,19 @@
                      </div>
                     <div class="contenedor-input">
                         <asp:Label ID="Label3" runat="server" Text="Usuario"></asp:Label>
-                         <asp:TextBox class="req" ID="TextBox3" runat="server"></asp:TextBox>
+                         <asp:TextBox class="req" ID="txtusuario" runat="server"></asp:TextBox>
                      </div> 
                     <div class="contenedor-input">
                         <asp:Label ID="Label4" runat="server" Text="Referencia"></asp:Label>
-                         <asp:TextBox class="req" ID="TextBox4" runat="server"></asp:TextBox>
+                         <asp:TextBox class="req" ID="txtreferencia" runat="server"></asp:TextBox>
                      </div> 
                     <div class="contenedor-input">
                         <asp:Label ID="Label5" runat="server" Text=" Centro de Costos"></asp:Label>
-                         <asp:TextBox class="req" ID="TextBox5" runat="server"></asp:TextBox>
+                         <asp:TextBox class="req" ID="txtcentro_costos" runat="server"></asp:TextBox>
                      </div> 
                     <%--<input type="submit" class="button button-block" value="Iniciar Sesión">--%>
                      <asp:Button class="btn btn-primary btn-user btn-block"  ID="BtnCrear" runat="server" Text="Guardar Datos" BackColor="#CCB210" BorderColor="#CCB210" />
-                                 <asp:Button class="btn btn-primary btn-user btn-block"  ID="Button1" runat="server" Text="Crear Machote Documento" BackColor="#CCB210" BorderColor="#CCB210" />
+                     <asp:Button class="btn btn-primary btn-user btn-block"  ID="Button1" runat="server" Text="Crear Machote Documento" BackColor="#CCB210" BorderColor="#CCB210" OnClick="Button1_Click" />
                       <asp:FileUpload class="btn btn-primary btn-user btn-block" ID="FileSubir" runat="server" />
                     <asp:Button class="btn btn-primary btn-user btn-block"  ID="BtnGuardar" runat="server" Text="Guardar documento" BackColor="#CCB210" BorderColor="#CCB210" />
                     </form>
@@ -68,5 +72,39 @@
 
 
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script><script  src="./dist/script.js"></script>
+
+ <script type="text/javascript">
+         // mensaje de espera 
+         function mensajeEspera() {
+             let timerInterval
+             Swal.fire({
+                 title: '¡Creando Machote Porfavor Espere!',
+                
+                 timer: 6000,
+                 allowOutsideClick: false,
+                 onBeforeOpen: () => {
+
+                     Swal.showLoading()
+
+                     timerInterval = setInterval(() => {
+                         Swal.getContent().querySelector('strong')
+                             .textContent = (Swal.getTimerLeft() / 1000)
+                                 .toFixed(0)
+                     }, 100)
+                 },
+                 onClose: () => {
+                     clearInterval(timerInterval)
+                 }
+                 
+             })
+
+             document.getElementById('<%=Button1.ClientID%>').click()
+            // window.setTimeout('location.href=""', 5000)
+             
+         }
+
+      </script>
+
+
 
 </asp:Content>

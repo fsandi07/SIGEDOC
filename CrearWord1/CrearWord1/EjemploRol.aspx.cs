@@ -17,18 +17,18 @@ namespace CrearWord1
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            if (creaproyecto == "0" && creaDocumento == "0")
-            {
+            //if (creaproyecto == "0" && creaDocumento == "0")
+            //{
 
-                LbcreaProyecto.Visible = false;
+            //    //LbcreaProyecto.Visible = false;
 
 
-            }
-            else {
+            //}
+            //else {
 
-                Lbl2.Visible = true;
+            //    //Lbl2.Visible = true;
             
-            }
+            //}
 
 
         }
