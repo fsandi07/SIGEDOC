@@ -43,7 +43,7 @@ namespace SIGEDOC.Negocio
                 parParameter[2].ParameterName = "@nombreCliente";
                 parParameter[2].SqlDbType = SqlDbType.VarChar;
                 parParameter[2].Size = 50;
-                parParameter[2].SqlValue = objCliente.Nombre_Cliente;
+                parParameter[2].SqlValue = objCliente.Nombre_cliente;
 
                 parParameter[3] = new SqlParameter();
                 parParameter[3].ParameterName = "@nombreContacto";
@@ -66,7 +66,7 @@ namespace SIGEDOC.Negocio
                 parParameter[6].ParameterName = "@detalleCliente";
                 parParameter[6].SqlDbType = SqlDbType.VarChar;
                 parParameter[6].Size = 100;
-                parParameter[6].SqlValue = objCliente.Detalle_Cliente;
+                parParameter[6].SqlValue = objCliente.Detalle_cliente;
 
                 parParameter[7] = new SqlParameter();
                 parParameter[7].ParameterName = "@estadoCliente";
@@ -74,7 +74,7 @@ namespace SIGEDOC.Negocio
                 parParameter[7].Size = 1;
                 parParameter[7].SqlValue = objCliente.Estado_cliente;
 
-                cnGeneral.EjecutarSP(parParameter, "SPCliente");
+                cnGeneral.EjecutarSP(parParameter,"SPCliente");
             }
             catch (Exception ex)
             {
@@ -107,7 +107,7 @@ namespace SIGEDOC.Negocio
                 parParameter[2].ParameterName = "@nombreCliente";
                 parParameter[2].SqlDbType = SqlDbType.VarChar;
                 parParameter[2].Size = 50;
-                parParameter[2].SqlValue = objCliente.Nombre_Cliente;
+                parParameter[2].SqlValue = objCliente.Nombre_cliente;
 
                 parParameter[3] = new SqlParameter();
                 parParameter[3].ParameterName = "@nombreContacto";
@@ -130,7 +130,7 @@ namespace SIGEDOC.Negocio
                 parParameter[6].ParameterName = "@detalleCliente";
                 parParameter[6].SqlDbType = SqlDbType.VarChar;
                 parParameter[6].Size = 100;
-                parParameter[6].SqlValue = objCliente.Detalle_Cliente;
+                parParameter[6].SqlValue = objCliente.Detalle_cliente;
 
                 parParameter[7] = new SqlParameter();
                 parParameter[7].ParameterName = "@estadoCliente";

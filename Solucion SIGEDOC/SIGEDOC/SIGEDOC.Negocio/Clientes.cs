@@ -10,48 +10,46 @@ namespace SIGEDOC.Negocio
     {
         // opcion para el procedimiento almacenado.
         private int opc;
-
-        private string nombre_Cliente;
+        private string nombre_cliente;
         private string nombre_de_Contacto;
         private int telefono_contacto;
         private string correo_cliente;
-        private string detalle_Cliente;
+        private string detalle_cliente;
         private string estado_cliente;
         private int id_cliente;
         // Get y Set para usar las varibles de la clase.
         public int Opc { get => opc; set => opc = value; }
-        public string Nombre_Cliente { get => nombre_Cliente; set => nombre_Cliente = value; }
+        public string Nombre_cliente { get => nombre_cliente; set => nombre_cliente = value; }
         public string Nombre_de_Contacto { get => nombre_de_Contacto; set => nombre_de_Contacto = value; }
         public int Telefono_contacto { get => telefono_contacto; set => telefono_contacto = value; }
         public string Correo_cliente { get => correo_cliente; set => correo_cliente = value; }
-        public string Detalle_Cliente { get => detalle_Cliente; set => detalle_Cliente = value; }
+        public string Detalle_cliente { get => detalle_cliente; set => detalle_cliente = value; }
         public string Estado_cliente { get => estado_cliente; set => estado_cliente = value; }
         public int Id_cliente { get => id_cliente; set => id_cliente = value; }
 
-        // constructores con parametros.
-        public Clientes(int opc, string nombre_Cliente, string nombre_de_Contacto, int telefono_contacto, string correo_cliente,
-            string detalle_Cliente, string estado_cliente, int id_cliente)
+        public Clientes(int opc, string nombre_cliente, string nombre_de_Contacto, int telefono_contacto, string correo_cliente, string detalle_cliente, string estado_cliente, int id_cliente)
         {
-            Opc = opc;
-            Nombre_Cliente = nombre_Cliente;
-            Nombre_de_Contacto = nombre_de_Contacto;
-            Telefono_contacto = telefono_contacto;
-            Correo_cliente = correo_cliente;
-            Detalle_Cliente = detalle_Cliente;
-            Estado_cliente = estado_cliente;
-            Id_cliente= id_cliente;
+            this.opc = opc;
+            this.nombre_cliente = nombre_cliente;
+            this.nombre_de_Contacto = nombre_de_Contacto;
+            this.telefono_contacto = telefono_contacto;
+            this.correo_cliente = correo_cliente;
+            this.detalle_cliente = detalle_cliente;
+            this.estado_cliente = estado_cliente;
+            this.id_cliente = id_cliente;
         }
-        // contructores sin parametros.
         public Clientes()
         {
-            this.Opc = 0;
-            Nombre_Cliente = "";
-            Nombre_de_Contacto = "";
-            Telefono_contacto = 0;
-            Correo_cliente = "";
-            Detalle_Cliente = "";
-            Estado_cliente = "";
-            id_cliente = 0;
+            this.opc = 0;
+            this.nombre_cliente ="" ;
+            this.nombre_de_Contacto = "";
+            this.telefono_contacto = 0;
+            this.correo_cliente = "";
+            this.detalle_cliente = "";
+            this.estado_cliente = "";
+            this.id_cliente = 0;
         }
+       
+
     }
 }

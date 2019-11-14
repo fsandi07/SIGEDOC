@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SIGEDOC.Negocio
 {
-    class CrearDocumento
+    public class CrearDocumento
     {
 
         // opcion para el procedimiento almacenado;

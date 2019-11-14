@@ -3,21 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-//librerias agregadas
+//librerias agrgadas 
 using System.Data.SqlClient;
 using MVC.Modelo;
 using System.Data;
 using System.IO;
 
+
 namespace SIGEDOC.Negocio
 {
-   public class CrearDocHelper
+    public class CrearDocHelper
     {
-        Datos cnGeneral = null;
-        DataTable tblDatos = null;
-        CrearDocumento objdocCreado = null;
+        Datos cnGneral = null;
+        DataTable tbldatos = null;
+        CrearDocumento objdocCreado;
 
-        public CrearDocHelper (CrearDocumento parObjdocCreado)
+        public CrearDocHelper(CrearDocumento parObjdocCreado)
         {
             objdocCreado = parObjdocCreado;
         }
