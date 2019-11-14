@@ -16,9 +16,9 @@ namespace SIGEDOC.Negocio
         Datos cnGeneral = null;
         DataTable tblDatos = null;
         Clientes objCliente = null;
-        public ClienteHelper(Clientes parObjcompras)
+        public ClienteHelper(Clientes parObjclientes)
         {
-            objCliente = parObjcompras;
+            objCliente = parObjclientes;
         }
 
         public void AgregarCliente()
@@ -37,7 +37,7 @@ namespace SIGEDOC.Negocio
                 parParameter[1] = new SqlParameter();
                 parParameter[1].ParameterName = "@idCliente ";
                 parParameter[1].SqlDbType = SqlDbType.Int;
-                parParameter[1].SqlValue = objCliente.Idcliente;
+                parParameter[1].SqlValue = objCliente.Id_cliente;
 
                 parParameter[2] = new SqlParameter();
                 parParameter[2].ParameterName = "@nombreCliente";
@@ -101,7 +101,7 @@ namespace SIGEDOC.Negocio
                 parParameter[1] = new SqlParameter();
                 parParameter[1].ParameterName = "@idCliente ";
                 parParameter[1].SqlDbType = SqlDbType.Int;
-                parParameter[1].SqlValue = objCliente.Idcliente;
+                parParameter[1].SqlValue = objCliente.Id_cliente;
 
                 parParameter[2] = new SqlParameter();
                 parParameter[2].ParameterName = "@nombreCliente";
