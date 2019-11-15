@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>SISTEMA SIGEDOC</title>
+    <title>PQS-SIGEDOC</title>
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -34,16 +34,14 @@
             <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
                 <!-- Sidebar - Brand -->
-                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
-                    <%--<div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
-        </div>--%>
-<%--                    <div class="sidebar-brand-text mx-3">Menú Principal</div>--%>
-                    <asp:Label class="sidebar-brand-text mx-3" ID="LblMenu" runat="server" Text="" BorderColor="#CC3300" ForeColor="#CCB210">Menú Principal</asp:Label>
+                <a class="nav-link" href="Menu.aspx">
+                    <h4><asp:Label class="sidebar-brand-text mx-3" ID="LblMenu" runat="server" 
+                        Text="" BorderColor="#CC3300" ForeColor="#CCB210">Menú Principal</asp:Label></h4>
+                    <hr class="sidebar-divider my-0">
                 </a>
 
-                <!-- Divider -->
-                <hr class="sidebar-divider my-0">
+
+              
 
                 <!-- Nav Item - Dashboard -->
                 <li class="nav-item active">
@@ -52,39 +50,28 @@
                         <%--  <span>INICIO</span><br>--%>
                         <i class="far fa-calendar-alt"></i>
                         <asp:Label ID="lblfecha" runat="server" Text=""></asp:Label>
-                        <br/>       
-                        
-                       
-                         <i class="far fa-clock "></i>       
-                        <asp:Label id="clock" runat="server" Text=""></asp:Label>
-                        <%--  <asp:Label ID="lblfecha_hora" runat="server" Text=""></asp:Label>--%>
+                        <br />
 
-                        <%--                <i class="far fa-clock "></i>--%>
-                        <%--  <div id="clockdate" >         
-  <div class="clockdate-wrapper">  
-   <div id="clock"></div>
-    <div id="date"></div>
-       </div>     
- </div>--%>
+
+                        <i class="far fa-clock "></i>
+                        <asp:Label ID="clock" runat="server" Text=""></asp:Label>
+                        
                     </a>
                 </li>
-                <hr class="sidebar-divider">
-
+                <hr class="sidebar-divider">  
+                
                 <li class="nav-item active">
-                    <a class="nav-link" href="">
-                        <span>OPCIONES</span></a>
+                    <a class="nav-link" href="Menu.aspx"> 
+                        
+                       <h5><i class="fas fa-home"></i>Ir a Inicio</h5></a>
                 </li>
 
-                <!-- Divider -->
-
-                <!-- Heading -->
-
-
+               
                 <!-- Nav Item - Pages Collapse Menu -->
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                         <i class="fas fa-fw fa-folder"></i>
-                        <span><strong>PROYECTOS</strong></span>
+                        <span>PROYECTOS</span>
                     </a>
                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
@@ -103,7 +90,7 @@
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseClientes" aria-expanded="true" aria-controls="collapseTwo">
                         <%-- <i class="fas fa-fw fa-cog"></i>--%>
                         <i class="fas fa-users"></i>
-                        <span><strong>CLIENTES</strong></span>
+                        <span>CLIENTES</span>
                     </a>
                     <div id="collapseClientes" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
@@ -129,7 +116,7 @@
                             <a class="collapse-item" href="CrearDocumento.aspx">Crear Documento</a>
                             <a class="collapse-item" href="CrearDocumento.aspx">Subir Documento</a>
                             <a class="collapse-item" href="ConsultarDocumentos.aspx">Consultar Documento</a>
-                            
+
                         </div>
                     </div>
                 </li>
@@ -184,7 +171,6 @@
                 <div class="text-center d-none d-md-inline">
                     <button class="rounded-circle border-0" id="sidebarToggle"></button>
                 </div>--%>
-
             </ul>
             <!-- End of Sidebar -->
 
@@ -241,7 +227,7 @@
                                         </div>
                                         <div class="topbar-divider d-none d-sm-block"></div>
 
-                                    <%--    <div class="topbar-divider d-none d-sm-block"></div>--%>
+                                        <%--    <div class="topbar-divider d-none d-sm-block"></div>--%>
 
                                         <!-- Nav Item - User Information -->
                                 <li class="nav-item dropdown no-arrow">
@@ -331,7 +317,7 @@
         </div>
         <!-- Logout Modal-->
         <%-- modal opcional para la gestion de usuarios --%>
-          <div class="modal fade" id="logoutModalusu" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="logoutModalusu" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -339,18 +325,18 @@
                         <button class="close" type="button" data-dismiss="modal" aria-label="Cerrar">
                             <span aria-hidden="true">×</span>
                         </button>
-                    </div>     
+                    </div>
                     <div class="modal-footer">
-                    <asp:Button ID="btnusuarios"  class="btn btn-warning btn-link" runat="server" Text="Agregar Usuarios" BackColor="#CCB210" BorderColor="#CCB210" OnClick="btnusuarios_Click" ForeColor="Black" Width="200" />
-                        <asp:Button ID="btn_modicar_usu" class="btn btn-warning btn-link" runat="server" Text="Modificar Usuario"  BackColor="#CCB210" BorderColor="#CCB210" OnClick="btn_modicar_usu_Click" ForeColor="Black" Width="200"/>
-                        </div>
+                        <asp:Button ID="btnusuarios" class="btn btn-warning btn-link" runat="server" Text="Agregar Usuarios" BackColor="#CCB210" BorderColor="#CCB210" OnClick="btnusuarios_Click" ForeColor="Black" Width="200" />
+                        <asp:Button ID="btn_modicar_usu" class="btn btn-warning btn-link" runat="server" Text="Modificar Usuario" BackColor="#CCB210" BorderColor="#CCB210" OnClick="btn_modicar_usu_Click" ForeColor="Black" Width="200" />
+                    </div>
                 </div>
             </div>
         </div>
         <%-- fin de la modal --%>
 
         <%--  modal para Reportes de Auditoria y movimientos--%>
-           <div class="modal fade" id="logoutModalrpt" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="logoutModalrpt" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -360,9 +346,9 @@
                         </button>
                     </div>
                     <div class="modal-footer">
-                        <asp:Button  ID="BtnRpt_audi"  class="btn btn-info btn-link" runat="server" Text="Reporte de Auditoria"  BackColor="#CCB210" BorderColor="#CCB210" OnClick="BtnRpt_audi_Click" ForeColor="Black" Width="200"/>
-                        <asp:Button  ID="Btnrpt_movi"  class="btn btn-info btn-link" runat="server" Text="Reporte de Movimientos"  BackColor="#CCB210" BorderColor="#CCB210" OnClick="Btnrpt_movi_Click" ForeColor="Black" Width="200"/>
-                        </div>
+                        <asp:Button ID="BtnRpt_audi" class="btn btn-info btn-link" runat="server" Text="Reporte de Auditoria" BackColor="#CCB210" BorderColor="#CCB210" OnClick="BtnRpt_audi_Click" ForeColor="Black" Width="200" />
+                        <asp:Button ID="Btnrpt_movi" class="btn btn-info btn-link" runat="server" Text="Reporte de Movimientos" BackColor="#CCB210" BorderColor="#CCB210" OnClick="Btnrpt_movi_Click" ForeColor="Black" Width="200" />
+                    </div>
                 </div>
             </div>
         </div>

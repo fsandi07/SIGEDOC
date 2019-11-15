@@ -280,8 +280,8 @@ C:\Users\fabio\OneDrive\Documentos\SIGEDOC_NEW\SIGEDOC_N\Solucion SIGEDOC\SIGEDO
 C:\Users\fabio\OneDrive\Documentos\SIGEDOC_NEW\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\fabio\OneDrive\Documentos\SIGEDOC_NEW\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC\bin\SIGEDOC.Datos.pdb
 C:\Users\fabio\OneDrive\Documentos\SIGEDOC_NEW\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC\obj\Debug\SIGEDOC.csprojAssemblyReference.cache
-C:\Users\fabio\OneDrive\Documentos\SIGEDOC_NEW\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC\obj\Debug\SIGEDOC.csproj.CoreCompileInputs.cache
 C:\Users\fabio\OneDrive\Documentos\SIGEDOC_NEW\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC\obj\Debug\SIGEDOC.csproj.CopyComplete
 C:\Users\fabio\OneDrive\Documentos\SIGEDOC_NEW\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC\obj\Debug\SIGEDOC.dll
 C:\Users\fabio\OneDrive\Documentos\SIGEDOC_NEW\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC\obj\Debug\SIGEDOC.pdb
 C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC\obj\Debug\SIGEDOC.csproj.ResolveComReference.cache
+C:\Users\fabio\OneDrive\Documentos\SIGEDOC_NEW\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\SIGEDOC\obj\Debug\SIGEDOC.csproj.ResolveComReference.cache

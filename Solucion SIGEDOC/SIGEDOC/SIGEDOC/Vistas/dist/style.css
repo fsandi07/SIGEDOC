@@ -22,12 +22,21 @@ a:hover {
 }
 
 .contenedor-formularios {
-  background: rgba(19, 35, 47, 0.9);
-  padding: 40px;
-  max-width: 600px;
-  margin: 40px auto;
-  border-radius: 4px;
-  box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
+    background:  rgba(19, 35, 47, 0.9);
+    padding: 40px;
+    max-width: 850px;
+    margin: 40px auto;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
+}
+
+.contenedor-Grid {
+    background: rgba(19, 35, 47, 0.9);
+    padding: 40px ;
+    max-width: 1200px;
+    margin: 20px auto;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
 }
 
 .contenedor-tabs {
@@ -84,7 +93,7 @@ h1 {
 }
 
 label {
-  position: absolute;
+  position: center;
   transform: translateY(6px);
   left: 13px;
   color: rgba(255, 255, 255, 0.5);
@@ -93,11 +102,7 @@ label {
   pointer-events: none;
   font-size: 22px;
 }
-eY(50px);
-  left: 2px;
-  font-size: 14px;
-}
-la}
+
 
 label.active {
   transform: translateY(50px);
@@ -108,12 +113,12 @@ label.active .req {
   opacity: 0;
 }
 
-label.highlight {
-  color: #fff;
-}
+    label.highlight {
+        color: #F7F9F9;
+    }
 
 input {
-  font-size: 22px;
+  font-size: 18px;
   display: block;
   width: 100%;
   height: 100%;
@@ -136,7 +141,7 @@ input:focus {
 
 .contenedor-input {
   position: relative;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
 }
 
 .fila-arriba:after {

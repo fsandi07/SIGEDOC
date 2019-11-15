@@ -48,7 +48,7 @@
 
                     <div class="contenedor-input">
                         <asp:Label ID="Label6" runat="server" Text="Observaciones"></asp:Label><br />
-                         <asp:TextBox class="form-control form-control-user" runat="server" TextMode="MultiLine" Rows="5" MaxLength="0" Columns="62" BorderColor="#CCB210"></asp:TextBox>
+                         <asp:TextBox class="form-control form-control-user" runat="server" TextMode="MultiLine" Rows="5" MaxLength="0" Columns="62" BorderColor="#CCB210" CssClass="alert-dark" Width="775px"></asp:TextBox>
                      </div>
                     <%--<input type="submit" class="button button-block" value="Iniciar Sesión">--%>
                      <asp:Button class="btn btn-primary btn-user btn-block"  ID="BtnCrear" runat="server" Text="Crear" BackColor="#CCB210" BorderColor="#CCB210" />

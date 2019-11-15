@@ -22,8 +22,6 @@ namespace SIGEDOC.Vistas
         }
         private void FindAndReplace(Microsoft.Office.Interop.Word.Application wordApp, object ToFindText, object replaceWithText)
         {
-            
-
             object matchCase = true;
             object matchWholeWord = true;
             object matchWildCards = false;

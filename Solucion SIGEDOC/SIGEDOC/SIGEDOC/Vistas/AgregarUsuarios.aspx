@@ -11,6 +11,11 @@
     <link rel="stylesheet" href="css/estilos.css">
 
   <link rel="stylesheet" href="./dist/style.css">
+       <style type="text/css">
+           .auto-style1 {
+               margin-top: 56;
+           }
+       </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
          <!-- Formularios -->
@@ -41,7 +46,8 @@
                      </div> 
                     <div class="contenedor-input">
                         <asp:Label ID="Label4" runat="server" Text="tipo de Rol"></asp:Label>
-                         <asp:TextBox class="req" ID="TextBox4" runat="server"></asp:TextBox>
+                         <asp:DropDownList ID="DropDownList1" runat="server" CssClass="alert-dark">
+                        </asp:DropDownList>
                      </div> 
                     <div class="contenedor-input">
                         <asp:Label ID="Label5" runat="server" Text=" Correo Electronico"></asp:Label>

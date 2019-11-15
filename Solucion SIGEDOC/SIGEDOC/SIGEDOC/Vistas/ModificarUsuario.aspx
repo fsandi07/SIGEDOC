@@ -20,8 +20,8 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-    <asp:GridView ID="GridUsuarios" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="cedulaUsu" DataSourceID="SqlDataUsuario" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridUsuarios_SelectedIndexChanged" CssClass="align-content-center" Width="1031px">
+    <div class="contenedor-Grid">
+    <asp:GridView ID="GridUsuarios" runat="server" AutoGenerateColumns="False" CellPadding="5" DataKeyNames="cedulaUsu" DataSourceID="SqlDataUsuario" ForeColor="#333333" GridLines="Vertical" OnSelectedIndexChanged="GridUsuarios_SelectedIndexChanged" CssClass="alert-dark" Width="1031px" BorderColor="#003300" BorderStyle="None">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:CommandField SelectText="Modificar" ShowSelectButton="True"  HeaderText="Modificar Usuario">
@@ -36,9 +36,9 @@
             <asp:BoundField DataField="estadoUsu" HeaderText="Estado" SortExpression="estadoUsu" />
             <asp:BoundField DataField="contactoUsu" HeaderText="Contacto" SortExpression="contactoUsu" />
         </Columns>
-        <EditRowStyle BackColor="#2461BF" />
+        <EditRowStyle BackColor="#2461BF" BorderStyle="Solid" HorizontalAlign="Center" VerticalAlign="Middle" />
         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" VerticalAlign="Middle" />
         <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
         <RowStyle BackColor="#EFF3FB" />
         <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
@@ -52,7 +52,10 @@ from TbUsuario a, TbRol b
 where a.idRol = b.IdRol "></asp:SqlDataSource>
 
     <asp:SqlDataSource ID="SqlDataRol" runat="server" ConnectionString="<%$ ConnectionStrings:sigedocConnectionString %>" SelectCommand="SELECT [nombreRol], [IdRol] FROM [TbRol]"></asp:SqlDataSource>
-    <%-- inicio de modal--%>
+    
+      </div>  
+        
+        <%-- inicio de modal--%>
     <div class="modal fade" id="ModalUsuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
