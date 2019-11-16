@@ -27,40 +27,58 @@
                 <i class="fas fa-file-alt">&nbsp</i>Crear Documento Nuevo
             </span>
         </div>
-        <br/><br/><br/>
+        <br />        
+        <br />
+        <div class="contenedor-input">
+             <asp:Label ID="Label2" runat="server" Text="Estado del Documento:"></asp:Label>&nbsp
+            <asp:Label ID="Label1" runat="server" Text="En Proceso" BackColor="#FFFF66" ForeColor="Black" BorderStyle="Groove"></asp:Label>
+        </div>        
         <!-- Contenido de los Formularios -->
-      <%--  <div class="contenido-tab">--%>
-           <div class="contenedor-input">
-                <asp:Label ID="Label1" runat="server" Text="Nombre del Documento"></asp:Label>
-                <asp:TextBox class="req" ID="TextBox1" runat="server"></asp:TextBox>
-            </div>
-            <div class="contenedor-input">
-                <asp:Label ID="Label2" runat="server" Text="Asunto"></asp:Label>
-                <asp:TextBox class="req" ID="txtasunto" runat="server"></asp:TextBox>
-            </div>
+        <%--  <div class="contenido-tab">--%>
+        <div class="contenedor-input">
+            <asp:Label ID="lblNombreDoc" runat="server" Text="Nombre del Documento"></asp:Label>
+            <asp:TextBox class="req" ID="txtNombreDoc" runat="server"></asp:TextBox>
+        </div>
+        <div class="contenedor-input">
+            <asp:Label ID="lblAsunto" runat="server" Text="Asunto"></asp:Label>
+            <asp:TextBox class="req" ID="txtAsunto" runat="server"></asp:TextBox>
+        </div>
 
-            <div class="contenedor-input">
-                <asp:Label ID="Label6" runat="server" Text="Descripcion"></asp:Label><br />
-                <asp:TextBox class="form-control form-control-user" runat="server" TextMode="MultiLine" Rows="5" MaxLength="0" Columns="62" BorderColor="#CCB210" CssClass="alert-dark" Width="772px"></asp:TextBox>
-            </div>
-            <div class="contenedor-input">
-                <asp:Label ID="Label3" runat="server" Text="Usuario"></asp:Label>
-                <asp:TextBox class="req" ID="txtusuario" runat="server"></asp:TextBox>
-            </div>
-            <div class="contenedor-input">
-                <asp:Label ID="Label4" runat="server" Text="Referencia"></asp:Label>
-                <asp:TextBox class="req" ID="txtreferencia" runat="server"></asp:TextBox>
-            </div>
-            <div class="contenedor-input">
-                <asp:Label ID="Label5" runat="server" Text=" Centro de Costos"></asp:Label>
-                <asp:TextBox class="req" ID="txtcentro_costos" runat="server"></asp:TextBox>
-            </div>
-            <asp:Button class="btn btn-primary btn-user btn-block" ID="Button1" runat="server" Text="Crear Machote Documento" BackColor="#CCB210" BorderColor="#CCB210" OnClick="Button1_Click" />
-            <asp:FileUpload class="btn btn-primary btn-user btn-block" ID="FileSubir" runat="server" />
-            <asp:Button class="btn btn-primary btn-user btn-block" ID="BtnGuardar" runat="server" Text="Guardar documento" BackColor="#CCB210" BorderColor="#CCB210" />
+        <div class="contenedor-input">
+            <asp:Label ID="lblDescrip" runat="server" Text="Descripcion"></asp:Label><br />
+            <asp:TextBox class="form-control form-control-user" runat="server" TextMode="MultiLine" Rows="5" MaxLength="0" Columns="62" BorderColor="#CCB210" CssClass="alert-dark" Width="772px"></asp:TextBox>
+        </div>
+         <div class="contenedor-input">
+            <asp:Label ID="lblProyec" runat="server" Text="Asociar Proyecto"></asp:Label><br />
+            <asp:DropDownList ID="dplProyecto" runat="server" CssClass="alert-dark" DataSourceID="SqlDataProyecto" DataTextField="NombreProy" DataValueField="centroCostos" Height="35px" Width="775px"></asp:DropDownList>
+             <asp:SqlDataSource ID="SqlDataProyecto" runat="server" ConnectionString="<%$ ConnectionStrings:sigedocConnectionString %>" SelectCommand="SELECT [centroCostos], [NombreProy] FROM [TbProyecto]"></asp:SqlDataSource>
+        </div>
+        
+        <div class="contenedor-input">
+            <asp:Label ID="lblUsuario" runat="server" Text="Usuario"></asp:Label>
+            <asp:TextBox class="req" ID="txtUsuario" runat="server"></asp:TextBox>
+        </div>
+         <div class="contenedor-input">
+            <asp:Label ID="lblCenCos" runat="server" Text=" Centro de Costos"></asp:Label>
+            <asp:TextBox class="req" ID="txtCenCos" runat="server"></asp:TextBox>
+        </div>
+        <div class="contenedor-input">
+            <asp:Label ID="lblReferen" runat="server" Text="Referencia"></asp:Label>
+            <asp:TextBox class="req" ID="txtReferencia" runat="server"></asp:TextBox>
+        </div>       
+        <asp:Button class="btn btn-primary btn-user btn-block" ID="Button1" runat="server" Text="Crear Machote Documento" 
+            BackColor="#CCB210" BorderColor="#CCB210" OnClick="Button1_Click" /><br />
+        <hr class="sidebar-divider my-0">
+        <asp:Label ID="lblFileWord" runat="server" Text="">Cargar documento Word</asp:Label><br/>
+        <asp:FileUpload class="btn btn-primary btn-user btn-block" ID="FileSubirWord" runat="server" />       
+        <asp:Label ID="lblFilePdf" runat="server" Text="Cargar documento Pdf" ></asp:Label><br/>
+        <asp:FileUpload class="btn btn-primary btn-user btn-block" ID="FileSubirPdf" runat="server" 
+            BackColor="Red" BorderColor="Red" /><br/>
+        <hr class="sidebar-divider my-0">
+        <asp:Button class="btn btn-primary btn-user btn-block" ID="BtnGuardar" runat="server" Text="Guardar"
+            BackColor="#CCB210" BorderColor="#CCB210" />
 
-   <%--     </div>--%>
-
+        <%--     </div>--%>
     </div>
 
     <script src="js/jquery.js"></script>

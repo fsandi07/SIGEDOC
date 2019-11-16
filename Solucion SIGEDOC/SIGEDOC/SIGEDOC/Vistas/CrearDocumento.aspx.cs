@@ -72,9 +72,9 @@ namespace SIGEDOC.Vistas
                 myWordDoc.Activate();
 
                 //find and replace
-                this.FindAndReplace(wordApp, "<asunto>",this.txtasunto.Text);
-                this.FindAndReplace(wordApp, "<usuario>",this.txtusuario.Text);
-                this.FindAndReplace(wordApp, "<referencia>", this.txtreferencia.Text);
+                this.FindAndReplace(wordApp, "<asunto>",this.txtAsunto.Text);
+                this.FindAndReplace(wordApp, "<usuario>",this.txtUsuario.Text);
+                this.FindAndReplace(wordApp, "<referencia>", this.txtReferencia.Text);
                 this.FindAndReplace(wordApp, "<date>", DateTime.Today);
             }
             else
@@ -134,7 +134,7 @@ namespace SIGEDOC.Vistas
             catch (Exception ex)
             {
 
-                this.txtcentro_costos.Text = ex.Message;
+                this.txtCenCos.Text = ex.Message;
             }
 
             
