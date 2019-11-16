@@ -30,7 +30,7 @@ namespace SIGEDOC.Vistas
                 this.usuvalid.Opc = 1;
                 this.usuvalidhelper = new UsuarioHelper(usuvalid);
                 this.datos = new DataTable();
-                this.datos = this.usuvalidhelper.validarusuario();
+                this.datos = this.usuvalidhelper.Validar_Usuario();
 
                 if (datos.Rows.Count >= 0)
                 {

@@ -16,7 +16,6 @@ namespace SIGEDOC.Vistas
 {
     public partial class CrearDocumento : System.Web.UI.Page
     {
-        //private CrearDocumento cd;
         SIGEDOC.Negocio.CrearDocumento cd = new SIGEDOC.Negocio.CrearDocumento();
         private CrearDocHelper cdh;
         private DataTable datos;
@@ -145,10 +144,19 @@ namespace SIGEDOC.Vistas
         {
             try
             {
-                this.cd.Id_proyecto = int.Parse(dptProyecto.SelectedValue);
+                this.cd.Id_proyecto = int.Parse(dptProyecto.SelectedValue.ToString());
                 this.cd.Opc = 1;
                 this.cdh = new CrearDocHelper(cd);
-                this.cdh.Numero_Consecutivo();
+                this.datos = new DataTable();
+                this.datos = this.cdh.Numero_Consecutivo();
+
+                if (datos.Rows.Count >= 0)
+                {
+                    DataRow fila = datos.Rows[0];
+                    this.txtReferencia.Text = fila["idProyecto"].ToString() + "-" + fila["[Sub total]"].ToString(); 
+                }
+
+
             }
             catch (Exception ex)
             {

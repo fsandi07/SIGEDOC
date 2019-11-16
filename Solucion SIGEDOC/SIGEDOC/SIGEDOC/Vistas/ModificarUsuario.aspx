@@ -24,7 +24,9 @@
     <asp:GridView ID="GridUsuarios" runat="server" AutoGenerateColumns="False" CellPadding="5" DataKeyNames="cedulaUsu" DataSourceID="SqlDataUsuario" ForeColor="#333333" GridLines="Vertical" OnSelectedIndexChanged="GridUsuarios_SelectedIndexChanged" CssClass="alert-dark" Width="1031px" BorderColor="#003300" BorderStyle="None">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:CommandField SelectText="Modificar" ShowSelectButton="True"  HeaderText="Modificar Usuario">
+            <asp:CommandField SelectText="Modificar" ShowSelectButton="True" HeaderText="Modificar Usuario" ButtonType="Image" SelectImageUrl="~/Vistas/img/descarga.png" FooterStyle-Width="40px" FooterStyle-Height="30px">
+                
+<ItemStyle Height="20px" Width="20px"></ItemStyle>
                 
             </asp:CommandField>
             <asp:BoundField DataField="cedulaUsu" HeaderText="Cedula" ReadOnly="True" SortExpression="cedulaUsu" />
