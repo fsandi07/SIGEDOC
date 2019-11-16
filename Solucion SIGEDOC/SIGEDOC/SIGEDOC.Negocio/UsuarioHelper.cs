@@ -21,7 +21,7 @@ namespace SIGEDOC.Negocio
             objUsuarios = parObjususarios;
         }
         //VALIDAR USUARIOS.
-        public DataTable validarusuario()
+        public DataTable Validar_Usuario()
         {
             tblDatos = new DataTable();
             try
@@ -63,7 +63,7 @@ namespace SIGEDOC.Negocio
 
         // Agregar un Usuario Nuevo al sistema
 
-        public void AgregarUsuarios()
+        public void Agregar_Usuarios()
         {
             try
             {
@@ -139,7 +139,7 @@ namespace SIGEDOC.Negocio
         }
         // Actualizar usuarios
 
-        public void ActualizarUsuario()
+        public void Actualizar_Usuario()
         {
             try
             {
@@ -213,7 +213,7 @@ namespace SIGEDOC.Negocio
 
             }
         }
-        public DataTable listarUsuarios()
+        public DataTable Listar_Usuarios()
         {
             tblDatos = new DataTable();
             try

@@ -21,7 +21,7 @@ namespace SIGEDOC.Negocio
         }
         // Agregar un Nuevo Proyecto
 
-        public void AgregarProyecto()
+        public void Agregar_Proyecto()
         {
             try
             {
@@ -94,7 +94,7 @@ namespace SIGEDOC.Negocio
             }
         }
         //Actualizar Proyecto
-        public void ActualizarProyecto()
+        public void Actualizar_Proyecto()
         {
             try
             {
@@ -167,7 +167,7 @@ namespace SIGEDOC.Negocio
             }
         }
         //Mostrar Todos los Proyectos
-        public DataTable listarProyecto()
+        public DataTable listar_Proyecto()
         {
             tblDatos = new DataTable();
             try

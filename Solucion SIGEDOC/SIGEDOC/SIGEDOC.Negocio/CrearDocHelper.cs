@@ -22,7 +22,34 @@ namespace SIGEDOC.Negocio
         {
             objdocCreado = parObjdocCreado;
         }
+        public DataTable Numero_Consecutivo()
+        {
+            tbldatos = new DataTable();
+            try
+            {
+                cnGneral = new Datos();
 
+                SqlParameter[] parParameter = new SqlParameter[2];
+
+                parParameter[0] = new SqlParameter();
+                parParameter[0].ParameterName = "@opcion";
+                parParameter[0].SqlDbType = SqlDbType.Int;
+                parParameter[0].SqlValue = objdocCreado.Opc;
+
+                parParameter[1] = new SqlParameter();
+                parParameter[1].ParameterName = "@idProyecto";
+                parParameter[1].SqlDbType = SqlDbType.Int;
+                parParameter[1].SqlValue = objdocCreado.Id_proyecto;
+
+                tbldatos = cnGneral.RetornaTabla(parParameter, "SPNum_Doc");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+            return tbldatos;
+        }
 
     }
 }

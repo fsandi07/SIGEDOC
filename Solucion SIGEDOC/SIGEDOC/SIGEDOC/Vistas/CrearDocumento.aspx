@@ -27,12 +27,12 @@
                 <i class="fas fa-file-alt">&nbsp</i>Crear Documento Nuevo
             </span>
         </div>
-        <br />        
+        <br />
         <br />
         <div class="contenedor-input">
-             <asp:Label ID="Label2" runat="server" Text="Estado del Documento:"></asp:Label>&nbsp
+            <asp:Label ID="Label2" runat="server" Text="Estado del Documento:"></asp:Label>&nbsp
             <asp:Label ID="Label1" runat="server" Text="En Proceso" BackColor="#FFFF66" ForeColor="Black" BorderStyle="Groove"></asp:Label>
-        </div>        
+        </div>
         <!-- Contenido de los Formularios -->
         <%--  <div class="contenido-tab">--%>
         <div class="contenedor-input">
@@ -48,35 +48,50 @@
             <asp:Label ID="lblDescrip" runat="server" Text="Descripcion"></asp:Label><br />
             <asp:TextBox class="form-control form-control-user" runat="server" TextMode="MultiLine" Rows="5" MaxLength="0" Columns="62" BorderColor="#CCB210" CssClass="alert-dark" Width="772px"></asp:TextBox>
         </div>
-         <div class="contenedor-input">
+        <div class="contenedor-input">
             <asp:Label ID="lblProyec" runat="server" Text="Asociar Proyecto"></asp:Label><br />
-            <asp:DropDownList ID="dplProyecto" runat="server" CssClass="alert-dark" DataSourceID="SqlDataProyecto" DataTextField="NombreProy" DataValueField="centroCostos" Height="35px" Width="775px"></asp:DropDownList>
-             <asp:SqlDataSource ID="SqlDataProyecto" runat="server" ConnectionString="<%$ ConnectionStrings:sigedocConnectionString %>" SelectCommand="SELECT [centroCostos], [NombreProy] FROM [TbProyecto]"></asp:SqlDataSource>
+            <asp:DropDownList ID="dptProyecto" runat="server" CssClass="alert-dark" DataSourceID="SqlDataProyecto" DataTextField="NombreProy" DataValueField="centroCostos" Height="35px" Width="775px" OnSelectedIndexChanged="dptProyecto_SelectedIndexChanged"></asp:DropDownList>
+            <asp:SqlDataSource ID="SqlDataProyecto" runat="server" ConnectionString="<%$ ConnectionStrings:sigedocConnectionString %>" SelectCommand="SELECT [centroCostos], [NombreProy] FROM [TbProyecto]"></asp:SqlDataSource>
         </div>
-        
+         <asp:Label ID="lblPeriodo" runat="server" Text="Periodo"></asp:Label><br />
+        <div class="contenedor-input">
+        <asp:DropDownList ID="dptPeriodo" runat="server"  CssClass="alert-dark" Height="28px" Width="771px"></asp:DropDownList>
+
+        </div>
+
         <div class="contenedor-input">
             <asp:Label ID="lblUsuario" runat="server" Text="Usuario"></asp:Label>
             <asp:TextBox class="req" ID="txtUsuario" runat="server"></asp:TextBox>
         </div>
-         <div class="contenedor-input">
+        <div class="contenedor-input">
             <asp:Label ID="lblCenCos" runat="server" Text=" Centro de Costos"></asp:Label>
             <asp:TextBox class="req" ID="txtCenCos" runat="server"></asp:TextBox>
         </div>
         <div class="contenedor-input">
             <asp:Label ID="lblReferen" runat="server" Text="Referencia"></asp:Label>
             <asp:TextBox class="req" ID="txtReferencia" runat="server"></asp:TextBox>
-        </div>       
-        <asp:Button class="btn btn-primary btn-user btn-block" ID="Button1" runat="server" Text="Crear Machote Documento" 
+        </div>
+        <asp:Button class="btn btn-primary btn-user btn-block" ID="Button1" runat="server" Text="Crear Machote Documento"
             BackColor="#CCB210" BorderColor="#CCB210" OnClick="Button1_Click" /><br />
         <hr class="sidebar-divider my-0">
-        <asp:Label ID="lblFileWord" runat="server" Text="">Cargar documento Word</asp:Label><br/>
-        <asp:FileUpload class="btn btn-primary btn-user btn-block" ID="FileSubirWord" runat="server" />       
-        <asp:Label ID="lblFilePdf" runat="server" Text="Cargar documento Pdf" ></asp:Label><br/>
-        <asp:FileUpload class="btn btn-primary btn-user btn-block" ID="FileSubirPdf" runat="server" 
-            BackColor="Red" BorderColor="Red" /><br/>
+        <asp:Label ID="lblFileWord" runat="server" Text="">Cargar documento Word</asp:Label><br />
+        <asp:RegularExpressionValidator
+            ID="RegularExpressionValidator1" runat="server"
+            ValidationExpression=".*(\.docx|\.DOCX)$"
+            ControlToValidate="FileSubirWord">El formato del Archivo no es Word</asp:RegularExpressionValidator>
+
+        <asp:FileUpload class="btn btn-primary btn-user btn-block" ID="FileSubirWord" runat="server" />
+        <asp:Label ID="lblFilePdf" runat="server" Text="Cargar documento Pdf"></asp:Label><br />
+        <asp:RegularExpressionValidator
+            ID="RegularExpressionValidator2" runat="server"
+            ValidationExpression=".*(\.pdf|\.PDF)$"
+            ControlToValidate="FileSubirPdf">El formato del Archivo no es PDF</asp:RegularExpressionValidator>
+
+        <asp:FileUpload class="btn btn-primary btn-user btn-block" ID="FileSubirPdf" runat="server"
+            BackColor="Red" BorderColor="Red" /><br />
         <hr class="sidebar-divider my-0">
         <asp:Button class="btn btn-primary btn-user btn-block" ID="BtnGuardar" runat="server" Text="Guardar"
-            BackColor="#CCB210" BorderColor="#CCB210" />
+            BackColor="#CCB210" BorderColor="#CCB210" OnClick="BtnGuardar_Click" />
 
         <%--     </div>--%>
     </div>

@@ -21,7 +21,7 @@ namespace SIGEDOC.Negocio
             objCliente = parObjclientes;
         }
 
-        public void AgregarCliente()
+        public void Agregar_Cliente()
         {
             try
             {
@@ -85,7 +85,7 @@ namespace SIGEDOC.Negocio
 
         // Actualizar cliente
 
-        public void ActualizarCliente()
+        public void Actualizar_Cliente()
         {
             try
             {
@@ -146,7 +146,7 @@ namespace SIGEDOC.Negocio
 
             }
         }
-        public DataTable ListarCliente()
+        public DataTable Listar_Cliente()
         {
             tblDatos = new DataTable();
             try

@@ -9,16 +9,24 @@ using System.Diagnostics;
 using System.IO;
 using System.Threading;
 using System.Web.Services;
+using SIGEDOC.Negocio;
+using System.Data;
 
 namespace SIGEDOC.Vistas
 {
     public partial class CrearDocumento : System.Web.UI.Page
     {
+        //private CrearDocumento cd;
+        SIGEDOC.Negocio.CrearDocumento cd = new SIGEDOC.Negocio.CrearDocumento();
+        private CrearDocHelper cdh;
+        private DataTable datos;
 
-      
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            for (int i = 2010; i <= 2050; i++)
+            {
+                dptPeriodo.Items.Add(new ListItem(i.ToString(), i.ToString()));
+            }
         }
         private void FindAndReplace(Microsoft.Office.Interop.Word.Application wordApp, object ToFindText, object replaceWithText)
         {
@@ -50,7 +58,7 @@ namespace SIGEDOC.Vistas
         }
 
         //Creeate the Doc Method
-       
+
         private void CreateWordDocument(object filename, object SaveAs)
         {
 
@@ -72,8 +80,8 @@ namespace SIGEDOC.Vistas
                 myWordDoc.Activate();
 
                 //find and replace
-                this.FindAndReplace(wordApp, "<asunto>",this.txtAsunto.Text);
-                this.FindAndReplace(wordApp, "<usuario>",this.txtUsuario.Text);
+                this.FindAndReplace(wordApp, "<asunto>", this.txtAsunto.Text);
+                this.FindAndReplace(wordApp, "<usuario>", this.txtUsuario.Text);
                 this.FindAndReplace(wordApp, "<referencia>", this.txtReferencia.Text);
                 this.FindAndReplace(wordApp, "<date>", DateTime.Today);
             }
@@ -95,41 +103,14 @@ namespace SIGEDOC.Vistas
             Process.Start(@"C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\documentos word\documento creado\PQS.docx");
 
         }
-        // hilo para hacer esperar un proceso 
-        public static void esperar(int segundos)
-        {
-            try
-            {
-               
-
-                Thread.Sleep(segundos * 1000);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-
-            }
-        }
-
-        private void abrirWord()
-        {
-            //Thread.Sleep(6000);
-        }
         protected void Button1_Click(object sender, EventArgs e)
         {
             try
             {
-          
-            //ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeEspera", "mensajeEspera('" + "" + "');", true);
-                Thread hilo1 = new Thread(new ThreadStart(abrirWord));
-                hilo1.Start();
-                hilo1.Join();
 
-                if (hilo1.IsAlive == false)
-                {
-                    CreateWordDocument(@"C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\documentos word\temp1.docx", @"C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\documentos word\documento creado\PQS.docx");
+                //ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeEspera", "mensajeEspera('" + "" + "');", true);
+                CreateWordDocument(@"C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\documentos word\temp1.docx", @"C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\documentos word\documento creado\PQS.docx");
 
-                }
             }
             catch (Exception ex)
             {
@@ -137,8 +118,44 @@ namespace SIGEDOC.Vistas
                 this.txtCenCos.Text = ex.Message;
             }
 
-            
+
         }
-      
+
+        protected void BtnGuardar_Click(object sender, EventArgs e)
+        {
+            if (IsValid)
+            {
+               
+                
+                if (!FileSubirWord.HasFile)
+                {
+
+                    this.txtCenCos.Text = "Debe cargar el documento word";
+
+                }
+                else
+                {
+                    this.txtCenCos.Text = "se guardo";
+
+                }
+            }
+        }
+
+        protected void dptProyecto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                this.cd.Id_proyecto = int.Parse(dptProyecto.SelectedValue);
+                this.cd.Opc = 1;
+                this.cdh = new CrearDocHelper(cd);
+                this.cdh.Numero_Consecutivo();
+            }
+            catch (Exception ex)
+            {
+                this.txtAsunto.Text = ex.Message;
+             
+            }
+          
+        }
     }
 }
