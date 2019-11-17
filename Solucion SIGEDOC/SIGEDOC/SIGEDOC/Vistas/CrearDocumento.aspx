@@ -61,15 +61,15 @@
         </div>        
         <div class="contenedor-input">
             <asp:Label ID="lblUsuario" runat="server" Text="Usuario"></asp:Label>
-            <asp:TextBox class="req" ID="txtUsuario" runat="server"></asp:TextBox>
+            <asp:TextBox class="req" ID="txtUsuario" runat="server" ReadOnly="True"></asp:TextBox>
         </div>
         <div class="contenedor-input">
-            <asp:Label ID="lblCenCos" runat="server" Text=" Centro de Costos"></asp:Label>
-            <asp:TextBox class="req" ID="txtCenCos" runat="server"></asp:TextBox>
+            <asp:Label ID="lblCenCos" runat="server" Text=" Centro de Costos" ></asp:Label>
+            <asp:TextBox class="req" ID="txtCenCos" runat="server" ReadOnly="True"></asp:TextBox>
         </div>
         <div class="contenedor-input">
             <asp:Label ID="lblReferen" runat="server" Text="Referencia"></asp:Label>
-            <asp:TextBox class="req" ID="txtReferencia" runat="server"></asp:TextBox>
+            <asp:TextBox class="req" ID="txtReferencia" runat="server" ReadOnly="True"></asp:TextBox>
         </div>
         <asp:Button class="btn btn-primary btn-user btn-block" ID="Button1" runat="server" Text="Crear Machote Documento"
             BackColor="#CCB210" BorderColor="#CCB210" OnClick="Button1_Click" /><br />

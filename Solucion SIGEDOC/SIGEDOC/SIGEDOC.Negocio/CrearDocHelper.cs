@@ -41,16 +41,6 @@ namespace SIGEDOC.Negocio
                 parParameter[1].SqlDbType = SqlDbType.Int;
                 parParameter[1].SqlValue = objdocCreado.Id_proyecto;
 
-                //parParameter[2] = new SqlParameter();
-                //parParameter[2].ParameterName = "@numconsecutivo";
-                //parParameter[2].SqlDbType = SqlDbType.Int;
-                //parParameter[2].SqlValue = objdocCreado.Num_consecutivo;
-
-                //parParameter[3] = new SqlParameter();
-                //parParameter[3].ParameterName = "@totaldoc";
-                //parParameter[3].SqlDbType = SqlDbType.Int;
-                //parParameter[3].SqlValue = objdocCreado.Total_doc_creado;
-
                 tbldatos = cnGneral.RetornaTabla(parParameter, "SPNum_Doc");
             }
             catch (Exception ex)

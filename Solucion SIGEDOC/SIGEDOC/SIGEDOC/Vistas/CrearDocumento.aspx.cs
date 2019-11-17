@@ -19,8 +19,10 @@ namespace SIGEDOC.Vistas
         SIGEDOC.Negocio.CrearDocumento cd = new SIGEDOC.Negocio.CrearDocumento();
         private CrearDocHelper cdh;
         private DataTable datos;
-        private int NumConsecutivo;
 
+        public static int numcosecu;
+        public static int numtotaldocu;
+        private static int id_cliente;
         protected void Page_Load(object sender, EventArgs e)
         {
             for (int i = 2010; i <= 2050; i++)
@@ -143,21 +145,21 @@ namespace SIGEDOC.Vistas
                     else
                     {
                         this.cd.Opc = 1;
-                        this.cd.Total_doc_creado = 10; ///////probar con el otro select
+                        this.cd.Total_doc_creado = numtotaldocu; 
                         this.cd.Nom_doc_creado = this.txtNombreDoc.Text;
                         this.cd.Asunto_doc_creado = this.txtAsunto.Text;
                         this.cd.Detalle_doc_creado = this.txtDescripcion.Text;
                         this.cd.Id_proyecto = int.Parse(this.dptProyecto.SelectedValue);
                         this.cd.Periodo = this.dptPeriodo.SelectedValue;
                         this.cd.Estado_doc_creado = this.lblEstado.Text;
-                        this.cd.Num_consecutivo = /*this.NumConsecutivo*/1;
+                        this.cd.Num_consecutivo = numcosecu;
                         this.cd.Word_doc_creado = this.FileSubirWord.FileBytes;
                         this.cd.Pdf_doc_creado = this.FileSubirPdf.FileBytes;
-                        this.cd.Estado_doc_creado = "En en Proceso";
+                        this.cd.Estado_doc_creado = "En Proceso";
                         this.cd.Fecha_doc_subido = DateTime.Today.ToString();
-                        this.cd.Id_cliente = 2;
+                        this.cd.Id_cliente = id_cliente;
                         this.cd.Id_usuario = 121212;
-                        this.cd.Num_referencia_creado = "2019-10-1-10";
+                        this.cd.Num_referencia_creado = this.txtReferencia.Text;
                         this.cd.Habilitado = 1;
                         this.cdh = new CrearDocHelper(cd);
                         this.cdh.Ingresar_DocCreado();
@@ -175,7 +177,7 @@ namespace SIGEDOC.Vistas
         }
         protected void dptProyecto_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         protected void BtnPrueba_Click(object sender, EventArgs e)
@@ -188,32 +190,24 @@ namespace SIGEDOC.Vistas
                 this.datos = new DataTable();
                 this.datos = this.cdh.Numero_Consecutivo();
 
-                //this.txtReferencia.Text = this.dptPeriodo.SelectedValue.ToString() + "-" + this.dptProyecto.SelectedValue.ToString() + "-" +
-                //this.cd.Num_consecutivo.ToString() + "-" + this.cd.Total_doc_creado.ToString();
                 if (datos.Rows.Count >= 0)
                 {
                     DataRow fila = datos.Rows[0];
+                    id_cliente = int.Parse(fila["idCliente"].ToString());
+                    numcosecu = int.Parse(fila["numConsecu"].ToString()) + 1;
+                    numtotaldocu = int.Parse(fila["numtotaldocu"].ToString()) + 1;
                     this.txtReferencia.Text = this.dptPeriodo.SelectedValue + "-" + this.dptProyecto.SelectedValue + "-" +
-                                            /* fila["numConsecu"].ToString() +*/ "-" + fila["numtotaldocu"].ToString();                                       
-
+                     numcosecu + "-" + numtotaldocu;
                 }
-                this.dptProyecto.SelectedValue = this.txtCenCos.Text;
+                this.txtCenCos.Text = this.dptProyecto.SelectedValue.ToString();
             }
+                
             catch (Exception ex)
             {
 
                 this.txtDescripcion.Text = ex.Message;
             }
-           
 
-            //if (datos.Rows.Count >= 0)
-            //{
-            //    DataRow fila = datos.Rows[0];
-            //    this.txtReferencia.Text = this.dptPeriodo.SelectedValue + "-" + this.dptProyecto.SelectedValue + "-" +
-            //                             fila["numConsecu"].ToString() + "-" + fila["numtotaldocu"].ToString();
-            //    this.dptProyecto.SelectedValue = this.txtCenCos.Text;
-            //    this.txtCenCos.Text = fila["numConsecu"].ToString();
-            //}
 
         }
     }
