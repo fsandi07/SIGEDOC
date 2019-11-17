@@ -20,9 +20,12 @@ namespace SIGEDOC.Negocio
         private int num_consecutivo;
         private byte[] word_doc_creado;
         private byte[] pdf_doc_creado;
-        private int estado_doc_creado;
+        private string estado_doc_creado;
         private string fecha_doc_subido;
         private int id_cliente;
+        private string periodo;
+        private string num_referencia_creado;
+        private int habilitado;
 
        
         public int Opc { get => opc; set => opc = value; }
@@ -35,13 +38,17 @@ namespace SIGEDOC.Negocio
         public int Num_consecutivo { get => num_consecutivo; set => num_consecutivo = value; }
         public byte[] Word_doc_creado { get => word_doc_creado; set => word_doc_creado = value; }
         public byte[] Pdf_doc_creado { get => pdf_doc_creado; set => pdf_doc_creado = value; }
-        public int Estado_doc_creado { get => estado_doc_creado; set => estado_doc_creado = value; }
+        public string Estado_doc_creado { get => estado_doc_creado; set => estado_doc_creado = value; }
         public string Fecha_doc_subido { get => fecha_doc_subido; set => fecha_doc_subido = value; }
         public int Id_cliente { get => id_cliente; set => id_cliente = value; }
+        public string Periodo { get => periodo; set => periodo = value; }
+        public string Num_referencia_creado { get => num_referencia_creado; set => num_referencia_creado = value; }
+        public int Habilitado { get => habilitado; set => habilitado = value; }
 
         public CrearDocumento(int opc, int total_doc_creado, string nom_doc_creado, string asunto_doc_creado,
           string detalle_doc_creado, int id_usuario, int id_proyecto, int num_consecutivo, byte[] word_doc_creado,
-          byte[] pdf_doc_creado, int estado_doc_creado, string fecha_doc_subido, int id_cliente)
+          byte[] pdf_doc_creado, string estado_doc_creado, string fecha_doc_subido, int id_cliente, string periodo, 
+          string num_referencia_creado,int habilitado)
         {
             this.opc = opc;
             this.total_doc_creado = total_doc_creado;
@@ -56,6 +63,10 @@ namespace SIGEDOC.Negocio
             this.estado_doc_creado = estado_doc_creado;
             this.fecha_doc_subido = fecha_doc_subido;
             this.id_cliente = id_cliente;
+            this.periodo = periodo;
+            this.num_referencia_creado = num_referencia_creado;
+            this.habilitado = habilitado;
+
         }
 
         public CrearDocumento()
@@ -70,9 +81,13 @@ namespace SIGEDOC.Negocio
             this.num_consecutivo = 0;
             this.word_doc_creado = null;
             this.pdf_doc_creado = null;
-            this.estado_doc_creado = 0;
+            this.estado_doc_creado = "";
             this.fecha_doc_subido = "";
             this.id_cliente = 0;
+            this.periodo = "";
+            this.num_referencia_creado = "";
+            this.habilitado = 0;
+
         }
     }
 }

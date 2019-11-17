@@ -19,6 +19,7 @@ namespace SIGEDOC.Vistas
         SIGEDOC.Negocio.CrearDocumento cd = new SIGEDOC.Negocio.CrearDocumento();
         private CrearDocHelper cdh;
         private DataTable datos;
+        private int NumConsecutivo;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -26,6 +27,16 @@ namespace SIGEDOC.Vistas
             {
                 dptPeriodo.Items.Add(new ListItem(i.ToString(), i.ToString()));
             }
+        }
+        public void Limpiar()
+        {
+
+            this.txtNombreDoc.Text = null;
+            this.txtAsunto.Text = null;
+            this.txtDescripcion.Text = null;
+            this.txtCenCos.Text = null;
+            this.txtReferencia.Text = null;
+
         }
         private void FindAndReplace(Microsoft.Office.Interop.Word.Application wordApp, object ToFindText, object replaceWithText)
         {
@@ -55,9 +66,7 @@ namespace SIGEDOC.Vistas
                 ref matchDiactitics, ref matchAlefHamza,
                 ref matchControl);
         }
-
         //Creeate the Doc Method
-
         private void CreateWordDocument(object filename, object SaveAs)
         {
 
@@ -119,51 +128,69 @@ namespace SIGEDOC.Vistas
 
 
         }
-
         protected void BtnGuardar_Click(object sender, EventArgs e)
         {
-            if (IsValid)
-            {
-               
-                
-                if (!FileSubirWord.HasFile)
-                {
 
-                    this.txtCenCos.Text = "Debe cargar el documento word";
-
-                }
-                else
-                {
-                    this.txtCenCos.Text = "se guardo";
-
-                }
-            }
-        }
-
-        protected void dptProyecto_SelectedIndexChanged(object sender, EventArgs e)
-        {
             try
             {
-                this.cd.Id_proyecto = int.Parse(dptProyecto.SelectedValue.ToString());
-                this.cd.Opc = 1;
-                this.cdh = new CrearDocHelper(cd);
-                this.datos = new DataTable();
-                this.datos = this.cdh.Numero_Consecutivo();
-
-                if (datos.Rows.Count >= 0)
+                if (IsValid)
                 {
-                    DataRow fila = datos.Rows[0];
-                    this.txtReferencia.Text = fila["idProyecto"].ToString() + "-" + fila["[Sub total]"].ToString(); 
+                    if (!FileSubirWord.HasFile)
+                    {
+
+                        ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeDeValidacionDoc", "mensajeDeValidacionDoc('" + "" + "');", true);
+                    }
+                    else
+                    {
+                        this.cd.Opc = 1;
+                        this.cd.Total_doc_creado = 10; ///////probar con el otro select
+                        this.cd.Nom_doc_creado = this.txtNombreDoc.Text;
+                        this.cd.Asunto_doc_creado = this.txtAsunto.Text;
+                        this.cd.Detalle_doc_creado = this.txtDescripcion.Text;
+                        this.cd.Id_proyecto = int.Parse(this.dptProyecto.SelectedValue);
+
+                        this.cd.Periodo = this.dptPeriodo.SelectedValue;
+                        this.cd.Estado_doc_creado = this.lblEstado.Text;
+                        this.cd.Num_consecutivo = /*this.NumConsecutivo*/1;
+                        this.cd.Word_doc_creado = this.FileSubirWord.FileBytes;
+                        this.cd.Pdf_doc_creado = this.FileSubirPdf.FileBytes;
+                        this.cd.Estado_doc_creado = "En en Proceso";
+                        this.cd.Fecha_doc_subido = DateTime.Today.ToString();
+                        this.cd.Id_cliente = 2;
+                        this.cd.Id_usuario = 121212;
+                        this.cd.Num_referencia_creado = "2019-10-1-10";
+                        this.cd.Habilitado = 1;
+                        this.cdh = new CrearDocHelper(cd);
+                        this.cdh.IngresarDocCreado();
+                        ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeDeconfirmacion", "mensajeDeconfirmacion('" + "" + "');", true);
+                        Limpiar();
+                    }
                 }
-
-
             }
             catch (Exception ex)
             {
-                this.txtAsunto.Text = ex.Message;
-             
+
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeDeconfirmacion", "mensajeDeconfirmacion('" + ex + "');", true);
+                // aqui podemos dispar un insert a bitacora con el error y la fecha y el usuario
             }
-          
         }
-    }
+        protected void dptProyecto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.cd.Id_proyecto = int.Parse(dptProyecto.SelectedValue.ToString());
+            this.cd.Opc = 1;
+            this.cdh = new CrearDocHelper(cd);
+            this.datos = new DataTable();
+            this.datos = this.cdh.Numero_Consecutivo();
+
+            if (datos.Rows.Count >= 0)
+            {
+                DataRow fila = datos.Rows[0];
+                this.dptProyecto.SelectedValue = this.txtCenCos.Text;
+                this.NumConsecutivo = int.Parse(fila["[Sub total]"].ToString());
+                this.txtReferencia.Text = this.dptPeriodo.SelectedValue + "-" + this.dptProyecto.SelectedValue + "-" +
+                                         fila["[Sub total]"].ToString() + "-" + fila["Total Doc"].ToString();
+            }
+        }
+
+            }
 }

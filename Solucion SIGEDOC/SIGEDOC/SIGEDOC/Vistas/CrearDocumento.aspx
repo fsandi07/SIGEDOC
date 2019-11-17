@@ -30,8 +30,8 @@
         <br />
         <br />
         <div class="contenedor-input">
-            <asp:Label ID="Label2" runat="server" Text="Estado del Documento:"></asp:Label>&nbsp
-            <asp:Label ID="Label1" runat="server" Text="En Proceso" BackColor="#FFFF66" ForeColor="Black" BorderStyle="Groove"></asp:Label>
+            <asp:Label ID="lblEstadoTitle" runat="server" Text="Estado del Documento:"></asp:Label>&nbsp
+            <asp:Label ID="lblEstado" runat="server" Text="En Proceso" BackColor="#FFFF66" ForeColor="Black" BorderStyle="Groove"></asp:Label>
         </div>
         <!-- Contenido de los Formularios -->
         <%--  <div class="contenido-tab">--%>
@@ -46,19 +46,19 @@
 
         <div class="contenedor-input">
             <asp:Label ID="lblDescrip" runat="server" Text="Descripcion"></asp:Label><br />
-            <asp:TextBox class="form-control form-control-user" runat="server" TextMode="MultiLine" Rows="5" MaxLength="0" Columns="62" BorderColor="#CCB210" CssClass="alert-dark" Width="772px"></asp:TextBox>
+            <asp:TextBox class="form-control form-control-user" runat="server" TextMode="MultiLine" Rows="5" MaxLength="0" Columns="62" BorderColor="#CCB210" CssClass="alert-dark" Width="772px" ID="txtDescripcion"></asp:TextBox>
+        </div>
+        <div class="contenedor-input">
+         <asp:Label ID="lblPeriodo" runat="server" Text="Periodo"></asp:Label><br />        
+        <asp:DropDownList ID="dptPeriodo" runat="server"  CssClass="alert-dark" Height="28px" Width="771px"></asp:DropDownList>
         </div>
         <div class="contenedor-input">
             <asp:Label ID="lblProyec" runat="server" Text="Asociar Proyecto"></asp:Label><br />
-            <asp:DropDownList ID="dptProyecto" runat="server" CssClass="alert-dark" DataSourceID="SqlDataProyecto" DataTextField="NombreProy" DataValueField="centroCostos" Height="35px" Width="775px" OnSelectedIndexChanged="dptProyecto_SelectedIndexChanged"></asp:DropDownList>
-            <asp:SqlDataSource ID="SqlDataProyecto" runat="server" ConnectionString="<%$ ConnectionStrings:sigedocConnectionString %>" SelectCommand="SELECT [centroCostos], [NombreProy] FROM [TbProyecto]"></asp:SqlDataSource>
-        </div>
-         <asp:Label ID="lblPeriodo" runat="server" Text="Periodo"></asp:Label><br />
-        <div class="contenedor-input">
-        <asp:DropDownList ID="dptPeriodo" runat="server"  CssClass="alert-dark" Height="28px" Width="771px"></asp:DropDownList>
-
-        </div>
-
+            <asp:DropDownList ID="dptProyecto" runat="server" CssClass="alert-dark" DataSourceID="SqlDataSource2" DataTextField="NombreProy" DataValueField="centroCostos" Height="35px" Width="775px" OnSelectedIndexChanged="dptProyecto_SelectedIndexChanged">
+                <asp:ListItem Selected="True">Lista de Proyectos</asp:ListItem>
+            </asp:DropDownList>
+            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:sigedocConnectionString %>" SelectCommand="SELECT [centroCostos], [NombreProy] FROM [TbProyecto]"></asp:SqlDataSource>
+        </div>        
         <div class="contenedor-input">
             <asp:Label ID="lblUsuario" runat="server" Text="Usuario"></asp:Label>
             <asp:TextBox class="req" ID="txtUsuario" runat="server"></asp:TextBox>
@@ -130,8 +130,45 @@
 
             document.getElementById('<%=Button1.ClientID%>').click()
             // window.setTimeout('location.href=""', 5000)
+        }
+
+        // mensaje de error
+        function mensajeError() {
+            swal.fire({
+                title: '¡Error!',
+                text: "¡" + "No se Pudo Realizar el registro del Documento" + "!",
+                type: 'error',
+                showConfirmButton: false,
+                allowOutsideClick: false,
+                timer: 4000,
+
+            })
+        }
+
+        //mensaje de conrfimacion
+        function mensajeDeconfirmacion() {
+            swal.fire({
+                title: "¡EXITO!",
+                text: "¡" + "Los Datos se Guardaron Con Exito" + "!",
+                type: 'success',
+                allowOutsideClick: false,
+            })
 
         }
+
+        //mensaje de validacion del word
+        function mensajeDeValidacionDoc() {
+            swal.fire({
+                title: '¡Atencion!',
+                text: "¡" + "Debe cargar el documento word" + "!",
+                type: 'error',
+                showConfirmButton: false,
+                allowOutsideClick: false,
+                timer: 3000,
+
+            })
+        }
+        
 
     </script>
 

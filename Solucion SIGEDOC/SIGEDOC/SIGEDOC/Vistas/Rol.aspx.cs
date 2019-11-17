@@ -13,5 +13,20 @@ namespace SIGEDOC.Vistas
         {
 
         }
+
+        protected void BtnGuardar_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < cbPermisos.Items.Count; i++)
+            {
+                if (cbPermisos.Items[i].Selected == true)
+                {
+                    //Alguna accion al encontrar un check seleccionado
+                    string valor = cbPermisos.Items[i].Value.ToString();
+                    string Nombre = cbPermisos.Items[i].Text;
+                    this.txtDetalleRol.Text = valor;
+                    this.txtNombreRol.Text = Nombre;
+                }
+            }
+        }
     }
 }
