@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/estilos.css">
 
     <link rel="stylesheet" href="./dist/style.css">
-    <%-- links Para las Alertas  --%>
+    <%--     </div>--%>
     <script type="text/javascript" src="jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="sweetalert/sweetalert2.min.css">
     <script type="text/javascript" src="sweetalert/sweetalert2.min.js"></script>
@@ -54,10 +54,9 @@
         </div>
         <div class="contenedor-input">
             <asp:Label ID="lblProyec" runat="server" Text="Asociar Proyecto"></asp:Label><br />
-            <asp:DropDownList ID="dptProyecto" runat="server" CssClass="alert-dark" DataSourceID="SqlDataSource2" DataTextField="NombreProy" DataValueField="centroCostos" Height="35px" Width="775px" OnSelectedIndexChanged="dptProyecto_SelectedIndexChanged" AutoPostBack="True">
-                <asp:ListItem Selected="True">Lista de Proyectos</asp:ListItem>
+            <asp:DropDownList ID="dptProyecto" runat="server" CssClass="alert-dark" DataSourceID="SqlDataProyecto" DataTextField="NombreProy" DataValueField="centroCostos" Height="35px" Width="775px" AutoPostBack="True" OnSelectedIndexChanged="dptProyecto_SelectedIndexChanged">
             </asp:DropDownList>
-            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:sigedocConnectionString %>" SelectCommand="SELECT [centroCostos], [NombreProy] FROM [TbProyecto]"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataProyecto" runat="server" ConnectionString="<%$ ConnectionStrings:sigedocConnectionString %>" SelectCommand="SELECT [NombreProy], [centroCostos] FROM [TbProyecto]"></asp:SqlDataSource>
         </div>        
         <div class="contenedor-input">
             <asp:Label ID="lblUsuario" runat="server" Text="Usuario"></asp:Label>
@@ -130,7 +129,7 @@
 
             })
 
-            document.getElementById('<%=Button1.ClientID%>').click()
+      
             // window.setTimeout('location.href=""', 5000)
         }
 

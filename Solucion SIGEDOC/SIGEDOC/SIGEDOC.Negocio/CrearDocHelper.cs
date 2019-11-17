@@ -41,7 +41,7 @@ namespace SIGEDOC.Negocio
                 parParameter[1].SqlDbType = SqlDbType.Int;
                 parParameter[1].SqlValue = objdocCreado.Id_proyecto;
 
-                tbldatos = cnGneral.RetornaTabla(parParameter, "SPNum_Doc");
+                tbldatos = cnGneral.RetornaTabla(parParameter,"SPNum_Doc");
             }
             catch (Exception ex)
             {
