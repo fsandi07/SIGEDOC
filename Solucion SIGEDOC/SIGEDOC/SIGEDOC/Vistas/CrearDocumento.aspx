@@ -92,6 +92,8 @@
         <hr class="sidebar-divider my-0">
         <asp:Button class="btn btn-primary btn-user btn-block" ID="BtnGuardar" runat="server" Text="Guardar"
             BackColor="#CCB210" BorderColor="#CCB210" OnClick="BtnGuardar_Click" />
+        <asp:Button class="btn btn-primary btn-user btn-block" ID="BtnPrueba" runat="server" Text="Prueba"
+            BackColor="#CCB210" BorderColor="#CCB210" OnClick="BtnPrueba_Click"  />
 
         <%--     </div>--%>
     </div>

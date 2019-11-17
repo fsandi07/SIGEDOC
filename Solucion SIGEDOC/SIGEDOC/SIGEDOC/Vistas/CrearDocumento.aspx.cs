@@ -148,7 +148,6 @@ namespace SIGEDOC.Vistas
                         this.cd.Asunto_doc_creado = this.txtAsunto.Text;
                         this.cd.Detalle_doc_creado = this.txtDescripcion.Text;
                         this.cd.Id_proyecto = int.Parse(this.dptProyecto.SelectedValue);
-
                         this.cd.Periodo = this.dptPeriodo.SelectedValue;
                         this.cd.Estado_doc_creado = this.lblEstado.Text;
                         this.cd.Num_consecutivo = /*this.NumConsecutivo*/1;
@@ -161,7 +160,7 @@ namespace SIGEDOC.Vistas
                         this.cd.Num_referencia_creado = "2019-10-1-10";
                         this.cd.Habilitado = 1;
                         this.cdh = new CrearDocHelper(cd);
-                        this.cdh.IngresarDocCreado();
+                        this.cdh.Ingresar_DocCreado();
                         ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeDeconfirmacion", "mensajeDeconfirmacion('" + "" + "');", true);
                         Limpiar();
                     }
@@ -176,21 +175,46 @@ namespace SIGEDOC.Vistas
         }
         protected void dptProyecto_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.cd.Id_proyecto = int.Parse(dptProyecto.SelectedValue.ToString());
-            this.cd.Opc = 1;
-            this.cdh = new CrearDocHelper(cd);
-            this.datos = new DataTable();
-            this.datos = this.cdh.Numero_Consecutivo();
-
-            if (datos.Rows.Count >= 0)
-            {
-                DataRow fila = datos.Rows[0];
-                this.dptProyecto.SelectedValue = this.txtCenCos.Text;
-                this.NumConsecutivo = int.Parse(fila["[Sub total]"].ToString());
-                this.txtReferencia.Text = this.dptPeriodo.SelectedValue + "-" + this.dptProyecto.SelectedValue + "-" +
-                                         fila["[Sub total]"].ToString() + "-" + fila["Total Doc"].ToString();
-            }
+           
         }
 
+        protected void BtnPrueba_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.cd.Id_proyecto = int.Parse(this.dptProyecto.SelectedValue.ToString());
+                this.cd.Opc = 1;
+                this.cdh = new CrearDocHelper(cd);
+                this.datos = new DataTable();
+                this.datos = this.cdh.Numero_Consecutivo();
+
+                //this.txtReferencia.Text = this.dptPeriodo.SelectedValue.ToString() + "-" + this.dptProyecto.SelectedValue.ToString() + "-" +
+                //this.cd.Num_consecutivo.ToString() + "-" + this.cd.Total_doc_creado.ToString();
+                if (datos.Rows.Count >= 0)
+                {
+                    DataRow fila = datos.Rows[0];
+                    this.txtReferencia.Text = this.dptPeriodo.SelectedValue + "-" + this.dptProyecto.SelectedValue + "-" +
+                                            /* fila["numConsecu"].ToString() +*/ "-" + fila["numtotaldocu"].ToString();                                       
+
+                }
+                this.dptProyecto.SelectedValue = this.txtCenCos.Text;
             }
+            catch (Exception ex)
+            {
+
+                this.txtDescripcion.Text = ex.Message;
+            }
+           
+
+            //if (datos.Rows.Count >= 0)
+            //{
+            //    DataRow fila = datos.Rows[0];
+            //    this.txtReferencia.Text = this.dptPeriodo.SelectedValue + "-" + this.dptProyecto.SelectedValue + "-" +
+            //                             fila["numConsecu"].ToString() + "-" + fila["numtotaldocu"].ToString();
+            //    this.dptProyecto.SelectedValue = this.txtCenCos.Text;
+            //    this.txtCenCos.Text = fila["numConsecu"].ToString();
+            //}
+
+        }
+    }
 }
