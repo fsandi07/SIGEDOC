@@ -54,7 +54,7 @@
         </div>
         <div class="contenedor-input">
             <asp:Label ID="lblProyec" runat="server" Text="Asociar Proyecto"></asp:Label><br />
-            <asp:DropDownList ID="dptProyecto" runat="server" CssClass="alert-dark" DataSourceID="SqlDataSource2" DataTextField="NombreProy" DataValueField="centroCostos" Height="35px" Width="775px" OnSelectedIndexChanged="dptProyecto_SelectedIndexChanged">
+            <asp:DropDownList ID="dptProyecto" runat="server" CssClass="alert-dark" DataSourceID="SqlDataSource2" DataTextField="NombreProy" DataValueField="centroCostos" Height="35px" Width="775px" OnSelectedIndexChanged="dptProyecto_SelectedIndexChanged" AutoPostBack="True">
                 <asp:ListItem Selected="True">Lista de Proyectos</asp:ListItem>
             </asp:DropDownList>
             <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:sigedocConnectionString %>" SelectCommand="SELECT [centroCostos], [NombreProy] FROM [TbProyecto]"></asp:SqlDataSource>

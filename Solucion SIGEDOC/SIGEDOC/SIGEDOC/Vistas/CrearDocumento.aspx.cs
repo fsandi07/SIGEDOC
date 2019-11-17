@@ -177,11 +177,6 @@ namespace SIGEDOC.Vistas
         }
         protected void dptProyecto_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-        }
-
-        protected void BtnPrueba_Click(object sender, EventArgs e)
-        {
             try
             {
                 this.cd.Id_proyecto = int.Parse(this.dptProyecto.SelectedValue.ToString());
@@ -193,22 +188,67 @@ namespace SIGEDOC.Vistas
                 if (datos.Rows.Count >= 0)
                 {
                     DataRow fila = datos.Rows[0];
-                    id_cliente = int.Parse(fila["idCliente"].ToString());
-                    numcosecu = int.Parse(fila["numConsecu"].ToString()) + 1;
-                    numtotaldocu = int.Parse(fila["numtotaldocu"].ToString()) + 1;
-                    this.txtReferencia.Text = this.dptPeriodo.SelectedValue + "-" + this.dptProyecto.SelectedValue + "-" +
-                     numcosecu + "-" + numtotaldocu;
+
+                    if (fila["idProyecto"].ToString()!="")
+                    {
+                        id_cliente = int.Parse(fila["idCliente"].ToString());
+                        numcosecu = int.Parse(fila["numConsecu"].ToString()) + 1;
+                        numtotaldocu = int.Parse(fila["numtotaldocu"].ToString()) + 1;
+                        this.txtReferencia.Text = this.dptPeriodo.SelectedValue + "-" + this.dptProyecto.SelectedValue + "-" +
+                         numcosecu + "-" + numtotaldocu;
+
+                    }
+                     else
+                    {
+
+                        id_cliente = int.Parse(fila["idCliente"].ToString());
+                        numtotaldocu = int.Parse(fila["numtotaldocu"].ToString()) + 1;
+                        this.txtReferencia.Text = this.dptPeriodo.SelectedValue + "-" + this.dptProyecto.SelectedValue + "-" +
+                         1 + "-" + numtotaldocu;
+                    }
+
                 }
                 this.txtCenCos.Text = this.dptProyecto.SelectedValue.ToString();
             }
-                
+
             catch (Exception ex)
             {
 
                 this.txtDescripcion.Text = ex.Message;
             }
+        }
 
+        protected void BtnPrueba_Click(object sender, EventArgs e)
+        {
+            //try
+            //{
+            //    this.cd.Id_proyecto = int.Parse(this.dptProyecto.SelectedValue.ToString());
+            //    this.cd.Opc = 1;
+            //    this.cdh = new CrearDocHelper(cd);
+            //    this.datos = new DataTable();
+            //    this.datos = this.cdh.Numero_Consecutivo();
 
+            //    if (datos.Rows.Count >= 0)
+            //    {
+            //        DataRow fila = datos.Rows[0];
+
+            //        id_cliente = int.Parse(fila["idCliente"].ToString());
+            //        numcosecu = int.Parse(fila["numConsecu"].ToString()) + 1;
+            //        numtotaldocu = int.Parse(fila["numtotaldocu"].ToString()) + 1;
+
+            //        this.txtReferencia.Text = this.dptPeriodo.SelectedValue + "-" + this.dptProyecto.SelectedValue + "-" +
+            //         numcosecu + "-" + numtotaldocu;
+                    
+
+            //    }
+            //    this.txtCenCos.Text = this.dptProyecto.SelectedValue.ToString();
+            //}
+
+            //catch (Exception ex)
+            //{
+
+            //    this.txtDescripcion.Text = ex.Message;
+            //}
         }
     }
 }
