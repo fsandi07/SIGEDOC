@@ -176,25 +176,32 @@ namespace SIGEDOC.Vistas
                 this.cd.Opc = 1;
                 this.cdh = new CrearDocHelper(cd);
                 this.datos = new DataTable();
-                this.datos = this.cdh.Numero_Consecutivo();
+               
+                this.datos = this.cdh.Numero_Consecutivo();              
 
                 if (datos.Rows.Count > 0)
                 {
                     DataRow fila = datos.Rows[0];
-
-                    numtotaldocu = int.Parse(fila["numtotaldocu"].ToString() );
-                    numcosecu = int.Parse(fila["numConsecu"].ToString() + 1);
-                    this.txtReferencia.Text = this.dptPeriodo.SelectedValue + "-" + this.dptProyecto.SelectedValue + "-" +
-                         numcosecu + "-" + (numtotaldocu+1);
-
+                        Num_Total_Documento();
+                        numcosecu = int.Parse(fila["numConsecu"].ToString());
+                    if (numcosecu == 0)
+                    {
+                        numcosecu = 1;
+                        this.txtReferencia.Text = this.dptPeriodo.SelectedValue + "-" + this.dptProyecto.SelectedValue + "-" +
+                            numcosecu + "-" + numtotaldocu;
+                    }
+                    else {
+                        this.txtReferencia.Text = this.dptPeriodo.SelectedValue + "-" + this.dptProyecto.SelectedValue + "-" +
+                            (numcosecu + 1) + "-" + numtotaldocu;
+                    }                                       
                 }
                 else
                 {
                     numcosecu = 1;
+                    numtotaldocu = 1;
                     this.txtReferencia.Text = this.dptPeriodo.SelectedValue + "-" + this.dptProyecto.SelectedValue + "-" +
-                    numcosecu + "-" + 1;
+                    numcosecu + "-" + numtotaldocu;
                 }
-
                 this.txtCenCos.Text = this.dptProyecto.SelectedValue.ToString();
             }
             catch (Exception ex)
@@ -203,6 +210,7 @@ namespace SIGEDOC.Vistas
 
             }
         }
+     
 
         private void Num_IdCliente()
         {
@@ -227,6 +235,27 @@ namespace SIGEDOC.Vistas
             }
         }
 
+        private void Num_Total_Documento()
+        {
+            try
+            {
+                this.cd.Opc = 1;
+                this.cdh = new CrearDocHelper(cd);
+                this.datos = new DataTable();
+                this.datos = this.cdh.Numero_total_Doc();
+
+                if (datos.Rows.Count > 0)
+                {
+                    DataRow fila = datos.Rows[0];
+                    numtotaldocu = int.Parse(fila["numtotaldocu"].ToString());
+                }
+            }
+
+            catch (Exception ex)
+            {
+                this.txtDescripcion.Text = ex.Message;
+            }
+        }
 
 
         protected void dptProyecto_SelectedIndexChanged(object sender, EventArgs e)

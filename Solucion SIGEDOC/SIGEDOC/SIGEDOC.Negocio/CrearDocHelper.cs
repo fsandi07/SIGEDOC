@@ -50,6 +50,33 @@ namespace SIGEDOC.Negocio
 
             return tbldatos;
         }
+
+        public DataTable Numero_total_Doc()
+        {
+            tbldatos = new DataTable();
+            try
+            {
+                cnGneral = new Datos();
+
+                SqlParameter[] parParameter = new SqlParameter[1];
+
+                parParameter[0] = new SqlParameter();
+                parParameter[0].ParameterName = "@opcion";
+                parParameter[0].SqlDbType = SqlDbType.Int;
+                parParameter[0].SqlValue = objdocCreado.Opc;                
+
+                tbldatos = cnGneral.RetornaTabla(parParameter, "SPtotal_Doc1");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+            return tbldatos;
+        }
+
+
+
         public void Ingresar_DocCreado()
         {
             try

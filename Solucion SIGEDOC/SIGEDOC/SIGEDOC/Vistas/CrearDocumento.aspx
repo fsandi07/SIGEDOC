@@ -50,7 +50,7 @@
         </div>
         <div class="contenedor-input">
          <asp:Label ID="lblPeriodo" runat="server" Text="Periodo"></asp:Label><br />        
-        <asp:DropDownList ID="dptPeriodo" runat="server"  CssClass="alert-dark" Height="28px" Width="771px"></asp:DropDownList>
+        <asp:DropDownList ID="dptPeriodo" runat="server"  CssClass="alert-dark" Height="28px" Width="771px" AutoPostBack="True"></asp:DropDownList>
         </div>
         <div class="contenedor-input">
             <asp:Label ID="lblProyec" runat="server" Text="Asociar Proyecto"></asp:Label><br />
@@ -68,7 +68,7 @@
         </div>
         <div class="contenedor-input">
             <asp:Label ID="lblReferen" runat="server" Text="Referencia"></asp:Label>
-            <asp:TextBox class="req" ID="txtReferencia" runat="server" ReadOnly="True"></asp:TextBox>
+            <asp:TextBox class="req" ID="txtReferencia" runat="server" ReadOnly="True" AutoPostBack="True"></asp:TextBox>
         </div>
         <asp:Button class="btn btn-primary btn-user btn-block" ID="Button1" runat="server" Text="Crear Machote Documento"
             BackColor="#CCB210" BorderColor="#CCB210" OnClick="Button1_Click" /><br />
