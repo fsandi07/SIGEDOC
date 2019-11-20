@@ -21,6 +21,7 @@ namespace SIGEDOC.Negocio
         {
             objPermisos = parObjPermisos;
         }
+
         public DataTable Numero_Rol()
         {
             tbldatos = new DataTable();
@@ -50,7 +51,7 @@ namespace SIGEDOC.Negocio
             try
             {
                 cnGneral = new Datos();
-                SqlParameter[] parParameter = new SqlParameter[16];
+                SqlParameter[] parParameter = new SqlParameter[24];
 
                 parParameter[0] = new SqlParameter();
                 parParameter[0].ParameterName = "@opcion1";
@@ -174,6 +175,16 @@ namespace SIGEDOC.Negocio
                 parParameter[21].SqlDbType = SqlDbType.Int;
                 parParameter[21].SqlValue = objPermisos.Opcreportes_de_proyectos;
 
+                parParameter[22] = new SqlParameter();
+                parParameter[22].ParameterName = "@id_rol";
+                parParameter[22].SqlDbType = SqlDbType.Int;
+                parParameter[22].SqlValue = objPermisos.Id_rol;
+
+                parParameter[23] = new SqlParameter();
+                parParameter[23].ParameterName = "@opcconsultar_documento";
+                parParameter[23].SqlDbType = SqlDbType.Int;
+                parParameter[23].SqlValue = objPermisos.Opcconsultar_documento;
+
                 cnGneral.EjecutarSP(parParameter, "SPCrearPermisos");
 
             }
@@ -189,7 +200,7 @@ namespace SIGEDOC.Negocio
             try
             {
                 cnGneral = new Datos();
-                SqlParameter[] parParameter = new SqlParameter[2];
+                SqlParameter[] parParameter = new SqlParameter[3];
 
                 parParameter[0] = new SqlParameter();
                 parParameter[0].ParameterName = "@opcion";

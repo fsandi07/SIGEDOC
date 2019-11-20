@@ -175,8 +175,7 @@ namespace SIGEDOC.Vistas
                 this.cd.Id_proyecto = int.Parse(this.dptProyecto.SelectedValue.ToString());
                 this.cd.Opc = 1;
                 this.cdh = new CrearDocHelper(cd);
-                this.datos = new DataTable();
-               
+                this.datos = new DataTable();               
                 this.datos = this.cdh.Numero_Consecutivo();              
 
                 if (datos.Rows.Count > 0)

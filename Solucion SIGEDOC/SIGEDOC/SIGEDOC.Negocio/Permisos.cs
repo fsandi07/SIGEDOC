@@ -33,7 +33,9 @@ namespace SIGEDOC.Negocio
         private int opcbitacora;
         private int opcreportes_auditoria;
         private int opcreportes_de_movimientos;
-        private int opcreportes_de_proyectos;    
+        private int opcreportes_de_proyectos;
+        private int id_rol;
+        private int opcconsultar_documento;
         // creacion de set y get para el uso de las variables.
         public int Opc { get => opc; set => opc = value; }
         public int Opc1 { get => opc1; set => opc1 = value; }
@@ -60,12 +62,15 @@ namespace SIGEDOC.Negocio
         public int Opcreportes_auditoria { get => opcreportes_auditoria; set => opcreportes_auditoria = value; }
         public int Opcreportes_de_movimientos { get => opcreportes_de_movimientos; set => opcreportes_de_movimientos = value; }
         public int Opcreportes_de_proyectos { get => opcreportes_de_proyectos; set => opcreportes_de_proyectos = value; }
+        public int Id_rol { get => id_rol; set => id_rol = value; }
+        public int Opcconsultar_documento { get => opcconsultar_documento; set => opcconsultar_documento = value; }
+
         // contructor con parametros
         public Permisos(int opc, int opc1, string nombre_rol, string detalle_rol, string consultar_cliente, string crear_cliente,
             string crear_documento, string subir_documento, string consultar_documento, string usuarios, string roles, string bitacora,
             string reportes_auditoria, string reportes_de_movimientos, string reportes_de_proyectos, int opcconsultar_cliente,
             int opccrear_cliente, int opccrear_documento, int opcsubir_documento, int opcusuarios, int opcroles, int opcbitacora,
-            int opcreportes_auditoria, int opcreportes_de_movimientos, int opcreportes_de_proyectos)
+            int opcreportes_auditoria, int opcreportes_de_movimientos, int opcreportes_de_proyectos, int id_rol,int opcconsultar_documento)
         {
             this.opc = opc;
             this.opc1 = opc1;
@@ -92,6 +97,8 @@ namespace SIGEDOC.Negocio
             this.opcreportes_auditoria = opcreportes_auditoria;
             this.opcreportes_de_movimientos = opcreportes_de_movimientos;
             this.opcreportes_de_proyectos = opcreportes_de_proyectos;
+            this.id_rol = id_rol;
+            this.opcconsultar_documento = opcconsultar_documento;
         }
         // contructor sin parametros
         public Permisos()
@@ -121,6 +128,8 @@ namespace SIGEDOC.Negocio
             this.opcreportes_auditoria = 0;
             this.opcreportes_de_movimientos = 0;
             this.opcreportes_de_proyectos = 0;
+            this.id_rol = 0;
+            this.opcconsultar_documento = 0;
         }
 
 

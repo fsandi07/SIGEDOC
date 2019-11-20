@@ -90,7 +90,7 @@
         function mensajeDeconfirmacion() {
             swal.fire({
                 title: "¡EXITO!",
-                text: "¡" + "Los Datos se Guardaron Con Exito" + "!",
+                text: "¡" + "Los Roles se Guardaron Con Exito" + "!",
                 type: 'success',
                 allowOutsideClick: false,
             })
@@ -101,7 +101,7 @@
         function mensajeDeValidacionDoc() {
             swal.fire({
                 title: '¡Atencion!',
-                text: "¡" + "Debe cargar el documento word" + "!",
+                text: "¡" + "Error al Ingresar el Rol" + "!",
                 type: 'error',
                 showConfirmButton: false,
                 allowOutsideClick: false,
