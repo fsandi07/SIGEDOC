@@ -64,7 +64,33 @@
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script><script  src="./dist/script.js"></script>
 
           <script type="text/javascript">
-              
+
+              function mensajeEspera() {
+                  let timerInterval
+                  Swal.fire({
+                      title: '¡Acceso Denegado no cuenta con los permisos para Crear Cliente!',
+
+                      timer: 4000,
+                      allowOutsideClick: false,
+                      onBeforeOpen: () => {
+
+                          Swal.showLoading()
+
+                          timerInterval = setInterval(() => {
+                              Swal.getContent().querySelector('strong')
+                                  .textContent = (Swal.getTimerLeft() / 1000)
+                                      .toFixed(0)
+                          }, 100)
+                      },
+                      onClose: () => {
+                          clearInterval(timerInterval)
+                      }
+
+                  })
+
+
+                  window.setTimeout('location.href="Menu.aspx"', 4000)
+              }
 
         // mensaje de error
         function mensajeErrorIngreso() {

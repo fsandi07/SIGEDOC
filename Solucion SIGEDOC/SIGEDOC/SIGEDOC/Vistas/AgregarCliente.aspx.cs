@@ -22,8 +22,10 @@ namespace SIGEDOC.Vistas
 
             if (validar == 0 || Session["Idusuario"] == null)
             {
-                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeErrorIngreso", "mensajeErrorIngreso('" + "Contactar al administrador" + "');", true);
+                //ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeErrorIngreso", "mensajeErrorIngreso('" + "Contactar al administrador" + "');", true);
                 //Response.Redirect("Menu.aspx");
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeEspera", "mensajeEspera('" + "" + "');", true);
+
             }
             else
             {
@@ -45,7 +47,7 @@ namespace SIGEDOC.Vistas
                 if (datos.Rows.Count >= 0)
                 {
                     DataRow fila = datos.Rows[0];
-                    validar = int.Parse(fila["IdRol"].ToString());
+                    validar = int.Parse(fila["estadoPermiso"].ToString());
                 }
             }
             catch (Exception ex)

@@ -45,7 +45,7 @@
                   </div>
                     <form id="form2">
                       <div class="form-group">
-                          <asp:Label ID="LblIndentificacion" runat="server" Text="Nickname:"></asp:Label>
+                          <asp:Label ID="LblIndentificacion" runat="server" Text="Nombre de Usuario:"></asp:Label>
                           <br />
                           <div class="form-group">
                           <asp:TextBox class="form-control form-control-user" ID="TxtIdenti" runat="server"></asp:TextBox>

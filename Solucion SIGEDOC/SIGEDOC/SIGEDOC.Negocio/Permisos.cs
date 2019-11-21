@@ -135,7 +135,7 @@ namespace SIGEDOC.Negocio
             this.opcreportes_de_proyectos = 0;
             this.id_rol = 0;
             this.opcconsultar_documento = 0;
-            this.nombre_permiso = ""
+            this.nombre_permiso = "";
         }
 
 
