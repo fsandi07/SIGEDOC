@@ -1219,6 +1219,7 @@
     <Content Include="Vistas\dist\style.css" />
     <Content Include="Vistas\css\main.css" />
     <Content Include="Vistas\css\util.css" />
+    <Content Include="Vistas\ERROR.aspx" />
     <Content Include="Vistas\estilos\fonts\font-awesome-4.7.0\css\font-awesome.css" />
     <Content Include="Vistas\estilos\fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
     <Content Include="Vistas\estilos\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
@@ -2981,6 +2982,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DtasetMovimientos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\ERROR.aspx.cs">
+      <DependentUpon>ERROR.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\ERROR.aspx.designer.cs">
+      <DependentUpon>ERROR.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

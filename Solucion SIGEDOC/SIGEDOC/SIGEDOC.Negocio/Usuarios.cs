@@ -19,6 +19,15 @@ namespace SIGEDOC.Negocio
         private int rol_usuario;
         private string estado_usuarios;
         private int contacto_usuario;
+        // variables globales
+        public static string GloUsuario;
+        public static string GloNicname;
+        public static string GloApellidos;
+        public static int GlotIdRol;
+        public static string GloIdUsuario;
+
+
+
         // creacion de set y get para el uso de las variables.
         public int Opc { get => opc; set => opc = value; }
         public string Cedula_susuario { get => cedula_usuario; set => cedula_usuario = value; }
@@ -60,5 +69,32 @@ namespace SIGEDOC.Negocio
             this.Contacto_usuario = 0;
             this.apellidos = "";
         }
+
+        // con estos metodos capturo los valores que ingresne a los get y set 
+        public static void SetNombre(string nombre_usuario)
+        {
+            GloUsuario = nombre_usuario;
+        }
+        public static void SetNicName(string nicname_usuario)
+        {
+            GloNicname = nicname_usuario;
+        }
+        public static void SetIdRol(int rol_usuario)
+        {
+            GlotIdRol = rol_usuario;
+        }
+        public static void SetIdUsuario(string cedula_usuario)
+        {
+            GloIdUsuario = cedula_usuario;
+        }
+
+        public static void SetApellidos(string apellidos)
+        {
+            GloApellidos = apellidos;
+        }
+
+       
+
+
     }
 }

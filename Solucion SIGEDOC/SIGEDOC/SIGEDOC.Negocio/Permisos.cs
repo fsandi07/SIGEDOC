@@ -10,7 +10,7 @@ namespace SIGEDOC.Negocio
     {
         // opcion para el procedimiento almacenado;
         private int opc;
-        private int opc1;
+        private int estado_rol;
         private string nombre_rol;  
         private string detalle_rol;
         private string consultar_cliente;
@@ -24,6 +24,7 @@ namespace SIGEDOC.Negocio
         private string reportes_auditoria;
         private string reportes_de_movimientos;
         private string reportes_de_proyectos;
+        private string nombre_permiso;
         private int opcconsultar_cliente;
         private int opccrear_cliente;
         private int opccrear_documento;
@@ -36,9 +37,10 @@ namespace SIGEDOC.Negocio
         private int opcreportes_de_proyectos;
         private int id_rol;
         private int opcconsultar_documento;
+
         // creacion de set y get para el uso de las variables.
         public int Opc { get => opc; set => opc = value; }
-        public int Opc1 { get => opc1; set => opc1 = value; }
+        public int Estado_rol { get => estado_rol; set => estado_rol = value; }
         public string Nombre_rol { get => nombre_rol; set => nombre_rol = value; }
         public string Detalle_rol { get => detalle_rol; set => detalle_rol = value; }
         public string Consultar_cliente { get => consultar_cliente; set => consultar_cliente = value; }
@@ -64,16 +66,18 @@ namespace SIGEDOC.Negocio
         public int Opcreportes_de_proyectos { get => opcreportes_de_proyectos; set => opcreportes_de_proyectos = value; }
         public int Id_rol { get => id_rol; set => id_rol = value; }
         public int Opcconsultar_documento { get => opcconsultar_documento; set => opcconsultar_documento = value; }
+        public string Nombre_permiso { get => nombre_permiso; set => nombre_permiso = value; }
 
         // contructor con parametros
-        public Permisos(int opc, int opc1, string nombre_rol, string detalle_rol, string consultar_cliente, string crear_cliente,
+        public Permisos(int opc, int estado_rol, string nombre_rol, string detalle_rol, string consultar_cliente, string crear_cliente,
             string crear_documento, string subir_documento, string consultar_documento, string usuarios, string roles, string bitacora,
             string reportes_auditoria, string reportes_de_movimientos, string reportes_de_proyectos, int opcconsultar_cliente,
             int opccrear_cliente, int opccrear_documento, int opcsubir_documento, int opcusuarios, int opcroles, int opcbitacora,
-            int opcreportes_auditoria, int opcreportes_de_movimientos, int opcreportes_de_proyectos, int id_rol,int opcconsultar_documento)
+            int opcreportes_auditoria, int opcreportes_de_movimientos, int opcreportes_de_proyectos, int id_rol,int opcconsultar_documento,
+            string nombre_permiso)
         {
             this.opc = opc;
-            this.opc1 = opc1;
+            this.estado_rol = estado_rol;
             this.nombre_rol = nombre_rol;
             this.detalle_rol = detalle_rol;
             this.consultar_cliente = consultar_cliente;
@@ -99,12 +103,13 @@ namespace SIGEDOC.Negocio
             this.opcreportes_de_proyectos = opcreportes_de_proyectos;
             this.id_rol = id_rol;
             this.opcconsultar_documento = opcconsultar_documento;
+            this.nombre_permiso = nombre_permiso;
         }
         // contructor sin parametros
         public Permisos()
         {
             this.opc = 0;
-            this.opc1 = 0;
+            this.estado_rol = 0;
             this.nombre_rol = "";
             this.detalle_rol = "";
             this.consultar_cliente = "";
@@ -130,6 +135,7 @@ namespace SIGEDOC.Negocio
             this.opcreportes_de_proyectos = 0;
             this.id_rol = 0;
             this.opcconsultar_documento = 0;
+            this.nombre_permiso = ""
         }
 
 

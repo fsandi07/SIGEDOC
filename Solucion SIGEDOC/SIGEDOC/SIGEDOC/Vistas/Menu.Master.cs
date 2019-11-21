@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using SIGEDOC.Negocio;
 
 namespace SIGEDOC.Vistas
 {
@@ -11,8 +12,18 @@ namespace SIGEDOC.Vistas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //this.lblfecha_hora.Text = DateTime.Now.ToString("hh:mm");
+            
             this.lblfecha.Text = DateTime.Now.ToString("dd/MM/yyy");
+            this.LblIdentUsu.Text = Usuarios.GloIdUsuario;
+            this.LblNomUsu.Text = Usuarios.GloUsuario +" " + Usuarios.GloApellidos;
+            string  valid = Usuarios.GloIdUsuario;
+
+            if (valid == "" || Session["Idusuario"] == null)
+            {
+                Response.Redirect("Error.aspx");
+
+            }
+                       
         }
         protected void BtnSalir_Click(object sender, EventArgs e)
         {

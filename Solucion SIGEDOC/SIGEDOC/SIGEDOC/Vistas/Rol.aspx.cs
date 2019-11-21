@@ -27,8 +27,7 @@ namespace SIGEDOC.Vistas
             Insert_Rol();
             Insertar_Permisos();
         }
-
-
+        
         private void Insert_Rol()
         {
             try
@@ -46,11 +45,16 @@ namespace SIGEDOC.Vistas
             }
         }
        
-
         private void Insertar_Permisos()
         {
             try
             {
+                Num_IdRol();
+                this.pr.Id_rol = id_Rol;
+                this.pr.Opc = 1;
+                this.prh = new PermisosHelper(pr);
+                this.prh.IngresarPermisos();
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeDeconfirmacion", "mensajeDeconfirmacion('" + "" + "');", true);
 
                 for (int i = 0; i < cbPermisos.Items.Count; i++)
                 {
@@ -58,7 +62,7 @@ namespace SIGEDOC.Vistas
                     {
                         Num_IdRol();
                         this.pr.Id_rol = id_Rol;
-                        this.pr.Crear_cliente = cbPermisos.Items[0].Text;
+                        this.pr.Crear_cliente = "Crear Cliente";
                         this.pr.Opccrear_cliente = int.Parse(cbPermisos.Items[0].Value.ToString());
                         this.pr.Consultar_cliente = cbPermisos.Items[1].Text;
                         this.pr.Opcconsultar_cliente = int.Parse(cbPermisos.Items[1].Value.ToString());
@@ -90,8 +94,8 @@ namespace SIGEDOC.Vistas
                     {
                         Num_IdRol();
                         this.pr.Id_rol = id_Rol;
-                        this.pr.Crear_cliente = cbPermisos.Items[0].Text;
-                        this.pr.Opccrear_cliente = int.Parse(cbPermisos.Items[0].Value.ToString());
+                        this.pr.Crear_cliente = "Crear Cliente";
+                        this.pr.Opccrear_cliente = 0;
                         this.pr.Consultar_cliente = cbPermisos.Items[1].Text;
                         this.pr.Opcconsultar_cliente = int.Parse(cbPermisos.Items[1].Value.ToString());
                         this.pr.Crear_documento = cbPermisos.Items[2].Text;
@@ -143,7 +147,6 @@ namespace SIGEDOC.Vistas
                     id_Rol = int.Parse(fila["id_rol"].ToString());
                 }
             }
-
             catch (Exception ex)
             {
                 this.txtNombreRol.Text = ex.Message;

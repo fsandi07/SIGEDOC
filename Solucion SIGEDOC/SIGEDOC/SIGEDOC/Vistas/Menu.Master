@@ -233,9 +233,9 @@
                                 <li class="nav-item dropdown no-arrow">
                                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <span class="mr-2 d-none d-lg-inline text-gray-600 small">
-                                            <asp:Label ID="LblNomPro" runat="server" Text="Label"></asp:Label>
+                                            <asp:Label ID="LblNomUsu" runat="server" Text="Label"></asp:Label>
                                             <br />
-                                            <asp:Label ID="LblIdentPro" runat="server" Text="Label"></asp:Label></span>
+                                            <asp:Label ID="LblIdentUsu" runat="server" Text="Label"></asp:Label></span>
                                         <img class="img-profile rounded-circle" src="img/admin2.jpg">
                                     </a>
                                     <!-- Dropdown - User Information -->

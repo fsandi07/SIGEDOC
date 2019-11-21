@@ -9,8 +9,10 @@
      <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <!-- Estilos -->
     <link rel="stylesheet" href="css/estilos.css">
-
   <link rel="stylesheet" href="./dist/style.css">
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="sweetalert/sweetalert2.min.css">
+    <script type="text/javascript" src="sweetalert/sweetalert2.min.js"></script>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -59,9 +61,51 @@
 
    <script src="js/jquery.js"></script>
    <script src="js/main.js"></script>
-
-
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script><script  src="./dist/script.js"></script>
+
+          <script type="text/javascript">
+              
+
+        // mensaje de error
+        function mensajeErrorIngreso() {
+            swal.fire({
+                title: '¡Error!',
+                text: "¡" + "No cuenta con los priveligios para acceder a este modulo" + "!",
+                type: 'error',
+                showConfirmButton: false,
+                allowOutsideClick: false,
+                timer: 4000,
+
+            })
+        }
+
+        //mensaje de conrfimacion
+        function mensajeDeconfirmacion() {
+            swal.fire({
+                title: "¡EXITO!",
+                text: "¡" + "Los Datos se Guardaron Con Exito" + "!",
+                type: 'success',
+                allowOutsideClick: false,
+            })
+
+        }
+
+        //mensaje de validacion del word
+        function mensajeDeValidacionDoc() {
+            swal.fire({
+                title: '¡Atencion!',
+                text: "¡" + "Debe cargar el documento word" + "!",
+                type: 'error',
+                showConfirmButton: false,
+                allowOutsideClick: false,
+                timer: 3000,
+
+            })
+        }
+        
+
+    </script>           
+                    
 
 
 </asp:Content>

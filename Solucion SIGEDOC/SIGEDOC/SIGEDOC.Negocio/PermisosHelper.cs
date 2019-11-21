@@ -45,7 +45,7 @@ namespace SIGEDOC.Negocio
 
             return tbldatos;
         }
-
+                          
         public void IngresarPermisos()
         {
             try
@@ -54,9 +54,9 @@ namespace SIGEDOC.Negocio
                 SqlParameter[] parParameter = new SqlParameter[24];
 
                 parParameter[0] = new SqlParameter();
-                parParameter[0].ParameterName = "@opcion1";
+                parParameter[0].ParameterName = "@estado_rol";
                 parParameter[0].SqlDbType = SqlDbType.Int;
-                parParameter[0].SqlValue = objPermisos.Opc1;
+                parParameter[0].SqlValue = objPermisos.Estado_rol;
 
                 parParameter[1] = new SqlParameter();
                 parParameter[1].ParameterName = "@consultar_cliente";
@@ -227,6 +227,41 @@ namespace SIGEDOC.Negocio
 
                 throw new Exception(ex.Message);
             }
+        }
+
+        public DataTable Estado_Permisos()
+        {
+            tbldatos = new DataTable();
+            try
+            {
+                cnGneral = new Datos();
+
+                SqlParameter[] parParameter = new SqlParameter[2];
+
+                parParameter[0] = new SqlParameter();
+                parParameter[0].ParameterName = "@opcion";
+                parParameter[0].SqlDbType = SqlDbType.Int;
+                parParameter[0].SqlValue = objPermisos.Opc;
+
+                parParameter[1] = new SqlParameter();
+                parParameter[1].ParameterName = "@id_rol";
+                parParameter[1].SqlDbType = SqlDbType.Int;
+                parParameter[1].SqlValue = objPermisos.Id_rol;
+
+                parParameter[2] = new SqlParameter();
+                parParameter[2].ParameterName = "@nombre";
+                parParameter[2].SqlDbType = SqlDbType.VarChar;
+                parParameter[2].Size = 20;
+                parParameter[2].SqlValue = objPermisos.Nombre_permiso;
+
+                tbldatos = cnGneral.RetornaTabla(parParameter, "SPValidaPermisos");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+            return tbldatos;
         }
 
 
