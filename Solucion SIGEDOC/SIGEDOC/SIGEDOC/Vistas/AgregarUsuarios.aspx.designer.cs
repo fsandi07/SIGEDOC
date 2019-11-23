@@ -7,121 +7,146 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace SIGEDOC.Vistas
-{
-
-
-    public partial class AgregarUsuarios
-    {
-
+namespace SIGEDOC.Vistas {
+    
+    
+    public partial class AgregarUsuarios {
+        
         /// <summary>
-        /// Control Label1.
+        /// Control Lblidentificacion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-
+        protected global::System.Web.UI.WebControls.Label Lblidentificacion;
+        
         /// <summary>
-        /// Control TextBox1.
+        /// Control txtidentifiaccion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
-
+        protected global::System.Web.UI.WebControls.TextBox txtidentifiaccion;
+        
         /// <summary>
-        /// Control Label2.
+        /// Control lblnombre.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
-
+        protected global::System.Web.UI.WebControls.Label lblnombre;
+        
         /// <summary>
-        /// Control TextBox2.
+        /// Control txtnombre.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
-
+        protected global::System.Web.UI.WebControls.TextBox txtnombre;
+        
         /// <summary>
-        /// Control Label3.
+        /// Control lblapellidos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
-
+        protected global::System.Web.UI.WebControls.Label lblapellidos;
+        
         /// <summary>
-        /// Control TextBox3.
+        /// Control txtapellido.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
-
+        protected global::System.Web.UI.WebControls.TextBox txtapellido;
+        
         /// <summary>
-        /// Control Label4.
+        /// Control lblnickname.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
-
+        protected global::System.Web.UI.WebControls.Label lblnickname;
+        
         /// <summary>
-        /// Control DropDownList1.
+        /// Control txtnickname.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
-
+        protected global::System.Web.UI.WebControls.TextBox txtnickname;
+        
         /// <summary>
-        /// Control Label5.
+        /// Control Lblrol.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label5;
-
+        protected global::System.Web.UI.WebControls.Label Lblrol;
+        
         /// <summary>
-        /// Control TextBox5.
+        /// Control dptrol.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox5;
-
+        protected global::System.Web.UI.WebControls.DropDownList dptrol;
+        
         /// <summary>
-        /// Control Label6.
+        /// Control SqlDataRol.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label6;
-
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataRol;
+        
         /// <summary>
-        /// Control txt_contacto.
+        /// Control Lblcorreo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_contacto;
-
+        protected global::System.Web.UI.WebControls.Label Lblcorreo;
+        
+        /// <summary>
+        /// Control txtcorreo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtcorreo;
+        
+        /// <summary>
+        /// Control Lblcontacto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Lblcontacto;
+        
+        /// <summary>
+        /// Control txtcontacto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtcontacto;
+        
         /// <summary>
         /// Control BtnCrear.
         /// </summary>

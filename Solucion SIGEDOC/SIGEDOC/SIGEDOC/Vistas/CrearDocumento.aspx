@@ -105,13 +105,13 @@
     <script src="./dist/script.js"></script>
 
     <script type="text/javascript">
-        // mensaje de espera 
+
         function mensajeEspera() {
             let timerInterval
             Swal.fire({
-                title: '¡Creando Machote Porfavor Espere!',
+                title: '¡Acceso Denegado!, no cuenta con los permisos para Aceder a este Modulo, contacte al Administrador',
 
-                timer: 6000,
+                timer: 4000,
                 allowOutsideClick: false,
                 onBeforeOpen: () => {
 
@@ -129,15 +129,29 @@
 
             })
 
-      
-            // window.setTimeout('location.href=""', 5000)
+
+            window.setTimeout('location.href="Menu.aspx"', 4000)
         }
 
         // mensaje de error
         function mensajeError() {
             swal.fire({
                 title: '¡Error!',
-                text: "¡" + "No se Pudo Realizar el registro del Documento" + "!",
+                text: "¡" + " Lo sentimos a ocurrido un Error, por favor intentelo de nuevo," +
+                    "Si el problema persiste contacte al Administrador " + "!",
+                type: 'error',
+                showConfirmButton: false,
+                allowOutsideClick: false,
+                timer: 4000,
+
+            })
+        }
+        // mensaje error Docmuento
+
+        function mensajeErrorDocumento() {
+            swal.fire({
+                title: '¡Error!',
+                text: "¡" + " Debe cargar un Documento" + "!",
                 type: 'error',
                 showConfirmButton: false,
                 allowOutsideClick: false,
@@ -157,20 +171,6 @@
 
         }
 
-        //mensaje de validacion del word
-        function mensajeDeValidacionDoc() {
-            swal.fire({
-                title: '¡Atencion!',
-                text: "¡" + "Debe cargar el documento word" + "!",
-                type: 'error',
-                showConfirmButton: false,
-                allowOutsideClick: false,
-                timer: 3000,
-
-            })
-        }
-        
-
-    </script>
+    </script>    
 
 </asp:Content>

@@ -7,40 +7,38 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace SIGEDOC.Vistas
-{
-
-
-    public partial class CrearProyecto
-    {
-
+namespace SIGEDOC.Vistas {
+    
+    
+    public partial class CrearProyecto {
+        
         /// <summary>
-        /// Control Label1.
+        /// Control Lblnombreproyecto.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-
+        protected global::System.Web.UI.WebControls.Label Lblnombreproyecto;
+        
         /// <summary>
-        /// Control txtNombreProye.
+        /// Control txtnombreproye.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNombreProye;
-
+        protected global::System.Web.UI.WebControls.TextBox txtnombreproye;
+        
         /// <summary>
-        /// Control Label2.
+        /// Control Lbllicitacion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
-
+        protected global::System.Web.UI.WebControls.Label Lbllicitacion;
+        
         /// <summary>
         /// Control txtLicitacion.
         /// </summary>
@@ -49,7 +47,7 @@ namespace SIGEDOC.Vistas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtLicitacion;
-
+        
         /// <summary>
         /// Control DptCliente.
         /// </summary>
@@ -58,7 +56,7 @@ namespace SIGEDOC.Vistas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DptCliente;
-
+        
         /// <summary>
         /// Control SqlDataCliente.
         /// </summary>
@@ -67,25 +65,7 @@ namespace SIGEDOC.Vistas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataCliente;
-
-        /// <summary>
-        /// Control Label5.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label5;
-
-        /// <summary>
-        /// Control txtCentroCostos.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCentroCostos;
-
+        
         /// <summary>
         /// Control Label6.
         /// </summary>
@@ -94,7 +74,7 @@ namespace SIGEDOC.Vistas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label6;
-
+        
         /// <summary>
         /// Control txtDescripcion.
         /// </summary>
@@ -103,7 +83,7 @@ namespace SIGEDOC.Vistas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDescripcion;
-
+        
         /// <summary>
         /// Control Label7.
         /// </summary>
@@ -112,16 +92,16 @@ namespace SIGEDOC.Vistas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label7;
-
+        
         /// <summary>
-        /// Control Dpl_estado.
+        /// Control dptestado.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList Dpl_estado;
-
+        protected global::System.Web.UI.WebControls.DropDownList dptestado;
+        
         /// <summary>
         /// Control BtnCrear.
         /// </summary>

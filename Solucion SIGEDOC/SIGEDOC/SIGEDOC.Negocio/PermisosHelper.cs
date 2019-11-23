@@ -54,10 +54,10 @@ namespace SIGEDOC.Negocio
                 SqlParameter[] parParameter = new SqlParameter[24];
 
                 parParameter[0] = new SqlParameter();
-                parParameter[0].ParameterName = "@estado_rol";
+                parParameter[0].ParameterName = "@opcion";
                 parParameter[0].SqlDbType = SqlDbType.Int;
-                parParameter[0].SqlValue = objPermisos.Estado_rol;
-
+                parParameter[0].SqlValue = objPermisos.Opc;
+                
                 parParameter[1] = new SqlParameter();
                 parParameter[1].ParameterName = "@consultar_cliente";
                 parParameter[1].SqlDbType = SqlDbType.VarChar;
@@ -123,10 +123,9 @@ namespace SIGEDOC.Negocio
                 parParameter[11].SqlDbType = SqlDbType.VarChar;
                 parParameter[11].Size = 20;
                 parParameter[11].SqlValue = objPermisos.Reportes_de_proyectos;
-
-
+                
                 parParameter[12] = new SqlParameter();
-                parParameter[12].ParameterName = "@opcconsultar_cliente";
+                parParameter[12].ParameterName = "@opconsultar_cliente";
                 parParameter[12].SqlDbType = SqlDbType.Int;
                 parParameter[12].SqlValue = objPermisos.Opcconsultar_cliente;
 
@@ -219,7 +218,7 @@ namespace SIGEDOC.Negocio
                 parParameter[2].Size = 50;
                 parParameter[2].SqlValue = objPermisos.Detalle_rol;   
                 
-                cnGneral.EjecutarSP(parParameter, "SPCrearRol");
+                cnGneral.EjecutarSP(parParameter,"SPCrearRol");
 
             }
             catch (Exception ex)

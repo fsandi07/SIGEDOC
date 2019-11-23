@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
+using SIGEDOC.Negocio;
 
 namespace SIGEDOC.Vistas
 {
@@ -15,8 +16,24 @@ namespace SIGEDOC.Vistas
         SqlConnection vConexion;
         SqlDataAdapter vDataAdapter;
         DataTable vDT;
+        // instacia del hepler para los permisos de cada rol
+        SIGEDOC.Negocio.Permisos pr = new SIGEDOC.Negocio.Permisos();
+        private PermisosHelper prh;
+        private DataTable datos;
+        private static int validar;
         protected void Page_Load(object sender, EventArgs e)
         {
+            Num_Estado_Permiso();
+
+            if (validar == 0 || Session["Idusuario"] == null)
+            {
+
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeEspera", "mensajeEspera('" + "" + "');", true);
+            }
+            else
+            {
+
+            }
             String vSQL;
             vDT = new DataTable();
 
@@ -31,6 +48,36 @@ namespace SIGEDOC.Vistas
 
             ReporteB.ReportSource = rpt;
         }
+        private void Num_Estado_Permiso()
+        {
+            try
+            {
+                this.pr.Opc = 1;
+                this.pr.Id_rol = Usuarios.GlotIdRol;
+                this.pr.Nombre_permiso = "Bitacora";
+                this.prh = new PermisosHelper(pr);
+                this.datos = new DataTable();
+                this.datos = this.prh.Estado_Permisos();
+
+                if (datos.Rows.Count >= 0)
+                {
+                    DataRow fila = datos.Rows[0];
+                    validar = int.Parse(fila["estadoPermiso"].ToString());
+                }
+            }
+            catch (Exception)
+            {
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError", "mensajeError('" + "" + "');", true);
+            }
+
+
+
+        }
+
+
+
+
+
         private void ConectarBD()
         {
             try

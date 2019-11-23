@@ -12,7 +12,6 @@ namespace SIGEDOC.Negocio
         private int opc;
 
         private string nombre_Proyecto;
-        private int centro_costos;
         private string numero_Licitacion;
         private string detalle_del_proyecto;
         private int id_cliente;
@@ -30,9 +29,9 @@ namespace SIGEDOC.Negocio
         public string Estado_Proyecto { get => estado_Proyecto; set => estado_Proyecto = value; }
         public DateTime Fecha_Proyecto { get => fecha_Proyecto; set => fecha_Proyecto = value; }
         public string Status_proyecto { get => status_proyecto; set => status_proyecto = value; }
-        public int Centro_costos { get => centro_costos; set => centro_costos = value; }
 
-        public Proyectos(int opc, string nombre_Proyecto, string numero_Licitacion, string detalle_del_proyecto, int id_cliente, string usuario, string estado_Proyecto, DateTime fecha_Proyecto, string status_proyecto, int centro_costos)
+
+        public Proyectos(int opc, string nombre_Proyecto, string numero_Licitacion, string detalle_del_proyecto, int id_cliente, string usuario, string estado_Proyecto, DateTime fecha_Proyecto, string status_proyecto)
         {
             this.Opc = opc;
             Nombre_Proyecto = nombre_Proyecto;
@@ -43,7 +42,7 @@ namespace SIGEDOC.Negocio
             this.Estado_Proyecto = estado_Proyecto;
             this.Fecha_Proyecto = fecha_Proyecto;
             this.Status_proyecto = status_proyecto;
-            Centro_costos = centro_costos;
+           
         }
         public Proyectos()
         {
@@ -56,7 +55,6 @@ namespace SIGEDOC.Negocio
             this.Estado_Proyecto = "";
             this.Fecha_Proyecto = DateTime.Today;
             this.Status_proyecto = "";
-            Centro_costos = 0;
         }
     }
 }

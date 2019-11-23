@@ -117,6 +117,21 @@
                      })
                                          
                  }
+
+                 //alerta para el suario que ha sido dado de baja
+
+                 function mensajeErrorInhabilitado() {
+                     swal.fire({
+                         title: '¡Error!',
+                         text: "¡Lo sentimos este Usuario a sido Desabilitado, por favor contacte al Administrador!",
+                         type: 'error',
+                         showConfirmButton: false,
+                         allowOutsideClick: false,
+                         timer: 4000,
+                     })
+
+                 }
+
                  </script>
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>

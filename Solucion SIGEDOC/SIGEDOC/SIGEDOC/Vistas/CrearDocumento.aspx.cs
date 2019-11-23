@@ -16,6 +16,12 @@ namespace SIGEDOC.Vistas
 {
     public partial class CrearDocumento : System.Web.UI.Page
     {
+
+        // instacia del hepler para los permisos de cada rol
+        SIGEDOC.Negocio.Permisos pr = new SIGEDOC.Negocio.Permisos();
+        private PermisosHelper prh;
+        private static int validar;
+
         SIGEDOC.Negocio.CrearDocumento cd = new SIGEDOC.Negocio.CrearDocumento();
         private CrearDocHelper cdh;
         private DataTable datos;
@@ -25,11 +31,48 @@ namespace SIGEDOC.Vistas
         private static int id_cliente;
         protected void Page_Load(object sender, EventArgs e)
         {
-            for (int i = 2010; i <= 2050; i++)
+            Num_Estado_Permiso();
+
+            if (validar == 0 || Session["Idusuario"] == null)
             {
-                dptPeriodo.Items.Add(new ListItem(i.ToString(), i.ToString()));
+
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeEspera", "mensajeEspera('" + "" + "');", true);
+            }
+            else
+            {
+                for (int i = 2010; i <= 2050; i++)
+                {
+                    dptPeriodo.Items.Add(new ListItem(i.ToString(), i.ToString()));
+                }
             }
         }
+
+        private void Num_Estado_Permiso()
+        {
+            try
+            {
+                this.pr.Opc = 1;
+                this.pr.Id_rol = Usuarios.GlotIdRol;
+                this.pr.Nombre_permiso = "Crear Documento";
+                this.prh = new PermisosHelper(pr);
+                this.datos = new DataTable();
+                this.datos = this.prh.Estado_Permisos();
+
+                if (datos.Rows.Count >= 0)
+                {
+                    DataRow fila = datos.Rows[0];
+                    validar = int.Parse(fila["estadoPermiso"].ToString());
+                }
+            }
+            catch (Exception)
+            {
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError", "mensajeError('" + "" + "');", true);
+            }
+
+
+        }
+
+
         public void Limpiar()
         {
 
@@ -113,10 +156,10 @@ namespace SIGEDOC.Vistas
                 //ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeEspera", "mensajeEspera('" + "" + "');", true);
                 CreateWordDocument(@"C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\documentos word\temp1.docx", @"C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\documentos word\documento creado\PQS.docx");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError", "mensajeError('" + "" + "');", true);
 
-                this.txtCenCos.Text = ex.Message;
             }
         }
         protected void BtnGuardar_Click(object sender, EventArgs e)
@@ -127,7 +170,7 @@ namespace SIGEDOC.Vistas
                 {
                     if (!FileSubirWord.HasFile)
                     {
-                        ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeDeValidacionDoc", "mensajeDeValidacionDoc('" + "" + "');", true);
+                        ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeErrorDocumento", "mensajeErrorDocumento('" + "" + "');", true);
                     }
                     else
                     {
@@ -156,10 +199,10 @@ namespace SIGEDOC.Vistas
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeDeconfirmacion", "mensajeDeconfirmacion('" + ex + "');", true);
-                // aqui podemos dispar un insert a bitacora con el error y la fecha y el usuario
+
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError", "mensajeError('" + "" + "');", true);
             }
         }
 

@@ -9,13 +9,13 @@ using System.Data;
 
 namespace SIGEDOC.Vistas
 {
-    
+
     public partial class Login : System.Web.UI.Page
     {
         private Usuarios usuvalid;
         private UsuarioHelper usuvalidhelper;
         private DataTable datos;
-       
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -37,13 +37,25 @@ namespace SIGEDOC.Vistas
                 if (datos.Rows.Count >= 0)
                 {
                     DataRow fila = datos.Rows[0];
-                    Usuarios.SetIdRol(int.Parse(fila["idRol"].ToString()));
-                    Usuarios.SetIdUsuario(fila["cedulaUsu"].ToString());
-                    Usuarios.SetNicName(fila["nicknameUsu"].ToString());
-                    Usuarios.SetNombre(fila["nombreUsu"].ToString());
-                    Usuarios.SetApellidos(fila["apellidosUsu"].ToString());
-                    Session["Idusuario"] = Usuarios.GloIdUsuario;
-                    Response.Redirect("Menu.aspx");
+
+                    if (int.Parse(fila["estadoUsu"].ToString()) == 1)
+                    {
+
+                        Usuarios.SetIdRol(int.Parse(fila["idRol"].ToString()));
+                        Usuarios.SetIdUsuario(fila["cedulaUsu"].ToString());
+                        Usuarios.SetNicName(fila["nicknameUsu"].ToString());
+                        Usuarios.SetNombre(fila["nombreUsu"].ToString());
+                        Usuarios.SetApellidos(fila["apellidosUsu"].ToString());
+                        Session["Idusuario"] = Usuarios.GloIdUsuario;
+                        Response.Redirect("Menu.aspx");
+                    }
+                    else
+                    {
+
+                        ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeErrorInhabilitado", "mensajeErrorInhabilitado('" + "" + "');", true);
+
+                    }
+
 
                 }
 

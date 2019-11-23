@@ -27,7 +27,7 @@ namespace SIGEDOC.Vistas
             Insert_Rol();
             Insertar_Permisos();
         }
-        
+
         private void Insert_Rol()
         {
             try
@@ -44,92 +44,158 @@ namespace SIGEDOC.Vistas
                 this.txtNombreRol.Text = ex.Message;
             }
         }
-       
+
         private void Insertar_Permisos()
         {
             try
             {
                 Num_IdRol();
+                this.pr.Crear_cliente = "Crear Cliente";
+                this.pr.Consultar_cliente = "Consultar Cliente";
+                this.pr.Crear_documento = "Crear Documento";
+                this.pr.Subir_documento = "Subir Documento";
+                this.pr.Consultar_documento = "Consultar Documento";
+                this.pr.Usuarios = "Usuarios";
+                this.pr.Roles = "Roles";
+                this.pr.Bitacora = "Bitacora";
+                this.pr.Reportes_auditoria = "Reportes de Auditoria";
+                this.pr.Reportes_de_movimientos = "Reportes de Movimientos";
+                this.pr.Reportes_de_proyectos = "Reportes de Proyectos";
+
+
+                if (cbPermisos.Items[0].Selected == true)
+                {
+                    this.pr.Opccrear_cliente = 1;
+
+
+                    if (cbPermisos.Items[1].Selected == true)
+                    {
+
+                        this.pr.Opcconsultar_cliente = 1;
+                        if (cbPermisos.Items[2].Selected == true)
+                        {
+
+                            this.pr.Opccrear_documento = 1;
+                            if (cbPermisos.Items[3].Selected == true)
+                            {
+
+                                this.pr.Opcsubir_documento = 1;
+                                if (cbPermisos.Items[4].Selected == true)
+                                {
+
+                                    this.pr.Opcconsultar_documento = 1;
+                                    if (cbPermisos.Items[5].Selected == true)
+                                    {
+
+                                        this.pr.Opcusuarios = 1;
+                                        if (cbPermisos.Items[6].Selected == true)
+                                        {
+
+                                            this.pr.Opcroles = 1;
+                                            if (cbPermisos.Items[7].Selected == true)
+                                            {
+                                                this.pr.Estado_rol = 1;
+                                                this.pr.Opcbitacora = 1;
+                                                if (cbPermisos.Items[8].Selected == true)
+                                                {
+
+                                                    this.pr.Opcreportes_auditoria = 1;
+                                                    if (cbPermisos.Items[9].Selected == true)
+                                                    {
+
+                                                        this.pr.Opcreportes_de_movimientos = 1;
+                                                        if (cbPermisos.Items[10].Selected == true)
+                                                        {
+
+                                                            this.pr.Opcreportes_de_proyectos = 1;
+                                                        }
+                                                        else
+                                                        {
+
+                                                            this.pr.Opcreportes_de_proyectos = 0;
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+
+                                                        this.pr.Opcreportes_de_movimientos = 0;
+                                                    }
+
+                                                }
+                                                else
+                                                {
+
+                                                    this.pr.Opcreportes_auditoria = 0;
+                                                }
+
+                                            }
+                                            else
+                                            {
+
+                                                this.pr.Opcbitacora = 0;
+                                            }
+
+                                        }
+                                        else
+                                        {
+
+                                            this.pr.Opcroles = 0;
+                                        }
+                                    }
+
+                                    else
+                                    {
+
+                                        this.pr.Opcusuarios = 0;
+                                    }
+                                }
+
+                                else
+                                {
+                                    this.pr.Opcconsultar_documento = 0;
+                                }
+
+                            }
+
+                            else
+                            {
+
+                                this.pr.Opcsubir_documento = 0;
+                            }
+
+                        }
+                        else
+                        {
+
+                            this.pr.Opccrear_documento = 0;
+                        }
+
+                    }
+
+                    else
+                    {
+
+                        this.pr.Opcconsultar_cliente = 0;
+                    }
+
+                }
+
+                else
+                {
+
+                    this.pr.Opccrear_cliente = 0;
+
+                }
                 this.pr.Id_rol = id_Rol;
                 this.pr.Opc = 1;
                 this.prh = new PermisosHelper(pr);
                 this.prh.IngresarPermisos();
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeDeconfirmacion", "mensajeDeconfirmacion('" + "" + "');", true);
-
-                for (int i = 0; i < cbPermisos.Items.Count; i++)
-                {
-                    if (cbPermisos.Items[i].Selected == true)
-                    {
-                        Num_IdRol();
-                        this.pr.Id_rol = id_Rol;
-                        this.pr.Crear_cliente = "Crear Cliente";
-                        this.pr.Opccrear_cliente = int.Parse(cbPermisos.Items[0].Value.ToString());
-                        this.pr.Consultar_cliente = cbPermisos.Items[1].Text;
-                        this.pr.Opcconsultar_cliente = int.Parse(cbPermisos.Items[1].Value.ToString());
-                        this.pr.Crear_documento = cbPermisos.Items[2].Text;
-                        this.pr.Opccrear_documento = int.Parse(cbPermisos.Items[2].Value.ToString());
-                        this.pr.Subir_documento = cbPermisos.Items[3].Text;
-                        this.pr.Opcsubir_documento = int.Parse(cbPermisos.Items[3].Value.ToString());
-                        this.pr.Consultar_documento = cbPermisos.Items[4].Text;
-                        this.pr.Opcconsultar_documento = int.Parse(cbPermisos.Items[4].Value.ToString());
-                        this.pr.Usuarios = cbPermisos.Items[5].Text;
-                        this.pr.Opcusuarios = int.Parse(cbPermisos.Items[5].Value.ToString());
-                        this.pr.Roles = cbPermisos.Items[6].Text;
-                        this.pr.Opcroles = int.Parse(cbPermisos.Items[6].Value.ToString());
-                        this.pr.Bitacora = cbPermisos.Items[7].Text;
-                        this.pr.Opcbitacora = int.Parse(cbPermisos.Items[7].Value.ToString());
-                        this.pr.Reportes_auditoria = cbPermisos.Items[8].Text;
-                        this.pr.Opcreportes_auditoria = int.Parse(cbPermisos.Items[8].Value.ToString());
-                        this.pr.Reportes_de_movimientos = cbPermisos.Items[9].Text;
-                        this.pr.Opcreportes_de_movimientos = int.Parse(cbPermisos.Items[9].Value.ToString());
-                        this.pr.Reportes_de_proyectos = cbPermisos.Items[10].Text;
-                        this.pr.Opcreportes_de_proyectos = int.Parse(cbPermisos.Items[10].Value.ToString());
-                        this.pr.Opc = 1;
-                        this.prh = new PermisosHelper(pr);
-                        this.prh.IngresarPermisos();
-                        ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeDeconfirmacion", "mensajeDeconfirmacion('" + "" + "');", true);
-
-                    }
-                    else
-                    {
-                        Num_IdRol();
-                        this.pr.Id_rol = id_Rol;
-                        this.pr.Crear_cliente = "Crear Cliente";
-                        this.pr.Opccrear_cliente = 0;
-                        this.pr.Consultar_cliente = cbPermisos.Items[1].Text;
-                        this.pr.Opcconsultar_cliente = int.Parse(cbPermisos.Items[1].Value.ToString());
-                        this.pr.Crear_documento = cbPermisos.Items[2].Text;
-                        this.pr.Opccrear_documento = int.Parse(cbPermisos.Items[2].Value.ToString());
-                        this.pr.Subir_documento = cbPermisos.Items[3].Text;
-                        this.pr.Opcsubir_documento = int.Parse(cbPermisos.Items[3].Value.ToString());
-                        this.pr.Consultar_documento = cbPermisos.Items[4].Text;
-                        this.pr.Opcconsultar_documento = int.Parse(cbPermisos.Items[4].Value.ToString());
-                        this.pr.Usuarios = cbPermisos.Items[5].Text;
-                        this.pr.Opcusuarios = int.Parse(cbPermisos.Items[5].Value.ToString());
-                        this.pr.Roles = cbPermisos.Items[6].Text;
-                        this.pr.Opcroles = int.Parse(cbPermisos.Items[6].Value.ToString());
-                        this.pr.Bitacora = cbPermisos.Items[7].Text;
-                        this.pr.Opcbitacora = int.Parse(cbPermisos.Items[7].Value.ToString());
-                        this.pr.Reportes_auditoria = cbPermisos.Items[8].Text;
-                        this.pr.Opcreportes_auditoria = int.Parse(cbPermisos.Items[8].Value.ToString());
-                        this.pr.Reportes_de_movimientos = cbPermisos.Items[9].Text;
-                        this.pr.Opcreportes_de_movimientos = int.Parse(cbPermisos.Items[9].Value.ToString());
-                        this.pr.Reportes_de_proyectos = cbPermisos.Items[10].Text;
-                        this.pr.Opcreportes_de_proyectos = int.Parse(cbPermisos.Items[10].Value.ToString());
-                        this.pr.Opc = 1;
-                        this.prh = new PermisosHelper(pr);
-                        this.prh.IngresarPermisos();
-
-                    }
-
-                }
-
-
             }
 
             catch (Exception ex)
             {
-                //this.txtDescripcion.Text = ex.Message;
+                this.txtDetalleRol.Text = ex.Message;
             }
         }
         private void Num_IdRol()

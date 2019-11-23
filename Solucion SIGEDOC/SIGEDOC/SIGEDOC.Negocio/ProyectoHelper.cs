@@ -27,63 +27,63 @@ namespace SIGEDOC.Negocio
             {
                 cnGeneral = new Datos();
 
-                SqlParameter[] parParameter = new SqlParameter[10];
+                SqlParameter[] parParameter = new SqlParameter[9];
 
                 parParameter[0] = new SqlParameter();
                 parParameter[0].ParameterName = "@opcion";
                 parParameter[0].SqlDbType = SqlDbType.Int;
                 parParameter[0].SqlValue = objproyecto.Opc;
 
+                //parParameter[1] = new SqlParameter();
+                //parParameter[1].ParameterName = "@centroCostos";
+                //parParameter[1].SqlDbType = SqlDbType.Int;
+                //parParameter[1].SqlValue = objproyecto.Centro_costos;
+
                 parParameter[1] = new SqlParameter();
-                parParameter[1].ParameterName = "@centroCostos";
-                parParameter[1].SqlDbType = SqlDbType.Int;
-                parParameter[1].SqlValue = objproyecto.Centro_costos;
+                parParameter[1].ParameterName = "@NombreProy";
+                parParameter[1].SqlDbType = SqlDbType.VarChar;
+                parParameter[1].Size = 50;
+                parParameter[1].SqlValue = objproyecto.Nombre_Proyecto;
 
                 parParameter[2] = new SqlParameter();
-                parParameter[2].ParameterName = "@NombreProy";
+                parParameter[2].ParameterName = "@NumLicita";
                 parParameter[2].SqlDbType = SqlDbType.VarChar;
-                parParameter[2].Size = 50;
-                parParameter[2].SqlValue = objproyecto.Nombre_Proyecto;
+                parParameter[2].Size = 30;
+                parParameter[2].SqlValue = objproyecto.Numero_Licitacion;
 
                 parParameter[3] = new SqlParameter();
-                parParameter[3].ParameterName = "@NumLicita";
+                parParameter[3].ParameterName = "@detalleProyec";
                 parParameter[3].SqlDbType = SqlDbType.VarChar;
-                parParameter[3].Size = 30;
-                parParameter[3].SqlValue = objproyecto.Numero_Licitacion;
+                parParameter[3].Size = 100;
+                parParameter[3].SqlValue = objproyecto.Detalle_del_proyecto;
 
                 parParameter[4] = new SqlParameter();
-                parParameter[4].ParameterName = "@detalleProyec";
-                parParameter[4].SqlDbType = SqlDbType.VarChar;
-                parParameter[4].Size = 100;
-                parParameter[4].SqlValue = objproyecto.Detalle_del_proyecto;
+                parParameter[4].ParameterName = "@idCliente";
+                parParameter[4].SqlDbType = SqlDbType.Int;
+                parParameter[4].SqlValue = objproyecto.Id_cliente;
 
                 parParameter[5] = new SqlParameter();
-                parParameter[5].ParameterName = "@idCliente";
-                parParameter[5].SqlDbType = SqlDbType.Int;
-                parParameter[5].SqlValue = objproyecto.Id_cliente;
+                parParameter[5].ParameterName = "@idUsuario";
+                parParameter[5].SqlDbType = SqlDbType.VarChar;
+                parParameter[5].Size = 20;
+                parParameter[5].SqlValue = objproyecto.Usuario;
 
                 parParameter[6] = new SqlParameter();
-                parParameter[6].ParameterName = "@idUsuario";
-                parParameter[6].SqlDbType = SqlDbType.VarChar;
-                parParameter[6].Size = 20;
-                parParameter[6].SqlValue = objproyecto.Usuario;
+                parParameter[6].ParameterName = "@estadoProyec";
+                parParameter[6].SqlDbType = SqlDbType.NChar;
+                parParameter[6].Size = 10;
+                parParameter[6].SqlValue = objproyecto.Estado_Proyecto;
 
                 parParameter[7] = new SqlParameter();
-                parParameter[7].ParameterName = "@estadoProyec";
-                parParameter[7].SqlDbType = SqlDbType.NChar;
-                parParameter[7].Size = 10;
-                parParameter[7].SqlValue = objproyecto.Estado_Proyecto;
+                parParameter[7].ParameterName = "@fechaProy ";
+                parParameter[7].SqlDbType = SqlDbType.DateTime;
+                parParameter[7].SqlValue = objproyecto.Fecha_Proyecto;
 
                 parParameter[8] = new SqlParameter();
-                parParameter[8].ParameterName = "@fechaProy ";
-                parParameter[8].SqlDbType = SqlDbType.DateTime;
-                parParameter[8].SqlValue = objproyecto.Fecha_Proyecto;
-
-                parParameter[9] = new SqlParameter();
-                parParameter[9].ParameterName = "@statusProyec";
-                parParameter[9].SqlDbType = SqlDbType.NChar;
-                parParameter[9].Size = 1;
-                parParameter[9].SqlValue = objproyecto.Status_proyecto;
+                parParameter[8].ParameterName = "@statusProyec";
+                parParameter[8].SqlDbType = SqlDbType.NChar;
+                parParameter[8].Size = 1;
+                parParameter[8].SqlValue = objproyecto.Status_proyecto;
 
                 cnGeneral.EjecutarSP(parParameter, "SPProyecto");
             }
@@ -100,63 +100,63 @@ namespace SIGEDOC.Negocio
             {
                 cnGeneral = new Datos();
 
-                SqlParameter[] parParameter = new SqlParameter[10];
+                SqlParameter[] parParameter = new SqlParameter[9];
 
                 parParameter[0] = new SqlParameter();
                 parParameter[0].ParameterName = "@opcion";
                 parParameter[0].SqlDbType = SqlDbType.Int;
                 parParameter[0].SqlValue = objproyecto.Opc;
 
+                //parParameter[1] = new SqlParameter();
+                //parParameter[1].ParameterName = "@centroCostos";
+                //parParameter[1].SqlDbType = SqlDbType.Int;
+                //parParameter[1].SqlValue = objproyecto.Centro_costos;
+
                 parParameter[1] = new SqlParameter();
-                parParameter[1].ParameterName = "@centroCostos";
-                parParameter[1].SqlDbType = SqlDbType.Int;
-                parParameter[1].SqlValue = objproyecto.Centro_costos;
+                parParameter[1].ParameterName = "@NombreProy";
+                parParameter[1].SqlDbType = SqlDbType.VarChar;
+                parParameter[1].Size = 50;
+                parParameter[1].SqlValue = objproyecto.Nombre_Proyecto;
 
                 parParameter[2] = new SqlParameter();
-                parParameter[2].ParameterName = "@NombreProy";
+                parParameter[2].ParameterName = "@NumLicita";
                 parParameter[2].SqlDbType = SqlDbType.VarChar;
-                parParameter[2].Size = 50;
-                parParameter[2].SqlValue = objproyecto.Nombre_Proyecto;
+                parParameter[2].Size = 30;
+                parParameter[2].SqlValue = objproyecto.Numero_Licitacion;
 
                 parParameter[3] = new SqlParameter();
-                parParameter[3].ParameterName = "@NumLicita";
+                parParameter[3].ParameterName = "@detalleProyec";
                 parParameter[3].SqlDbType = SqlDbType.VarChar;
-                parParameter[3].Size = 30;
-                parParameter[3].SqlValue = objproyecto.Numero_Licitacion;
+                parParameter[3].Size = 100;
+                parParameter[3].SqlValue = objproyecto.Detalle_del_proyecto;
 
                 parParameter[4] = new SqlParameter();
-                parParameter[4].ParameterName = "@detalleProyec";
-                parParameter[4].SqlDbType = SqlDbType.VarChar;
-                parParameter[4].Size = 100;
-                parParameter[4].SqlValue = objproyecto.Detalle_del_proyecto;
+                parParameter[4].ParameterName = "@idCliente";
+                parParameter[4].SqlDbType = SqlDbType.Int;
+                parParameter[4].SqlValue = objproyecto.Id_cliente;
 
                 parParameter[5] = new SqlParameter();
-                parParameter[5].ParameterName = "@idCliente";
-                parParameter[5].SqlDbType = SqlDbType.Int;
-                parParameter[5].SqlValue = objproyecto.Id_cliente;
+                parParameter[5].ParameterName = "@idUsuario";
+                parParameter[5].SqlDbType = SqlDbType.VarChar;
+                parParameter[5].Size = 20;
+                parParameter[5].SqlValue = objproyecto.Usuario;
 
                 parParameter[6] = new SqlParameter();
-                parParameter[6].ParameterName = "@idUsuario";
-                parParameter[6].SqlDbType = SqlDbType.VarChar;
-                parParameter[6].Size = 20;
-                parParameter[6].SqlValue = objproyecto.Usuario;
+                parParameter[6].ParameterName = "@estadoProyec";
+                parParameter[6].SqlDbType = SqlDbType.NChar;
+                parParameter[6].Size = 10;
+                parParameter[6].SqlValue = objproyecto.Estado_Proyecto;
 
                 parParameter[7] = new SqlParameter();
-                parParameter[7].ParameterName = "@estadoProyec";
-                parParameter[7].SqlDbType = SqlDbType.NChar;
-                parParameter[7].Size = 10;
-                parParameter[7].SqlValue = objproyecto.Estado_Proyecto;
+                parParameter[7].ParameterName = "@fechaProy ";
+                parParameter[7].SqlDbType = SqlDbType.DateTime;
+                parParameter[7].SqlValue = objproyecto.Fecha_Proyecto;
 
                 parParameter[8] = new SqlParameter();
-                parParameter[8].ParameterName = "@fechaProy ";
-                parParameter[8].SqlDbType = SqlDbType.DateTime;
-                parParameter[8].SqlValue = objproyecto.Fecha_Proyecto;
-
-                parParameter[9] = new SqlParameter();
-                parParameter[9].ParameterName = "@statusProyec";
-                parParameter[9].SqlDbType = SqlDbType.NChar;
-                parParameter[9].Size = 1;
-                parParameter[9].SqlValue = objproyecto.Status_proyecto;
+                parParameter[8].ParameterName = "@statusProyec";
+                parParameter[8].SqlDbType = SqlDbType.NChar;
+                parParameter[8].Size = 1;
+                parParameter[8].SqlValue = objproyecto.Status_proyecto;
 
                 cnGeneral.EjecutarSP(parParameter, "SPProyecto");
             }

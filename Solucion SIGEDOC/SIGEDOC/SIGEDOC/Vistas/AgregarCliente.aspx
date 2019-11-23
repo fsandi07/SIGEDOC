@@ -32,11 +32,11 @@
                 <form>
                     <div class="contenedor-input">
                         <asp:Label ID="Label1" runat="server" Text="Nombre Del Cliente"></asp:Label>
-                         <asp:TextBox class="req" ID="TextBox1" runat="server"></asp:TextBox>
+                         <asp:TextBox class="req" ID="txtnombrecliente" runat="server"></asp:TextBox>
                      </div>
                     <div class="contenedor-input">
                         <asp:Label ID="Label2" runat="server" Text="Nombre de la Persona de Contacto"></asp:Label>
-                         <asp:TextBox class="req" ID="TextBox2" runat="server"></asp:TextBox>
+                         <asp:TextBox class="req" ID="txtnombrecontacto" runat="server"></asp:TextBox>
                      </div>  
                     
                     <div class="contenedor-input">
@@ -50,10 +50,10 @@
 
                     <div class="contenedor-input">
                         <asp:Label ID="Label6" runat="server" Text="Observaciones"></asp:Label><br />
-                         <asp:TextBox class="form-control form-control-user" runat="server" TextMode="MultiLine" Rows="5" MaxLength="0" Columns="62" BorderColor="#CCB210" CssClass="alert-dark" Width="775px"></asp:TextBox>
+                         <asp:TextBox ID="txtobservaciones" class="form-control form-control-user" runat="server" TextMode="MultiLine" Rows="5" MaxLength="0" Columns="62" BorderColor="#CCB210" CssClass="alert-dark" Width="775px"></asp:TextBox>
                      </div>
                     <%--<input type="submit" class="button button-block" value="Iniciar Sesión">--%>
-                     <asp:Button class="btn btn-primary btn-user btn-block"  ID="BtnCrear" runat="server" Text="Crear" BackColor="#CCB210" BorderColor="#CCB210" />
+                     <asp:Button  class="btn btn-primary btn-user btn-block"  ID="BtnCrear" runat="server" Text="Crear" BackColor="#CCB210" BorderColor="#CCB210" OnClick="BtnCrear_Click" />
                 </form>
             </div>
 
@@ -68,7 +68,7 @@
               function mensajeEspera() {
                   let timerInterval
                   Swal.fire({
-                      title: '¡Acceso Denegado no cuenta con los permisos para Crear Cliente!',
+                      title: '¡Acceso Denegado! no cuenta con los permisos para Aceder a este Modulo, contacte al Administrador',
 
                       timer: 4000,
                       allowOutsideClick: false,
@@ -93,10 +93,11 @@
               }
 
         // mensaje de error
-        function mensajeErrorIngreso() {
+        function mensajeError() {
             swal.fire({
                 title: '¡Error!',
-                text: "¡" + "No cuenta con los priveligios para acceder a este modulo" + "!",
+                text: "¡" + " Lo sentimos a ocurriod un Error, por favor intentelo de nuevo,"+
+                   "Si el problema persiste contacte al Administrador " + "!",
                 type: 'error',
                 showConfirmButton: false,
                 allowOutsideClick: false,
@@ -115,20 +116,6 @@
             })
 
         }
-
-        //mensaje de validacion del word
-        function mensajeDeValidacionDoc() {
-            swal.fire({
-                title: '¡Atencion!',
-                text: "¡" + "Debe cargar el documento word" + "!",
-                type: 'error',
-                showConfirmButton: false,
-                allowOutsideClick: false,
-                timer: 3000,
-
-            })
-        }
-        
 
     </script>           
                     

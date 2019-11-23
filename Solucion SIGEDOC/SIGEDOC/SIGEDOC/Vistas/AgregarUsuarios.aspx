@@ -32,34 +32,41 @@
             
                 
                 <form>
-                    <div class="contenedor-input">
-                        <asp:Label ID="Label1" runat="server" Text="Nombre Completo"></asp:Label>
-                         <asp:TextBox class="req" ID="TextBox1" runat="server"></asp:TextBox>
-                     </div>
-                    <div class="contenedor-input">
-                        <asp:Label ID="Label2" runat="server" Text="Identificación"></asp:Label>
-                         <asp:TextBox class="req" ID="TextBox2" runat="server" TextMode="Number"></asp:TextBox>
+                     <div class="contenedor-input">
+                        <asp:Label ID="Lblidentificacion" runat="server" Text="Identificación"></asp:Label>
+                         <asp:TextBox class="req" ID="txtidentifiaccion" runat="server" TextMode="Number"></asp:TextBox>
                      </div>  
+
                     <div class="contenedor-input">
-                        <asp:Label ID="Label3" runat="server" Text="Nombre de Usuario"></asp:Label>
-                         <asp:TextBox class="req" ID="TextBox3" runat="server"></asp:TextBox>
+                        <asp:Label ID="lblnombre" runat="server" Text="Nombre"></asp:Label>
+                         <asp:TextBox class="req" ID="txtnombre" runat="server"></asp:TextBox>
+                     </div>
+                     <div class="contenedor-input">
+                        <asp:Label ID="lblapellidos" runat="server" Text="Apellidos"></asp:Label>
+                         <asp:TextBox class="req" ID="txtapellido" runat="server"></asp:TextBox>
+                     </div>
+                   
+                    <div class="contenedor-input">
+                        <asp:Label ID="lblnickname" runat="server" Text="Nombre de Usuario"></asp:Label>
+                         <asp:TextBox class="req" ID="txtnickname" runat="server"></asp:TextBox>
                      </div> 
                     <div class="contenedor-input">
-                        <asp:Label ID="Label4" runat="server" Text="tipo de Rol"></asp:Label>
-                         <asp:DropDownList ID="DropDownList1" runat="server" CssClass="alert-dark">
+                        <asp:Label ID="Lblrol" runat="server" Text="tipo de Rol"></asp:Label>
+                         <asp:DropDownList ID="dptrol" runat="server" CssClass="alert-dark" DataSourceID="SqlDataRol" DataTextField="nombreRol" DataValueField="IdRol">
                         </asp:DropDownList>
+                        <asp:SqlDataSource ID="SqlDataRol" runat="server" ConnectionString="<%$ ConnectionStrings:sigedocConnectionString %>" SelectCommand="SELECT [IdRol], [nombreRol] FROM [TbRol]"></asp:SqlDataSource>
                      </div> 
                     <div class="contenedor-input">
-                        <asp:Label ID="Label5" runat="server" Text=" Correo Electronico"></asp:Label>
-                         <asp:TextBox class="req" ID="TextBox5" runat="server"></asp:TextBox>
+                        <asp:Label ID="Lblcorreo" runat="server" Text=" Correo Electronico"></asp:Label>
+                         <asp:TextBox class="req" ID="txtcorreo" runat="server"></asp:TextBox>
                      </div> 
                     <div class="contenedor-input">
-                        <asp:Label ID="Label6" runat="server" Text="Contacto"></asp:Label>
-                         <asp:TextBox class="req" ID="txt_contacto" runat="server" TextMode="Number"></asp:TextBox>
+                        <asp:Label ID="Lblcontacto" runat="server" Text="Contacto"></asp:Label>
+                         <asp:TextBox class="req" ID="txtcontacto" runat="server" TextMode="Number"></asp:TextBox>
                      </div> 
                       
                     <%--<input type="submit" class="button button-block" value="Iniciar Sesión">--%>
-                     <asp:Button class="btn btn-primary btn-user btn-block1"  ID="BtnCrear" runat="server" Text="Crear" BackColor="#CCB210" BorderColor="#CCB210" />
+                     <asp:Button class="btn btn-primary btn-user btn-block1"  ID="BtnCrear" runat="server" Text="Crear" BackColor="#CCB210" BorderColor="#CCB210" OnClick="BtnCrear_Click" />
                     </form>
             </div>
 
@@ -67,6 +74,64 @@
 
    <script src="js/jquery.js"></script>
    <script src="js/main.js"></script>
+
+  <script type="text/javascript">
+
+              function mensajeEspera() {
+                  let timerInterval
+                  Swal.fire({
+                      title: '¡Acceso Denegado!, no cuenta con los permisos para Aceder a este Modulo, contacte al Administrador',
+
+                      timer: 4000,
+                      allowOutsideClick: false,
+                      onBeforeOpen: () => {
+
+                          Swal.showLoading()
+
+                          timerInterval = setInterval(() => {
+                              Swal.getContent().querySelector('strong')
+                                  .textContent = (Swal.getTimerLeft() / 1000)
+                                      .toFixed(0)
+                          }, 100)
+                      },
+                      onClose: () => {
+                          clearInterval(timerInterval)
+                      }
+
+                  })
+
+
+                  window.setTimeout('location.href="Menu.aspx"', 4000)
+              }
+
+      // mensaje de error
+      function mensajeError() {
+          swal.fire({
+              title: '¡Error!',
+              text: "¡" + " Lo sentimos a ocurrido un Error, por favor intentelo de nuevo," +
+                  "Si el problema persiste contacte al Administrador " + "!",
+              type: 'error',
+              showConfirmButton: false,
+              allowOutsideClick: false,
+              timer: 4000,
+
+          })
+      }
+
+        //mensaje de conrfimacion
+        function mensajeDeconfirmacion() {
+            swal.fire({
+                title: "¡EXITO!",
+                text: "¡" + "Los Datos se Guardaron Con Exito" + "!",
+                type: 'success',
+                allowOutsideClick: false,
+            })
+
+        }
+
+    </script>           
+
+
 
 
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script><script  src="./dist/script.js"></script>
