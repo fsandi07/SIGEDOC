@@ -20,53 +20,81 @@ namespace SIGEDOC.Vistas
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            bool Internet = ValidarIntenrt();
+            if (Internet)
+            {
+                //ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('SI HAY INTERNET');", true);
+            }
+            else
+            {
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeEspera", "mensajeEspera('" + "" + "');", true);
+            }
+
         }
+        public bool ValidarIntenrt()
+        {
+            try
+            {
+                System.Net.IPHostEntry host = System.Net.Dns.GetHostEntry("www.google.com");
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
 
         protected void BtnIngreso_Click(object sender, EventArgs e)
         {
             try
             {
-                this.usuvalid = new Usuarios();
-                this.usuvalid.Nicname_usuario = this.TxtIdenti.Text;
-                this.usuvalid.Clave_usuario = this.TxtClave.Text;
-                this.usuvalid.Opc = 1;
-                this.usuvalidhelper = new UsuarioHelper(usuvalid);
-                this.datos = new DataTable();
-                this.datos = this.usuvalidhelper.Validar_Usuario();
-
-                if (datos.Rows.Count >= 0)
+                bool Internet = ValidarIntenrt();
+                if (Internet)
                 {
-                    DataRow fila = datos.Rows[0];
+                    this.usuvalid = new Usuarios();
+                    this.usuvalid.Nicname_usuario = this.TxtIdenti.Text;
+                    this.usuvalid.Clave_usuario = this.TxtClave.Text;
+                    this.usuvalid.Opc = 1;
+                    this.usuvalidhelper = new UsuarioHelper(usuvalid);
+                    this.datos = new DataTable();
+                    this.datos = this.usuvalidhelper.Validar_Usuario();
 
-                    if (int.Parse(fila["estadoUsu"].ToString()) == 1)
+                    if (datos.Rows.Count >= 0)
                     {
+                        DataRow fila = datos.Rows[0];
 
-                        Usuarios.SetIdRol(int.Parse(fila["idRol"].ToString()));
-                        Usuarios.SetIdUsuario(fila["cedulaUsu"].ToString());
-                        Usuarios.SetNicName(fila["nicknameUsu"].ToString());
-                        Usuarios.SetNombre(fila["nombreUsu"].ToString());
-                        Usuarios.SetApellidos(fila["apellidosUsu"].ToString());
-                        Session["Idusuario"] = Usuarios.GloIdUsuario;
-                        Response.Redirect("Menu.aspx");
+                        if (int.Parse(fila["estadoUsu"].ToString()) == 1)
+                        {
+
+                            Usuarios.SetIdRol(int.Parse(fila["idRol"].ToString()));
+                            Usuarios.SetIdUsuario(fila["cedulaUsu"].ToString());
+                            Usuarios.SetNicName(fila["nicknameUsu"].ToString());
+                            Usuarios.SetNombre(fila["nombreUsu"].ToString());
+                            Usuarios.SetApellidos(fila["apellidosUsu"].ToString());
+                            Session["Idusuario"] = Usuarios.GloIdUsuario;
+                            Response.Redirect("Menu.aspx");
+                        }
+                        else
+                        {
+
+                            ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeErrorInhabilitado", "mensajeErrorInhabilitado('" + "" + "');", true);
+
+                        }
+                        
                     }
-                    else
-                    {
-
-                        ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeErrorInhabilitado", "mensajeErrorInhabilitado('" + "" + "');", true);
-
-                    }
-
-
                 }
-
+                else
+                {
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeEspera", "mensajeEspera('" + "" + "');", true);
+                }
+              
             }
             catch (Exception)
             {
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError", "mensajeError('" + "" + "');", true);
             }
-
-
-
         }
     }
 }

@@ -12,19 +12,10 @@ namespace SIGEDOC.Vistas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            this.lblfecha.Text = DateTime.Now.ToString("dd/MM/yyy");
-            this.LblIdentUsu.Text = Usuarios.GloIdUsuario;
-            this.LblNomUsu.Text = Usuarios.GloUsuario +" " + Usuarios.GloApellidos;
-            string  valid = Usuarios.GloIdUsuario;
-
-            if (valid == "" || Session["Idusuario"] == null)
-            {
-                Response.Redirect("Error.aspx");
-
-            }
-                       
+           
         }
+        
+                          
         protected void BtnSalir_Click(object sender, EventArgs e)
         {
             Response.Redirect("Login.aspx");

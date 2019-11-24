@@ -28,7 +28,7 @@ namespace SIGEDOC.Vistas
             if (validar == 0 || Session["Idusuario"] == null)
             {
 
-                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeEspera", "mensajeEspera('" + "" + "');", true);
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeEspera3", "mensajeEspera3('" + "" + "');", true);
             }
             else
             {

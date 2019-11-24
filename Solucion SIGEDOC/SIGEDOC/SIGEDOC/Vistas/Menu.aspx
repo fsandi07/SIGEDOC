@@ -28,7 +28,7 @@
 
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img class="d-block w-100" src="img/Expe1.jpg" alt="Screenshot 11">
+          <img class="d-block w-100" src="img/ExpeLimon.jpg" alt="Screenshot 11">
         <div class="carousel-caption d-none d-md-block">
           <h3 class="h3 mb-0 text-gray-900" ><strong>Desea Conocer Más?</strong></h3>
            <a href="#" data-toggle="modal" data-target="#AvisoModal2" class="btn btn-primary">Ver información</a>

@@ -132,6 +132,33 @@
 
                  }
 
+                 //Alerta de espera                                  
+
+                     function mensajeEspera() {
+                         let timerInterval
+                         Swal.fire({
+                             title: '¡¡Acceso Interrumpido!, Actualmente no hay acceso a conexion de Internet',
+
+                             timer: 4000,
+                             allowOutsideClick: false,
+                             onBeforeOpen: () => {
+
+                                 Swal.showLoading()
+
+                                 timerInterval = setInterval(() => {
+                                     Swal.getContent().querySelector('strong')
+                                         .textContent = (Swal.getTimerLeft() / 1000)
+                                             .toFixed(0)
+                                 }, 100)
+                             },
+                             onClose: () => {
+                                 clearInterval(timerInterval)
+                             }
+                         })
+                         
+                         window.setTimeout('location.href="ErrorInternet.aspx"', 4000)
+                     }
+
                  </script>
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>

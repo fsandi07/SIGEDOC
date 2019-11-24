@@ -91,12 +91,41 @@
 
                   window.setTimeout('location.href="Menu.aspx"', 4000)
               }
+              // mensaje espera2
+
+              function mensajeEspera2() {
+                  let timerInterval
+                  Swal.fire({
+                      title: '¡Acceso Interrumpido!, Actualmente no existe conexion Internet',
+
+                      timer: 4000,
+                      allowOutsideClick: false,
+                      onBeforeOpen: () => {
+
+                          Swal.showLoading()
+
+                          timerInterval = setInterval(() => {
+                              Swal.getContent().querySelector('strong')
+                                  .textContent = (Swal.getTimerLeft() / 1000)
+                                      .toFixed(0)
+                          }, 100)
+                      },
+                      onClose: () => {
+                          clearInterval(timerInterval)
+                      }
+
+                  })
+
+
+                  window.setTimeout('location.href="ErrorInternet.aspx"', 4000)
+              }
+
 
         // mensaje de error
         function mensajeError() {
             swal.fire({
                 title: '¡Error!',
-                text: "¡" + " Lo sentimos a ocurriod un Error, por favor intentelo de nuevo,"+
+                text: "¡" + " Lo sentimos a ocurrido un Error, por favor intentelo de nuevo,"+
                    "Si el problema persiste contacte al Administrador " + "!",
                 type: 'error',
                 showConfirmButton: false,

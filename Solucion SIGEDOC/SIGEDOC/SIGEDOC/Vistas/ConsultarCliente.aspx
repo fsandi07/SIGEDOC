@@ -39,7 +39,7 @@
               function mensajeEspera() {
                   let timerInterval
                   Swal.fire({
-                      title: '¡Acceso Denegado!, no cuenta con los permisos para Aceder a este Modulo, contacte al Administrador',
+                      title: '¡Acceso Denegado!, no cuenta con los permisos para Aceder a este Modulo,contacte al Administrador',
 
                       timer: 4000,
                       allowOutsideClick: false,

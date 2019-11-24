@@ -1220,6 +1220,7 @@
     <Content Include="Vistas\css\main.css" />
     <Content Include="Vistas\css\util.css" />
     <Content Include="Vistas\ERROR.aspx" />
+    <Content Include="Vistas\ErrorInternet.aspx" />
     <Content Include="Vistas\estilos\fonts\font-awesome-4.7.0\css\font-awesome.css" />
     <Content Include="Vistas\estilos\fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
     <Content Include="Vistas\estilos\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
@@ -1277,6 +1278,7 @@
     <Content Include="Vistas\img\olvido_pass.jpg" />
     <Content Include="Vistas\img\PQS.png" />
     <Content Include="Vistas\img\PQS1.png" />
+    <Content Include="Vistas\img\trianguloRojo.png" />
     <Content Include="Vistas\js\demo\chart-area-demo.js" />
     <Content Include="Vistas\js\demo\chart-bar-demo.js" />
     <Content Include="Vistas\js\demo\chart-pie-demo.js" />
@@ -2989,6 +2991,13 @@
     </Compile>
     <Compile Include="Vistas\ERROR.aspx.designer.cs">
       <DependentUpon>ERROR.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\ErrorInternet.aspx.cs">
+      <DependentUpon>ErrorInternet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\ErrorInternet.aspx.designer.cs">
+      <DependentUpon>ErrorInternet.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

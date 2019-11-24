@@ -22,6 +22,16 @@ namespace SIGEDOC.Vistas
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            //bool Internet = ValidarIntenrt();
+            //if (Internet)
+            //{
+            //    //ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('SI HAY INTERNET');", true);
+            //}
+            //else
+            //{
+            //    ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeEspera2", "mensajeEspera2('" + "" + "');", true);
+            //}                              
+            
             Num_Estado_Permiso();
 
             if (validar == 0 || Session["Idusuario"] == null)
@@ -34,7 +44,19 @@ namespace SIGEDOC.Vistas
 
             }
         }
+        //public bool ValidarIntenrt()
+        //{
+        //    try
+        //    {
+        //        System.Net.IPHostEntry host = System.Net.Dns.GetHostEntry("www.google.com");
 
+        //        return true;
+        //    }
+        //    catch
+        //    {
+        //        return false;
+        //    }
+        //}
         private void Num_Estado_Permiso()
         {
             try

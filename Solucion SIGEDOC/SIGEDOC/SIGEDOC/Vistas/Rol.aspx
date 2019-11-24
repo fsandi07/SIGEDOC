@@ -43,16 +43,27 @@
              
         </div>  
         <asp:CheckBoxList ID="cbPermisos" runat="server" Height="50px" Width="619px"  CellPadding="-1" CellSpacing="-1">
-            <asp:ListItem Value="1">Crear Cliente</asp:ListItem>
             <asp:ListItem Value="1">Consultar Cliente</asp:ListItem>
-            <asp:ListItem Value="1">Crear Documento</asp:ListItem>
-            <asp:ListItem Value="1">Subir Documento</asp:ListItem>
-            <asp:ListItem Value="1">Consultar Documento</asp:ListItem>
-            <asp:ListItem Value="1">Usuarios</asp:ListItem>
-            <asp:ListItem Value="1">Roles</asp:ListItem>
-            <asp:ListItem Value="1">Bitacora</asp:ListItem>
-            <asp:ListItem Value="1">Reportes Auditoria</asp:ListItem>
+            <asp:ListItem Value="1">Crear Cliente</asp:ListItem>
+            <asp:ListItem Value="1">Modificar Cliente</asp:ListItem>
+            <asp:ListItem Value="1">Consultar Proyecto</asp:ListItem>
+            <asp:ListItem Value="1">Crear Proyecto</asp:ListItem>
+            <asp:ListItem Value="1">Modificar Proyecto</asp:ListItem>
+            <asp:ListItem Value="1">Consultar Usuario</asp:ListItem>
+            <asp:ListItem Value="1">Crear Usuario</asp:ListItem>
+            <asp:ListItem Value="1">Modificar Usuario</asp:ListItem>
+            <asp:ListItem Value="1">Consultar Documentos Creados</asp:ListItem>
+            <asp:ListItem Value="1">Crear Documentos</asp:ListItem>
+            <asp:ListItem Value="1">Modificar Documentos Creados</asp:ListItem>
+            <asp:ListItem Value="1">Consultar Documentos Subidos</asp:ListItem>
+            <asp:ListItem Value="1">Subir Documentos</asp:ListItem>
+            <asp:ListItem Value="1">Modificar Documentos Subidos</asp:ListItem>
+            <asp:ListItem Value="1">Consultar Rol</asp:ListItem>
+            <asp:ListItem Value="1">Crear Rol</asp:ListItem>
+            <asp:ListItem Value="1">Modificar Rol</asp:ListItem>
+            <asp:ListItem Value="1">Acceder Bitacora</asp:ListItem>
             <asp:ListItem Value="1">Reportes de Movimientos</asp:ListItem>
+            <asp:ListItem Value="1">Reportes de Auditoria</asp:ListItem>
             <asp:ListItem Value="1">Reportes de Proyectos</asp:ListItem>
         </asp:CheckBoxList>
            <br/>  <br/>
