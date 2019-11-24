@@ -31,20 +31,22 @@ namespace SIGEDOC.Vistas
         private static int id_cliente;
         protected void Page_Load(object sender, EventArgs e)
         {
-            Num_Estado_Permiso();
+            //Num_Estado_Permiso();
 
-            if (validar == 0 || Session["Idusuario"] == null)
-            {
+            //if (validar == 0 || Session["Idusuario"] == null)
+            //{
 
-                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeEspera", "mensajeEspera('" + "" + "');", true);
-            }
-            else
+            //    ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeEspera", "mensajeEspera('" + "" + "');", true);
+            //}
+            //else
+            //{
+             
+            //}
+            for (int i = 2010; i <= 2050; i++)
             {
-                for (int i = 2010; i <= 2050; i++)
-                {
-                    dptPeriodo.Items.Add(new ListItem(i.ToString(), i.ToString()));
-                }
+                dptPeriodo.Items.Add(new ListItem(i.ToString(), i.ToString()));
             }
+
         }
 
         private void Num_Estado_Permiso()
@@ -188,7 +190,7 @@ namespace SIGEDOC.Vistas
                         this.cd.Estado_doc_creado = "En Proceso";
                         this.cd.Fecha_doc_subido = DateTime.Today.ToString();
                         this.cd.Id_cliente = id_cliente;
-                        this.cd.Id_usuario = 121212;
+                        this.cd.Id_usuario = int.Parse(Usuarios.GloIdUsuario);
                         this.cd.Num_referencia_creado = this.txtReferencia.Text;
                         this.cd.Habilitado = 1;
                         this.cd.Opc = 1;
@@ -199,10 +201,10 @@ namespace SIGEDOC.Vistas
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError", "mensajeError('" + "" + "');", true);
+                this.txtDescripcion.Text = ex.Message;
+               // ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError", "mensajeError('" + "" + "');", true);
             }
         }
 

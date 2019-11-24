@@ -14,6 +14,7 @@ namespace SIGEDOC.Vistas
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.lblfecha.Text = DateTime.Now.ToString("dd/MM/yyy");
             this.LblIdentUsu.Text = Usuarios.GloIdUsuario;
             this.LblNomUsu.Text = Usuarios.GloUsuario + " " + Usuarios.GloApellidos;
         }

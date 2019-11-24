@@ -50,7 +50,7 @@
         </div>
         <div class="contenedor-input">
          <asp:Label ID="lblPeriodo" runat="server" Text="Periodo"></asp:Label><br />        
-        <asp:DropDownList ID="dptPeriodo" runat="server"  CssClass="alert-dark" Height="28px" Width="771px" AutoPostBack="True"></asp:DropDownList>
+        <asp:DropDownList ID="dptPeriodo" runat="server"  CssClass="alert-dark" Height="28px" Width="771px" AutoPostBack="False"></asp:DropDownList>
         </div>
         <div class="contenedor-input">
             <asp:Label ID="lblProyec" runat="server" Text="Asociar Proyecto"></asp:Label><br />

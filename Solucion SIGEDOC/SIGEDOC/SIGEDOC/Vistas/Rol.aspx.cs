@@ -7,7 +7,6 @@ using System.Web.UI.WebControls;
 using SIGEDOC.Negocio;
 using System.Data;
 
-
 namespace SIGEDOC.Vistas
 {
     public partial class Rol : System.Web.UI.Page

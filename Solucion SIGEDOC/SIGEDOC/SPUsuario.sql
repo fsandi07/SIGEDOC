@@ -29,3 +29,8 @@ if @opcion = 3
 begin
 	update TbUsuario set nombreUsu = @nombreUsu,apellidosUsu = @apellidosUsu,nicknameUsu=@nicknameUsu,correoElectUsu=@correoElectUsu,idRol=@idRol,estadoUsu=@estadoUsu,contactoUsu=@contactoUsu,claveUsu=CONVERT(varbinary(8000),ENCRYPTBYPASSPHRASE('password',@claveUsu)) where cedulaUsu= @cedulaUsu
 end
+
+ update TbUsuario set claveUsu=ENCRYPTBYPASSPHRASE('password','123') where nombreUsu='fabio'
+
+
+select claveusu=convert(varchar(max),DECRYPTBYPASSPHRASE('password',claveusu)) from TbUsuario 

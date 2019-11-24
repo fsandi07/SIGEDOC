@@ -18,23 +18,28 @@
 
 
 
+     <style type="text/css">
+         .auto-style1 {
+             color: #2f3037;
+             background-color: #dedee1;
+             border-color: #d1d1d5;
+             margin-top: 0px;
+         }
+     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="contenedor-Grid">
-    <asp:GridView ID="GridUsuarios" runat="server" AutoGenerateColumns="False" CellPadding="5" DataKeyNames="cedulaUsu" DataSourceID="SqlDataUsuario" ForeColor="#333333" GridLines="Vertical" OnSelectedIndexChanged="GridUsuarios_SelectedIndexChanged" CssClass="alert-dark" Width="1031px" BorderColor="#003300" BorderStyle="None">
+    <asp:GridView ID="GridUsuarios" runat="server" AutoGenerateColumns="False" CellPadding="5" DataKeyNames="cedulaUsu" DataSourceID="SqlDataUsuario" ForeColor="#333333" GridLines="Vertical" OnSelectedIndexChanged="GridUsuarios_SelectedIndexChanged" CssClass="auto-style1" Width="978px" BorderColor="#003300" BorderStyle="None" OnRowDataBound="GridUsuarios_RowDataBound">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:CommandField SelectText="Modificar" ShowSelectButton="True" HeaderText="Modificar Usuario" ButtonType="Image" SelectImageUrl="~/Vistas/img/descarga.png" FooterStyle-Width="40px" FooterStyle-Height="30px">
-                
-<ItemStyle Height="20px" Width="20px"></ItemStyle>
-                
-            </asp:CommandField>
+            <asp:CommandField ShowSelectButton="True" HeaderText="Modificar" SelectText="&lt;i class='fas fa-edit'&gt;&lt;/i&gt;" />
             <asp:BoundField DataField="cedulaUsu" HeaderText="Cedula" ReadOnly="True" SortExpression="cedulaUsu" />
             <asp:BoundField DataField="nombreUsu" HeaderText="Nombre" SortExpression="nombreUsu" />
+            <asp:BoundField DataField="apellidosUsu" HeaderText="Apellidos" SortExpression="apellidosUsu" />
             <asp:BoundField DataField="nicknameUsu" HeaderText="Nickname" SortExpression="nicknameUsu" />
             <asp:BoundField DataField="correoElectUsu" HeaderText="Correo" SortExpression="correoElectUsu" />
-            <asp:BoundField DataField="nombreRol" HeaderText="Nombre Rol" SortExpression="nombreRol" />
-            <asp:BoundField DataField="idRol" HeaderText="Id Rol" SortExpression="idRol" />
+            <asp:BoundField DataField="nombreRol" HeaderText="Rol" SortExpression="nombreRol" />
+            <asp:BoundField DataField="idRol" HeaderText="IdRol" SortExpression="idRol" />
             <asp:BoundField DataField="estadoUsu" HeaderText="Estado" SortExpression="estadoUsu" />
             <asp:BoundField DataField="contactoUsu" HeaderText="Contacto" SortExpression="contactoUsu" />
         </Columns>
@@ -49,7 +54,7 @@
         <SortedDescendingCellStyle BackColor="#E9EBEF" />
         <SortedDescendingHeaderStyle BackColor="#4870BE" />
     </asp:GridView>
-    <asp:SqlDataSource ID="SqlDataUsuario" runat="server" ConnectionString="<%$ ConnectionStrings:sigedocConnectionString %>" SelectCommand="select  a.cedulaUsu, a.nombreUsu, a.nicknameUsu,a.correoElectUsu,b.nombreRol,a.idRol,a.estadoUsu,a.contactoUsu 
+    <asp:SqlDataSource ID="SqlDataUsuario" runat="server" ConnectionString="<%$ ConnectionStrings:sigedocConnectionString %>" SelectCommand="select  a.cedulaUsu, a.nombreUsu,a.apellidosUsu,a.nicknameUsu,a.correoElectUsu,b.nombreRol,a.idRol,a.estadoUsu,a.contactoUsu 
 from TbUsuario a, TbRol b
 where a.idRol = b.IdRol "></asp:SqlDataSource>
 
@@ -69,6 +74,7 @@ where a.idRol = b.IdRol "></asp:SqlDataSource>
                 </div>
                 <div class="modal-body">
                     Nombre:<asp:TextBox  class="req" ID="txtnombre" runat="server" ForeColor="Black"></asp:TextBox>
+                    Apellido:<asp:TextBox  class="req" ID="txtapellido" runat="server" ForeColor="Black"></asp:TextBox>
                     Cedula:<asp:TextBox ID="txtcedula" runat="server" ReadOnly="True" ForeColor="Black"></asp:TextBox>
                     Nickname:<asp:TextBox ID="txtnikcname" runat="server" ForeColor="Black"></asp:TextBox>
                     Correo:<asp:TextBox ID="txtcorreo" runat="server" ForeColor="Black"></asp:TextBox>
@@ -78,12 +84,14 @@ where a.idRol = b.IdRol "></asp:SqlDataSource>
                           <asp:ListItem Value="1">Activo</asp:ListItem>
                           <asp:ListItem Value="2">Inactivo</asp:ListItem>
                       </asp:DropDownList>
+                    <br>
                     Tipo de Rol:
                     <asp:DropDownList ID="dptrol" runat="server" DataSourceID="SqlDataRol" DataTextField="nombreRol" DataValueField="IdRol" CssClass="alert-dark">
                     </asp:DropDownList>
+                    <asp:SqlDataSource ID="SqlDataRol1" runat="server" ConnectionString="<%$ ConnectionStrings:sigedocConnectionString %>" SelectCommand="SELECT * FROM [TbRol]"></asp:SqlDataSource>
                     <br>
                     <div class="modal-footer">
-                        <asp:Button ID="btningresar" runat="server" Text="Comprar Articulo" class="btn btn-primary"/>
+                        <asp:Button ID="btningresar" runat="server" Text="Guardar Cambios" class="btn btn-primary" OnClick="btningresar_Click"/>
                         <%-- <button type="button" class="btn btn-primary" data-dismiss="modal">Comprar</button>--%>
                         <%--data-dismiss="modal"--%>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
@@ -93,7 +101,63 @@ where a.idRol = b.IdRol "></asp:SqlDataSource>
         </div>
     </div>
 
+ <script type="text/javascript">
 
+              function mensajeEspera() {
+                  let timerInterval
+                  Swal.fire({
+                      title: '¡Acceso Denegado!, no cuenta con los permisos para Aceder a este Modulo,contacte al Administrador',
+
+                      timer: 4000,
+                      allowOutsideClick: false,
+                      onBeforeOpen: () => {
+
+                          Swal.showLoading()
+
+                          timerInterval = setInterval(() => {
+                              Swal.getContent().querySelector('strong')
+                                  .textContent = (Swal.getTimerLeft() / 1000)
+                                      .toFixed(0)
+                          }, 100)
+                      },
+                      onClose: () => {
+                          clearInterval(timerInterval)
+                      }
+
+                  })
+
+
+                  window.setTimeout('location.href="Menu.aspx"', 4000)
+              }
+
+      // mensaje de error
+      function mensajeError() {
+          swal.fire({
+              title: '¡Error!',
+              text: "¡" + " Lo sentimos a ocurrido un Error, por favor intentelo de nuevo," +
+                  "Si el problema persiste contacte al Administrador " + "!",
+              type: 'error',
+              showConfirmButton: false,
+              allowOutsideClick: false,
+              timer: 4000,
+
+          })
+      }
+
+        //mensaje de conrfimacion
+        function mensajeDeconfirmacion() {
+            swal.fire({
+                title: "¡EXITO!",
+                text: "¡" + "Los Datos se Guardaron Con Exito" + "!",
+                type: 'success',
+                allowOutsideClick: false,
+             
+            })
+           window.setTimeout('location.href="ModificarUsuario.aspx"',3000)
+          
+        }
+
+    </script>    
 
 
 </asp:Content>

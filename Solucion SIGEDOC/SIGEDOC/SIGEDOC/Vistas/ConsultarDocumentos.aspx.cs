@@ -20,17 +20,17 @@ namespace SIGEDOC.Vistas
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Num_Estado_Permiso();
+            //Num_Estado_Permiso();
 
-            if (validar == 0 || Session["Idusuario"] == null)
-            {
+            //if (validar == 0 || Session["Idusuario"] == null)
+            //{
 
-                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeEspera", "mensajeEspera('" + "" + "');", true);
-            }
-            else
-            {
+            //    ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeEspera", "mensajeEspera('" + "" + "');", true);
+            //}
+            //else
+            //{
 
-            }
+            //}
         }
 
         private void Num_Estado_Permiso()
@@ -59,5 +59,28 @@ namespace SIGEDOC.Vistas
 
         }
 
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "ModalDocumentos", "$('#ModalDocumentos').modal();", true);
+
+
+        }
+
+        protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            //if (e.Row.RowType == DataControlRowType.DataRow)
+            //{
+            //    DataBinder.Eval(e.Row.DataItem, "");
+            //        e.Row.ForeColor = System.Drawing.Color.Red;
+            //        e.Row.BackColor = System.Drawing.Color.Yellow;
+            //        e.Row.Font.Bold = true;
+        
+            //}
+        }
+
+        protected void btnActualizar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

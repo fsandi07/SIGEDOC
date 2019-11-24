@@ -22,6 +22,7 @@
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="centroCostos" DataSourceID="SqlDataProyec" CellPadding="4" ForeColor="#333333" GridLines="None" Width="1113px">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
+            <asp:CommandField HeaderText="Editar" SelectText="&lt;i class='fas fa-edit'&gt;&lt;/i&gt;" ShowSelectButton="True" />
             <asp:BoundField DataField="centroCostos" HeaderText="centro Costos" InsertVisible="False" ReadOnly="True" SortExpression="centroCostos" />
             <asp:BoundField DataField="NombreProy" HeaderText=" Proyecto " SortExpression="NombreProy" />
             <asp:BoundField DataField="NumLicita" HeaderText="N Licitacion " SortExpression="NumLicita" />

@@ -18,17 +18,17 @@ namespace SIGEDOC.Vistas
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Num_Estado_Permiso();
+            //Num_Estado_Permiso();
 
-            if (validar == 0 || Session["Idusuario"] == null)
-            {
+            //if (validar == 0 || Session["Idusuario"] == null)
+            //{
 
-                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeEspera", "mensajeEspera('" + "" + "');", true);
-            }
-            else
-            {
+            //    ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeEspera", "mensajeEspera('" + "" + "');", true);
+            //}
+            //else
+            //{
 
-            }
+            //}
         }
 
         private void Num_Estado_Permiso()

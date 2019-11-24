@@ -88,7 +88,6 @@ namespace SIGEDOC.Vistas
                 this.usu.Rol_usuario = int.Parse(this.dptrol.SelectedValue);
                 this.usu.Correo_usuario = this.txtcorreo.Text;
                 this.usu.Clave_usuario = CrearPassword(8);
-                this.usu.Correo_usuario = this.txtcontacto.Text;
                 this.usu.Estado_usuarios = "1";
                 this.usu.Contacto_usuario = int.Parse(this.txtcontacto.Text);
                 this.usu.Opc = 1;
