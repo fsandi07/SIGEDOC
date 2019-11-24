@@ -207,12 +207,12 @@ namespace SIGEDOC.Vistas
                     }
                 }
                 else
-                { this.pr.Opcconsultar_cliente = 1;
+                { this.pr.Opcconsultar_cliente = 0;
                 }
                 this.pr.IdRol = id_Rol;
                 this.pr.Opc = 1;                
                 this.prh = new PermisosHelper(pr);
-                this.prh.IngresarPermisos();
+                this.prh.IngrewsarPermisos1();
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeDeconfirmacion", "mensajeDeconfirmacion('" + "" + "');", true);
             }
 

@@ -62,8 +62,8 @@ namespace SIGEDOC.Vistas
             try
             {
                 this.pr.Opc = 1;
-                this.pr.Id_rol = Usuarios.GlotIdRol;
-                this.pr.Nombre_permiso = "Crear Cliente";
+                this.pr.IdRol = Usuarios.GlotIdRol;
+                this.pr.Nom_Per1 = "Crear Cliente";
                 this.prh = new PermisosHelper(pr);
                 this.datos = new DataTable();
                 this.datos = this.prh.Estado_Permisos();

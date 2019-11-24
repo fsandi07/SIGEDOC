@@ -10,9 +10,12 @@ namespace SIGEDOC.Vistas
 {
     public partial class Menu : System.Web.UI.MasterPage
     {
+   
+
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+            this.LblIdentUsu.Text = Usuarios.GloIdUsuario;
+            this.LblNomUsu.Text = Usuarios.GloUsuario + " " + Usuarios.GloApellidos;
         }
         
                           

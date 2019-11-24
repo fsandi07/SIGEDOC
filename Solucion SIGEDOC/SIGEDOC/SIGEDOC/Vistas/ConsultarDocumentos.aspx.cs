@@ -38,8 +38,8 @@ namespace SIGEDOC.Vistas
             try
             {
                 this.pr.Opc = 1;
-                this.pr.Id_rol = Usuarios.GlotIdRol;
-                this.pr.Nombre_permiso = "Consultar Documento";
+                this.pr.IdRol = Usuarios.GlotIdRol;
+                this.pr.Nom_Per1 = "Consultar Documento";
                 this.prh = new PermisosHelper(pr);
                 this.datos = new DataTable();
                 this.datos = this.prh.Estado_Permisos();
