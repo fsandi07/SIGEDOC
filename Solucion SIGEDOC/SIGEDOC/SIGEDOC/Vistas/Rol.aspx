@@ -39,10 +39,12 @@
         </div>   
         <br/>
          <div class="contenedor-input">
-            <asp:Label ID="lblPermisos" runat="server" Text="Otorgar Permisos"></asp:Label> 
+            <asp:Label ID="lblPermisos" runat="server" Text="Otorgar Permisos"></asp:Label> <br />             
              
-        </div>  
-        <asp:CheckBoxList ID="cbPermisos" runat="server" Height="50px" Width="619px"  CellPadding="-1" CellSpacing="-1">
+        </div> 
+        
+        <asp:Panel ID="Panel1" runat="server" CssClass="align-content-center">
+            <asp:CheckBoxList ID="cbPermisos" runat="server" Height="20px" Width="850px" CssClass="align-content-center" RepeatLayout="Flow">
             <asp:ListItem Value="1">Consultar Cliente</asp:ListItem>
             <asp:ListItem Value="1">Crear Cliente</asp:ListItem>
             <asp:ListItem Value="1">Modificar Cliente</asp:ListItem>
@@ -66,6 +68,11 @@
             <asp:ListItem Value="1">Reportes de Auditoria</asp:ListItem>
             <asp:ListItem Value="1">Reportes de Proyectos</asp:ListItem>
         </asp:CheckBoxList>
+                </asp:Panel>
+        <asp:CheckBox ID="CheckBox1" runat="server" />
+        
+       
+        
            <br/>  <br/>
         <hr class="sidebar-divider my-0">
         <asp:Button class="btn btn-primary btn-user btn-block" ID="BtnGuardar" runat="server" Text="Guardar"

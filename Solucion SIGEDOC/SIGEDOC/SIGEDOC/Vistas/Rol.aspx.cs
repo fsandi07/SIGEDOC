@@ -211,7 +211,7 @@ namespace SIGEDOC.Vistas
                 this.pr.IdRol = id_Rol;
                 this.pr.Opc = 1;                
                 this.prh = new PermisosHelper(pr);
-                this.prh.IngrewsarPermisos1();
+                this.prh.IngresaPermiso();
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeDeconfirmacion", "mensajeDeconfirmacion('" + "" + "');", true);
             }
 
