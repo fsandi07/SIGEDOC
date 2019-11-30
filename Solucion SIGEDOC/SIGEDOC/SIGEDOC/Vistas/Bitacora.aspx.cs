@@ -74,10 +74,6 @@ namespace SIGEDOC.Vistas
 
         }
 
-
-
-
-
         private void ConectarBD()
         {
             try

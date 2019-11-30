@@ -76,7 +76,7 @@
         <asp:Label ID="lblFileWord" runat="server" Text="">Cargar documento Word</asp:Label><br />
         <asp:RegularExpressionValidator
             ID="RegularExpressionValidator1" runat="server"
-            ValidationExpression=".*(\.docx|\.DOCX)$"
+            ValidationExpression=".*(\.doc|\.DOCX|\.docx)$"
             ControlToValidate="FileSubirWord">El formato del Archivo no es Word</asp:RegularExpressionValidator>
 
         <asp:FileUpload class="btn btn-primary btn-user btn-block" ID="FileSubirWord" runat="server" />

@@ -133,7 +133,7 @@
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Opciones:</h6>
                             <a class="collapse-item" href="#" data-toggle="modal" data-target="#logoutModalusu">Usuarios</a>
-                            <a class="collapse-item" href="Rol.aspx">Roles</a>
+                            <a class="collapse-item" href="#" data-toggle="modal" data-target="#logoutModalRoles">Roles</a>
                             <a class="collapse-item" href="Bitacora.aspx">Bitacora</a>
                             <div class="collapse-divider"></div>
                         </div>
@@ -334,6 +334,26 @@
             </div>
         </div>
         <%-- fin de la modal --%>
+         <!-- Logout Modal-->
+        <%-- modal opcional para la gestion de usuarios --%>
+        <div class="modal fade" id="logoutModalRoles" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalRoles">Que desea Realizar?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Cerrar">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-footer">
+                        <asp:Button ID="btnModificarRoles" class="btn btn-warning btn-link" runat="server" Text="Modificar Rol " BackColor="#CCB210" BorderColor="#CCB210"  ForeColor="Black" Width="200" OnClick="btnModificarRoles_Click" />
+                        <asp:Button ID="Btnagregarrol" class="btn btn-warning btn-link" runat="server" Text="Agregar Rol" BackColor="#CCB210" BorderColor="#CCB210"  ForeColor="Black" Width="200" OnClick="Btnagregarrol_Click" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%-- fin de la modal --%>
+
 
         <%--  modal para Reportes de Auditoria y movimientos--%>
         <div class="modal fade" id="logoutModalrpt" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

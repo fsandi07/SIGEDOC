@@ -73,17 +73,17 @@ namespace SIGEDOC.Vistas
             this.txtcorreo.Text= this.GridCliente.Rows[GridCliente.SelectedIndex].Cells[5].Text;
             this.txtdetalle.Text= this.GridCliente.Rows[GridCliente.SelectedIndex].Cells[6].Text;
             this.dptestado.SelectedValue= this.GridCliente.Rows[GridCliente.SelectedIndex].Cells[7].Text;
-            if (this.dptestado.SelectedValue == "2")
+            if (this.dptestado.SelectedValue == "Inactivo")
             {
+                this.dptestado.SelectedValue = "2";
                 this.dptestado.Items.FindByText("Inactivo").Selected = true;
             }
             else
             {
+                this.dptestado.SelectedValue = "1";
                 this.dptestado.Items.FindByText("Activo").Selected = true;
 
             }
-
-
 
         }
 
@@ -124,11 +124,18 @@ namespace SIGEDOC.Vistas
             {
                 string estado;
                 estado = (string)DataBinder.Eval(e.Row.DataItem,"estadoCliente");
-                if (estado=="2")
+                if (estado =="2")
                 {
-                    e.Row.ForeColor = System.Drawing.Color.Red;
+                    e.Row.Cells[7].Text = "Inactivo";
+                    //e.Row.ForeColor = System.Drawing.Color.Red;
                     e.Row.BackColor = System.Drawing.Color.Yellow;
                     e.Row.Font.Bold = true;
+                }
+                else
+                {
+
+                    e.Row.Cells[7].Text = "Activo";
+
                 }
 
             }

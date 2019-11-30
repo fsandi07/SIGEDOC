@@ -6,6 +6,9 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using SIGEDOC.Negocio;
 using System.Data;
+// librerias agregadas 
+using System.Diagnostics;
+using System.IO;
 
 namespace SIGEDOC.Vistas
 {
@@ -16,6 +19,12 @@ namespace SIGEDOC.Vistas
         private PermisosHelper prh;
         private DataTable datos;
         private static int validar;
+
+        private static int ccosto;
+
+        // instacia de clase 
+        SIGEDOC.Negocio.CrearDocumento crearDocumento = new SIGEDOC.Negocio.CrearDocumento();
+        private CrearDocHelper docHelper;
 
 
         protected void Page_Load(object sender, EventArgs e)
@@ -59,27 +68,81 @@ namespace SIGEDOC.Vistas
 
         }
 
-        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        protected void btnActualizar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void GridDocumento_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                string estado;
+                estado = (string)DataBinder.Eval(e.Row.DataItem, "estatus");
+                if (estado == "En proceso")
+                {
+                 
+                    //e.Row.BackColor = System.Drawing.Color.Yellow;
+                    //e.Row.Font.Bold = true;
+                }
+                else if (estado == "Ganado")
+                {
+
+                    e.Row.BackColor = System.Drawing.Color.Green;
+
+                }
+                else if (estado == "Perdido")
+                {
+
+                    e.Row.BackColor = System.Drawing.Color.Red;
+
+                }
+                //e.Row.Cells[4].Text = "<i size='5xp' style='color:black' class='far fa-file-pdf'></i>";
+                //e.Row.Cells[5].Text = "<i class='fas fa-file - alt'></i>";
+
+
+            }
+        }
+
+        protected void GridDocumento_SelectedIndexChanged(object sender, EventArgs e)
         {
             ScriptManager.RegisterStartupScript(Page, Page.GetType(), "ModalDocumentos", "$('#ModalDocumentos').modal();", true);
 
-
+            ccosto = int.Parse(this.GridDocumento.Rows[GridDocumento.SelectedIndex].Cells[9].Text);
         }
 
-        protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
+        protected void btnWord_Click(object sender, EventArgs e)
         {
-            //if (e.Row.RowType == DataControlRowType.DataRow)
-            //{
-            //    DataBinder.Eval(e.Row.DataItem, "");
-            //        e.Row.ForeColor = System.Drawing.Color.Red;
-            //        e.Row.BackColor = System.Drawing.Color.Yellow;
-            //        e.Row.Font.Bold = true;
-        
-            //}
-        }
+            try
+            {
+                //this.crearDocumento.Id_proyecto = ccosto;              
+    
+                //this.crearDocumento.Opc = 4;
+                //this.docHelper = new CrearDocHelper(crearDocumento);
+                //this.datos = new DataTable();
+                //this.datos = this.docHelper.listar_word();
+                //if (datos.Rows.Count >= 0)
+                //{
+                //    DataRow fila = datos.Rows[0];                   
+                //    var document = fila["documentoWord"].ToString();
+                
+                //    Microsoft.Office.Interop.Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();                   
+                //    Microsoft.Office.Interop.Word.Document myWordDoc = fila["documentoWord"].ToString(); ;                
+                //    myWordDoc.Open();
+                //    Process.Start(document);
 
-        protected void btnActualizar_Click(object sender, EventArgs e)
-        {
+                //}
+            
+
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
 
         }
     }

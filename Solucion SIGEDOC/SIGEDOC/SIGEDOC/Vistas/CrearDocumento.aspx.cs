@@ -147,7 +147,7 @@ namespace SIGEDOC.Vistas
                             ref missing, ref missing, ref missing,
                             ref missing, ref missing, ref missing,
                             ref missing, ref missing, ref missing);
-            myWordDoc.Close();
+            myWordDoc.Close();            
             wordApp.Quit();
             Process.Start(@"C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\documentos word\documento creado\PQS.docx");
         }

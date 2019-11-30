@@ -1,12 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Vistas/Menu.Master" AutoEventWireup="true" CodeBehind="ConsultarDocumentos.aspx.cs" Inherits="SIGEDOC.Vistas.ConsultarDocumentos" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="dist/style.css">
 </asp:Content>
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-
+    
 
     <script type="text/javascript">
 
@@ -65,23 +68,32 @@
     </script>
 
 
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="numtotaldocu" DataSourceID="SqlDataDocCreado" ForeColor="#333333" GridLines="None" OnRowDataBound="GridView1_RowDataBound" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Width="1051px">
+    <asp:GridView ID="GridDocumento" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataDocCreado" ForeColor="#333333" GridLines="None" OnRowDataBound="GridDocumento_RowDataBound" OnSelectedIndexChanged="GridDocumento_SelectedIndexChanged" Width="1051px" HorizontalAlign="Center">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:CommandField HeaderText="Editar " SelectText="&lt;i class='fas fa-edit'&gt;&lt;/i&gt;" ShowSelectButton="True" />
-            <asp:BoundField DataField="numtotaldocu" HeaderText="Numero " InsertVisible="False" ReadOnly="True" SortExpression="numtotaldocu" />
-            <asp:BoundField DataField="nombredCreado" HeaderText="Nombre" SortExpression="nombredCreado" />
-            <asp:BoundField DataField="asuntodCreado" HeaderText="Asunto" SortExpression="asuntodCreado" />
+
+            <asp:CommandField HeaderText="Editar" SelectText="&lt;i class='fas fa-edit'&gt;&lt;/i&gt;" ShowSelectButton="True" />
+            <asp:BoundField DataField="nombredcreado" HeaderText="Nombre" SortExpression="nombredcreado" />
+            <asp:BoundField DataField="asuntodcreado" HeaderText="Asunto" SortExpression="asuntodcreado" />
             <asp:BoundField DataField="detalledCreadol" HeaderText="Detalle" SortExpression="detalledCreadol" />
-            <asp:BoundField DataField="Usuario" HeaderText="Usuario" SortExpression="Usuario" />
-            <asp:BoundField DataField="idProyecto" HeaderText="Proyecto" SortExpression="idProyecto" />
-            <asp:BoundField DataField="numConsecu" HeaderText="Consecutivo" SortExpression="numConsecu" />
+            <asp:TemplateField HeaderText="PDF">
+                <ItemTemplate>
+                   
+ <%--                    <asp:Image ID="pdf" runat="server" Width="50px" Height="50px"  NavigateUrl='<%#"data:varbinary(MAX)/pdf;base64,"+Convert.ToBase64String ((byte [])Eval("documentoPDF")) %>' />--%>
+                </ItemTemplate>
+            </asp:TemplateField>
+
+            <asp:TemplateField HeaderText="Word">
+                <ItemTemplate>
+                    <%-- este campo es para los word --%>
+                </ItemTemplate>
+            </asp:TemplateField>
             <asp:BoundField DataField="estatus" HeaderText="Estatus" SortExpression="estatus" />
             <asp:BoundField DataField="fecha" HeaderText="Fecha" SortExpression="fecha" />
-            <asp:BoundField DataField="idCliente" HeaderText="Cliente" SortExpression="idCliente" />
-            <asp:BoundField DataField="periodo" HeaderText="Periodo" SortExpression="periodo" />
+            <asp:BoundField DataField="nombrecliente" HeaderText="Cliente" SortExpression="nombrecliente" />
+            <asp:BoundField DataField="idProyecto" HeaderText="Centro Costos " SortExpression="idProyecto" />
+            <asp:BoundField DataField="nombreusu" HeaderText="Usuario" SortExpression="nombreusu" />
             <asp:BoundField DataField="numReferencia" HeaderText="Referencia" SortExpression="numReferencia" />
-            <asp:BoundField DataField="habilitado" HeaderText="Habilitado" SortExpression="habilitado" />
         </Columns>
         <EditRowStyle BackColor="#2461BF" />
         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -94,7 +106,9 @@
         <SortedDescendingCellStyle BackColor="#E9EBEF" />
         <SortedDescendingHeaderStyle BackColor="#4870BE" />
     </asp:GridView>
-    <asp:SqlDataSource ID="SqlDataDocCreado" runat="server" ConnectionString="<%$ ConnectionStrings:sigedocConnectionString %>" SelectCommand="SELECT * FROM [TbDocCreado]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataDocCreado" runat="server" ConnectionString="<%$ ConnectionStrings:sigedocConnectionString %>" SelectCommand="select a.nombredcreado,a.asuntodcreado,a.detalledCreadol,a.documentoPDF,a.documentoWord,a.estatus,a.fecha,c.nombrecliente,a.idProyecto,b.nombreusu,a.numReferencia
+
+from TbDocCreado a, TbUsuario b,TbCliente c where a.Usuario = b.cedulaUsu and a.idCliente=c.idCliente"></asp:SqlDataSource>
     <%--Modal para cargar los datos que se van a actualizar --%>
     <div class="modal fade" id="ModalDocumentos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -106,17 +120,31 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    Nombre:<asp:TextBox class="req" ID="txtnombre" runat="server" ForeColor="Black"></asp:TextBox>
-                    Encargado:<asp:TextBox ID="txtencargado" runat="server" ForeColor="Black"></asp:TextBox>
-                    Telefono:<asp:TextBox ID="txttelefono" runat="server" ForeColor="Black"></asp:TextBox>
-                    Correo:<asp:TextBox ID="txtcorreo" runat="server" ForeColor="Black"></asp:TextBox>
+                    Nombre Del docuemnto<asp:TextBox class="req" ID="txtnombre" runat="server" ForeColor="Black"></asp:TextBox>
+                    Asunto<asp:TextBox ID="txtasunto" runat="server" ForeColor="Black"></asp:TextBox>
+                    Detalle<asp:TextBox ID="txtdetalle" runat="server" ForeColor="Black"></asp:TextBox>
+                    Usuario<asp:TextBox ID="txtusuario" runat="server" ForeColor="Black" ReadOnly="True"></asp:TextBox>
                     <br>
-                    Detalle:<asp:TextBox ID="txtdetalle" runat="server" ForeColor="Black" TextMode="MultiLine"></asp:TextBox><br>
-                    Estado:
-                      <asp:DropDownList ID="dptestado" runat="server" CssClass="alert-dark">
-                          <asp:ListItem Value="1">Activo</asp:ListItem>
-                          <asp:ListItem Value="2">Inactivo</asp:ListItem>
-                      </asp:DropDownList>
+                    centro de Costos:<asp:TextBox ID="txtcentrocostos" runat="server" ForeColor="Black" ReadOnly="True"></asp:TextBox><br>
+                    Estado
+                        <asp:DropDownList ID="dptestado" runat="server" CssClass="alert-dark">
+                            <asp:ListItem Value="En Proceso">En Proceso</asp:ListItem>
+                            <asp:ListItem Value="Ganado">Ganado</asp:ListItem>
+                            <asp:ListItem Value="Perdido">Perdido</asp:ListItem>
+                        </asp:DropDownList>
+                    <br>
+                    Cliente
+                    <asp:DropDownList ID="dptcliente" runat="server" CssClass="alert-dark" DataSourceID="SqlDataCliente" DataTextField="nombreCliente" DataValueField="idCliente"></asp:DropDownList>
+                    <br>
+                    <asp:SqlDataSource ID="SqlDataCliente" runat="server" ConnectionString="<%$ ConnectionStrings:sigedocConnectionString %>" SelectCommand="SELECT [idCliente], [nombreCliente] FROM [TbCliente]"></asp:SqlDataSource>
+                    <br>
+                    Fecha:<asp:TextBox ID="txtfecha" runat="server" ForeColor="Black" ReadOnly="True"></asp:TextBox><br>
+                    Cargar documento 
+                    <asp:FileUpload class="btn btn-primary btn-user btn-block" ID="FileSubirWord" runat="server" />
+                    <asp:RegularExpressionValidator
+                        ID="RegularExpressionValidator1" runat="server"
+                        ValidationExpression=".*(\.doc|\.DOCX|\.docx)$"
+                        ControlToValidate="FileSubirWord">El formato del Archivo no es Word</asp:RegularExpressionValidator>
                     <div class="modal-footer">
                         <asp:Button ID="btnActualizar" runat="server" Text="Guardar Cambios" class="btn btn-primary" OnClick="btnActualizar_Click" />
                         <%-- <button type="button" class="btn btn-primary" data-dismiss="modal">Comprar</button>--%>

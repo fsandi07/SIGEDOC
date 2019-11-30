@@ -44,5 +44,15 @@ namespace SIGEDOC.Vistas
         {
             Response.Redirect("ModificarUsuario.aspx");
         }
+
+        protected void btnModificarRoles_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ModificarRol.aspx");
+        }
+
+        protected void Btnagregarrol_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Rol.aspx");
+        }
     }
 }
