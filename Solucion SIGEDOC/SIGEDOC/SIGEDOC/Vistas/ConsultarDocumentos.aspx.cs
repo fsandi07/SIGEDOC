@@ -19,12 +19,11 @@ namespace SIGEDOC.Vistas
         private PermisosHelper prh;
         private DataTable datos;
         private static int validar;
-
-        private static int ccosto;
-
         // instacia de clase 
         SIGEDOC.Negocio.CrearDocumento crearDocumento = new SIGEDOC.Negocio.CrearDocumento();
         private CrearDocHelper docHelper;
+        // variable global para capturar el id para actualizar 
+        private static string numdocu;
 
 
         protected void Page_Load(object sender, EventArgs e)
@@ -40,6 +39,12 @@ namespace SIGEDOC.Vistas
             //{
 
             //}
+
+            for (int i = 2010; i <= 2050; i++)
+            {
+               this.dptPeriodo.Items.Add(new ListItem(i.ToString(), i.ToString()));
+              
+            }
         }
 
         private void Num_Estado_Permiso()
@@ -70,6 +75,35 @@ namespace SIGEDOC.Vistas
 
         protected void btnActualizar_Click(object sender, EventArgs e)
         {
+            if (IsValid)
+            {
+                try
+                {
+                    this.crearDocumento.Nom_doc_creado = this.txtnombre.Text;
+                    this.crearDocumento.Asunto_doc_creado = this.txtasunto.Text;
+                    this.crearDocumento.Detalle_doc_creado = this.txtdetalle.Text;
+                    this.crearDocumento.Estado_doc_creado = dptestado.SelectedValue.ToString();
+                    this.crearDocumento.Fecha_doc_subido = this.txtfecha.Text;
+                    this.crearDocumento.Id_cliente = int.Parse(this.dptcliente.SelectedValue);
+                    this.crearDocumento.Id_proyecto = int.Parse(this.txtcentrocostos.Text);
+                    this.crearDocumento.Opc = 3;
+                    this.docHelper = new CrearDocHelper(crearDocumento);
+                    //this.docHelper.ac();
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeDeconfirmacion", "mensajeDeconfirmacion('" + "" + "');", true);
+
+
+                }
+                catch (Exception)
+                {
+
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError", "mensajeError('" + "" + "');", true);
+                }
+
+
+            }
+
+
+
 
         }
 
@@ -107,8 +141,20 @@ namespace SIGEDOC.Vistas
         protected void GridDocumento_SelectedIndexChanged(object sender, EventArgs e)
         {
             ScriptManager.RegisterStartupScript(Page, Page.GetType(), "ModalDocumentos", "$('#ModalDocumentos').modal();", true);
+            numdocu = this.GridDocumento.Rows[GridDocumento.SelectedIndex].Cells[1].Text;
+            this.txtnombre.Text =this.GridDocumento.Rows[GridDocumento.SelectedIndex].Cells[2].Text;
+            this.txtasunto.Text = this.GridDocumento.Rows[GridDocumento.SelectedIndex].Cells[3].Text;
+            this.txtdetalle.Text = this.GridDocumento.Rows[GridDocumento.SelectedIndex].Cells[4].Text;
+            this.dptestado.SelectedValue = this.GridDocumento.Rows[GridDocumento.SelectedIndex].Cells[7].Text;
+            this.txtfecha.Text = this.GridDocumento.Rows[GridDocumento.SelectedIndex].Cells[8].Text;
+            this.dptcliente.SelectedValue = this.GridDocumento.Rows[GridDocumento.SelectedIndex].Cells[9].Text;
+            this.txtcentrocostos.Text = this.GridDocumento.Rows[GridDocumento.SelectedIndex].Cells[11].Text;
+            this.txtusuario.Text = this.GridDocumento.Rows[GridDocumento.SelectedIndex].Cells[12].Text;
+            // creacion del substring
+            string subcadena = this.GridDocumento.Rows[GridDocumento.SelectedIndex].Cells[13].Text.Substring(4);
+            this.txtreferencia.Text = subcadena;
 
-            ccosto = int.Parse(this.GridDocumento.Rows[GridDocumento.SelectedIndex].Cells[9].Text);
+        
         }
 
         protected void btnWord_Click(object sender, EventArgs e)

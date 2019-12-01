@@ -103,6 +103,24 @@ namespace SIGEDOC.Vistas {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataCliente;
         
         /// <summary>
+        /// Control dptPeriodo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dptPeriodo;
+        
+        /// <summary>
+        /// Control txtreferencia.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtreferencia;
+        
+        /// <summary>
         /// Control txtfecha.
         /// </summary>
         /// <remarks>

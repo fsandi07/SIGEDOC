@@ -9,7 +9,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    
+
 
     <script type="text/javascript">
 
@@ -68,30 +68,32 @@
     </script>
 
 
-    <asp:GridView ID="GridDocumento" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataDocCreado" ForeColor="#333333" GridLines="None" OnRowDataBound="GridDocumento_RowDataBound" OnSelectedIndexChanged="GridDocumento_SelectedIndexChanged" Width="1051px" HorizontalAlign="Center">
+    <asp:GridView ID="GridDocumento" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataDocCreado" ForeColor="#333333" GridLines="None" OnRowDataBound="GridDocumento_RowDataBound" OnSelectedIndexChanged="GridDocumento_SelectedIndexChanged" Width="1051px" HorizontalAlign="Center" DataKeyNames="numtotaldocu">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
 
             <asp:CommandField HeaderText="Editar" SelectText="&lt;i class='fas fa-edit'&gt;&lt;/i&gt;" ShowSelectButton="True" />
+            <asp:BoundField DataField="numtotaldocu" HeaderText="numtotaldocu" SortExpression="numtotaldocu" InsertVisible="False" ReadOnly="True" Visible="False" />
             <asp:BoundField DataField="nombredcreado" HeaderText="Nombre" SortExpression="nombredcreado" />
             <asp:BoundField DataField="asuntodcreado" HeaderText="Asunto" SortExpression="asuntodcreado" />
             <asp:BoundField DataField="detalledCreadol" HeaderText="Detalle" SortExpression="detalledCreadol" />
+
             <asp:TemplateField HeaderText="PDF">
                 <ItemTemplate>
-                   
- <%--                    <asp:Image ID="pdf" runat="server" Width="50px" Height="50px"  NavigateUrl='<%#"data:varbinary(MAX)/pdf;base64,"+Convert.ToBase64String ((byte [])Eval("documentoPDF")) %>' />--%>
+                    <%-- Aqui va el icono pdf --%>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="WORD">
+                <ItemTemplate>
+                    <%-- Aqui va el icono Word --%>
                 </ItemTemplate>
             </asp:TemplateField>
 
-            <asp:TemplateField HeaderText="Word">
-                <ItemTemplate>
-                    <%-- este campo es para los word --%>
-                </ItemTemplate>
-            </asp:TemplateField>
             <asp:BoundField DataField="estatus" HeaderText="Estatus" SortExpression="estatus" />
             <asp:BoundField DataField="fecha" HeaderText="Fecha" SortExpression="fecha" />
-            <asp:BoundField DataField="nombrecliente" HeaderText="Cliente" SortExpression="nombrecliente" />
-            <asp:BoundField DataField="idProyecto" HeaderText="Centro Costos " SortExpression="idProyecto" />
+            <asp:BoundField DataField="idCliente" HeaderText="idCliente" SortExpression="idCliente" Visible="False" />
+            <asp:BoundField DataField="nombrecliente" HeaderText="Nombre" SortExpression="nombrecliente" />
+            <asp:BoundField DataField="idProyecto" HeaderText="Centro Costos" SortExpression="idProyecto" />
             <asp:BoundField DataField="nombreusu" HeaderText="Usuario" SortExpression="nombreusu" />
             <asp:BoundField DataField="numReferencia" HeaderText="Referencia" SortExpression="numReferencia" />
         </Columns>
@@ -106,7 +108,7 @@
         <SortedDescendingCellStyle BackColor="#E9EBEF" />
         <SortedDescendingHeaderStyle BackColor="#4870BE" />
     </asp:GridView>
-    <asp:SqlDataSource ID="SqlDataDocCreado" runat="server" ConnectionString="<%$ ConnectionStrings:sigedocConnectionString %>" SelectCommand="select a.nombredcreado,a.asuntodcreado,a.detalledCreadol,a.documentoPDF,a.documentoWord,a.estatus,a.fecha,c.nombrecliente,a.idProyecto,b.nombreusu,a.numReferencia
+    <asp:SqlDataSource ID="SqlDataDocCreado" runat="server" ConnectionString="<%$ ConnectionStrings:sigedocConnectionString %>" SelectCommand="select a.numtotaldocu,a.nombredcreado,a.asuntodcreado,a.detalledCreadol,a.documentoPDF,a.documentoWord,a.estatus,a.fecha,a.idCliente,c.nombrecliente,a.idProyecto,b.nombreusu,a.numReferencia
 
 from TbDocCreado a, TbUsuario b,TbCliente c where a.Usuario = b.cedulaUsu and a.idCliente=c.idCliente"></asp:SqlDataSource>
     <%--Modal para cargar los datos que se van a actualizar --%>
@@ -114,13 +116,13 @@ from TbDocCreado a, TbUsuario b,TbCliente c where a.Usuario = b.cedulaUsu and a.
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">¿Desea Actualizar este Usuario?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">¿Desea Actualizar este Documento?</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    Nombre Del docuemnto<asp:TextBox class="req" ID="txtnombre" runat="server" ForeColor="Black"></asp:TextBox>
+                    Nombre del Documento<asp:TextBox class="req" ID="txtnombre" runat="server" ForeColor="Black"></asp:TextBox>
                     Asunto<asp:TextBox ID="txtasunto" runat="server" ForeColor="Black"></asp:TextBox>
                     Detalle<asp:TextBox ID="txtdetalle" runat="server" ForeColor="Black"></asp:TextBox>
                     Usuario<asp:TextBox ID="txtusuario" runat="server" ForeColor="Black" ReadOnly="True"></asp:TextBox>
@@ -138,6 +140,7 @@ from TbDocCreado a, TbUsuario b,TbCliente c where a.Usuario = b.cedulaUsu and a.
                     <br>
                     <asp:SqlDataSource ID="SqlDataCliente" runat="server" ConnectionString="<%$ ConnectionStrings:sigedocConnectionString %>" SelectCommand="SELECT [idCliente], [nombreCliente] FROM [TbCliente]"></asp:SqlDataSource>
                     <br>
+                    <asp:DropDownList ID="dptPeriodo" runat="server"></asp:DropDownList>Referencia:<asp:TextBox ID="txtreferencia" runat="server" ForeColor="Black" ReadOnly="True"></asp:TextBox><br>
                     Fecha:<asp:TextBox ID="txtfecha" runat="server" ForeColor="Black" ReadOnly="True"></asp:TextBox><br>
                     Cargar documento 
                     <asp:FileUpload class="btn btn-primary btn-user btn-block" ID="FileSubirWord" runat="server" />
