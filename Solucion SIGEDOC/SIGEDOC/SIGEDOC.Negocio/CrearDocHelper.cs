@@ -80,7 +80,7 @@ namespace SIGEDOC.Negocio
             try
             {
                 cnGneral = new Datos();
-                SqlParameter[] parParameter = new SqlParameter[16];
+                SqlParameter[] parParameter = new SqlParameter[19];
 
                 parParameter[0] = new SqlParameter();
                 parParameter[0].ParameterName = "@opcion";
@@ -167,6 +167,24 @@ namespace SIGEDOC.Negocio
                 parParameter[15].SqlDbType = SqlDbType.Int;
                 parParameter[15].SqlValue = objdocCreado.Habilitado;
 
+                parParameter[16] = new SqlParameter();
+                parParameter[16].ParameterName = "@ModificadoPor";
+                parParameter[16].SqlDbType = SqlDbType.VarChar;
+                parParameter[16].Size = 50;
+                parParameter[16].SqlValue = objdocCreado.ModificadoPor1;
+
+                parParameter[17] = new SqlParameter();
+                parParameter[17].ParameterName = "@nombreRealWord";
+                parParameter[17].SqlDbType = SqlDbType.VarChar;
+                parParameter[17].Size = 50;
+                parParameter[17].SqlValue = objdocCreado.NombreRealWord1;
+
+                parParameter[18] = new SqlParameter();
+                parParameter[18].ParameterName = "@nombreRealPdf";
+                parParameter[18].SqlDbType = SqlDbType.VarChar;
+                parParameter[18].Size = 50;
+                parParameter[18].SqlValue = objdocCreado.NombreRealPdf1;
+
                 cnGneral.EjecutarSP(parParameter, "SPCrearDoc");                
 
             }
@@ -176,5 +194,103 @@ namespace SIGEDOC.Negocio
                 throw new Exception(ex.Message);
             }
         }
+
+        // actualizar documentos creados
+
+        public void Actualizar_documento()
+        {
+            try
+            {
+                cnGneral = new Datos();
+                SqlParameter[] parParameter = new SqlParameter[14];
+
+                parParameter[0] = new SqlParameter();
+                parParameter[0].ParameterName = "@opcion";
+                parParameter[0].SqlDbType = SqlDbType.Int;
+                parParameter[0].SqlValue = objdocCreado.Opc;
+
+                parParameter[1] = new SqlParameter();
+                parParameter[1].ParameterName = "@numtotaldocu";
+                parParameter[1].SqlDbType = SqlDbType.Int;
+                parParameter[1].SqlValue = objdocCreado.Total_doc_creado;
+
+                parParameter[2] = new SqlParameter();
+                parParameter[2].ParameterName = "@nombredCreado";
+                parParameter[2].SqlDbType = SqlDbType.VarChar;
+                parParameter[2].Size = 50;
+                parParameter[2].SqlValue = objdocCreado.Nom_doc_creado;
+
+                parParameter[3] = new SqlParameter();
+                parParameter[3].ParameterName = "@asuntodCreado";
+                parParameter[3].SqlDbType = SqlDbType.VarChar;
+                parParameter[3].Size = 50;
+                parParameter[3].SqlValue = objdocCreado.Asunto_doc_creado;
+
+                parParameter[4] = new SqlParameter();
+                parParameter[4].ParameterName = "@detalledCreadol";
+                parParameter[4].SqlDbType = SqlDbType.VarChar;
+                parParameter[4].SqlValue = objdocCreado.Detalle_doc_creado;
+
+                parParameter[5] = new SqlParameter();
+                parParameter[5].ParameterName = "@documentoPDF";
+                parParameter[5].SqlDbType = SqlDbType.VarBinary;
+                parParameter[5].SqlValue = objdocCreado.Pdf_doc_creado;
+
+                parParameter[6] = new SqlParameter();
+                parParameter[6].ParameterName = "@documentoWord";
+                parParameter[6].SqlDbType = SqlDbType.VarBinary;
+                parParameter[6].SqlValue = objdocCreado.Word_doc_creado;
+
+                parParameter[7] = new SqlParameter();
+                parParameter[7].ParameterName = "@estatus";
+                parParameter[7].SqlDbType = SqlDbType.VarChar;
+                parParameter[7].Size = 20;
+                parParameter[7].SqlValue = objdocCreado.Estado_doc_creado;
+
+                parParameter[8] = new SqlParameter();
+                parParameter[8].ParameterName = "@fecha";
+                parParameter[8].SqlDbType = SqlDbType.DateTime;
+                parParameter[8].SqlValue = objdocCreado.Fecha_doc_subido;
+
+                parParameter[9] = new SqlParameter();
+                parParameter[9].ParameterName = "@periodo";
+                parParameter[9].SqlDbType = SqlDbType.VarChar;
+                parParameter[9].Size = 50;
+                parParameter[9].SqlValue = objdocCreado.Periodo;
+
+                parParameter[10] = new SqlParameter();
+                parParameter[10].ParameterName = "@numReferencia ";
+                parParameter[10].SqlDbType = SqlDbType.VarChar;
+                parParameter[10].Size = 50;
+                parParameter[10].SqlValue = objdocCreado.Num_referencia_creado;
+
+                parParameter[11] = new SqlParameter();
+                parParameter[11].ParameterName = "@ModificadoPor";
+                parParameter[11].SqlDbType = SqlDbType.Int;
+                parParameter[11].SqlValue = objdocCreado.ModificadoPor1;
+
+                parParameter[12] = new SqlParameter();
+                parParameter[12].ParameterName = "@nombreRealWord";
+                parParameter[12].SqlDbType = SqlDbType.VarChar;
+                parParameter[12].Size = 50;
+                parParameter[12].SqlValue = objdocCreado.NombreRealWord1;
+
+                parParameter[13] = new SqlParameter();
+                parParameter[13].ParameterName = "@nombreRealPdf";
+                parParameter[13].SqlDbType = SqlDbType.VarChar;
+                parParameter[13].Size = 50;
+                parParameter[13].SqlValue = objdocCreado.NombreRealPdf1;
+
+                cnGneral.EjecutarSP(parParameter, "SPCrearDoc");
+
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
+
+
     }
 }

@@ -29,10 +29,7 @@
         </div>
         <br />
         <br />
-        <div class="contenedor-input">
-            <asp:Label ID="lblEstadoTitle" runat="server" Text="Estado del Documento:"></asp:Label>&nbsp
-            <asp:Label ID="lblEstado" runat="server" Text="En Proceso" BackColor="#FFFF66" ForeColor="Black" BorderStyle="Groove"></asp:Label>
-        </div>
+      
         <!-- Contenido de los Formularios -->
         <%--  <div class="contenido-tab">--%>
         <div class="contenedor-input">
@@ -58,10 +55,7 @@
             </asp:DropDownList>
             <asp:SqlDataSource ID="SqlDataProyecto" runat="server" ConnectionString="<%$ ConnectionStrings:sigedocConnectionString %>" SelectCommand="SELECT [NombreProy], [centroCostos] FROM [TbProyecto]"></asp:SqlDataSource>
         </div>        
-        <div class="contenedor-input">
-            <asp:Label ID="lblUsuario" runat="server" Text="Usuario"></asp:Label>
-            <asp:TextBox class="req" ID="txtUsuario" runat="server" ReadOnly="True"></asp:TextBox>
-        </div>
+       
         <div class="contenedor-input">
             <asp:Label ID="lblCenCos" runat="server" Text=" Centro de Costos" ></asp:Label>
             <asp:TextBox class="req" ID="txtCenCos" runat="server" ReadOnly="True"></asp:TextBox>

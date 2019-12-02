@@ -48,7 +48,6 @@ namespace SIGEDOC.Vistas
             }
 
         }
-
         private void Num_Estado_Permiso()
         {
             try
@@ -72,9 +71,7 @@ namespace SIGEDOC.Vistas
             }
 
 
-        }
-
-
+        }        
         public void Limpiar()
         {
 
@@ -133,7 +130,7 @@ namespace SIGEDOC.Vistas
                 myWordDoc.Activate();
                 //find and replace
                 this.FindAndReplace(wordApp, "<asunto>", this.txtAsunto.Text);
-                this.FindAndReplace(wordApp, "<usuario>", this.txtUsuario.Text);
+                this.FindAndReplace(wordApp, "<usuario>", Usuarios.GloUsuario);
                 this.FindAndReplace(wordApp, "<referencia>", this.txtReferencia.Text);
                 this.FindAndReplace(wordApp, "<date>", DateTime.Today);
             }
@@ -182,16 +179,18 @@ namespace SIGEDOC.Vistas
                         this.cd.Asunto_doc_creado = this.txtAsunto.Text;
                         this.cd.Detalle_doc_creado = this.txtDescripcion.Text;
                         this.cd.Id_proyecto = int.Parse(this.dptProyecto.SelectedValue);
-                        this.cd.Periodo = this.dptPeriodo.SelectedValue;
-                        this.cd.Estado_doc_creado = this.lblEstado.Text;
+                        this.cd.Periodo = this.dptPeriodo.SelectedValue;                       
                         this.cd.Num_consecutivo = numcosecu;
                         this.cd.Word_doc_creado = this.FileSubirWord.FileBytes;
+                        this.cd.NombreRealWord1 = this.FileSubirWord.FileName;
                         this.cd.Pdf_doc_creado = this.FileSubirPdf.FileBytes;
+                        this.cd.NombreRealPdf1 = this.FileSubirPdf.FileName;
                         this.cd.Estado_doc_creado = "En Proceso";
-                        this.cd.Fecha_doc_subido = DateTime.Today.ToString();
+                        this.cd.Fecha_doc_subido = DateTime.Now;
                         this.cd.Id_cliente = id_cliente;
                         this.cd.Id_usuario = int.Parse(Usuarios.GloIdUsuario);
                         this.cd.Num_referencia_creado = this.txtReferencia.Text;
+                        this.cd.ModificadoPor1 = "Sin Modificar";
                         this.cd.Habilitado = 1;
                         this.cd.Opc = 1;
                         this.cdh = new CrearDocHelper(cd);

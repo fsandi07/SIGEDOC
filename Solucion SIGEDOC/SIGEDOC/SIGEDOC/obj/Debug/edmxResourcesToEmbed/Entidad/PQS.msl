@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PQSEntidadStoreContainer" CdmEntityContainer="sigedocEntities1">
+    <EntitySetMapping Name="TbDocCreado">
+      <EntityTypeMapping TypeName="PQSEntidad.TbDocCreado">
+        <MappingFragment StoreEntitySet="TbDocCreado">
+          <ScalarProperty Name="numtotaldocu" ColumnName="numtotaldocu" />
+          <ScalarProperty Name="nombredCreado" ColumnName="nombredCreado" />
+          <ScalarProperty Name="asuntodCreado" ColumnName="asuntodCreado" />
+          <ScalarProperty Name="detalledCreadol" ColumnName="detalledCreadol" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="idProyecto" ColumnName="idProyecto" />
+          <ScalarProperty Name="numConsecu" ColumnName="numConsecu" />
+          <ScalarProperty Name="documentoPDF" ColumnName="documentoPDF" />
+          <ScalarProperty Name="documentoWord" ColumnName="documentoWord" />
+          <ScalarProperty Name="estatus" ColumnName="estatus" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+          <ScalarProperty Name="periodo" ColumnName="periodo" />
+          <ScalarProperty Name="numReferencia" ColumnName="numReferencia" />
+          <ScalarProperty Name="habilitado" ColumnName="habilitado" />
+          <ScalarProperty Name="modificadoPor" ColumnName="modificadoPor" />
+          <ScalarProperty Name="nombrereal" ColumnName="nombrereal" />
+          <ScalarProperty Name="nombrealpdf" ColumnName="nombrealpdf" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

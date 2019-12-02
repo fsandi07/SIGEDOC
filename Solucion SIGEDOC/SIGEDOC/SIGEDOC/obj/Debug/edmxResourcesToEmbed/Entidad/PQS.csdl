@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PQSEntidad" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="TbDocCreado">
+    <Key>
+      <PropertyRef Name="numtotaldocu" />
+    </Key>
+    <Property Name="numtotaldocu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombredCreado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="asuntodCreado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="detalledCreadol" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Usuario" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idProyecto" Type="Int32" Nullable="false" />
+    <Property Name="numConsecu" Type="Int32" Nullable="false" />
+    <Property Name="documentoPDF" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="documentoWord" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="estatus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="idCliente" Type="Int32" Nullable="false" />
+    <Property Name="periodo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="numReferencia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="habilitado" Type="Int32" Nullable="false" />
+    <Property Name="modificadoPor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nombrereal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nombrealpdf" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="sigedocEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="TbDocCreado" EntityType="Self.TbDocCreado" />
+  </EntityContainer>
+</Schema>

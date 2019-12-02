@@ -15,7 +15,8 @@ namespace SIGEDOC.Vistas
         private Usuarios usuvalid;
         private UsuarioHelper usuvalidhelper;
         private DataTable datos;
-
+        SIGEDOC.Negocio.MoviBitacora moviBita = new SIGEDOC.Negocio.MoviBitacora();
+        private MoviBitacoraHelper moviHelp;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -44,7 +45,23 @@ namespace SIGEDOC.Vistas
                 return false;
             }
         }
+        protected void insertarMovimiento()
+        {
+            try
+            {
+                this.moviBita.IdUsuario = Usuarios.GloIdUsuario;
+                this.moviBita.Accion = "Ingreso al Sistema de:" + Usuarios.GloUsuario +""+Usuarios.GloApellidos;
+                this.moviBita.Fecha = DateTime.Now;
+                this.moviBita.Opc = 1;
+                this.moviHelp = new MoviBitacoraHelper(moviBita);
+                this.moviHelp.Agregar_Movimiento();
 
+            }
+            catch (Exception)
+            {
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError", "mensajeError('" + "" + "');", true);
+            }
+        }
 
         protected void BtnIngreso_Click(object sender, EventArgs e)
         {
@@ -74,6 +91,7 @@ namespace SIGEDOC.Vistas
                             Usuarios.SetNombre(fila["nombreUsu"].ToString());
                             Usuarios.SetApellidos(fila["apellidosUsu"].ToString());
                             Session["Idusuario"] = Usuarios.GloIdUsuario;
+                            insertarMovimiento();
                             Response.Redirect("Menu.aspx");
                         }
                         else

@@ -45,6 +45,10 @@
     <Compile Include="Clientes.cs" />
     <Compile Include="CrearDocHelper.cs" />
     <Compile Include="CrearDocumento.cs" />
+    <Compile Include="DocumentoSub.cs" />
+    <Compile Include="DomunetoSubHelper.cs" />
+    <Compile Include="MoviBitacora.cs" />
+    <Compile Include="MoviBitacoraHelper.cs" />
     <Compile Include="Permisos.cs" />
     <Compile Include="PermisosHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

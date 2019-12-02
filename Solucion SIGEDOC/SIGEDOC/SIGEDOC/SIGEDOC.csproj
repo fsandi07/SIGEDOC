@@ -47,7 +47,15 @@
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Web, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -1260,9 +1268,6 @@
     <Content Include="Vistas\estilos\vendor\select2\select2.js" />
     <Content Include="Vistas\estilos\vendor\select2\select2.min.css" />
     <Content Include="Vistas\estilos\vendor\select2\select2.min.js" />
-    <Content Include="Vistas\img\1.PNG" />
-    <Content Include="Vistas\img\3.PNG" />
-    <Content Include="Vistas\img\admin.png" />
     <Content Include="Vistas\img\admin2.jpg" />
     <Content Include="Vistas\img\descarga.png" />
     <Content Include="Vistas\img\Expe1.jpg" />
@@ -1270,12 +1275,9 @@
     <Content Include="Vistas\img\ExpeJamaica.jpg" />
     <Content Include="Vistas\img\ExpeLimon.jpg" />
     <Content Include="Vistas\img\ExpeSubterraneo.jpg" />
+    <Content Include="Vistas\img\fondoLogin.jpg" />
     <Content Include="Vistas\img\fondoLogin1.jpg" />
-    <Content Include="Vistas\img\logoEscuela.jpg" />
     <Content Include="Vistas\img\Materia.jpg" />
-    <Content Include="Vistas\img\Materia.png" />
-    <Content Include="Vistas\img\OlvidoContra.png" />
-    <Content Include="Vistas\img\olvido_pass.jpg" />
     <Content Include="Vistas\img\PQS.png" />
     <Content Include="Vistas\img\PQS1.png" />
     <Content Include="Vistas\img\trianguloRojo.png" />
@@ -1294,6 +1296,7 @@
     <Content Include="Vistas\prueba2.aspx" />
     <Content Include="Vistas\Reporte.aspx" />
     <Content Include="Vistas\Rol.aspx" />
+    <Content Include="Vistas\SubirDocumento.aspx" />
     <Content Include="Vistas\sweetalert\sweetalert2.all.js" />
     <Content Include="Vistas\sweetalert\sweetalert2.all.min.js" />
     <Content Include="Vistas\sweetalert\sweetalert2.css" />
@@ -2897,6 +2900,24 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entidad\PQS.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PQS.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidad\PQS.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PQS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidad\PQS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PQS.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entidad\TbDocCreado.cs">
+      <DependentUpon>PQS.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vistas\AcercaDe.aspx.cs">
       <DependentUpon>AcercaDe.aspx</DependentUpon>
@@ -3092,8 +3113,32 @@
       <DependentUpon>rptpro.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Vistas\SubirDocumento.aspx.cs">
+      <DependentUpon>SubirDocumento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\SubirDocumento.aspx.designer.cs">
+      <DependentUpon>SubirDocumento.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EntityDeploy Include="Entidad\PQS.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PQS.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Entidad\PQS.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PQS.edmx</DependentUpon>
+      <LastGenOutput>PQS.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entidad\PQS.edmx.diagram">
+      <DependentUpon>PQS.edmx</DependentUpon>
+    </Content>
+    <Content Include="Entidad\PQS.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PQS.edmx</DependentUpon>
+      <LastGenOutput>PQS.cs</LastGenOutput>
+    </Content>
     <None Include="packages.config" />
     <Content Include="Vistas\scss\navs\_global.scss" />
     <Content Include="Vistas\scss\navs\_sidebar.scss" />
@@ -3371,6 +3416,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
@@ -3416,6 +3462,7 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
