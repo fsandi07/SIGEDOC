@@ -67,7 +67,9 @@ namespace SIGEDOC.Vistas
                         this.docSub.Id_proyecto = int.Parse(this.dptProyecto.SelectedValue);
                         this.docSub.Num_consecutivo = numcosecu;
                         this.docSub.Word_doc_creado = FileSubirWordsub.FileBytes;
+                        this.docSub.NombrerealWordSub = FileSubirWordsub.FileName;
                         this.docSub.Pdf_doc_creado = FileSubirPdfsub.FileBytes;
+                        this.docSub.NombrerealPdfSub = FileSubirPdfsub.FileName;
                         this.docSub.Fecha_doc_subido = DateTime.Now;
                         this.docSub.Id_cliente = id_cliente;
                         this.docSub.Num_referencia_creado = this.txtReferencia.Text;

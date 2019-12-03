@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="sigedocModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="TbDocSubido">
+    <Key>
+      <PropertyRef Name="numTotalSub" />
+    </Key>
+    <Property Name="numTotalSub" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombredSub" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="detalledSub" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="numConseSub" Type="Int32" Nullable="false" />
+    <Property Name="idCliente" Type="Int32" Nullable="false" />
+    <Property Name="referenciaSub" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idUsuario" Type="Int32" Nullable="false" />
+    <Property Name="fechaSub" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="documentoWordSub" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="documentoPdfSub" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="idProyecto" Type="Int32" Nullable="false" />
+    <Property Name="periodo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModificadoPor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nombrerealWordSub" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nombrerealPdfSub" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TbDocSubido1" Relationship="Self.FK_TbDocSubido_TbDocSubido" FromRole="TbDocSubido" ToRole="TbDocSubido1" />
+    <NavigationProperty Name="TbDocSubido2" Relationship="Self.FK_TbDocSubido_TbDocSubido" FromRole="TbDocSubido1" ToRole="TbDocSubido" />
+  </EntityType>
+  <Association Name="FK_TbDocSubido_TbDocSubido">
+    <End Role="TbDocSubido" Type="Self.TbDocSubido" Multiplicity="1" />
+    <End Role="TbDocSubido1" Type="Self.TbDocSubido" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="TbDocSubido">
+        <PropertyRef Name="numTotalSub" />
+      </Principal>
+      <Dependent Role="TbDocSubido1">
+        <PropertyRef Name="numTotalSub" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="sigedocEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="TbDocSubido" EntityType="Self.TbDocSubido" />
+    <AssociationSet Name="FK_TbDocSubido_TbDocSubido" Association="Self.FK_TbDocSubido_TbDocSubido">
+      <End Role="TbDocSubido" EntitySet="TbDocSubido" />
+      <End Role="TbDocSubido1" EntitySet="TbDocSubido" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -96,11 +96,9 @@
                         <asp:BoundField DataField="asuntodcreado" HeaderText="Asunto" SortExpression="asuntodcreado" />
                         <asp:BoundField DataField="detalledCreadol" HeaderText="Detalle" SortExpression="detalledCreadol" />
 
-                         <asp:ButtonField Text="<i class='far fa-file-pdf'></i>" CommandName="Editar"  HeaderText="PDF" />
-                       
-                        <%-- uso del boton --%>
-                      
-                          <asp:ButtonField Text="<i class='far fa-file-word'></i>" CommandName="Editar1"  HeaderText="WORD" />
+                        <asp:ButtonField Text="<i class='far fa-file-pdf'></i>" CommandName="Editar" HeaderText="PDF" />
+
+                        <asp:ButtonField Text="<i class='far fa-file-word'></i>" CommandName="Editar1" HeaderText="WORD" />
 
                         <asp:BoundField DataField="estatus" HeaderText="Estatus" SortExpression="estatus" />
                         <asp:BoundField DataField="fecha" HeaderText="Fecha" SortExpression="fecha" />
@@ -138,29 +136,23 @@ from TbDocCreado a, TbUsuario b,TbCliente c where a.Usuario = b.cedulaUsu and a.
             <div class="collapse show" id="collapseCardExample2">
 
 
-                <asp:GridView ID="GridDocSubido" runat="server" Width="1026px" AutoGenerateColumns="False" CellPadding="3" DataKeyNames="numTotalSub" DataSourceID="SqlDataDocSubido" OnSelectedIndexChanged="GridDocSubido_SelectedIndexChanged" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" HorizontalAlign="Center" RowStyle-HorizontalAlign="Center" RowStyle-VerticalAlign="Middle" EditRowStyle-HorizontalAlign="Center" EditRowStyle-VerticalAlign="Middle" EmptyDataRowStyle-HorizontalAlign="Center" EmptyDataRowStyle-VerticalAlign="Middle" CellSpacing="2">
+                <asp:GridView ID="GridDocSubido" runat="server" Width="1026px" AutoGenerateColumns="False" CellPadding="3" DataKeyNames="numTotalSub" DataSourceID="SqlDataDocSubido" OnSelectedIndexChanged="GridDocSubido_SelectedIndexChanged" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" HorizontalAlign="Center" RowStyle-HorizontalAlign="Center" RowStyle-VerticalAlign="Middle" EditRowStyle-HorizontalAlign="Center" EditRowStyle-VerticalAlign="Middle" EmptyDataRowStyle-HorizontalAlign="Center" EmptyDataRowStyle-VerticalAlign="Middle" CellSpacing="2" OnRowCommand="GridDocSubido_RowCommand">
                     <Columns>
                         <asp:CommandField HeaderText="Editar" SelectText="&lt;i class='fas fa-edit'&gt;&lt;/i&gt;" ShowSelectButton="True" />
                         <asp:BoundField DataField="numTotalSub" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="numTotalSub" />
                         <asp:BoundField DataField="nombredSub" HeaderText="Nombre" SortExpression="nombredSub" />
                         <asp:BoundField DataField="detalledSub" HeaderText="Detalle" SortExpression="detalledSub" />
-                        <asp:TemplateField HeaderText="PDF">
-                            <ItemTemplate>
-                                <%-- Aqui va el icono pdf --%>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="WORD">
-                            <ItemTemplate>
-                                <%-- Aqui va el icono Word --%>
-                            </ItemTemplate>
-                        </asp:TemplateField>
+
+                         <asp:ButtonField Text="<i class='far fa-file-pdf'></i>" CommandName="PDF1" HeaderText="PDF" />
+
+                        <asp:ButtonField Text="<i class='far fa-file-word'></i>" CommandName="WORD1" HeaderText="WORD" />
 
                         <asp:BoundField DataField="fechaSub" HeaderText="Fecha" SortExpression="fechaSub" />
                         <asp:BoundField DataField="nombrecliente" HeaderText="Nombre" SortExpression="nombrecliente" />
                         <asp:BoundField DataField="idProyecto" HeaderText="idProyecto" SortExpression="idProyecto" />
                         <asp:BoundField DataField="nombreusu" HeaderText="Usuario" SortExpression="nombreusu" />
                         <asp:BoundField DataField="referenciaSub" HeaderText="Referencia" SortExpression="referenciaSub" />
-                        <asp:BoundField DataField="Modificado Por" HeaderText="Modificado" SortExpression="Modificado Por" />
+                        <asp:BoundField DataField="Modificado Por" HeaderText="Modificado Por" SortExpression="Modificado Por" />
                     </Columns>
 
                     <EditRowStyle HorizontalAlign="Center" VerticalAlign="Middle"></EditRowStyle>
@@ -179,9 +171,9 @@ from TbDocCreado a, TbUsuario b,TbCliente c where a.Usuario = b.cedulaUsu and a.
                 </asp:GridView>
 
                 <asp:SqlDataSource ID="SqlDataDocSubido" runat="server" ConnectionString="<%$ ConnectionStrings:sigedocConnectionString %>" SelectCommand="
-select a.numTotalSub,a.nombredSub,a.detalledSub,a.documentoPdfSub,a.documentoWordSub,a.fechaSub,a.idCliente,c.nombrecliente,a.idProyecto,b.nombreusu,a.referenciaSub,b.nombreUsu as [Modificado Por]
+select a.numTotalSub,a.nombredSub,a.detalledSub,a.documentoPdfSub,a.documentoWordSub,a.fechaSub,a.idCliente,c.nombrecliente,a.idProyecto,b.nombreusu,a.referenciaSub,a.ModificadoPor as[Modificado Por]
 
-from tbdocsubido a, TbUsuario b,TbCliente c where  a.idCliente=c.idCliente and a.idUsuario = b.cedulaUsu and  a.ModificadoPor=b.cedulaUsu"></asp:SqlDataSource>
+from tbdocsubido a, TbUsuario b,TbCliente c where  a.idCliente=c.idCliente and a.idUsuario = b.cedulaUsu"></asp:SqlDataSource>
 
             </div>
         </div>
@@ -292,7 +284,7 @@ from tbdocsubido a, TbUsuario b,TbCliente c where  a.idCliente=c.idCliente and a
     </div>
 
     <%-- finla de la modal  --%>
-    
+
 
     <%-- fin de la modal  --%>
 </asp:Content>

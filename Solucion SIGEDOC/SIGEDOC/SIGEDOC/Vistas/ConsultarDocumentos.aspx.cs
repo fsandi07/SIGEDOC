@@ -32,6 +32,7 @@ namespace SIGEDOC.Vistas
         private DomunetoSubHelper docSupHelper;
         // variable global para capturara el index
         private static int GloID;
+        private static int GloID2;
 
 
         protected void Page_Load(object sender, EventArgs e)
@@ -93,7 +94,7 @@ namespace SIGEDOC.Vistas
             {
                 try
                 {
-                    if (!FileSubirWord.HasFile)
+                    if (!FileSubirWord.HasFile && !FileSubirPdf.HasFile)
                     {
                         ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeErrorDocumento", "mensajeErrorDocumento('" + "" + "');", true);
                     }
@@ -105,7 +106,6 @@ namespace SIGEDOC.Vistas
                         this.crearDocumento.Detalle_doc_creado = this.txtdetalle.Text;
                         this.crearDocumento.Estado_doc_creado = dptestado.SelectedValue.ToString();
                         this.crearDocumento.Fecha_doc_subido = DateTime.Parse(this.txtfecha.Text);
-                        // el id_de proyecto es el id del centro de costsos con un valor incremental.
                         this.crearDocumento.Word_doc_creado = this.FileSubirWord.FileBytes;
                         this.crearDocumento.NombreRealWord1 = this.FileSubirWord.FileName;
                         this.crearDocumento.Pdf_doc_creado = this.FileSubirPdf.FileBytes;
@@ -158,38 +158,56 @@ namespace SIGEDOC.Vistas
 
         protected void GridDocumento_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "ModalDocumentos", "$('#ModalDocumentos').modal();", true);
-            numdocu = int.Parse(this.GridDocumento.Rows[GridDocumento.SelectedIndex].Cells[1].Text);
-            this.txtnombre.Text = this.GridDocumento.Rows[GridDocumento.SelectedIndex].Cells[2].Text;
-            this.txtasunto.Text = this.GridDocumento.Rows[GridDocumento.SelectedIndex].Cells[3].Text;
-            this.txtdetalle.Text = this.GridDocumento.Rows[GridDocumento.SelectedIndex].Cells[4].Text;
-            this.dptestado.SelectedValue = this.GridDocumento.Rows[GridDocumento.SelectedIndex].Cells[7].Text;
-            this.txtfecha.Text = this.GridDocumento.Rows[GridDocumento.SelectedIndex].Cells[8].Text;
-            this.txtcentrocostos.Text = this.GridDocumento.Rows[GridDocumento.SelectedIndex].Cells[10].Text;
-            this.txtusuario.Text = this.GridDocumento.Rows[GridDocumento.SelectedIndex].Cells[11].Text;
-            // creacion del substring
-            string subcadena2 = this.GridDocumento.Rows[GridDocumento.SelectedIndex].Cells[12].Text.Substring(0,4);
-            this.dptPeriodo.SelectedValue = subcadena2;
-            string subcadena = this.GridDocumento.Rows[GridDocumento.SelectedIndex].Cells[12].Text.Substring(4);
-            this.txtreferencia.Text = subcadena;
+            try
+            {
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "ModalDocumentos", "$('#ModalDocumentos').modal();", true);
+                numdocu = int.Parse(this.GridDocumento.Rows[GridDocumento.SelectedIndex].Cells[1].Text);
+                this.txtnombre.Text = this.GridDocumento.Rows[GridDocumento.SelectedIndex].Cells[2].Text;
+                this.txtasunto.Text = this.GridDocumento.Rows[GridDocumento.SelectedIndex].Cells[3].Text;
+                this.txtdetalle.Text = this.GridDocumento.Rows[GridDocumento.SelectedIndex].Cells[4].Text;
+                this.dptestado.SelectedValue = this.GridDocumento.Rows[GridDocumento.SelectedIndex].Cells[7].Text;
+                this.txtfecha.Text = this.GridDocumento.Rows[GridDocumento.SelectedIndex].Cells[8].Text;
+                this.txtcentrocostos.Text = this.GridDocumento.Rows[GridDocumento.SelectedIndex].Cells[10].Text;
+                this.txtusuario.Text = this.GridDocumento.Rows[GridDocumento.SelectedIndex].Cells[11].Text;
+                // creacion del substring
+                string subcadena2 = this.GridDocumento.Rows[GridDocumento.SelectedIndex].Cells[12].Text.Substring(0, 4);
+                this.dptPeriodo.SelectedValue = subcadena2;
+                string subcadena = this.GridDocumento.Rows[GridDocumento.SelectedIndex].Cells[12].Text.Substring(4);
+                this.txtreferencia.Text = subcadena;
+            }
+            catch (Exception)
+            {
+
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError", "mensajeError('" + "" + "');", true);
+            }
+     
 
 
         }
         protected void GridDocumento_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            if (e.CommandName == "Editar1")
+            try
             {
-                int index = int.Parse(e.CommandArgument.ToString());
-                GloID = int.Parse(GridDocumento.DataKeys[index].Value.ToString());
-                AbririWord();
-            }
+                if (e.CommandName == "Editar1")
+                {
+                    int index = int.Parse(e.CommandArgument.ToString());
+                    GloID = int.Parse(GridDocumento.DataKeys[index].Value.ToString());
+                    AbririWord();
+                }
 
-            if (e.CommandName == "Editar")
-            {
-                int index = int.Parse(e.CommandArgument.ToString());
-                GloID = int.Parse(GridDocumento.DataKeys[index].Value.ToString());
-                AbrirPdf();
+                if (e.CommandName == "Editar")
+                {
+                    int index = int.Parse(e.CommandArgument.ToString());
+                    GloID = int.Parse(GridDocumento.DataKeys[index].Value.ToString());
+                    AbrirPdf();
+                }
             }
+            catch (Exception)
+            {
+
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError", "mensajeError('" + "" + "');", true);
+            }
+       
 
         }
 
@@ -217,7 +235,7 @@ namespace SIGEDOC.Vistas
             {
                 try
                 {
-                    if (!Filedocsubido_word.HasFile)
+                    if (!Filedocsubido_word.HasFile && !Filedocsubiodo_pdf.HasFile)
                     {
                         ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeErrorDocumento", "mensajeErrorDocumento('" + "" + "');", true);
                     }
@@ -227,7 +245,9 @@ namespace SIGEDOC.Vistas
                         this.docsub.Nom_doc_creado = this.txtnombresubido.Text;
                         this.docsub.Detalle_doc_creado = this.txtdetallesubido.Text;
                         this.docsub.Word_doc_creado = this.Filedocsubido_word.FileBytes;
+                        this.docsub.NombrerealWordSub = this.Filedocsubido_word.FileName;
                         this.docsub.Pdf_doc_creado = this.Filedocsubiodo_pdf.FileBytes;
+                        this.docsub.NombrerealPdfSub = this.Filedocsubiodo_pdf.FileName;
                         this.docsub.Num_referencia_creado = dptPeriodo1.SelectedValue.ToString() + this.txtreferencia_Subido.Text;
                         this.docsub.Periodo = dptPeriodo1.SelectedValue.ToString();
                         this.docsub.ModificadoPor1 = Usuarios.GloIdUsuario;
@@ -253,67 +273,144 @@ namespace SIGEDOC.Vistas
 
         }
 
-        //protected void BtnWord_Click(object sender, EventArgs e)
-        //{
-            
-        //    //int id = 3;
-
-        //    //using (SIGEDOC.Entidad.PQSEntidad db = new SIGEDOC.Entidad.PQSEntidad())
-        //    //{
-        //    //    var oDocument = db.TbDocCreado.Find(id);
-
-        //    //    string path = AppDomain.CurrentDomain.BaseDirectory;
-        //    //    string folder = path + "/temp/";
-        //    //    string fullFilePath = folder + oDocument.nombrereal;
-        //    //    if (!Directory.Exists(folder))
-        //    //    {
-        //    //        Directory.CreateDirectory(folder);
-        //    //    }
-        //    //    File.WriteAllBytes(fullFilePath, oDocument.documentoWord);
-        //    //    Process.Start(fullFilePath);
-
-        //    //}
-        //}
-
         private void AbririWord()
         {
-            using (SIGEDOC.Entidad.sigedocEntities1 db = new SIGEDOC.Entidad.sigedocEntities1())
+            try
             {
-                var oDocument = db.TbDocCreado.Find(GloID);
-
-                string path = AppDomain.CurrentDomain.BaseDirectory;
-                string folder = path + "/temp/";
-                string fullFilePath = folder + oDocument.nombrereal;
-                if (!Directory.Exists(folder))
+                using (SIGEDOC.Entidad.sigedocEntities1 db = new SIGEDOC.Entidad.sigedocEntities1())
                 {
-                    Directory.CreateDirectory(folder);
+                    var oDocument = db.TbDocCreado.Find(GloID);
+
+                    string path = AppDomain.CurrentDomain.BaseDirectory;
+                    string folder = path + "/temp/";
+                    string fullFilePath = folder + oDocument.nombrereal;
+                    if (!Directory.Exists(folder))
+                    {
+                        Directory.CreateDirectory(folder);
+                    }
+                    File.WriteAllBytes(fullFilePath, oDocument.documentoWord);
+                    Process.Start(fullFilePath);
+
                 }
-                File.WriteAllBytes(fullFilePath, oDocument.documentoWord);
-                Process.Start(fullFilePath);
+            }
+            catch (Exception)
+            {
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError", "mensajeError('" + "" + "');", true);
 
             }
+     
                        
         }
 
         private void AbrirPdf()
         {
-            using (SIGEDOC.Entidad.sigedocEntities1 db = new SIGEDOC.Entidad.sigedocEntities1())
+            try
             {
-                var oDocument = db.TbDocCreado.Find(GloID);
-
-                string path = AppDomain.CurrentDomain.BaseDirectory;
-                string folder = path + "/temp/";
-                string fullFilePath = folder + oDocument.nombrealpdf;
-                if (!Directory.Exists(folder))
+                using (SIGEDOC.Entidad.sigedocEntities1 db = new SIGEDOC.Entidad.sigedocEntities1())
                 {
-                    Directory.CreateDirectory(folder);
+                    var oDocument = db.TbDocCreado.Find(GloID);
+
+                    string path = AppDomain.CurrentDomain.BaseDirectory;
+                    string folder = path + "/temp/";
+                    string fullFilePath = folder + oDocument.nombrealpdf;
+                    if (!Directory.Exists(folder))
+                    {
+                        Directory.CreateDirectory(folder);
+                    }
+                    File.WriteAllBytes(fullFilePath, oDocument.documentoPDF);
+                    Process.Start(fullFilePath);
+
                 }
-                File.WriteAllBytes(fullFilePath, oDocument.documentoPDF);
-                Process.Start(fullFilePath);
+            }
+            catch (Exception)
+            {
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError", "mensajeError('" + "" + "');", true);
 
             }
+   
 
         }
 
+        protected void GridDocSubido_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            try
+            {
+
+                if (e.CommandName == "WORD1")
+                    {
+                        int index = int.Parse(e.CommandArgument.ToString());
+                        GloID2 = int.Parse(GridDocSubido.DataKeys[index].Value.ToString());
+                        AbrirWordSub();
+                    }
+
+                    if (e.CommandName == "PDF1")
+                    {
+                        int index = int.Parse(e.CommandArgument.ToString());
+                        GloID2 = int.Parse(GridDocSubido.DataKeys[index].Value.ToString());
+                       AbrirPdfSub();
+                    }
+        }
+            catch (Exception)
+            {
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError", "mensajeError('" + "" + "');", true);
+
+        }
+    }
+
+        private void AbrirWordSub()
+        {
+            try
+            {
+                using (SIGEDOC.Entidad.sigedocEntities2 db = new SIGEDOC.Entidad.sigedocEntities2())
+                {
+                    var oDocument = db.TbDocSubido.Find(GloID2);
+
+                    string path = AppDomain.CurrentDomain.BaseDirectory;
+                    string folder = path + "/temp/";
+                    string fullFilePath = folder + oDocument.nombrerealWordSub;
+                    if (!Directory.Exists(folder))
+                    {
+                        Directory.CreateDirectory(folder);
+                    }
+                    File.WriteAllBytes(fullFilePath, oDocument.documentoWordSub);
+                    Process.Start(fullFilePath);
+                }
+            }
+            catch (Exception)
+            {
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError", "mensajeError('" + "" + "');", true);
+
+            }
+
+
+        }
+
+        private void AbrirPdfSub()
+        {
+            try
+            {
+                using (SIGEDOC.Entidad.sigedocEntities2 db = new SIGEDOC.Entidad.sigedocEntities2())
+                {
+                    var oDocument = db.TbDocSubido.Find(GloID2);
+
+                    string path = AppDomain.CurrentDomain.BaseDirectory;
+                    string folder = path + "/temp/";
+                    string fullFilePath = folder + oDocument.nombrerealPdfSub;
+                    if (!Directory.Exists(folder))
+                    {
+                        Directory.CreateDirectory(folder);
+                    }
+                    File.WriteAllBytes(fullFilePath, oDocument.documentoPdfSub);
+                    Process.Start(fullFilePath);
+                }
+            }
+            catch (Exception)
+            {
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError", "mensajeError('" + "" + "');", true);
+
+            }
+
+
+        }
     }
 }

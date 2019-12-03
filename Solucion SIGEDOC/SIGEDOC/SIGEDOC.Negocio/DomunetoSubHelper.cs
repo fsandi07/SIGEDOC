@@ -77,7 +77,7 @@ namespace SIGEDOC.Negocio
             try
             {
                 cnGneral = new Datos();
-                SqlParameter[] parParameter = new SqlParameter[14];
+                SqlParameter[] parParameter = new SqlParameter[16];
 
                 parParameter[0] = new SqlParameter();
                 parParameter[0].ParameterName = "@opcion";
@@ -154,6 +154,18 @@ namespace SIGEDOC.Negocio
                 parParameter[13].Size = 50;
                 parParameter[13].SqlValue = objdoDocumentoSub.ModificadoPor1;
 
+                parParameter[14] = new SqlParameter();
+                parParameter[14].ParameterName = "@nombrerealWordSub";
+                parParameter[14].SqlDbType = SqlDbType.VarChar;
+                parParameter[14].Size = 50;
+                parParameter[14].SqlValue = objdoDocumentoSub.NombrerealWordSub;
+
+                parParameter[15] = new SqlParameter();
+                parParameter[15].ParameterName = "@nombrerealPdfSub";
+                parParameter[15].SqlDbType = SqlDbType.VarChar;
+                parParameter[15].Size = 50;
+                parParameter[15].SqlValue = objdoDocumentoSub.NombrerealPdfSub;
+
                 cnGneral.EjecutarSP(parParameter, "SPDocsubido");
 
             }
@@ -169,7 +181,7 @@ namespace SIGEDOC.Negocio
             try
             {
                 cnGneral = new Datos();
-                SqlParameter[] parParameter = new SqlParameter[9];
+                SqlParameter[] parParameter = new SqlParameter[11];
 
                 parParameter[0] = new SqlParameter();
                 parParameter[0].ParameterName = "@opcion";
@@ -218,6 +230,19 @@ namespace SIGEDOC.Negocio
                 parParameter[8].ParameterName = "@ModificadoPor";
                 parParameter[8].SqlDbType = SqlDbType.Int;
                 parParameter[8].SqlValue = objdoDocumentoSub.ModificadoPor1;
+
+                parParameter[9] = new SqlParameter();
+                parParameter[9].ParameterName = "@nombrerealWordSub";
+                parParameter[9].SqlDbType = SqlDbType.VarChar;
+                parParameter[9].Size = 50;
+                parParameter[9].SqlValue = objdoDocumentoSub.NombrerealWordSub;
+
+                parParameter[10] = new SqlParameter();
+                parParameter[10].ParameterName = "@nombrerealPdfSub";
+                parParameter[10].SqlDbType = SqlDbType.VarChar;
+                parParameter[10].Size = 50;
+                parParameter[10].SqlValue = objdoDocumentoSub.NombrerealPdfSub;
+
 
                 cnGneral.EjecutarSP(parParameter, "SPDocsubido");
 

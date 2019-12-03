@@ -22,6 +22,8 @@ namespace SIGEDOC.Negocio
         private string periodo;
         private string num_referencia_creado;
         private string ModificadoPor;
+        private string nombrerealWordSub;
+        private string nombrerealPdfSub;
 
         public int Opc { get => opc; set => opc = value; }
         public int Total_doc_creado { get => total_doc_creado; set => total_doc_creado = value; }
@@ -37,10 +39,12 @@ namespace SIGEDOC.Negocio
         public string Periodo { get => periodo; set => periodo = value; }
         public string Num_referencia_creado { get => num_referencia_creado; set => num_referencia_creado = value; }
         public string ModificadoPor1 { get => ModificadoPor; set => ModificadoPor = value; }
+        public string NombrerealWordSub { get => nombrerealWordSub; set => nombrerealWordSub = value; }
+        public string NombrerealPdfSub { get => nombrerealPdfSub; set => nombrerealPdfSub = value; }
 
         public DocumentoSub(int opc, int total_doc_creado, string nom_doc_creado, string detalle_doc_creado, string id_usuario, int id_proyecto,
             int num_consecutivo, byte[] word_doc_creado, byte[] pdf_doc_creado, DateTime fecha_doc_subido, int id_cliente, string periodo, 
-            string num_referencia_creado, string modificadoPor)
+            string num_referencia_creado, string modificadoPor, string nombrerealWordSub, string nombrerealPdfSub)
         {
             this.opc = opc;
             this.total_doc_creado = total_doc_creado;
@@ -55,7 +59,9 @@ namespace SIGEDOC.Negocio
             this.id_cliente = id_cliente;
             this.periodo = periodo;
             this.num_referencia_creado = num_referencia_creado;
-            ModificadoPor = modificadoPor;
+            this.ModificadoPor = modificadoPor;
+            this.NombrerealWordSub = nombrerealWordSub;
+            this.NombrerealPdfSub = nombrerealPdfSub;
         }
         public DocumentoSub()
         {
@@ -72,7 +78,9 @@ namespace SIGEDOC.Negocio
             this.id_cliente = 0;
             this.periodo = "";
             this.num_referencia_creado = "";
-            ModificadoPor = "";
+            this.ModificadoPor = "";
+            this.nombrerealWordSub = "";
+            this.nombrerealPdfSub="";
         }
 
 

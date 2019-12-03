@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="sigedocModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="TbDocSubido">
+    <Key>
+      <PropertyRef Name="numTotalSub" />
+    </Key>
+    <Property Name="numTotalSub" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombredSub" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="detalledSub" Type="varchar(max)" Nullable="false" />
+    <Property Name="numConseSub" Type="int" Nullable="false" />
+    <Property Name="idCliente" Type="int" Nullable="false" />
+    <Property Name="referenciaSub" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="idUsuario" Type="int" Nullable="false" />
+    <Property Name="fechaSub" Type="datetime" Nullable="false" />
+    <Property Name="documentoWordSub" Type="varbinary(max)" Nullable="false" />
+    <Property Name="documentoPdfSub" Type="varbinary(max)" Nullable="false" />
+    <Property Name="idProyecto" Type="int" Nullable="false" />
+    <Property Name="periodo" Type="varchar(max)" Nullable="false" />
+    <Property Name="ModificadoPor" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="nombrerealWordSub" Type="varchar" MaxLength="50" />
+    <Property Name="nombrerealPdfSub" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_TbDocSubido_TbDocSubido">
+    <End Role="TbDocSubido" Type="Self.TbDocSubido" Multiplicity="1" />
+    <End Role="TbDocSubido1" Type="Self.TbDocSubido" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="TbDocSubido">
+        <PropertyRef Name="numTotalSub" />
+      </Principal>
+      <Dependent Role="TbDocSubido1">
+        <PropertyRef Name="numTotalSub" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="sigedocModelStoreContainer">
+    <EntitySet Name="TbDocSubido" EntityType="Self.TbDocSubido" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_TbDocSubido_TbDocSubido" Association="Self.FK_TbDocSubido_TbDocSubido">
+      <End Role="TbDocSubido" EntitySet="TbDocSubido" />
+      <End Role="TbDocSubido1" EntitySet="TbDocSubido" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
