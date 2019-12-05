@@ -23,17 +23,17 @@ namespace SIGEDOC.Vistas
         private static int validar;
         protected void Page_Load(object sender, EventArgs e)
         {
-            Num_Estado_Permiso();
+            //Num_Estado_Permiso();
 
-            if (validar == 0 || Session["Idusuario"] == null)
-            {
+            //if (validar == 0 || Session["Idusuario"] == null)
+            //{
 
-                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeEspera3", "mensajeEspera3('" + "" + "');", true);
-            }
-            else
-            {
+            //    ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeEspera3", "mensajeEspera3('" + "" + "');", true);
+            //}
+            //else
+            //{
 
-            }
+            //}
             String vSQL;
             vDT = new DataTable();
 

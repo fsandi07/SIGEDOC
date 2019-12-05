@@ -15,6 +15,11 @@ namespace SIGEDOC.Vistas
         private PermisosHelper prh;
         private DataTable datos;
         private static int validar;
+        // instancia para actualizar un proyecto
+        SIGEDOC.Negocio.Proyectos proyecto = new SIGEDOC.Negocio.Proyectos();
+        private ProyectoHelper proyectoHelper;
+        private static int cCostos;
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -37,7 +42,7 @@ namespace SIGEDOC.Vistas
             {
                 this.pr.Opc = 1;
                 this.pr.IdRol = Usuarios.GlotIdRol;
-                this.pr.Nom_Per1 = "Reportes de Proyectos";
+                this.pr.Nom_Per1 = "";
                 this.prh = new PermisosHelper(pr);
                 this.datos = new DataTable();
                 this.datos = this.prh.Estado_Permisos();
@@ -55,6 +60,105 @@ namespace SIGEDOC.Vistas
 
 
 
+        }
+
+        protected void GridProyectos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "ModalProyectos", "$('#ModalProyectos').modal();", true);
+                cCostos = int.Parse(this.GridProyectos.Rows[GridProyectos.SelectedIndex].Cells[1].Text);
+                this.txtnombreProyecto.Text = this.GridProyectos.Rows[GridProyectos.SelectedIndex].Cells[2].Text;
+                this.txtlicitacion.Text = this.GridProyectos.Rows[GridProyectos.SelectedIndex].Cells[3].Text;
+                this.txtdetalleproyecto.Text = this.GridProyectos.Rows[GridProyectos.SelectedIndex].Cells[4].Text;
+                this.DptCliente.SelectedValue = this.GridProyectos.Rows[GridProyectos.SelectedIndex].Cells[5].Text;
+                this.dptestado.SelectedValue = this.GridProyectos.Rows[GridProyectos.SelectedIndex].Cells[6].Text.ToString();
+                this.txtusuario.Text = this.GridProyectos.Rows[GridProyectos.SelectedIndex].Cells[9].Text;
+                this.txtcentro_costos.Text = cCostos.ToString();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+          
+
+        }
+
+        protected void btnActalizar_Click(object sender, EventArgs e)
+        {
+            if (IsValid)
+            {
+                try
+                {
+                    this.proyecto.Centro_costos = cCostos;
+                    this.proyecto.Nombre_Proyecto = this.txtnombreProyecto.Text;
+                    this.proyecto.Numero_Licitacion = this.txtlicitacion.Text;
+                    this.proyecto.Detalle_del_proyecto = this.txtdetalleproyecto.Text;
+                    this.proyecto.Id_cliente = int.Parse(this.DptCliente.SelectedValue);
+                    this.proyecto.Estado_Proyecto = this.dptestado.SelectedValue;
+                    this.proyecto.Opc=3;
+                    this.proyectoHelper = new ProyectoHelper(proyecto);
+                    this.proyectoHelper.Actualizar_Proyecto();
+
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeDeconfirmacion", "mensajeDeconfirmacion('" + "" + "');", true);
+
+
+                }
+                catch (Exception)
+                {
+
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError", "mensajeError('" + "" + "');", true);
+                }
+
+
+
+
+            }
+        }
+
+        protected void GridProyectos_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                string estado;
+                estado = (string)DataBinder.Eval(e.Row.DataItem, "estadoProyec");
+                if (estado =="Ganado")
+                {
+                  
+                    e.Row.ForeColor = System.Drawing.Color.White;
+                    e.Row.BackColor = System.Drawing.Color.Green;
+                    e.Row.Font.Bold = true;
+                }
+                else if ((estado =="Perdido"))
+                {
+
+                    e.Row.ForeColor = System.Drawing.Color.Black;
+                    e.Row.BackColor = System.Drawing.Color.Red;
+                    e.Row.Font.Bold = true;
+
+                }
+
+            }
+        }
+
+        protected void Dptcentrocostos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                datos = (DataTable)GridProyectos.DataSource;
+                this.proyecto.Centro_costos = int.Parse(Dptcentrocostos.SelectedValue);
+                this.proyecto.Opc = 1;
+                this.proyectoHelper = new ProyectoHelper(proyecto);
+                this.datos = new DataTable();
+                GridProyectos.DataSource = this.proyectoHelper.Busqueda();
+                GridProyectos.DataBind();
+            }
+            catch (Exception ex)
+            {
+                this.lbcencostos.Text = ex.Message;
+
+            }
         }
     }
 }
