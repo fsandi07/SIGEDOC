@@ -96,17 +96,7 @@ namespace SIGEDOC.Vistas
 
             //}
         }
-        public string CrearPassword(int longitud)
-        {
-            string caracteres = "auq357bhai87634db09747uFYBF348579021RDSRH1123JKLCTH";
-            StringBuilder res = new StringBuilder();
-            Random rnd = new Random();
-            while (0 < longitud--)
-            {
-                res.Append(caracteres[rnd.Next(caracteres.Length)]);
-            }
-            return res.ToString();
-        }
+       
 
         protected void btningresar_Click(object sender, EventArgs e)
         {
@@ -120,10 +110,9 @@ namespace SIGEDOC.Vistas
                     this.usu.Nicname_usuario = this.txtnikcname.Text;
                     this.usu.Rol_usuario = int.Parse(this.dptrol.SelectedValue);
                     this.usu.Correo_usuario = this.txtcorreo.Text;
-                    this.usu.Clave_usuario = CrearPassword(8);
                     this.usu.Estado_usuarios = this.dptestado.SelectedValue;
                     this.usu.Contacto_usuario = int.Parse(this.txtcontacto.Text);
-                    this.usu.Opc = 3;
+                    this.usu.Opc = 4;
                     this.usuh = new UsuarioHelper(usu);
                     this.usuh.Actualizar_Usuario();
                     ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeDeconfirmacion", "mensajeDeconfirmacion('" + "" + "');", true);

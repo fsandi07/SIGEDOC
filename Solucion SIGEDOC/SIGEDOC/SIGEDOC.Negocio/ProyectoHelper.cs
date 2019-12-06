@@ -137,7 +137,7 @@ namespace SIGEDOC.Negocio
                 parParameter[6].SqlValue = objproyecto.Estado_Proyecto;
 
 
-                cnGeneral.EjecutarSP(parParameter, "SPProyecto");
+                cnGeneral.EjecutarSP(parParameter, "SPProyectoActualiza");
             }
             catch (Exception ex)
             {

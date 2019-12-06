@@ -22,27 +22,27 @@ namespace SIGEDOC.Vistas
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            bool Internet = ValidarIntenrt();
-            if (Internet)
-            {
-                //ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('SI HAY INTERNET');", true);
-            }
-            else
-            {
-                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeEspera2", "mensajeEspera2('" + "" + "');", true);
-            }
+            //bool Internet = ValidarIntenrt();
+            //if (Internet)
+            //{
+            //    //ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('SI HAY INTERNET');", true);
+            //}
+            //else
+            //{
+            //    ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeEspera2", "mensajeEspera2('" + "" + "');", true);
+            //}
 
-            Num_Estado_Permiso();
+            //Num_Estado_Permiso();
 
-            if (validar == 0 || Session["Idusuario"] == null)
-            {
-                
-                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeEspera", "mensajeEspera('" + "" + "');", true);
-             }
-            else
-            {
+            //if (validar == 0 || Session["Idusuario"] == null)
+            //{
 
-            }
+            //    ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeEspera", "mensajeEspera('" + "" + "');", true);
+            //}
+            //else
+            //{
+
+            //}
         }
         public bool ValidarIntenrt()
         {

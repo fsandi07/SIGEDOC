@@ -2900,21 +2900,6 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entidad\PQS.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PQS.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entidad\PQS.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PQS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entidad\PQS.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PQS.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Entidad\PQS1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -2930,11 +2915,26 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PQS1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Entidad\PQS2.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PQS2.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidad\PQS2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PQS2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidad\PQS2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PQS2.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Entidad\TbDocCreado.cs">
-      <DependentUpon>PQS.tt</DependentUpon>
+      <DependentUpon>PQS1.tt</DependentUpon>
     </Compile>
     <Compile Include="Entidad\TbDocSubido.cs">
-      <DependentUpon>PQS1.tt</DependentUpon>
+      <DependentUpon>PQS2.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vistas\AcercaDe.aspx.cs">
@@ -3140,23 +3140,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="Entidad\PQS.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>PQS.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Entidad\PQS.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PQS.edmx</DependentUpon>
-      <LastGenOutput>PQS.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Entidad\PQS.edmx.diagram">
-      <DependentUpon>PQS.edmx</DependentUpon>
-    </Content>
-    <Content Include="Entidad\PQS.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PQS.edmx</DependentUpon>
-      <LastGenOutput>PQS.cs</LastGenOutput>
-    </Content>
     <EntityDeploy Include="Entidad\PQS1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>PQS1.Designer.cs</LastGenOutput>
@@ -3173,6 +3156,23 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>PQS1.edmx</DependentUpon>
       <LastGenOutput>PQS1.cs</LastGenOutput>
+    </Content>
+    <EntityDeploy Include="Entidad\PQS2.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PQS2.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Entidad\PQS2.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PQS2.edmx</DependentUpon>
+      <LastGenOutput>PQS2.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entidad\PQS2.edmx.diagram">
+      <DependentUpon>PQS2.edmx</DependentUpon>
+    </Content>
+    <Content Include="Entidad\PQS2.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PQS2.edmx</DependentUpon>
+      <LastGenOutput>PQS2.cs</LastGenOutput>
     </Content>
     <None Include="packages.config" />
     <Content Include="Vistas\scss\navs\_global.scss" />

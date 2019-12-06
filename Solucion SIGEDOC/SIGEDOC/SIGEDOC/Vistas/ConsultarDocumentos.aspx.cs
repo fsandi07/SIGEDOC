@@ -277,7 +277,7 @@ namespace SIGEDOC.Vistas
         {
             try
             {
-                using (SIGEDOC.Entidad.sigedocEntities1 db = new SIGEDOC.Entidad.sigedocEntities1())
+                using (SIGEDOC.Entidad.DB_A4DE45_SIGEDOCEntities db = new SIGEDOC.Entidad.DB_A4DE45_SIGEDOCEntities())
                 {
                     var oDocument = db.TbDocCreado.Find(GloID);
 
@@ -306,7 +306,7 @@ namespace SIGEDOC.Vistas
         {
             try
             {
-                using (SIGEDOC.Entidad.sigedocEntities1 db = new SIGEDOC.Entidad.sigedocEntities1())
+                using (SIGEDOC.Entidad.DB_A4DE45_SIGEDOCEntities db = new SIGEDOC.Entidad.DB_A4DE45_SIGEDOCEntities())
                 {
                     var oDocument = db.TbDocCreado.Find(GloID);
 
@@ -361,7 +361,7 @@ namespace SIGEDOC.Vistas
         {
             try
             {
-                using (SIGEDOC.Entidad.sigedocEntities2 db = new SIGEDOC.Entidad.sigedocEntities2())
+                using (SIGEDOC.Entidad.DB_A4DE45_SIGEDOCEntities1 db = new SIGEDOC.Entidad.DB_A4DE45_SIGEDOCEntities1())
                 {
                     var oDocument = db.TbDocSubido.Find(GloID2);
 
@@ -389,7 +389,7 @@ namespace SIGEDOC.Vistas
         {
             try
             {
-                using (SIGEDOC.Entidad.sigedocEntities2 db = new SIGEDOC.Entidad.sigedocEntities2())
+                using (SIGEDOC.Entidad.DB_A4DE45_SIGEDOCEntities1 db = new SIGEDOC.Entidad.DB_A4DE45_SIGEDOCEntities1())
                 {
                     var oDocument = db.TbDocSubido.Find(GloID2);
 

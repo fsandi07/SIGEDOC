@@ -87,14 +87,16 @@
             </a>
             <div class="collapse show" id="collapseCardExample">
 
-                <asp:GridView ID="GridDocumento" runat="server" AutoGenerateColumns="False" CellPadding="3" DataSourceID="SqlDataDocCreado" OnRowDataBound="GridDocumento_RowDataBound" OnSelectedIndexChanged="GridDocumento_SelectedIndexChanged" Width="1026px" HorizontalAlign="Center" DataKeyNames="numtotaldocu" OnRowCommand="GridDocumento_RowCommand" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellSpacing="2">
+                <asp:GridView ID="GridDocumento" runat="server" AutoGenerateColumns="False" CellPadding="3" DataSourceID="SqlDatadocreados" OnRowDataBound="GridDocumento_RowDataBound" OnSelectedIndexChanged="GridDocumento_SelectedIndexChanged" Width="1026px" HorizontalAlign="Center" DataKeyNames="numtotaldocu" OnRowCommand="GridDocumento_RowCommand" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellSpacing="2">
                     <Columns>
 
                         <asp:CommandField HeaderText="Editar" SelectText="&lt;i class='fas fa-edit'&gt;&lt;/i&gt;" ShowSelectButton="True" />
+
                         <asp:BoundField DataField="numtotaldocu" HeaderText="Id Doc" SortExpression="numtotaldocu" InsertVisible="False" ReadOnly="True" Visible="True" />
                         <asp:BoundField DataField="nombredcreado" HeaderText="Nombre" SortExpression="nombredcreado" />
                         <asp:BoundField DataField="asuntodcreado" HeaderText="Asunto" SortExpression="asuntodcreado" />
                         <asp:BoundField DataField="detalledCreadol" HeaderText="Detalle" SortExpression="detalledCreadol" />
+
 
                         <asp:ButtonField Text="<i class='far fa-file-pdf'></i>" CommandName="Editar" HeaderText="PDF" />
 
@@ -102,8 +104,9 @@
 
                         <asp:BoundField DataField="estatus" HeaderText="Estatus" SortExpression="estatus" />
                         <asp:BoundField DataField="fecha" HeaderText="Fecha" SortExpression="fecha" />
+                        <asp:BoundField DataField="idCliente" HeaderText="idCliente" SortExpression="idCliente" Visible="False" />
                         <asp:BoundField DataField="nombrecliente" HeaderText="Nombre" SortExpression="nombrecliente" />
-                        <asp:BoundField DataField="idProyecto" HeaderText="C. Costos" SortExpression="idProyecto" />
+                        <asp:BoundField DataField="idProyecto" HeaderText="C.Costos" SortExpression="idProyecto" />
                         <asp:BoundField DataField="nombreusu" HeaderText="Usuario" SortExpression="nombreusu" />
                         <asp:BoundField DataField="numReferencia" HeaderText="Referencia" SortExpression="numReferencia" />
                     </Columns>
@@ -117,6 +120,9 @@
                     <SortedDescendingCellStyle BackColor="#F1E5CE" />
                     <SortedDescendingHeaderStyle BackColor="#93451F" />
                 </asp:GridView>
+                <asp:SqlDataSource ID="SqlDatadocreados" runat="server" ConnectionString="<%$ ConnectionStrings:DB_A4DE45_SIGEDOCConnectionString %>" SelectCommand="select a.numtotaldocu,a.nombredcreado,a.asuntodcreado,a.detalledCreadol,a.documentoPDF,a.documentoWord,a.estatus,a.fecha,a.idCliente,c.nombrecliente,a.idProyecto,b.nombreusu,a.numReferencia
+
+from TbDocCreado a, TbUsuario b,TbCliente c where a.Usuario = b.cedulaUsu and a.idCliente=c.idCliente"></asp:SqlDataSource>
             </div>
         </div>
     </div>
@@ -140,14 +146,15 @@ from TbDocCreado a, TbUsuario b,TbCliente c where a.Usuario = b.cedulaUsu and a.
                     <Columns>
                         <asp:CommandField HeaderText="Editar" SelectText="&lt;i class='fas fa-edit'&gt;&lt;/i&gt;" ShowSelectButton="True" />
                         <asp:BoundField DataField="numTotalSub" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="numTotalSub" />
-                        <asp:BoundField DataField="nombredSub" HeaderText="Nombre" SortExpression="nombredSub" />
+                        <asp:BoundField DataField="nombredSub" HeaderText="Nombre " SortExpression="nombredSub" />
                         <asp:BoundField DataField="detalledSub" HeaderText="Detalle" SortExpression="detalledSub" />
 
-                         <asp:ButtonField Text="<i class='far fa-file-pdf'></i>" CommandName="PDF1" HeaderText="PDF" />
+                        <asp:ButtonField Text="<i class='far fa-file-pdf'></i>" CommandName="PDF1" HeaderText="PDF" />
 
                         <asp:ButtonField Text="<i class='far fa-file-word'></i>" CommandName="WORD1" HeaderText="WORD" />
 
                         <asp:BoundField DataField="fechaSub" HeaderText="Fecha" SortExpression="fechaSub" />
+                        <asp:BoundField DataField="idCliente" HeaderText="idCliente" SortExpression="idCliente" Visible="False" />
                         <asp:BoundField DataField="nombrecliente" HeaderText="Nombre" SortExpression="nombrecliente" />
                         <asp:BoundField DataField="idProyecto" HeaderText="idProyecto" SortExpression="idProyecto" />
                         <asp:BoundField DataField="nombreusu" HeaderText="Usuario" SortExpression="nombreusu" />
@@ -170,7 +177,7 @@ from TbDocCreado a, TbUsuario b,TbCliente c where a.Usuario = b.cedulaUsu and a.
                     <SortedDescendingHeaderStyle BackColor="#93451F" />
                 </asp:GridView>
 
-                <asp:SqlDataSource ID="SqlDataDocSubido" runat="server" ConnectionString="<%$ ConnectionStrings:sigedocConnectionString %>" SelectCommand="
+                <asp:SqlDataSource ID="SqlDataDocSubido" runat="server" ConnectionString="<%$ ConnectionStrings:DB_A4DE45_SIGEDOCConnectionString %>" SelectCommand="
 select a.numTotalSub,a.nombredSub,a.detalledSub,a.documentoPdfSub,a.documentoWordSub,a.fechaSub,a.idCliente,c.nombrecliente,a.idProyecto,b.nombreusu,a.referenciaSub,a.ModificadoPor as[Modificado Por]
 
 from tbdocsubido a, TbUsuario b,TbCliente c where  a.idCliente=c.idCliente and a.idUsuario = b.cedulaUsu"></asp:SqlDataSource>

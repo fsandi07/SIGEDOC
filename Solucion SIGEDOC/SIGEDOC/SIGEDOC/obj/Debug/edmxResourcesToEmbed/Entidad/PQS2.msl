@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DB_A4DE45_SIGEDOCModel1StoreContainer" CdmEntityContainer="DB_A4DE45_SIGEDOCEntities1">
+    <EntitySetMapping Name="TbDocSubido">
+      <EntityTypeMapping TypeName="DB_A4DE45_SIGEDOCModel1.TbDocSubido">
+        <MappingFragment StoreEntitySet="TbDocSubido">
+          <ScalarProperty Name="numTotalSub" ColumnName="numTotalSub" />
+          <ScalarProperty Name="nombredSub" ColumnName="nombredSub" />
+          <ScalarProperty Name="detalledSub" ColumnName="detalledSub" />
+          <ScalarProperty Name="numConseSub" ColumnName="numConseSub" />
+          <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+          <ScalarProperty Name="referenciaSub" ColumnName="referenciaSub" />
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="fechaSub" ColumnName="fechaSub" />
+          <ScalarProperty Name="documentoWordSub" ColumnName="documentoWordSub" />
+          <ScalarProperty Name="documentoPdfSub" ColumnName="documentoPdfSub" />
+          <ScalarProperty Name="idProyecto" ColumnName="idProyecto" />
+          <ScalarProperty Name="periodo" ColumnName="periodo" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="nombrerealWordSub" ColumnName="nombrerealWordSub" />
+          <ScalarProperty Name="nombrerealPdfSub" ColumnName="nombrerealPdfSub" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

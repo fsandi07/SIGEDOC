@@ -4,9 +4,8 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e8324eda8eac4bf6b1e906f352f585d5" Name="Diagram1">
-        <EntityTypeShape EntityType="sigedocModel.TbDocSubido" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <AssociationConnector Association="sigedocModel.FK_TbDocSubido_TbDocSubido" ManuallyRouted="false" />
+      <Diagram DiagramId="ba997312abe84c829e11ec0f6d4cdd92" Name="Diagram1">
+        <EntityTypeShape EntityType="DB_A4DE45_SIGEDOCModel.TbDocCreado" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -55,7 +55,7 @@
                         Cliente:  &nbsp
                         <asp:DropDownList ID="DptCliente" runat="server" CssClass="alert-dark" Width="774px" Height="26px" DataSourceID="SqlDataCliente" DataTextField="nombreCliente" DataValueField="idCliente">
                         </asp:DropDownList>
-                        <asp:SqlDataSource ID="SqlDataCliente" runat="server" ConnectionString="<%$ ConnectionStrings:sigedocConnectionString %>" SelectCommand="SELECT [idCliente], [nombreCliente] FROM [TbCliente]"></asp:SqlDataSource>
+                        <asp:SqlDataSource ID="SqlDataCliente" runat="server" ConnectionString="<%$ ConnectionStrings:DB_A4DE45_SIGEDOCConnectionString %>" SelectCommand="SELECT [idCliente], [nombreCliente] FROM [TbCliente]"></asp:SqlDataSource>
                     </div>
                     <%--    <div class="contenedor-input">
                         <asp:Label ID="Lblcentrodecostos" runat="server" Text="Centro de Costos:"></asp:Label>

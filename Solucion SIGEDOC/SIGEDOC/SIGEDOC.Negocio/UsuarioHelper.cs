@@ -145,7 +145,7 @@ namespace SIGEDOC.Negocio
             {
                 cnGeneral = new Datos();
 
-                SqlParameter[] parParameter = new SqlParameter[10];
+                SqlParameter[] parParameter = new SqlParameter[9];
 
                 parParameter[0] = new SqlParameter();
                 parParameter[0].ParameterName = "@opcion";
@@ -183,26 +183,20 @@ namespace SIGEDOC.Negocio
                 parParameter[5].SqlValue = objUsuarios.Correo_usuario;
 
                 parParameter[6] = new SqlParameter();
-                parParameter[6].ParameterName = "@claveUsu";
-                parParameter[6].SqlDbType = SqlDbType.VarChar;
-                parParameter[6].Size = 50;
-                parParameter[6].SqlValue = objUsuarios.Clave_usuario;
+                parParameter[6].ParameterName = "@idRol";
+                parParameter[6].SqlDbType = SqlDbType.Int;
+                parParameter[6].SqlValue = objUsuarios.Rol_usuario;
 
                 parParameter[7] = new SqlParameter();
-                parParameter[7].ParameterName = "@idRol";
-                parParameter[7].SqlDbType = SqlDbType.Int;
-                parParameter[7].SqlValue = objUsuarios.Rol_usuario;
+                parParameter[7].ParameterName = "@estadoUsu";
+                parParameter[7].SqlDbType = SqlDbType.NChar;
+                parParameter[7].Size = 1;
+                parParameter[7].SqlValue = objUsuarios.Estado_usuarios;
 
                 parParameter[8] = new SqlParameter();
-                parParameter[8].ParameterName = "@estadoUsu";
-                parParameter[8].SqlDbType = SqlDbType.NChar;
-                parParameter[8].Size = 1;
-                parParameter[8].SqlValue = objUsuarios.Estado_usuarios;
-
-                parParameter[9] = new SqlParameter();
-                parParameter[9].ParameterName = "@contactoUsu";
-                parParameter[9].SqlDbType = SqlDbType.Int;
-                parParameter[9].SqlValue = objUsuarios.Contacto_usuario;
+                parParameter[8].ParameterName = "@contactoUsu";
+                parParameter[8].SqlDbType = SqlDbType.Int;
+                parParameter[8].SqlValue = objUsuarios.Contacto_usuario;
 
 
                 cnGeneral.EjecutarSP(parParameter, "SPUsuario");

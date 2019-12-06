@@ -4,116 +4,91 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="sigedocModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="TbDocSubido">
+      <Schema Namespace="DB_A4DE45_SIGEDOCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TbDocCreado">
           <Key>
-            <PropertyRef Name="numTotalSub" />
+            <PropertyRef Name="numtotaldocu" />
           </Key>
-          <Property Name="numTotalSub" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="nombredSub" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="detalledSub" Type="varchar(max)" Nullable="false" />
-          <Property Name="numConseSub" Type="int" Nullable="false" />
-          <Property Name="idCliente" Type="int" Nullable="false" />
-          <Property Name="referenciaSub" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="idUsuario" Type="int" Nullable="false" />
-          <Property Name="fechaSub" Type="datetime" Nullable="false" />
-          <Property Name="documentoWordSub" Type="varbinary(max)" Nullable="false" />
-          <Property Name="documentoPdfSub" Type="varbinary(max)" Nullable="false" />
+          <Property Name="numtotaldocu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombredCreado" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="asuntodCreado" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="detalledCreadol" Type="varchar(max)" Nullable="false" />
+          <Property Name="Usuario" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="idProyecto" Type="int" Nullable="false" />
-          <Property Name="periodo" Type="varchar(max)" Nullable="false" />
-          <Property Name="ModificadoPor" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="nombrerealWordSub" Type="varchar" MaxLength="50" />
-          <Property Name="nombrerealPdfSub" Type="varchar" MaxLength="50" />
+          <Property Name="numConsecu" Type="int" Nullable="false" />
+          <Property Name="documentoPDF" Type="varbinary(max)" />
+          <Property Name="documentoWord" Type="varbinary(max)" Nullable="false" />
+          <Property Name="estatus" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="fecha" Type="datetime" Nullable="false" />
+          <Property Name="idCliente" Type="int" Nullable="false" />
+          <Property Name="periodo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="numReferencia" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="habilitado" Type="int" Nullable="false" />
+          <Property Name="modificadoPor" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="nombrereal" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="nombrealpdf" Type="varchar" MaxLength="50" />
         </EntityType>
-        <Association Name="FK_TbDocSubido_TbDocSubido">
-          <End Role="TbDocSubido" Type="Self.TbDocSubido" Multiplicity="1" />
-          <End Role="TbDocSubido1" Type="Self.TbDocSubido" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="TbDocSubido">
-              <PropertyRef Name="numTotalSub" />
-            </Principal>
-            <Dependent Role="TbDocSubido1">
-              <PropertyRef Name="numTotalSub" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="sigedocModelStoreContainer">
-          <EntitySet Name="TbDocSubido" EntityType="Self.TbDocSubido" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_TbDocSubido_TbDocSubido" Association="Self.FK_TbDocSubido_TbDocSubido">
-            <End Role="TbDocSubido" EntitySet="TbDocSubido" />
-            <End Role="TbDocSubido1" EntitySet="TbDocSubido" />
-          </AssociationSet>
+        <EntityContainer Name="DB_A4DE45_SIGEDOCModelStoreContainer">
+          <EntitySet Name="TbDocCreado" EntityType="Self.TbDocCreado" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="sigedocModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="TbDocSubido">
+      <Schema Namespace="DB_A4DE45_SIGEDOCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TbDocCreado">
           <Key>
-            <PropertyRef Name="numTotalSub" />
+            <PropertyRef Name="numtotaldocu" />
           </Key>
-          <Property Name="numTotalSub" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nombredSub" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="detalledSub" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="numConseSub" Type="Int32" Nullable="false" />
-          <Property Name="idCliente" Type="Int32" Nullable="false" />
-          <Property Name="referenciaSub" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="idUsuario" Type="Int32" Nullable="false" />
-          <Property Name="fechaSub" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="documentoWordSub" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
-          <Property Name="documentoPdfSub" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="numtotaldocu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombredCreado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="asuntodCreado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="detalledCreadol" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Usuario" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="idProyecto" Type="Int32" Nullable="false" />
-          <Property Name="periodo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ModificadoPor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="nombrerealWordSub" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="nombrerealPdfSub" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="TbDocSubido1" Relationship="Self.FK_TbDocSubido_TbDocSubido" FromRole="TbDocSubido" ToRole="TbDocSubido1" />
-          <NavigationProperty Name="TbDocSubido2" Relationship="Self.FK_TbDocSubido_TbDocSubido" FromRole="TbDocSubido1" ToRole="TbDocSubido" />
+          <Property Name="numConsecu" Type="Int32" Nullable="false" />
+          <Property Name="documentoPDF" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="documentoWord" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="estatus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="idCliente" Type="Int32" Nullable="false" />
+          <Property Name="periodo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="numReferencia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="habilitado" Type="Int32" Nullable="false" />
+          <Property Name="modificadoPor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombrereal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombrealpdf" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
-        <Association Name="FK_TbDocSubido_TbDocSubido">
-          <End Role="TbDocSubido" Type="Self.TbDocSubido" Multiplicity="1" />
-          <End Role="TbDocSubido1" Type="Self.TbDocSubido" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="TbDocSubido">
-              <PropertyRef Name="numTotalSub" />
-            </Principal>
-            <Dependent Role="TbDocSubido1">
-              <PropertyRef Name="numTotalSub" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="sigedocEntities2" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="TbDocSubido" EntityType="Self.TbDocSubido" />
-          <AssociationSet Name="FK_TbDocSubido_TbDocSubido" Association="Self.FK_TbDocSubido_TbDocSubido">
-            <End Role="TbDocSubido" EntitySet="TbDocSubido" />
-            <End Role="TbDocSubido1" EntitySet="TbDocSubido" />
-          </AssociationSet>
+        <EntityContainer Name="DB_A4DE45_SIGEDOCEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TbDocCreado" EntityType="Self.TbDocCreado" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="sigedocModelStoreContainer" CdmEntityContainer="sigedocEntities2">
-          <EntitySetMapping Name="TbDocSubido">
-            <EntityTypeMapping TypeName="sigedocModel.TbDocSubido">
-              <MappingFragment StoreEntitySet="TbDocSubido">
-                <ScalarProperty Name="numTotalSub" ColumnName="numTotalSub" />
-                <ScalarProperty Name="nombredSub" ColumnName="nombredSub" />
-                <ScalarProperty Name="detalledSub" ColumnName="detalledSub" />
-                <ScalarProperty Name="numConseSub" ColumnName="numConseSub" />
-                <ScalarProperty Name="idCliente" ColumnName="idCliente" />
-                <ScalarProperty Name="referenciaSub" ColumnName="referenciaSub" />
-                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
-                <ScalarProperty Name="fechaSub" ColumnName="fechaSub" />
-                <ScalarProperty Name="documentoWordSub" ColumnName="documentoWordSub" />
-                <ScalarProperty Name="documentoPdfSub" ColumnName="documentoPdfSub" />
+        <EntityContainerMapping StorageEntityContainer="DB_A4DE45_SIGEDOCModelStoreContainer" CdmEntityContainer="DB_A4DE45_SIGEDOCEntities">
+          <EntitySetMapping Name="TbDocCreado">
+            <EntityTypeMapping TypeName="DB_A4DE45_SIGEDOCModel.TbDocCreado">
+              <MappingFragment StoreEntitySet="TbDocCreado">
+                <ScalarProperty Name="numtotaldocu" ColumnName="numtotaldocu" />
+                <ScalarProperty Name="nombredCreado" ColumnName="nombredCreado" />
+                <ScalarProperty Name="asuntodCreado" ColumnName="asuntodCreado" />
+                <ScalarProperty Name="detalledCreadol" ColumnName="detalledCreadol" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
                 <ScalarProperty Name="idProyecto" ColumnName="idProyecto" />
+                <ScalarProperty Name="numConsecu" ColumnName="numConsecu" />
+                <ScalarProperty Name="documentoPDF" ColumnName="documentoPDF" />
+                <ScalarProperty Name="documentoWord" ColumnName="documentoWord" />
+                <ScalarProperty Name="estatus" ColumnName="estatus" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="idCliente" ColumnName="idCliente" />
                 <ScalarProperty Name="periodo" ColumnName="periodo" />
-                <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
-                <ScalarProperty Name="nombrerealWordSub" ColumnName="nombrerealWordSub" />
-                <ScalarProperty Name="nombrerealPdfSub" ColumnName="nombrerealPdfSub" />
+                <ScalarProperty Name="numReferencia" ColumnName="numReferencia" />
+                <ScalarProperty Name="habilitado" ColumnName="habilitado" />
+                <ScalarProperty Name="modificadoPor" ColumnName="modificadoPor" />
+                <ScalarProperty Name="nombrereal" ColumnName="nombrereal" />
+                <ScalarProperty Name="nombrealpdf" ColumnName="nombrealpdf" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

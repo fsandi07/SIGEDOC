@@ -13,10 +13,10 @@ namespace SIGEDOC.Entidad
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class sigedocEntities2 : DbContext
+    public partial class DB_A4DE45_SIGEDOCEntities : DbContext
     {
-        public sigedocEntities2()
-            : base("name=sigedocEntities2")
+        public DB_A4DE45_SIGEDOCEntities()
+            : base("name=DB_A4DE45_SIGEDOCEntities")
         {
         }
     
@@ -25,6 +25,6 @@ namespace SIGEDOC.Entidad
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<TbDocSubido> TbDocSubido { get; set; }
+        public virtual DbSet<TbDocCreado> TbDocCreado { get; set; }
     }
 }

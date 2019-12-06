@@ -305,7 +305,7 @@ namespace SIGEDOC.Negocio
                 parParameter[45].SqlDbType = SqlDbType.Int;
                 parParameter[45].SqlValue = objPermisos.Opcmodificar_repo_proye;
 
-                cnGneral.EjecutarSP(parParameter, "SPCrearPermisos");
+                cnGneral.EjecutarSP(parParameter, "SPIngresarPermisos");
             }
             catch (Exception ex)
             {

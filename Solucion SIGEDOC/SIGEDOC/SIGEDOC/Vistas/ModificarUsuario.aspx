@@ -32,16 +32,16 @@
     <asp:GridView ID="GridUsuarios" runat="server" AutoGenerateColumns="False" CellPadding="5" DataKeyNames="cedulaUsu" DataSourceID="SqlDataUsuario" ForeColor="#333333" GridLines="Vertical" OnSelectedIndexChanged="GridUsuarios_SelectedIndexChanged" CssClass="auto-style1" Width="978px" BorderColor="#003300" BorderStyle="None" OnRowDataBound="GridUsuarios_RowDataBound">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:CommandField ShowSelectButton="True" HeaderText="Modificar" SelectText="&lt;i class='fas fa-edit'&gt;&lt;/i&gt;" />
+            <asp:CommandField HeaderText="Editar" SelectText="&lt;i class='fas fa-edit'&gt;&lt;/i&gt;" ShowSelectButton="True" />
             <asp:BoundField DataField="cedulaUsu" HeaderText="Cedula" ReadOnly="True" SortExpression="cedulaUsu" />
             <asp:BoundField DataField="nombreUsu" HeaderText="Nombre" SortExpression="nombreUsu" />
-            <asp:BoundField DataField="apellidosUsu" HeaderText="Apellidos" SortExpression="apellidosUsu" />
+            <asp:BoundField DataField="apellidosUsu" HeaderText="Apellido" SortExpression="apellidosUsu" />
             <asp:BoundField DataField="nicknameUsu" HeaderText="Nickname" SortExpression="nicknameUsu" />
             <asp:BoundField DataField="correoElectUsu" HeaderText="Correo" SortExpression="correoElectUsu" />
             <asp:BoundField DataField="nombreRol" HeaderText="Rol" SortExpression="nombreRol" />
-            <asp:BoundField DataField="idRol" HeaderText="IdRol" SortExpression="idRol" />
+            <asp:BoundField DataField="idRol" HeaderText="idRol" SortExpression="idRol" />
             <asp:BoundField DataField="estadoUsu" HeaderText="Estado" SortExpression="estadoUsu" />
-            <asp:BoundField DataField="contactoUsu" HeaderText="Contacto" SortExpression="contactoUsu" />
+            <asp:BoundField DataField="contactoUsu" HeaderText="Telefono" SortExpression="contactoUsu" />
         </Columns>
         <EditRowStyle BackColor="#2461BF" BorderStyle="Solid" HorizontalAlign="Center" VerticalAlign="Middle" />
         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -54,11 +54,11 @@
         <SortedDescendingCellStyle BackColor="#E9EBEF" />
         <SortedDescendingHeaderStyle BackColor="#4870BE" />
     </asp:GridView>
-    <asp:SqlDataSource ID="SqlDataUsuario" runat="server" ConnectionString="<%$ ConnectionStrings:sigedocConnectionString %>" SelectCommand="select  a.cedulaUsu, a.nombreUsu,a.apellidosUsu,a.nicknameUsu,a.correoElectUsu,b.nombreRol,a.idRol,a.estadoUsu,a.contactoUsu 
+    <asp:SqlDataSource ID="SqlDataUsuario" runat="server" ConnectionString="<%$ ConnectionStrings:DB_A4DE45_SIGEDOCConnectionString %>" SelectCommand="select  a.cedulaUsu, a.nombreUsu,a.apellidosUsu,a.nicknameUsu,a.correoElectUsu,b.nombreRol,a.idRol,a.estadoUsu,a.contactoUsu 
 from TbUsuario a, TbRol b
 where a.idRol = b.IdRol "></asp:SqlDataSource>
 
-    <asp:SqlDataSource ID="SqlDataRol" runat="server" ConnectionString="<%$ ConnectionStrings:sigedocConnectionString %>" SelectCommand="SELECT [nombreRol], [IdRol] FROM [TbRol]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataRol" runat="server" ConnectionString="<%$ ConnectionStrings:DB_A4DE45_SIGEDOCConnectionString %>" SelectCommand="SELECT [nombreRol], [IdRol] FROM [TbRol]"></asp:SqlDataSource>
     
       </div>  
         

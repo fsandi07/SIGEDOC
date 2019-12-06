@@ -19,8 +19,6 @@ namespace SIGEDOC.Vistas
         SIGEDOC.Negocio.Proyectos proyecto = new SIGEDOC.Negocio.Proyectos();
         private ProyectoHelper proyectoHelper;
         private static int cCostos;
-
-
         protected void Page_Load(object sender, EventArgs e)
         {
             //Num_Estado_Permiso();
@@ -81,8 +79,6 @@ namespace SIGEDOC.Vistas
 
                 throw;
             }
-          
-
         }
 
         protected void btnActalizar_Click(object sender, EventArgs e)
@@ -91,7 +87,7 @@ namespace SIGEDOC.Vistas
             {
                 try
                 {
-                    this.proyecto.Centro_costos = cCostos;
+                    this.proyecto.Centro_costos = 1;
                     this.proyecto.Nombre_Proyecto = this.txtnombreProyecto.Text;
                     this.proyecto.Numero_Licitacion = this.txtlicitacion.Text;
                     this.proyecto.Detalle_del_proyecto = this.txtdetalleproyecto.Text;
@@ -100,20 +96,12 @@ namespace SIGEDOC.Vistas
                     this.proyecto.Opc=3;
                     this.proyectoHelper = new ProyectoHelper(proyecto);
                     this.proyectoHelper.Actualizar_Proyecto();
-
                     ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeDeconfirmacion", "mensajeDeconfirmacion('" + "" + "');", true);
-
-
                 }
                 catch (Exception)
                 {
-
                     ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError", "mensajeError('" + "" + "');", true);
                 }
-
-
-
-
             }
         }
 
@@ -125,23 +113,19 @@ namespace SIGEDOC.Vistas
                 estado = (string)DataBinder.Eval(e.Row.DataItem, "estadoProyec");
                 if (estado =="Ganado")
                 {
-                  
                     e.Row.ForeColor = System.Drawing.Color.White;
                     e.Row.BackColor = System.Drawing.Color.Green;
                     e.Row.Font.Bold = true;
                 }
                 else if ((estado =="Perdido"))
                 {
-
                     e.Row.ForeColor = System.Drawing.Color.Black;
                     e.Row.BackColor = System.Drawing.Color.Red;
                     e.Row.Font.Bold = true;
 
                 }
-
             }
         }
-
         protected void Dptcentrocostos_SelectedIndexChanged(object sender, EventArgs e)
         {
             try

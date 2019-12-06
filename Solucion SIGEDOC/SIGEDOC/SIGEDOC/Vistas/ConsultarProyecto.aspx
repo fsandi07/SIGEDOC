@@ -53,7 +53,7 @@
     </asp:GridView>
     <asp:SqlDataSource ID="SqlDataProyec" runat="server" ConnectionString="<%$ ConnectionStrings:sigedocConnectionString %>" SelectCommand="
 select a.centroCostos,a.NombreProy,a.NumLicita,a.detalleProyec,a.idCliente,c.nombrecliente,a.estadoProyec,a.fechaProy,b.nombreUsu
-from TbProyecto a, TbUsuario b,TbCliente c where a.idUsuario = b.cedulaUsu and a.idCliente=c.idCliente
+from TbProyecto1 a, TbUsuario b,TbCliente c where a.idUsuario = b.cedulaUsu and a.idCliente=c.idCliente
 "></asp:SqlDataSource>
     <script type="text/javascript">
 

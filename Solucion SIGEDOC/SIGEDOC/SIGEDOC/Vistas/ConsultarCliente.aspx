@@ -13,7 +13,7 @@
     <asp:GridView ID="GridCliente" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="idCliente" DataSourceID="SqlDataCliente" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Width="944px" OnRowDataBound="GridCliente_RowDataBound">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:CommandField HeaderText="Modificar" SelectText="&lt;i class='fas fa-edit'&gt;&lt;/i&gt;" ShowSelectButton="True" />
+            <asp:CommandField HeaderText="Editar" SelectText="&lt;i class='fas fa-edit'&gt;&lt;/i&gt;" ShowSelectButton="True" />
             <asp:BoundField DataField="idCliente" HeaderText="idCliente" InsertVisible="False" ReadOnly="True" SortExpression="idCliente" />
             <asp:BoundField DataField="nombreCliente" HeaderText="Nombre" SortExpression="nombreCliente" />
             <asp:BoundField DataField="nombreContacto" HeaderText="Encargado" SortExpression="nombreContacto" />
@@ -33,7 +33,7 @@
         <SortedDescendingCellStyle BackColor="#E9EBEF" />
         <SortedDescendingHeaderStyle BackColor="#4870BE" />
     </asp:GridView>
-    <asp:SqlDataSource ID="SqlDataCliente" runat="server" ConnectionString="<%$ ConnectionStrings:sigedocConnectionString %>" SelectCommand="SELECT * FROM [TbCliente]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataCliente" runat="server" ConnectionString="<%$ ConnectionStrings:DB_A4DE45_SIGEDOCConnectionString %>" SelectCommand="SELECT * FROM [TbCliente]"></asp:SqlDataSource>
      <script type="text/javascript">
 
               function mensajeEspera() {

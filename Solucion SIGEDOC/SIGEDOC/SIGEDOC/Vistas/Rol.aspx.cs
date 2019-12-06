@@ -52,7 +52,7 @@ namespace SIGEDOC.Vistas
                 Num_IdRol();
 
                 this.pr.Consultar_cliente = "Consultar Cliente";
-                this.pr.Crear_cliente = "Crear Usuario";
+                this.pr.Crear_cliente = "Crear Cliente";
                 this.pr.Modificar_cliente = "Modificar Cliente";
                 this.pr.Consultar_proyecto = "Consultar Proyecto";
                 this.pr.Crear_proyecto ="Crear Proyecto";
