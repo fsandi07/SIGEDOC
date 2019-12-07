@@ -25,7 +25,7 @@ namespace SIGEDOC.Negocio
             try
             {
                 cnGeneral = new Datos();
-                SqlParameter[] parParameter = new SqlParameter[4];
+                SqlParameter[] parParameter = new SqlParameter[5];
 
                 parParameter[0] = new SqlParameter();
                 parParameter[0].ParameterName = "@opcion";
@@ -47,6 +47,12 @@ namespace SIGEDOC.Negocio
                 parParameter[3].ParameterName = "@fechaAccion";
                 parParameter[3].SqlDbType = SqlDbType.DateTime;
                 parParameter[3].SqlValue = objMoviBitacora.Fecha;
+
+                parParameter[4] = new SqlParameter();
+                parParameter[4].ParameterName = "@Tipo";
+                parParameter[4].SqlDbType = SqlDbType.VarChar;
+                parParameter[4].Size = 50;
+                parParameter[4].SqlValue = objMoviBitacora.Tipo;
 
 
                 cnGeneral.EjecutarSP(parParameter, "SPMovimiento");

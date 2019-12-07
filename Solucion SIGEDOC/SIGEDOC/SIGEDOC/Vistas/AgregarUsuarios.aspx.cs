@@ -26,17 +26,17 @@ namespace SIGEDOC.Vistas
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Num_Estado_Permiso();
+            //Num_Estado_Permiso();
 
-            if (validar == 0 || Session["Idusuario"] == null)
-            {
+            //if (validar == 0 || Session["Idusuario"] == null)
+            //{
 
-                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeEspera", "mensajeEspera('" + "" + "');", true);
-            }
-            else
-            {
+            //    ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeEspera", "mensajeEspera('" + "" + "');", true);
+            //}
+            //else
+            //{
 
-            }
+            //}
         }
         private void Num_Estado_Permiso()
         {
@@ -90,6 +90,7 @@ namespace SIGEDOC.Vistas
                 this.usu.Clave_usuario = CrearPassword(8);
                 this.usu.Estado_usuarios = "1";
                 this.usu.Contacto_usuario = int.Parse(this.txtcontacto.Text);
+                this.usu.Idusuario = Usuarios.GloIdUsuario;
                 this.usu.Opc = 1;
                 this.usuh = new UsuarioHelper(usu);
                 this.usuh.Agregar_Usuarios();

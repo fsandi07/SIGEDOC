@@ -13,12 +13,12 @@ namespace SIGEDOC.Vistas {
     public partial class Bitacora {
         
         /// <summary>
-        /// Control ReporteB.
+        /// Control BitacoraRPT.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::CrystalDecisions.Web.CrystalReportViewer ReporteB;
+        protected global::CrystalDecisions.Web.CrystalReportViewer BitacoraRPT;
     }
 }

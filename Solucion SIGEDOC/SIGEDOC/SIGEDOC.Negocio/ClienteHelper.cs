@@ -27,7 +27,7 @@ namespace SIGEDOC.Negocio
             {
                 cnGeneral = new Datos();
 
-                SqlParameter[] parParameter = new SqlParameter[7];
+                SqlParameter[] parParameter = new SqlParameter[8];
 
                 parParameter[0] = new SqlParameter();
                 parParameter[0].ParameterName = "@opcion";
@@ -69,6 +69,13 @@ namespace SIGEDOC.Negocio
                 parParameter[6].Size = 1;
                 parParameter[6].SqlValue = objCliente.Estado_cliente;
 
+                parParameter[7] = new SqlParameter();
+                parParameter[7].ParameterName = "@idUusario";
+                parParameter[7].SqlDbType = SqlDbType.VarChar;
+                parParameter[7].Size = 50;
+                parParameter[7].SqlValue = objCliente.Idusuario;
+
+
                 cnGeneral.EjecutarSP(parParameter,"SPCliente");
             }
             catch (Exception ex)
@@ -86,7 +93,7 @@ namespace SIGEDOC.Negocio
             {
                 cnGeneral = new Datos();
 
-                SqlParameter[] parParameter = new SqlParameter[8];
+                SqlParameter[] parParameter = new SqlParameter[9];
 
                 parParameter[0] = new SqlParameter();
                 parParameter[0].ParameterName = "@opcion";
@@ -132,6 +139,12 @@ namespace SIGEDOC.Negocio
                 parParameter[7].SqlDbType = SqlDbType.NChar;
                 parParameter[7].Size = 1;
                 parParameter[7].SqlValue = objCliente.Estado_cliente;
+
+                parParameter[8] = new SqlParameter();
+                parParameter[8].ParameterName = "@idUusario";
+                parParameter[8].SqlDbType = SqlDbType.VarChar;
+                parParameter[8].Size = 50;
+                parParameter[8].SqlValue = objCliente.Idusuario;
 
                 cnGeneral.EjecutarSP(parParameter, "SPCliente");
             }

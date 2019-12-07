@@ -52,6 +52,7 @@ namespace SIGEDOC.Vistas
                 this.moviBita.IdUsuario = Usuarios.GloIdUsuario;
                 this.moviBita.Accion = "Ingreso al Sistema de:" + Usuarios.GloUsuario +""+Usuarios.GloApellidos;
                 this.moviBita.Fecha = DateTime.Now;
+                this.moviBita.Tipo = "1";
                 this.moviBita.Opc = 1;
                 this.moviHelp = new MoviBitacoraHelper(moviBita);
                 this.moviHelp.Agregar_Movimiento();

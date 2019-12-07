@@ -17,6 +17,7 @@ namespace SIGEDOC.Negocio
         private string detalle_cliente;
         private string estado_cliente;
         private int idcliente;
+        private string idusuario;
         
         // Get y Set para usar las varibles de la clase.
         public int Opc { get => opc; set => opc = value; }
@@ -27,8 +28,9 @@ namespace SIGEDOC.Negocio
         public string Detalle_cliente { get => detalle_cliente; set => detalle_cliente = value; }
         public string Estado_cliente { get => estado_cliente; set => estado_cliente = value; }
         public int Idcliente { get => idcliente; set => idcliente = value; }
+        public string Idusuario { get => idusuario; set => idusuario = value; }
 
-        public Clientes(int opc, string nombre_cliente, string nombre_de_Contacto, int telefono_contacto, string correo_cliente, string detalle_cliente, string estado_cliente,int idcliente)
+        public Clientes(int opc, string nombre_cliente, string nombre_de_Contacto, int telefono_contacto, string correo_cliente, string detalle_cliente, string estado_cliente,int idcliente, string idusuario)
         {
             this.opc = opc;
             this.nombre_cliente = nombre_cliente;
@@ -38,7 +40,9 @@ namespace SIGEDOC.Negocio
             this.detalle_cliente = detalle_cliente;
             this.estado_cliente = estado_cliente;
             this.idcliente = idcliente;
- 
+            this.idusuario = idusuario;
+
+
         }
         public Clientes()
         {
@@ -50,6 +54,7 @@ namespace SIGEDOC.Negocio
             this.detalle_cliente = "";
             this.estado_cliente = "";
             this.idcliente = 0;
+            this.idusuario = "";
         }
        
 

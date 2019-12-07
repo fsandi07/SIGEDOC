@@ -69,7 +69,7 @@ namespace SIGEDOC.Negocio
             {
                 cnGeneral = new Datos();
 
-                SqlParameter[] parParameter = new SqlParameter[10];
+                SqlParameter[] parParameter = new SqlParameter[11];
 
                 parParameter[0] = new SqlParameter();
                 parParameter[0].ParameterName = "@opcion";
@@ -128,6 +128,12 @@ namespace SIGEDOC.Negocio
                 parParameter[9].SqlDbType = SqlDbType.Int;
                 parParameter[9].SqlValue = objUsuarios.Contacto_usuario;
 
+                parParameter[10] = new SqlParameter();
+                parParameter[10].ParameterName = "@idUsuario";
+                parParameter[10].SqlDbType = SqlDbType.VarChar;
+                parParameter[10].Size = 50;
+                parParameter[10].SqlValue = objUsuarios.Idusuario;
+
 
                 cnGeneral.EjecutarSP(parParameter, "SPUsuario");
             }
@@ -145,7 +151,7 @@ namespace SIGEDOC.Negocio
             {
                 cnGeneral = new Datos();
 
-                SqlParameter[] parParameter = new SqlParameter[9];
+                SqlParameter[] parParameter = new SqlParameter[10];
 
                 parParameter[0] = new SqlParameter();
                 parParameter[0].ParameterName = "@opcion";
@@ -197,6 +203,12 @@ namespace SIGEDOC.Negocio
                 parParameter[8].ParameterName = "@contactoUsu";
                 parParameter[8].SqlDbType = SqlDbType.Int;
                 parParameter[8].SqlValue = objUsuarios.Contacto_usuario;
+
+                parParameter[9] = new SqlParameter();
+                parParameter[9].ParameterName = "@idUsuario";
+                parParameter[9].SqlDbType = SqlDbType.VarChar;
+                parParameter[9].Size = 50;
+                parParameter[9].SqlValue = objUsuarios.Idusuario;
 
 
                 cnGeneral.EjecutarSP(parParameter, "SPUsuario");

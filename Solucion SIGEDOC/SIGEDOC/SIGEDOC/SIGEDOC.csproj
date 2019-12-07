@@ -2972,6 +2972,11 @@
     <Compile Include="Vistas\Bitacora.aspx.designer.cs">
       <DependentUpon>Bitacora.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\Bitacora1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Bitacora1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\conmaster.aspx.cs">
       <DependentUpon>conmaster.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3409,6 +3414,17 @@
     </Content>
     <Content Include="Vistas\DataSetBitacora.xsc">
       <DependentUpon>DataSetBitacora.xsd</DependentUpon>
+    </Content>
+    <Content Include="Vistas\Bitacora1.xsc">
+      <DependentUpon>Bitacora1.xsd</DependentUpon>
+    </Content>
+    <None Include="Vistas\Bitacora1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Bitacora1.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Vistas\Bitacora1.xss">
+      <DependentUpon>Bitacora1.xsd</DependentUpon>
     </Content>
     <None Include="Vistas\DataSetBitacora.xsd">
       <SubType>Designer</SubType>

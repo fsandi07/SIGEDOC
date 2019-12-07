@@ -19,6 +19,8 @@ namespace SIGEDOC.Negocio
         private int rol_usuario;
         private string estado_usuarios;
         private int contacto_usuario;
+        // el idusuario tiene que agrgarse para el uso de lo dispardores 
+        private string idusuario;
         // variables globales
         public static string GloUsuario;
         public static string GloNicname;
@@ -39,9 +41,10 @@ namespace SIGEDOC.Negocio
         public string Estado_usuarios { get => estado_usuarios; set => estado_usuarios = value; }
         public int Contacto_usuario { get => contacto_usuario; set => contacto_usuario = value; }
         public string Apellidos { get => apellidos; set => apellidos = value; }
+        public string Idusuario { get => idusuario; set => idusuario = value; }
 
         // contructor con parametros
-        public Usuarios(int opc, string cedula_usuario, string nombre_usuario, string nicname_usuario, string correo_usuario, string clave_usuario, int rol_usuario, string estado_usuarios, int contacto_usuario, string apellidos)
+        public Usuarios(int opc, string cedula_usuario, string nombre_usuario, string nicname_usuario, string correo_usuario, string clave_usuario, int rol_usuario, string estado_usuarios, int contacto_usuario, string apellidos, string idusuario)
         {
             this.Opc = opc;
             this.Cedula_usuario= cedula_usuario;
@@ -53,6 +56,7 @@ namespace SIGEDOC.Negocio
             this.Estado_usuarios = estado_usuarios;
             this.Contacto_usuario = contacto_usuario;
             this.apellidos = apellidos;
+            this.idusuario = idusuario;
         }
 
         // contructor sin parametros
@@ -68,6 +72,7 @@ namespace SIGEDOC.Negocio
             this.Estado_usuarios = "";
             this.Contacto_usuario = 0;
             this.apellidos = "";
+            this.Idusuario = "";
         }
 
         // con estos metodos capturo los valores que ingresne a los get y set 

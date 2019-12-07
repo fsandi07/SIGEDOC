@@ -92,6 +92,7 @@ namespace SIGEDOC.Vistas
                 this.cl.Telefono_contacto = int.Parse(txttelefono.Text);
                 this.cl.Correo_cliente = this.txtcorreo.Text;
                 this.cl.Detalle_cliente = this.txtobservaciones.Text;
+                this.cl.Idusuario = Usuarios.GloIdUsuario;
                 this.cl.Estado_cliente = "1";
                 this.cl.Opc = 1;
                 this.clh = new ClienteHelper(cl);

@@ -112,7 +112,8 @@ namespace SIGEDOC.Vistas
                     this.usu.Correo_usuario = this.txtcorreo.Text;
                     this.usu.Estado_usuarios = this.dptestado.SelectedValue;
                     this.usu.Contacto_usuario = int.Parse(this.txtcontacto.Text);
-                    this.usu.Opc = 4;
+                    this.usu.Idusuario = Usuarios.GloIdUsuario;
+                    this.usu.Opc = 3;
                     this.usuh = new UsuarioHelper(usu);
                     this.usuh.Actualizar_Usuario();
                     ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeDeconfirmacion", "mensajeDeconfirmacion('" + "" + "');", true);

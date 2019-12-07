@@ -76,9 +76,10 @@ namespace SIGEDOC.Vistas
                 this.pryh.Agregar_Proyecto();
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeDeconfirmacion", "mensajeDeconfirmacion('" + "" + "');", true);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError", "mensajeError('" + "" + "');", true);
+                this.txtDescripcion.Text = ex.Message;
+                //ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError", "mensajeError('" + "" + "');", true);
 
             }
         }

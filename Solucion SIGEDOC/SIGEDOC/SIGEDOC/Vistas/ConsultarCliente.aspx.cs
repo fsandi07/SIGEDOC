@@ -100,6 +100,7 @@ namespace SIGEDOC.Vistas
                     this.cl.Correo_cliente = this.txtcorreo.Text;
                     this.cl.Detalle_cliente = this.txtdetalle.Text;
                     this.cl.Estado_cliente = this.dptestado.SelectedValue;
+                    this.cl.Idusuario = Usuarios.GloIdUsuario;
                     this.cl.Opc = 3;
                     this.clh = new ClienteHelper(cl);
                     this.clh.Actualizar_Cliente();
