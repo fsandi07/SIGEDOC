@@ -17,7 +17,7 @@ namespace SIGEDOC.Negocio
         private string correo_usuario;
         private string clave_usuario;
         private int rol_usuario;
-        private string estado_usuarios;
+        private int estado_usuarios;
         private int contacto_usuario;
         // el idusuario tiene que agrgarse para el uso de lo dispardores 
         private string idusuario;
@@ -37,13 +37,13 @@ namespace SIGEDOC.Negocio
         public string Correo_usuario { get => correo_usuario; set => correo_usuario = value; }
         public string Clave_usuario { get => clave_usuario; set => clave_usuario = value; }
         public int Rol_usuario { get => rol_usuario; set => rol_usuario = value; }
-        public string Estado_usuarios { get => estado_usuarios; set => estado_usuarios = value; }
         public int Contacto_usuario { get => contacto_usuario; set => contacto_usuario = value; }
         public string Apellidos { get => apellidos; set => apellidos = value; }
         public string Idusuario { get => idusuario; set => idusuario = value; }
+        public int Estado_usuarios { get => estado_usuarios; set => estado_usuarios = value; }
 
         // contructor con parametros
-        public Usuarios(int opc, string cedula_usuario, string nombre_usuario, string nicname_usuario, string correo_usuario, string clave_usuario, int rol_usuario, string estado_usuarios, int contacto_usuario, string apellidos, string idusuario)
+        public Usuarios(int opc, string cedula_usuario, string nombre_usuario, string nicname_usuario, string correo_usuario, string clave_usuario, int rol_usuario, int estado_usuarios, int contacto_usuario, string apellidos, string idusuario)
         {
             this.Opc = opc;
             this.Cedula_usuario= cedula_usuario;
@@ -68,7 +68,7 @@ namespace SIGEDOC.Negocio
             this.Correo_usuario = "";
             this.Clave_usuario = "";
             this.Rol_usuario = 0;
-            this.Estado_usuarios = "";
+            this.Estado_usuarios = 0;
             this.Contacto_usuario = 0;
             this.apellidos = "";
             this.Idusuario = "";

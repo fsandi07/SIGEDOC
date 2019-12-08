@@ -129,7 +129,7 @@ from TbDocCreado a, TbUsuario b,TbCliente c where a.Usuario = b.cedulaUsu and a.
     <asp:SqlDataSource ID="SqlDataDocCreado" runat="server" ConnectionString="<%$ ConnectionStrings:sigedocConnectionString %>" SelectCommand="select a.numtotaldocu,a.nombredcreado,a.asuntodcreado,a.detalledCreadol,a.documentoPDF,a.documentoWord,a.estatus,a.fecha,a.idCliente,c.nombrecliente,a.idProyecto,b.nombreusu,a.numReferencia
 
 from TbDocCreado a, TbUsuario b,TbCliente c where a.Usuario = b.cedulaUsu and a.idCliente=c.idCliente"></asp:SqlDataSource>
-    <%-- finla de la modal  --%>
+    <%-- <button type="button" class="btn btn-primary" data-dismiss="modal">Comprar</button>--%>
     <div class="card shadow mb-4">
         <div class="card-body">
             <!-- Card Header - Accordion -->
@@ -186,9 +186,27 @@ from tbdocsubido a, TbUsuario b,TbCliente c where  a.idCliente=c.idCliente and a
         </div>
     </div>
 
+    <%--data-dismiss="modal"--%>
+     <div class="card shadow mb-4">
+        <div class="card-body">
+            <a href="#collapseCardExample4" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="False" aria-controls="collapseCardExample">
+                <asp:Label ID="lbbuscardocu" runat="server" Text="Label" ForeColor="#993300" Font-Bold="True">Buscar Documento</asp:Label>
+            </a>
+            <div class="collapse show" id="collapseCardExample4">
+                <asp:Label ID="lblBuscarDocs" runat="server" Text="Buscar Por Numero de Referencia"></asp:Label>
+                <asp:DropDownList ID="DptbusacrReferencia" runat="server" AutoPostBack="True" DataSourceID="SqlDatabuscarfecha" DataTextField="numReferencia" DataValueField="numReferencia" OnSelectedIndexChanged="Dptbsucarfecha_SelectedIndexChanged"></asp:DropDownList>
+                <asp:SqlDataSource ID="SqlDatabuscarfecha" runat="server" ConnectionString="<%$ ConnectionStrings:DB_A4DE45_SIGEDOCConnectionString %>" SelectCommand="SELECT [numReferencia] FROM [TbDocCreado]"></asp:SqlDataSource>
+                <asp:Label ID="lbbsucarporcentroC" runat="server" Text="Buscar Por Nombre de documento"></asp:Label>
+                <asp:DropDownList ID="dptbuscarnombreproyecto" runat="server" AutoPostBack="True" DataSourceID="SqlDatacencostos" DataTextField="nombredCreado" DataValueField="nombredCreado" OnSelectedIndexChanged="dptbuscarcencosto_SelectedIndexChanged"></asp:DropDownList>
+                <asp:SqlDataSource ID="SqlDatacencostos" runat="server" ConnectionString="<%$ ConnectionStrings:DB_A4DE45_SIGEDOCConnectionString %>" SelectCommand="SELECT [nombredCreado] FROM [TbDocCreado]"></asp:SqlDataSource>
+                <asp:GridView ID="GridBuscarDoc" runat="server"></asp:GridView>
 
 
-    <%-- fin de la modal  --%>
+        </div>
+        </div>
+    </div>
+
+    <%-- finla de la modal  --%>    <%-- fin de la modal  --%>
     <div class="modal fade" id="ModalDocumentos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">

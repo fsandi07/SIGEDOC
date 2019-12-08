@@ -412,5 +412,43 @@ namespace SIGEDOC.Vistas
 
 
         }
+    // para la busqueda 
+        protected void Dptbsucarfecha_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                datos = (DataTable)GridBuscarDoc.DataSource;
+                this.crearDocumento.Num_referencia_creado = DptbusacrReferencia.SelectedValue.ToString();
+                this.crearDocumento.Opc = 6;
+                this.docHelper = new CrearDocHelper(crearDocumento);
+                this.datos = new DataTable();
+                GridBuscarDoc.DataSource = this.docHelper.Busqueda();
+                GridBuscarDoc.DataBind();
+            }
+            catch (Exception ex)
+            {
+                this.lbbsucarporcentroC.Text = ex.Message;
+
+            }
+        }
+
+        protected void dptbuscarcencosto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                datos = (DataTable)GridBuscarDoc.DataSource;
+                this.crearDocumento.Num_referencia_creado = dptbuscarnombreproyecto.SelectedValue.ToString();
+                this.crearDocumento.Opc = 7;
+                this.docHelper = new CrearDocHelper(crearDocumento);
+                this.datos = new DataTable();
+                GridBuscarDoc.DataSource = this.docHelper.Busqueda2();
+                GridBuscarDoc.DataBind();
+            }
+            catch (Exception ex)
+            {
+                this.lbbsucarporcentroC.Text = ex.Message;
+
+            }
+        }
     }
 }

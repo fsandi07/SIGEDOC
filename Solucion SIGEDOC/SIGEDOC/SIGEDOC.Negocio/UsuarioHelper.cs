@@ -119,8 +119,7 @@ namespace SIGEDOC.Negocio
 
                 parParameter[8] = new SqlParameter();
                 parParameter[8].ParameterName = "@estadoUsu";
-                parParameter[8].SqlDbType = SqlDbType.NChar;
-                parParameter[8].Size = 1;
+                parParameter[8].SqlDbType = SqlDbType.Int;
                 parParameter[8].SqlValue = objUsuarios.Estado_usuarios;
 
                 parParameter[9] = new SqlParameter();
@@ -301,6 +300,65 @@ namespace SIGEDOC.Negocio
                 throw new Exception(ex.Message);
 
             }
+        }
+
+        public DataTable Busqueda()
+        {
+            tblDatos = new DataTable();
+            try
+            {
+                cnGeneral = new Datos();
+
+                SqlParameter[] parParameter = new SqlParameter[2];
+
+                parParameter[0] = new SqlParameter();
+                parParameter[0].ParameterName = "@opcion";
+                parParameter[0].SqlDbType = SqlDbType.Int;
+                parParameter[0].SqlValue = objUsuarios.Opc;
+
+                parParameter[1] = new SqlParameter();
+                parParameter[1].ParameterName = "@nombreUusario";
+                parParameter[1].SqlDbType = SqlDbType.VarChar;
+                parParameter[1].Size = 50;
+                parParameter[1].SqlValue = objUsuarios.Nombre_usuario;
+
+                tblDatos = cnGeneral.RetornaTabla(parParameter, "SPBusquedas");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+            return tblDatos;
+        }
+
+        public DataTable Busqueda2()
+        {
+            tblDatos = new DataTable();
+            try
+            {
+                cnGeneral = new Datos();
+
+                SqlParameter[] parParameter = new SqlParameter[2];
+
+                parParameter[0] = new SqlParameter();
+                parParameter[0].ParameterName = "@opcion";
+                parParameter[0].SqlDbType = SqlDbType.Int;
+                parParameter[0].SqlValue = objUsuarios.Opc;
+
+                parParameter[1] = new SqlParameter();
+                parParameter[1].ParameterName = "@estado";
+                parParameter[1].SqlDbType = SqlDbType.Int;
+                parParameter[1].SqlValue = objUsuarios.Estado_usuarios;
+
+                tblDatos = cnGeneral.RetornaTabla(parParameter, "SPBusquedas");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+            return tblDatos;
         }
     }
 }

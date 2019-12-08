@@ -72,7 +72,7 @@ namespace SIGEDOC.Vistas
             this.txtcorreo.Text = this.GridUsuarios.Rows[GridUsuarios.SelectedIndex].Cells[5].Text;
             this.dptrol.SelectedValue = this.GridUsuarios.Rows[GridUsuarios.SelectedIndex].Cells[7].Text;
             this.dptestado.SelectedValue = this.GridUsuarios.Rows[GridUsuarios.SelectedIndex].Cells[8].Text;
-            if (this.dptestado.SelectedValue == "2")
+            if (this.dptestado.SelectedValue ==2.ToString())
             {
                 this.dptestado.Items.FindByText("Inactivo").Selected = true;
             }
@@ -86,17 +86,19 @@ namespace SIGEDOC.Vistas
 
         protected void GridUsuarios_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            //if (e.Row.RowType == DataControlRowType.DataRow)
-            //{
-               
-            //     aux=e.Row.Cells[0].Text = "<i class='fas fa-edit'></i>"+e.Row.Cells[0].Text; 
-                  
-            //        e.Row.Font.Bold = true;
-            
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                int estado;
+                estado = (int)DataBinder.Eval(e.Row.DataItem,"estadoUsu");
+                if (estado==2)
+                {
 
-            //}
+                    e.Row.BackColor = System.Drawing.Color.Yellow;
+                    e.Row.Font.Bold = true;
+                }
+
+            }
         }
-       
 
         protected void btningresar_Click(object sender, EventArgs e)
         {
@@ -110,7 +112,7 @@ namespace SIGEDOC.Vistas
                     this.usu.Nicname_usuario = this.txtnikcname.Text;
                     this.usu.Rol_usuario = int.Parse(this.dptrol.SelectedValue);
                     this.usu.Correo_usuario = this.txtcorreo.Text;
-                    this.usu.Estado_usuarios = this.dptestado.SelectedValue;
+                    this.usu.Estado_usuarios = int.Parse(this.dptestado.SelectedValue);
                     this.usu.Contacto_usuario = int.Parse(this.txtcontacto.Text);
                     this.usu.Idusuario = Usuarios.GloIdUsuario;
                     this.usu.Opc = 3;
@@ -126,6 +128,44 @@ namespace SIGEDOC.Vistas
                     ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError", "mensajeError('" + "" + "');", true);
                 }
 
+
+            }
+        }
+
+        protected void DptBuscarUsuario_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                datos = (DataTable)GridBusquedaUsuarios.DataSource;
+                this.usu.Nombre_usuario = DptBuscarUsuario.SelectedValue.ToString();
+                this.usu.Opc = 4;
+                this.usuh = new UsuarioHelper(usu);
+                this.datos = new DataTable();
+                GridBusquedaUsuarios.DataSource = this.usuh.Busqueda();
+                GridBusquedaUsuarios.DataBind();
+            }
+            catch (Exception ex)
+            {
+                this.lblbuscarUsuario.Text = ex.Message;
+
+            }
+        }
+
+        protected void Dptbuscar2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                datos = (DataTable)GridBusquedaUsuarios.DataSource;
+                this.usu.Estado_usuarios = int.Parse(Dptbuscar2.SelectedValue);
+                this.usu.Opc = 5;
+                this.usuh = new UsuarioHelper(usu);
+                this.datos = new DataTable();
+                GridBusquedaUsuarios.DataSource = this.usuh.Busqueda2();
+                GridBusquedaUsuarios.DataBind();
+            }
+            catch (Exception ex)
+            {
+                this.lblbuscarUsuario.Text = ex.Message;
 
             }
         }

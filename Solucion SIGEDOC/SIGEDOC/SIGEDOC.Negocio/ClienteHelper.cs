@@ -177,6 +177,36 @@ namespace SIGEDOC.Negocio
             return tblDatos;
         }
 
+        public DataTable Busqueda()
+        {
+            tblDatos = new DataTable();
+            try
+            {
+                cnGeneral = new Datos();
+
+                SqlParameter[] parParameter = new SqlParameter[2];
+
+                parParameter[0] = new SqlParameter();
+                parParameter[0].ParameterName = "@opcion";
+                parParameter[0].SqlDbType = SqlDbType.Int;
+                parParameter[0].SqlValue = objCliente.Opc;
+
+                parParameter[1] = new SqlParameter();
+                parParameter[1].ParameterName = "@nombreCliente";
+                parParameter[1].SqlDbType = SqlDbType.VarChar;
+                parParameter[1].Size = 50;
+                parParameter[1].SqlValue = objCliente.Nombre_cliente;
+
+                tblDatos = cnGeneral.RetornaTabla(parParameter, "SPBusquedas");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+            return tblDatos;
+        }
+
 
     }
 }

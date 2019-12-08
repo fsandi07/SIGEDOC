@@ -153,7 +153,30 @@ Contrato: Administracción de las Obras Conexas de Obra Pública en la Carretera
                 allowOutsideClick: false,
             })
 
-        }
+          }
+
+          // mensaje de error
+          function mensajeError1() {
+              swal.fire({
+                  title: '¡Error!',
+                  text: "¡" + "No pueden existir campos en blanco " + "!",
+                  type: 'error',
+                  showConfirmButton: false,
+                  allowOutsideClick: false,
+                  timer: 4000,
+              })
+          }
+          // mensaje de error
+          function mensajeError2() {
+              swal.fire({
+                  title: '¡Error!',
+                  text: "¡" + " Las contraseñas deben Coincidir " + "!",
+                  type: 'error',
+                  showConfirmButton: false,
+                  allowOutsideClick: false,
+                  timer: 4000,
+              })
+          }
 
     </script>   
 

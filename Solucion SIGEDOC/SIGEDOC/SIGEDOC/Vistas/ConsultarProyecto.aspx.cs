@@ -77,7 +77,7 @@ namespace SIGEDOC.Vistas
             catch (Exception)
             {
 
-                throw;
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError", "mensajeError('" + "" + "');", true);
             }
         }
 
@@ -87,7 +87,7 @@ namespace SIGEDOC.Vistas
             {
                 try
                 {
-                    this.proyecto.Centro_costos = 1;
+                    this.proyecto.Centro_costos = cCostos;
                     this.proyecto.Nombre_Proyecto = this.txtnombreProyecto.Text;
                     this.proyecto.Numero_Licitacion = this.txtlicitacion.Text;
                     this.proyecto.Detalle_del_proyecto = this.txtdetalleproyecto.Text;
@@ -100,6 +100,7 @@ namespace SIGEDOC.Vistas
                 }
                 catch (Exception)
                 {
+
                     ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError", "mensajeError('" + "" + "');", true);
                 }
             }
@@ -126,31 +127,13 @@ namespace SIGEDOC.Vistas
                 }
             }
         }
-        protected void Dptcentrocostos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                datos = (DataTable)gridPbusquedas.DataSource;
-                this.proyecto.Centro_costos = int.Parse(Dptcentrocostos.SelectedValue);
-                this.proyecto.Opc = 1;
-                this.proyectoHelper = new ProyectoHelper(proyecto);
-                this.datos = new DataTable();
-                gridPbusquedas.DataSource = this.proyectoHelper.Busqueda();
-                gridPbusquedas.DataBind();
-            }
-            catch (Exception ex)
-            {
-                this.lblcentrocostos.Text = ex.Message;
-
-            }
-        }
 
         protected void DptnombreProtyecto_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
                 datos = (DataTable)gridPbusquedas.DataSource;
-                this.proyecto.Centro_costos = int.Parse(DptnombreProtyecto.SelectedValue);
+                this.proyecto.Nombre_Proyecto = DptnombreProtyecto.SelectedValue.ToString();
                 this.proyecto.Opc = 2;
                 this.proyectoHelper = new ProyectoHelper(proyecto);
                 this.datos = new DataTable();
@@ -163,6 +146,25 @@ namespace SIGEDOC.Vistas
 
             }
 
+        }
+
+        protected void Dptcentrocostos_SelectedIndexChanged1(object sender, EventArgs e)
+        {
+            try
+            {
+                datos = (DataTable)gridPbusquedas.DataSource;
+                this.proyecto.Centro_costos = int.Parse(this.Dptcentrocostos.SelectedValue);
+                this.proyecto.Opc = 1;
+                this.proyectoHelper = new ProyectoHelper(proyecto);
+                this.datos = new DataTable();
+                gridPbusquedas.DataSource = this.proyectoHelper.Busqueda();
+                gridPbusquedas.DataBind();
+            }
+            catch (Exception ex)
+            {
+                this.lblcentrocostos.Text = ex.Message;
+
+            }
         }
     }
 }

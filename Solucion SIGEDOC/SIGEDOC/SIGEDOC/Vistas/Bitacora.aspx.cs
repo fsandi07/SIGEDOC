@@ -4,17 +4,70 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using System.Data;
+using System.Data.SqlClient;
 namespace SIGEDOC.Vistas
 {
     public partial class Bitacora : System.Web.UI.Page
     {
+        String vCadenaConexion = @"Data Source=SQL5041.site4now.net;Initial Catalog=DB_A4DE45_SIGEDOC;User Id=DB_A4DE45_SIGEDOC_admin;Password=sigedoc2019;";
+        SqlConnection vConexion;
+        SqlDataAdapter vDataAdapter;
+        DataTable vDT;
         protected void Page_Load(object sender, EventArgs e)
         {
-            RptBitacora rpt = new RptBitacora();
-            rpt.SetParameterValue("@opcion", 1);
-            BitacoraRPT.ReportSource = rpt;
+            String vSQL;
+            vDT = new DataTable();
 
+            vSQL = "select * from tbbitacora where tipo=1";
+
+
+            RptBitacora rpt = new RptBitacora();
+
+            vDT = EjecutarSELECT(vSQL);
+
+            rpt.SetDataSource(vDT);
+
+            BitacoraRPT.ReportSource = rpt;
+        }
+
+        private void ConectarBD()
+        {
+            try
+            {
+                vConexion = new SqlConnection(vCadenaConexion);
+                vConexion.Open();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        private void DesconectarBD()
+        {
+            try
+            {
+                vConexion.Close();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public DataTable EjecutarSELECT(String pSQL)
+        {
+            vDT = new DataTable();
+
+            ConectarBD();
+
+            vDataAdapter = new SqlDataAdapter(pSQL, vConexion);
+            vDataAdapter.Fill(vDT);
+
+            DesconectarBD();
+
+            return vDT;
         }
     }
 }

@@ -87,7 +87,7 @@ namespace SIGEDOC.Vistas
             this.c.Enviar_Correo(this.usu.Correo_usuario, "Registro SiGEDOC",
                "<a href='https://imgbb.com/'><img src='https://i.ibb.co/s6P7VLC/PQS.png' alt='PQS' border='0'></a>" + "<br>"+"<br>"+ "Estimado/a:" + " "+ this.usu.Nombre_usuario + " " + this.usu.Apellidos + " <br>" + "Usted ha sido registrado/a para el ingreso al Sistema SIGEDOC-PQS." + "<br>" +
                "Sus credenciales para ingresar son: " + "<br>"+ "Usuario:  " + this.usu.Nicname_usuario +"<br>" +" Contraseña:  " + this.usu.Clave_usuario + "<br>" +
-               "Le Sugerimos cambiar su clave, al lado derecho superior, click y modificar datos." + "<br>"+"Este es un correo Autogenerado,el envio de respuestas no sera visto." );
+               "Le Sugerimos cambiar su clave cuando ingrese al sistema,Consulte el manual antes de ingresar." + "<br>"+"Este es un correo Autogenerado,Por fabor no responder." );
         }
         protected void BtnCrear_Click(object sender, EventArgs e)
         {
@@ -100,7 +100,7 @@ namespace SIGEDOC.Vistas
                 this.usu.Rol_usuario = int.Parse(this.dptrol.SelectedValue);
                 this.usu.Correo_usuario = this.txtcorreo.Text;
                 this.usu.Clave_usuario = CrearPassword(8);
-                this.usu.Estado_usuarios = "1";
+                this.usu.Estado_usuarios = 1;
                 this.usu.Contacto_usuario = int.Parse(this.txtcontacto.Text);
                 this.usu.Idusuario = Usuarios.GloIdUsuario;
                 this.usu.Opc = 1;

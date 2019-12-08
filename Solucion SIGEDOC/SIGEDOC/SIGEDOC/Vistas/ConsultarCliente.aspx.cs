@@ -66,13 +66,13 @@ namespace SIGEDOC.Vistas
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
             ScriptManager.RegisterStartupScript(Page, Page.GetType(), "ModalCliente", "$('#ModalCliente').modal();", true);
-            idcliente= int.Parse(this.GridCliente.Rows[GridCliente.SelectedIndex].Cells[1].Text);
-            this.txtnombre.Text= this.GridCliente.Rows[GridCliente.SelectedIndex].Cells[2].Text;
-            this.txtencargado.Text= this.GridCliente.Rows[GridCliente.SelectedIndex].Cells[3].Text;
-            this.txttelefono.Text= this.GridCliente.Rows[GridCliente.SelectedIndex].Cells[4].Text;
-            this.txtcorreo.Text= this.GridCliente.Rows[GridCliente.SelectedIndex].Cells[5].Text;
-            this.txtdetalle.Text= this.GridCliente.Rows[GridCliente.SelectedIndex].Cells[6].Text;
-            this.dptestado.SelectedValue= this.GridCliente.Rows[GridCliente.SelectedIndex].Cells[7].Text;
+            idcliente = int.Parse(this.GridCliente.Rows[GridCliente.SelectedIndex].Cells[1].Text);
+            this.txtnombre.Text = this.GridCliente.Rows[GridCliente.SelectedIndex].Cells[2].Text;
+            this.txtencargado.Text = this.GridCliente.Rows[GridCliente.SelectedIndex].Cells[3].Text;
+            this.txttelefono.Text = this.GridCliente.Rows[GridCliente.SelectedIndex].Cells[4].Text;
+            this.txtcorreo.Text = this.GridCliente.Rows[GridCliente.SelectedIndex].Cells[5].Text;
+            this.txtdetalle.Text = this.GridCliente.Rows[GridCliente.SelectedIndex].Cells[6].Text;
+            this.dptestado.SelectedValue = this.GridCliente.Rows[GridCliente.SelectedIndex].Cells[7].Text;
             if (this.dptestado.SelectedValue == "Inactivo")
             {
                 this.dptestado.SelectedValue = "2";
@@ -105,7 +105,7 @@ namespace SIGEDOC.Vistas
                     this.clh = new ClienteHelper(cl);
                     this.clh.Actualizar_Cliente();
                     ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeDeconfirmacion", "mensajeDeconfirmacion('" + "" + "');", true);
-               
+
 
                 }
                 catch (Exception)
@@ -124,8 +124,8 @@ namespace SIGEDOC.Vistas
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 string estado;
-                estado = (string)DataBinder.Eval(e.Row.DataItem,"estadoCliente");
-                if (estado =="2")
+                estado = (string)DataBinder.Eval(e.Row.DataItem, "estadoCliente");
+                if (estado == "2")
                 {
                     e.Row.Cells[7].Text = "Inactivo";
                     //e.Row.ForeColor = System.Drawing.Color.Red;
@@ -141,8 +141,25 @@ namespace SIGEDOC.Vistas
 
             }
 
+        }
 
+        protected void DptbuscarCliente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                datos = (DataTable)GridBuscarCliente.DataSource;
+                this.cl.Nombre_cliente = DptbuscarCliente.SelectedValue.ToString();
+                this.cl.Opc = 3;
+                this.clh = new ClienteHelper(cl);
+                this.datos = new DataTable();
+                GridBuscarCliente.DataSource = this.clh.Busqueda();
+                GridBuscarCliente.DataBind();
+            }
+            catch (Exception ex)
+            {
+                this.lbBuscarCliente.Text = ex.Message;
 
+            }
         }
     }
 }

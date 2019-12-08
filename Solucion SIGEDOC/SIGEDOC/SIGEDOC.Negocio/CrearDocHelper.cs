@@ -291,6 +291,66 @@ namespace SIGEDOC.Negocio
             }
         }
 
+        public DataTable Busqueda()
+        {
+            tbldatos = new DataTable();
+            try
+            {
+                cnGneral = new Datos();
+
+                SqlParameter[] parParameter = new SqlParameter[2];
+
+                parParameter[0] = new SqlParameter();
+                parParameter[0].ParameterName = "@opcion";
+                parParameter[0].SqlDbType = SqlDbType.Int;
+                parParameter[0].SqlValue = objdocCreado.Opc;
+
+                parParameter[1] = new SqlParameter();
+                parParameter[1].ParameterName = "@NumeroReferencia";
+                parParameter[1].SqlDbType = SqlDbType.VarChar;
+                parParameter[1].Size = 50;
+                parParameter[1].SqlValue = objdocCreado.Num_referencia_creado;
+
+                tbldatos = cnGneral.RetornaTabla(parParameter,"SPBusquedas");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+            return tbldatos;
+        }
+
+        public DataTable Busqueda2()
+        {
+            tbldatos = new DataTable();
+            try
+            {
+                cnGneral = new Datos();
+
+                SqlParameter[] parParameter = new SqlParameter[2];
+
+                parParameter[0] = new SqlParameter();
+                parParameter[0].ParameterName = "@opcion";
+                parParameter[0].SqlDbType = SqlDbType.Int;
+                parParameter[0].SqlValue = objdocCreado.Opc;
+
+                parParameter[1] = new SqlParameter();
+                parParameter[1].ParameterName = "@nombreDocumento";
+                parParameter[1].SqlDbType = SqlDbType.VarChar;
+                parParameter[1].Size = 50;
+                parParameter[1].SqlValue = objdocCreado.Nom_doc_creado;
+
+                tbldatos = cnGneral.RetornaTabla(parParameter, "SPBusquedas");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+            return tbldatos;
+        }
+
 
     }
 }

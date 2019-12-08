@@ -165,7 +165,7 @@ namespace SIGEDOC.Negocio
                 parParameter[1].SqlDbType = SqlDbType.Int;
                 parParameter[1].SqlValue = objproyecto.Centro_costos;
 
-                tblDatos = cnGeneral.RetornaTabla(parParameter, "SPBusquedas");
+                tblDatos = cnGeneral.RetornaTabla(parParameter,"SPBusquedas");
             }
             catch (Exception ex)
             {

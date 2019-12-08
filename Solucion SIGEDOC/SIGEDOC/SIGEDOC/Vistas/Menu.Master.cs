@@ -58,7 +58,7 @@ namespace SIGEDOC.Vistas
         }
         protected void BtnSalir_Click(object sender, EventArgs e)
         {
-            //insertarMovimiento();        
+            insertarMovimiento();        
             Response.Redirect("Login.aspx");
         }
         protected void btnusuarios_Click(object sender, EventArgs e)
@@ -89,11 +89,11 @@ namespace SIGEDOC.Vistas
         {
             if (this.txtClave1.Text == "" || this.txtClaveConfirma.Text == "")
             {
-                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError", "mensajeError('" + "" + "');", true);
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError1", "mensajeError1('" + "" + "');", true);
             }
             else if (this.txtClave1.Text != this.txtClaveConfirma.Text)
             {
-                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError1", "mensajeError1('" + "" + "');", true);
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError2", "mensajeError2('" + "" + "');", true);
             }
             else
             {

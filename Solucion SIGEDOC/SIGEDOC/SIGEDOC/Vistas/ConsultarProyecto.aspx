@@ -8,7 +8,7 @@
     <!-- Estilos -->
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="dist/style.css">
-    <%-- <button type="button" class="btn btn-primary" data-dismiss="modal">Comprar</button>--%>
+    <%-- fin del grid --%>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
@@ -33,11 +33,11 @@
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
                         <asp:CommandField HeaderText="Editar" SelectText="&lt;i class='fas fa-edit'&gt;&lt;/i&gt;" ShowSelectButton="True" />
-                        <asp:BoundField DataField="centroCostos" HeaderText="C.Costos" InsertVisible="False" ReadOnly="True" SortExpression="centroCostos" />
+                        <asp:BoundField DataField="centroCostos" HeaderText="C.costos" InsertVisible="False" ReadOnly="True" SortExpression="centroCostos" />
                         <asp:BoundField DataField="NombreProy" HeaderText="Nombre" SortExpression="NombreProy" />
                         <asp:BoundField DataField="NumLicita" HeaderText="Licitacion" SortExpression="NumLicita" />
                         <asp:BoundField DataField="detalleProyec" HeaderText="Detalle" SortExpression="detalleProyec" />
-                        <asp:BoundField DataField="idCliente" HeaderText="id" SortExpression="idCliente" />
+                        <asp:BoundField DataField="idCliente" HeaderText="Id " SortExpression="idCliente" />
                         <asp:BoundField DataField="nombrecliente" HeaderText="Cliente" SortExpression="nombrecliente" />
                         <asp:BoundField DataField="estadoProyec" HeaderText="Estado" SortExpression="estadoProyec" />
                         <asp:BoundField DataField="fechaProy" HeaderText="Fecha" SortExpression="fechaProy" />
@@ -59,7 +59,7 @@
         </div>
     </div>
     <%-- fin del grid --%>
-    <asp:SqlDataSource ID="SqlDataProyec" runat="server" ConnectionString="<%$ ConnectionStrings:sigedocConnectionString %>" SelectCommand="
+    <asp:SqlDataSource ID="SqlDataProyec" runat="server" ConnectionString="<%$ ConnectionStrings:DB_A4DE45_SIGEDOCConnectionString %>" SelectCommand="
 select a.centroCostos,a.NombreProy,a.NumLicita,a.detalleProyec,a.idCliente,c.nombrecliente,a.estadoProyec,a.fechaProy,b.nombreUsu
 from TbProyecto1 a, TbUsuario b,TbCliente c where a.idUsuario = b.cedulaUsu and a.idCliente=c.idCliente
 "></asp:SqlDataSource>
@@ -68,18 +68,29 @@ from TbProyecto1 a, TbUsuario b,TbCliente c where a.idUsuario = b.cedulaUsu and 
     <div class="card shadow mb-4">
         <div class="card-body">
             <a href="#collapseCardExample2" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="False" aria-controls="collapseCardExample">
-                <asp:Label ID="Label1" runat="server" Text="Label" ForeColor="#993300" Font-Bold="True">Ver Proyectos</asp:Label>
+                <asp:Label ID="Label1" runat="server" Text="Label" ForeColor="#993300" Font-Bold="True">Buscar Proyectos</asp:Label>
             </a>
             <div class="collapse show" id="collapseCardExample2">
                 <asp:Label ID="lblcentrocostos" runat="server" Text="buscar por centro de costos "></asp:Label>
-                <asp:DropDownList ID="Dptcentrocostos" runat="server" DataSourceID="SqlDataSource1" DataTextField="centroCostos" DataValueField="centroCostos"></asp:DropDownList>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DB_A4DE45_SIGEDOCConnectionString %>" SelectCommand="SELECT [centroCostos] FROM [TbProyecto1]"></asp:SqlDataSource>
+                <asp:DropDownList ID="Dptcentrocostos" runat="server" AutoPostBack="True" DataSourceID="SqlDataCentrocostos" DataTextField="centroCostos" DataValueField="centroCostos" OnSelectedIndexChanged="Dptcentrocostos_SelectedIndexChanged1">
+                </asp:DropDownList>
+                <asp:SqlDataSource ID="SqlDataCentrocostos" runat="server" ConnectionString="<%$ ConnectionStrings:DB_A4DE45_SIGEDOCConnectionString %>" SelectCommand="SELECT [centroCostos] FROM [TbProyecto1]"></asp:SqlDataSource>
                 <asp:Label ID="lbnombreProyecto" runat="server" Text="buscar por Nombre de proyecto "></asp:Label>
-                <asp:DropDownList ID="DptnombreProtyecto" runat="server" DataSourceID="SqlDatanombreproyecto" DataTextField="NombreProy" DataValueField="NombreProy" OnSelectedIndexChanged="DptnombreProtyecto_SelectedIndexChanged"></asp:DropDownList>
+                <asp:DropDownList ID="DptnombreProtyecto" runat="server" DataSourceID="SqlDatanombreproyecto" DataTextField="NombreProy" DataValueField="NombreProy" OnSelectedIndexChanged="DptnombreProtyecto_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
 
                 <asp:SqlDataSource ID="SqlDatanombreproyecto" runat="server" ConnectionString="<%$ ConnectionStrings:DB_A4DE45_SIGEDOCConnectionString %>" SelectCommand="SELECT [NombreProy] FROM [TbProyecto1]"></asp:SqlDataSource>
 
-                <asp:GridView ID="gridPbusquedas" runat="server"></asp:GridView>
+                <asp:GridView ID="gridPbusquedas" runat="server" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical">
+                    <AlternatingRowStyle BackColor="#CCCCCC" />
+                    <FooterStyle BackColor="#CCCCCC" />
+                    <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+                    <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+                    <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                    <SortedAscendingHeaderStyle BackColor="#808080" />
+                    <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                    <SortedDescendingHeaderStyle BackColor="#383838" />
+                </asp:GridView>
             </div>
         </div>
     </div>
