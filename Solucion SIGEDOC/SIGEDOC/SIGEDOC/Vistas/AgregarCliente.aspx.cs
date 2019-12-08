@@ -78,9 +78,6 @@ namespace SIGEDOC.Vistas
             {
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError", "mensajeError('" + "" + "');", true);
             }
-          
-
-
         }
 
         protected void BtnCrear_Click(object sender, EventArgs e)

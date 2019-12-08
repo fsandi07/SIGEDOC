@@ -27,9 +27,8 @@ namespace SIGEDOC.Negocio
         public static string GloApellidos;
         public static int GlotIdRol;
         public static string GloIdUsuario;
-
-
-
+        public static int GloContacto;
+        public static string GloCorreo;
         // creacion de set y get para el uso de las variables.
         public int Opc { get => opc; set => opc = value; }
         public string Cedula_usuario { get => cedula_usuario; set => cedula_usuario = value; }
@@ -97,8 +96,15 @@ namespace SIGEDOC.Negocio
         {
             GloApellidos = apellidos;
         }
+        public static void SetCorreo(string correo_usuario)
+        {
+            GloCorreo = correo_usuario;
+        }
+        public static void SetContacto(int contacto_usuario)
+        {
+            GloContacto = contacto_usuario;
+        }
 
-       
 
 
     }

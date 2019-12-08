@@ -14,16 +14,14 @@ namespace SIGEDOC.Vistas
     public partial class AgregarUsuarios : System.Web.UI.Page
     {
         // instacia del hepler para los permisos de cada rol
-        SIGEDOC.Negocio.Permisos pr = new SIGEDOC.Negocio.Permisos();
+        SIGEDOC.Negocio.Permisos pr = new SIGEDOC.Negocio.Permisos();        
         private PermisosHelper prh;
         private DataTable datos;
+        private EnviosCorreo c;
         private static int validar;
         // instancia de clases 
         SIGEDOC.Negocio.Usuarios usu = new SIGEDOC.Negocio.Usuarios();
         private UsuarioHelper usuh;
-      
-
-
         protected void Page_Load(object sender, EventArgs e)
         {
             //Num_Estado_Permiso();
@@ -38,6 +36,17 @@ namespace SIGEDOC.Vistas
 
             //}
         }
+        public void Limpiar()
+        {
+            this.txtnombre.Text = null;
+            this.txtidentifiaccion.Text = null;
+            this.txtapellido.Text = null;
+            this.txtcontacto.Text = null;
+            this.txtnickname.Text = null;
+            this.dptrol.SelectedValue = null;
+            this.txtcorreo.Text = null;
+        }
+
         private void Num_Estado_Permiso()
         {
             try
@@ -59,12 +68,7 @@ namespace SIGEDOC.Vistas
             {
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError", "mensajeError('" + "" + "');", true);
             }
-
-
-
         }
-
-
         // metodo para crear las claves de forma aleatoria;
         public string CrearPassword(int longitud)
         {
@@ -76,6 +80,14 @@ namespace SIGEDOC.Vistas
                 res.Append(caracteres[rnd.Next(caracteres.Length)]);
             }
             return res.ToString();
+        }
+        public void EnviarCorreos()
+        {
+            this.c = new EnviosCorreo();
+            this.c.Enviar_Correo(this.usu.Correo_usuario, "Registro SiGEDOC",
+               "<a href='https://imgbb.com/'><img src='https://i.ibb.co/s6P7VLC/PQS.png' alt='PQS' border='0'></a>" + "<br>"+"<br>"+ "Estimado/a:" + " "+ this.usu.Nombre_usuario + " " + this.usu.Apellidos + " <br>" + "Usted ha sido registrado/a para el ingreso al Sistema SIGEDOC-PQS." + "<br>" +
+               "Sus credenciales para ingresar son: " + "<br>"+ "Usuario:  " + this.usu.Nicname_usuario +"<br>" +" Contraseña:  " + this.usu.Clave_usuario + "<br>" +
+               "Le Sugerimos cambiar su clave, al lado derecho superior, click y modificar datos." + "<br>"+"Este es un correo Autogenerado,el envio de respuestas no sera visto." );
         }
         protected void BtnCrear_Click(object sender, EventArgs e)
         {
@@ -94,14 +106,15 @@ namespace SIGEDOC.Vistas
                 this.usu.Opc = 1;
                 this.usuh = new UsuarioHelper(usu);
                 this.usuh.Agregar_Usuarios();
+                EnviarCorreos();
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeDeconfirmacion", "mensajeDeconfirmacion('" + "" + "');", true);
+                Limpiar();
             }
             catch (Exception)
             {
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError", "mensajeError('" + "" + "');", true);
 
             }
-         
         }
     }
 }

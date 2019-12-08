@@ -47,6 +47,7 @@
     <Compile Include="CrearDocumento.cs" />
     <Compile Include="DocumentoSub.cs" />
     <Compile Include="DomunetoSubHelper.cs" />
+    <Compile Include="EnviosCorreo.cs" />
     <Compile Include="MoviBitacora.cs" />
     <Compile Include="MoviBitacoraHelper.cs" />
     <Compile Include="Permisos.cs" />

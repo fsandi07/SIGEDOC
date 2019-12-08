@@ -241,7 +241,66 @@ namespace SIGEDOC.Negocio
 
             return tblDatos;
         }
+        public void Actualizar_Usuario_Personal()
+        {
+            try
+            {
+                cnGeneral = new Datos();
 
+                SqlParameter[] parParameter = new SqlParameter[8];
 
+                parParameter[0] = new SqlParameter();
+                parParameter[0].ParameterName = "@opcion";
+                parParameter[0].SqlDbType = SqlDbType.Int;
+                parParameter[0].SqlValue = objUsuarios.Opc;               
+
+                parParameter[1] = new SqlParameter();
+                parParameter[1].ParameterName = "@nombreUsu";
+                parParameter[1].SqlDbType = SqlDbType.VarChar;
+                parParameter[1].Size = 40;
+                parParameter[1].SqlValue = objUsuarios.Nombre_usuario;
+
+                parParameter[2] = new SqlParameter();
+                parParameter[2].ParameterName = "@apellidosUsu";
+                parParameter[2].SqlDbType = SqlDbType.VarChar;
+                parParameter[2].Size = 50;
+                parParameter[2].SqlValue = objUsuarios.Apellidos;
+
+                parParameter[3] = new SqlParameter();
+                parParameter[3].ParameterName = "@correoElectUsu";
+                parParameter[3].SqlDbType = SqlDbType.VarChar;
+                parParameter[3].Size = 50;
+                parParameter[3].SqlValue = objUsuarios.Correo_usuario;
+                               
+                parParameter[4] = new SqlParameter();
+                parParameter[4].ParameterName = "@contactoUsu";
+                parParameter[4].SqlDbType = SqlDbType.Int;
+                parParameter[4].SqlValue = objUsuarios.Contacto_usuario;
+
+                parParameter[5] = new SqlParameter();
+                parParameter[5].ParameterName = "@idUsuario";
+                parParameter[5].SqlDbType = SqlDbType.VarChar;
+                parParameter[5].Size = 50;
+                parParameter[5].SqlValue = objUsuarios.Idusuario;
+
+                parParameter[6] = new SqlParameter();
+                parParameter[6].ParameterName = "@claveUsu";
+                parParameter[6].SqlDbType = SqlDbType.VarChar;
+                parParameter[6].Size = 50;
+                parParameter[6].SqlValue = objUsuarios.Clave_usuario;
+
+                parParameter[7] = new SqlParameter();
+                parParameter[7].ParameterName = "@cedulaUsu";
+                parParameter[7].SqlDbType = SqlDbType.VarChar;
+                parParameter[7].Size = 50;
+                parParameter[7].SqlValue = objUsuarios.Cedula_usuario;
+                cnGeneral.EjecutarSP(parParameter, "SPActualizaPersonal");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+
+            }
+        }
     }
 }

@@ -9,7 +9,6 @@ using System.Data;
 
 namespace SIGEDOC.Vistas
 {
-
     public partial class Login : System.Web.UI.Page
     {
         private Usuarios usuvalid;
@@ -20,7 +19,6 @@ namespace SIGEDOC.Vistas
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
             bool Internet = ValidarIntenrt();
             if (Internet)
             {
@@ -30,7 +28,6 @@ namespace SIGEDOC.Vistas
             {
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeEspera", "mensajeEspera('" + "" + "');", true);
             }
-
         }
         public bool ValidarIntenrt()
         {
@@ -82,33 +79,29 @@ namespace SIGEDOC.Vistas
                     if (datos.Rows.Count >= 0)
                     {
                         DataRow fila = datos.Rows[0];
-
                         if (int.Parse(fila["estadoUsu"].ToString()) == 1)
                         {
-
                             Usuarios.SetIdRol(int.Parse(fila["idRol"].ToString()));
                             Usuarios.SetIdUsuario(fila["cedulaUsu"].ToString());
                             Usuarios.SetNicName(fila["nicknameUsu"].ToString());
                             Usuarios.SetNombre(fila["nombreUsu"].ToString());
                             Usuarios.SetApellidos(fila["apellidosUsu"].ToString());
+                            Usuarios.SetContacto(int.Parse(fila["contactoUsu"].ToString()));
+                            Usuarios.SetCorreo(fila["correoElectUsu"].ToString());
                             Session["Idusuario"] = Usuarios.GloIdUsuario;
                             insertarMovimiento();
                             Response.Redirect("Menu.aspx");
                         }
                         else
                         {
-
                             ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeErrorInhabilitado", "mensajeErrorInhabilitado('" + "" + "');", true);
-
                         }
-                        
                     }
                 }
                 else
                 {
                     ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeEspera", "mensajeEspera('" + "" + "');", true);
                 }
-              
             }
             catch (Exception)
             {

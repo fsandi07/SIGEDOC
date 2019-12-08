@@ -15,6 +15,7 @@ namespace SIGEDOC.Negocio
         private string nombre_rol;  
         private string detalle_rol;
         private int idRol;
+        private string idUsuario;
         //Permisos
         private string Nom_Per;
         //clientes
@@ -78,8 +79,6 @@ namespace SIGEDOC.Negocio
         private int opcconsultar_repo_audi;
         private int opccrear_repo_movi;
         private int opcmodificar_repo_proye;
-
-      
         // creacion de set y get para el uso de las variables.
         public int Opc { get => opc; set => opc = value; }
         public int Estado_rol { get => estado_rol; set => estado_rol = value; }
@@ -131,12 +130,8 @@ namespace SIGEDOC.Negocio
         public int Opcmodificar_repo_proye { get => opcmodificar_repo_proye; set => opcmodificar_repo_proye = value; }
         public int IdRol { get => idRol; set => idRol = value; }
         public string Nom_Per1 { get => Nom_Per; set => Nom_Per = value; }
-
-
-
-
+        public string IdUsuario { get => idUsuario; set => idUsuario = value; }
         // creacion de los construtores con parametros.
-
         public Permisos(int opc, int estado_rol, string nombre_rol, string detalle_rol, string consultar_cliente, string crear_cliente,
            string modificar_cliente, string crear_proyecto, string consultar_proyecto, string modificar_proyecto, string agreagr_usuario,
            string consultar_usuario, string modificar_usuario, string crear_documento, string consultar_documento,
@@ -147,7 +142,7 @@ namespace SIGEDOC.Negocio
            int opccrear_usuario, int opcmodificar_usuario, int opcconsultar_doc_creado, int opccrear_doc_creado,
            int opcmodificar_doc_creado, int opcconsultar_doc_subido, int opccrear_doc_subido, int opcmodificar_doc_subido,
            int opcconsultar_rol, int opccrear_rol, int opcmodificar_rol, int opcbitacora, int opcconsultar_repo_audi,
-           int opccrear_repo_movi, int opcmodificar_repo_proye, int idRol, string nom_Per)
+           int opccrear_repo_movi, int opcmodificar_repo_proye, int idRol, string nom_Per, string idUsuario)
         {
             this.opc = opc;
             this.estado_rol = estado_rol;
@@ -199,9 +194,8 @@ namespace SIGEDOC.Negocio
             this.opcmodificar_repo_proye = opcmodificar_repo_proye;
             this.idRol = idRol;
             this.Nom_Per = nom_Per;
-
+            this.idUsuario = idUsuario;
         }
-
         // creacion de los construtores sin parametros.
         public Permisos()
         {
@@ -254,8 +248,8 @@ namespace SIGEDOC.Negocio
             this.opcconsultar_repo_audi = 0;
             this.opccrear_repo_movi = 0;
             this.opcmodificar_repo_proye = 0;
-            this.idRol = 0;          
+            this.idRol = 0;
+            this.idUsuario = "";
         }
-
     }
 }

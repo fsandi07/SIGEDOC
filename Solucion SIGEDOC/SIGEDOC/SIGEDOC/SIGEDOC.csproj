@@ -3365,6 +3365,8 @@
     <Content Include="Vistas\estilos\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
     <Content Include="Vistas\estilos\vendor\bootstrap\css\bootstrap.css.map" />
     <Content Include="Vistas\estilos\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Vistas\documentosWord\documentoCreado\PQS.docx" />
+    <Content Include="Vistas\documentosWord\temp1.docx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

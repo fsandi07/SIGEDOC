@@ -146,14 +146,17 @@ namespace SIGEDOC.Vistas
                             ref missing, ref missing, ref missing);
             myWordDoc.Close();            
             wordApp.Quit();
-            Process.Start(@"C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\documentos word\documento creado\PQS.docx");
+            //Process.Start(@"C:\Users\fabio\OneDrive\Documentos\SIGEDOC_NEW\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\documentos word\documento creado\PQS.docx");
+            Process.Start(@"C:\Vistas\documentosWord\documentoCreado\PQS.docx");
         }
         protected void Button1_Click(object sender, EventArgs e)
         {
-            try
+            try 
             {
-                //ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeEspera", "mensajeEspera('" + "" + "');", true);
-                CreateWordDocument(@"C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\documentos word\temp1.docx", @"C:\Users\Usuario\Documents\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\documentos word\documento creado\PQS.docx");
+                //CreateWordDocument(@"C:\Users\fabio\OneDrive\Documentos\SIGEDOC_NEW\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\documentos word\temp1.docx",
+                //    @"C:\Users\fabio\OneDrive\Documentos\SIGEDOC_NEW\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\documentos word\documento creado\PQS.docx");
+                CreateWordDocument(@"C:\Vistas\documentosWord\temp1.docx",
+                    @"C:\Vistas\documentosWord\documentoCreado\PQS.docx");
             }
             catch (Exception)
             {

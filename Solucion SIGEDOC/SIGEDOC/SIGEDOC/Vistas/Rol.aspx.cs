@@ -35,6 +35,7 @@ namespace SIGEDOC.Vistas
                 this.pr.Detalle_rol = this.txtDetalleRol.Text;
                 this.pr.Opc = 1;
                 this.pr.Estado_rol = 1;
+                this.pr.IdUsuario = Usuarios.GloIdUsuario;
                 this.prh = new PermisosHelper(pr);
                 this.prh.IngresarRoles();
             }
@@ -73,8 +74,6 @@ namespace SIGEDOC.Vistas
                 this.pr.Reportes_auditoria = "Reporte de Auditoria";
                 this.pr.Reportes_de_movimientos = "Reporte de Movimientos";
                 this.pr.Reportes_de_proyectos = "Reportes de Proyectos";
-
-
                 if (cbPermisos.Items[0].Selected == true)
                 { this.pr.Opcconsultar_cliente= 1 ;
                     if (cbPermisos.Items[1].Selected == true)
@@ -209,12 +208,12 @@ namespace SIGEDOC.Vistas
                 { this.pr.Opcconsultar_cliente = 0;
                 }
                 this.pr.IdRol = id_Rol;
+                this.pr.IdUsuario = Usuarios.GloIdUsuario;
                 this.pr.Opc = 1;                
                 this.prh = new PermisosHelper(pr);
                 this.prh.IngresaPermiso();
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeDeconfirmacion", "mensajeDeconfirmacion('" + "" + "');", true);
             }
-
             catch (Exception ex)
             {
                 this.txtDetalleRol.Text = ex.Message;
@@ -228,7 +227,6 @@ namespace SIGEDOC.Vistas
                 this.prh = new PermisosHelper(pr);
                 this.datos = new DataTable();
                 this.datos = this.prh.Numero_Rol();
-
                 if (datos.Rows.Count >= 0)
                 {
                     DataRow fila = datos.Rows[0];
@@ -240,9 +238,5 @@ namespace SIGEDOC.Vistas
                 this.txtNombreRol.Text = ex.Message;
             }
         }
-
-
-
-
     }
 }

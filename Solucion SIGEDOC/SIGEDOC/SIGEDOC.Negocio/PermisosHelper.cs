@@ -35,7 +35,6 @@ namespace SIGEDOC.Negocio
                 parParameter[0].ParameterName = "@opcion";
                 parParameter[0].SqlDbType = SqlDbType.Int;
                 parParameter[0].SqlValue = objPermisos.Opc;                
-
                 tbldatos = cnGneral.RetornaTabla(parParameter, "SPNumRol");
             }
             catch (Exception ex)
@@ -51,7 +50,7 @@ namespace SIGEDOC.Negocio
             try
             {
                 cnGneral = new Datos();
-                SqlParameter[] parParameter = new SqlParameter[46];
+                SqlParameter[] parParameter = new SqlParameter[47];
 
                 parParameter[0] = new SqlParameter();
                 parParameter[0].ParameterName = "@opcion";
@@ -305,6 +304,11 @@ namespace SIGEDOC.Negocio
                 parParameter[45].SqlDbType = SqlDbType.Int;
                 parParameter[45].SqlValue = objPermisos.Opcmodificar_repo_proye;
 
+                parParameter[46] = new SqlParameter();
+                parParameter[46].ParameterName = "@idUsuario";
+                parParameter[46].SqlDbType = SqlDbType.VarChar;
+                parParameter[46].Size = 50;
+                parParameter[46].SqlValue = objPermisos.IdUsuario;
                 cnGneral.EjecutarSP(parParameter, "SPIngresarPermisos");
             }
             catch (Exception ex)
@@ -312,7 +316,6 @@ namespace SIGEDOC.Negocio
 
                 throw new Exception(ex.Message);
             }
-                                 
         }
 
         public void IngresarRoles()
@@ -320,7 +323,7 @@ namespace SIGEDOC.Negocio
             try
             {
                 cnGneral = new Datos();
-                SqlParameter[] parParameter = new SqlParameter[4];
+                SqlParameter[] parParameter = new SqlParameter[5];
 
                 parParameter[0] = new SqlParameter();
                 parParameter[0].ParameterName = "@opcion";
@@ -343,24 +346,25 @@ namespace SIGEDOC.Negocio
                 parParameter[3].ParameterName = "@estado_rol";
                 parParameter[3].SqlDbType = SqlDbType.Int;                
                 parParameter[3].SqlValue = objPermisos.Estado_rol;
-
                 cnGneral.EjecutarSP(parParameter,"SPCrearRol");
 
+                parParameter[4] = new SqlParameter();
+                parParameter[4].ParameterName = "@idUsuario";
+                parParameter[4].SqlDbType = SqlDbType.VarChar;
+                parParameter[4].Size = 50;
+                parParameter[4].SqlValue = objPermisos.IdUsuario;
             }
             catch (Exception ex)
             {
-
                 throw new Exception(ex.Message);
             }
         }
-
         public DataTable Estado_Permisos()
         {
             tbldatos = new DataTable();
             try
             {
                 cnGneral = new Datos();
-
                 SqlParameter[] parParameter = new SqlParameter[3];
 
                 parParameter[0] = new SqlParameter();
@@ -378,14 +382,12 @@ namespace SIGEDOC.Negocio
                 parParameter[2].SqlDbType = SqlDbType.VarChar;
                 parParameter[2].Size = 20;
                 parParameter[2].SqlValue = objPermisos.Nom_Per1;
-
                 tbldatos = cnGneral.RetornaTabla(parParameter, "SPValidaPermisos");
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
-
             return tbldatos;
         }
     }
