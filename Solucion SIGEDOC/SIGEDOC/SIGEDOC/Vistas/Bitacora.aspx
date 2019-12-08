@@ -7,7 +7,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 
-    <CR:CrystalReportViewer ID="BitacoraRPT" runat="server" AutoDataBind="true" />
+    <CR:CrystalReportViewer ID="BitacoraRPT" runat="server" AutoDataBind="true" Height="100px" ToolPanelWidth="100px"/>
 
 
 </asp:Content>

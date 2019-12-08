@@ -19,42 +19,72 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-  <asp:Label ID="lbcencostos" runat="server" Text="Buscar por Centro de Costos"></asp:Label> 
-    <br>
-    <asp:DropDownList ID="Dptcentrocostos" runat="server" DataSourceID="SqlDataCotsos" DataTextField="centroCostos" DataValueField="centroCostos" AutoPostBack="True" OnSelectedIndexChanged="Dptcentrocostos_SelectedIndexChanged"></asp:DropDownList>
-   
-    <asp:SqlDataSource ID="SqlDataCotsos" runat="server" ConnectionString="<%$ ConnectionStrings:sigedocConnectionString %>" SelectCommand="SELECT [centroCostos] FROM [TbProyecto]"></asp:SqlDataSource>
-     <%-- inicio del grid view --%>
-    <asp:GridView ID="GridProyectos" runat="server" AutoGenerateColumns="False" DataKeyNames="centroCostos" DataSourceID="SqlDataProyec" CellPadding="4" ForeColor="#333333" GridLines="None" Width="998px" OnSelectedIndexChanged="GridProyectos_SelectedIndexChanged" OnRowDataBound="GridProyectos_RowDataBound">
-        <AlternatingRowStyle BackColor="White" />
-        <Columns>
-            <asp:CommandField HeaderText="Editar" SelectText="&lt;i class='fas fa-edit'&gt;&lt;/i&gt;" ShowSelectButton="True" />
-            <asp:BoundField DataField="centroCostos" HeaderText="C.Costos" InsertVisible="False" ReadOnly="True" SortExpression="centroCostos" />
-            <asp:BoundField DataField="NombreProy" HeaderText="Nombre" SortExpression="NombreProy" />
-            <asp:BoundField DataField="NumLicita" HeaderText="Licitacion" SortExpression="NumLicita" />
-            <asp:BoundField DataField="detalleProyec" HeaderText="Detalle" SortExpression="detalleProyec" />
-            <asp:BoundField DataField="idCliente" HeaderText="id" SortExpression="idCliente" />
-            <asp:BoundField DataField="nombrecliente" HeaderText="Cliente" SortExpression="nombrecliente" />
-            <asp:BoundField DataField="estadoProyec" HeaderText="Estado" SortExpression="estadoProyec" />
-            <asp:BoundField DataField="fechaProy" HeaderText="Fecha" SortExpression="fechaProy" />
-            <asp:BoundField DataField="nombreUsu" HeaderText="Usuario" SortExpression="nombreUsu" />
 
-        </Columns>
-        <EditRowStyle BackColor="#2461BF" />
-        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-        <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-        <RowStyle BackColor="#EFF3FB" />
-        <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-        <SortedAscendingCellStyle BackColor="#F5F7FB" />
-        <SortedAscendingHeaderStyle BackColor="#6D95E1" />
-        <SortedDescendingCellStyle BackColor="#E9EBEF" />
-        <SortedDescendingHeaderStyle BackColor="#4870BE" />
-    </asp:GridView>
+    <%-- inicio del grid view --%>
+
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="False" aria-controls="collapseCardExample">
+                <asp:Label ID="Lblhead" runat="server" Text="Label" ForeColor="#993300" Font-Bold="True">Ver Proyectos</asp:Label>
+            </a>
+            <div class="collapse show" id="collapseCardExample">
+
+                <asp:GridView ID="GridProyectos" runat="server" AutoGenerateColumns="False" DataKeyNames="centroCostos" DataSourceID="SqlDataProyec" CellPadding="4" ForeColor="#333333" GridLines="None" Width="998px" OnSelectedIndexChanged="GridProyectos_SelectedIndexChanged" OnRowDataBound="GridProyectos_RowDataBound">
+                    <AlternatingRowStyle BackColor="White" />
+                    <Columns>
+                        <asp:CommandField HeaderText="Editar" SelectText="&lt;i class='fas fa-edit'&gt;&lt;/i&gt;" ShowSelectButton="True" />
+                        <asp:BoundField DataField="centroCostos" HeaderText="C.Costos" InsertVisible="False" ReadOnly="True" SortExpression="centroCostos" />
+                        <asp:BoundField DataField="NombreProy" HeaderText="Nombre" SortExpression="NombreProy" />
+                        <asp:BoundField DataField="NumLicita" HeaderText="Licitacion" SortExpression="NumLicita" />
+                        <asp:BoundField DataField="detalleProyec" HeaderText="Detalle" SortExpression="detalleProyec" />
+                        <asp:BoundField DataField="idCliente" HeaderText="id" SortExpression="idCliente" />
+                        <asp:BoundField DataField="nombrecliente" HeaderText="Cliente" SortExpression="nombrecliente" />
+                        <asp:BoundField DataField="estadoProyec" HeaderText="Estado" SortExpression="estadoProyec" />
+                        <asp:BoundField DataField="fechaProy" HeaderText="Fecha" SortExpression="fechaProy" />
+                        <asp:BoundField DataField="nombreUsu" HeaderText="Usuario" SortExpression="nombreUsu" />
+
+                    </Columns>
+                    <EditRowStyle BackColor="#2461BF" />
+                    <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle BackColor="#EFF3FB" />
+                    <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                    <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                    <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                    <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                    <SortedDescendingHeaderStyle BackColor="#4870BE" />
+                </asp:GridView>
+            </div>
+        </div>
+    </div>
+    <%-- fin del grid --%>
     <asp:SqlDataSource ID="SqlDataProyec" runat="server" ConnectionString="<%$ ConnectionStrings:sigedocConnectionString %>" SelectCommand="
 select a.centroCostos,a.NombreProy,a.NumLicita,a.detalleProyec,a.idCliente,c.nombrecliente,a.estadoProyec,a.fechaProy,b.nombreUsu
 from TbProyecto1 a, TbUsuario b,TbCliente c where a.idUsuario = b.cedulaUsu and a.idCliente=c.idCliente
 "></asp:SqlDataSource>
+
+    <%-- inicio del grid para las busquedas --%>
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <a href="#collapseCardExample2" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="False" aria-controls="collapseCardExample">
+                <asp:Label ID="Label1" runat="server" Text="Label" ForeColor="#993300" Font-Bold="True">Ver Proyectos</asp:Label>
+            </a>
+            <div class="collapse show" id="collapseCardExample2">
+                <asp:Label ID="lblcentrocostos" runat="server" Text="buscar por centro de costos "></asp:Label>
+                <asp:DropDownList ID="Dptcentrocostos" runat="server" DataSourceID="SqlDataSource1" DataTextField="centroCostos" DataValueField="centroCostos"></asp:DropDownList>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DB_A4DE45_SIGEDOCConnectionString %>" SelectCommand="SELECT [centroCostos] FROM [TbProyecto1]"></asp:SqlDataSource>
+                <asp:Label ID="lbnombreProyecto" runat="server" Text="buscar por Nombre de proyecto "></asp:Label>
+                <asp:DropDownList ID="DptnombreProtyecto" runat="server" DataSourceID="SqlDatanombreproyecto" DataTextField="NombreProy" DataValueField="NombreProy" OnSelectedIndexChanged="DptnombreProtyecto_SelectedIndexChanged"></asp:DropDownList>
+
+                <asp:SqlDataSource ID="SqlDatanombreproyecto" runat="server" ConnectionString="<%$ ConnectionStrings:DB_A4DE45_SIGEDOCConnectionString %>" SelectCommand="SELECT [NombreProy] FROM [TbProyecto1]"></asp:SqlDataSource>
+
+                <asp:GridView ID="gridPbusquedas" runat="server"></asp:GridView>
+            </div>
+        </div>
+    </div>
+
+    <%-- Fin del grid para las busquedas  --%>
     <script type="text/javascript">
 
         function mensajeEspera() {
@@ -124,20 +154,20 @@ from TbProyecto1 a, TbUsuario b,TbCliente c where a.idUsuario = b.cedulaUsu and 
                 <div class="modal-body">
                     centro de Costos:<asp:TextBox ID="txtcentro_costos" runat="server" ForeColor="Black" ReadOnly="True"></asp:TextBox>
                     <br>
-                    Nombre del Pyoyecto:<asp:TextBox class="req" ID="txtnombreProyecto" runat="server" ForeColor="Black"></asp:TextBox>
+                    Nombre del Pyoyecto:<asp:TextBox class="req" ID="txtnombreProyecto" runat="server" ForeColor="Black" required=""></asp:TextBox>
                     <br>
-                    Numero de Licitacion:<asp:TextBox class="req" ID="txtlicitacion" runat="server" ForeColor="Black"></asp:TextBox>
+                    Numero de Licitacion:<asp:TextBox class="req" ID="txtlicitacion" runat="server" ForeColor="Black" required=""></asp:TextBox>
                     <br>
-                    Detalle<asp:TextBox ID="txtdetalleproyecto" runat="server" ForeColor="Black"></asp:TextBox>
+                    Detalle<asp:TextBox ID="txtdetalleproyecto" runat="server" ForeColor="Black" required=""></asp:TextBox>
                     <br>
                     Ciente:
                       <asp:DropDownList ID="DptCliente" runat="server" CssClass="alert-dark" DataSourceID="SqlDataCliente" DataTextField="nombreCliente" DataValueField="idCliente">
                       </asp:DropDownList>
-              
+
                     <asp:SqlDataSource ID="SqlDataCliente" runat="server" ConnectionString="<%$ ConnectionStrings:sigedocConnectionString %>" SelectCommand="SELECT [idCliente], [nombreCliente] FROM [TbCliente]"></asp:SqlDataSource>
                     <br>
                     <br>
-                     Estado del Proyecto:
+                    Estado del Proyecto:
                         <asp:DropDownList ID="dptestado" runat="server" CssClass="alert-dark">
                             <asp:ListItem Value="En Proceso">En Proceso</asp:ListItem>
                             <asp:ListItem Value="Ganado">Ganado</asp:ListItem>
@@ -150,7 +180,7 @@ from TbProyecto1 a, TbUsuario b,TbCliente c where a.idUsuario = b.cedulaUsu and 
 
                     <br>
                     <div class="modal-footer">
-                 
+
                         <asp:Button ID="btnActalizar" runat="server" Text="Guardar Cambios" class="btn btn-primary" OnClick="btnActalizar_Click" />
 
                         <%-- <button type="button" class="btn btn-primary" data-dismiss="modal">Comprar</button>--%>

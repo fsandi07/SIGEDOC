@@ -11,63 +11,15 @@ namespace SIGEDOC.Vistas
 {
     public partial class Reporte : System.Web.UI.Page
     {
-        String vCadenaConexion = @"Data Source = den1.mssql7.gear.host; initial catalog = sigedoc; user id = sigedoc; password = Ip4805Xtg~2-";
-        SqlConnection vConexion;
-        SqlDataAdapter vDataAdapter;
-        DataTable vDT;
+    
         protected void Page_Load(object sender, EventArgs e)
         {
-            String vSQL;
-            vDT = new DataTable();
+             RpteProy  rpt = new RpteProy();
+             rpt.SetParameterValue("@opcion", 3);
+             RptProyectos.ReportSource = rpt;
 
-            vSQL = "SELECT * FROM TbProyecto";
 
-
-            rptpro rpt = new rptpro();
-
-            vDT = EjecutarSELECT(vSQL);
-
-            rpt.SetDataSource(vDT);
-
-            CrystalReportViewer1.ReportSource = rpt;
         }
-        private void ConectarBD()
-        {
-            try
-            {
-                vConexion = new SqlConnection(vCadenaConexion);
-                vConexion.Open();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        private void DesconectarBD()
-        {
-            try
-            {
-                vConexion.Close();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        public DataTable EjecutarSELECT(String pSQL)
-        {
-            vDT = new DataTable();
-
-            ConectarBD();
-
-            vDataAdapter = new SqlDataAdapter(pSQL, vConexion);
-            vDataAdapter.Fill(vDT);
-
-            DesconectarBD();
-
-            return vDT;
-        }
+      
     }
 }

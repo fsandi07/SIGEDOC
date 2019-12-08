@@ -199,9 +199,9 @@ from tbdocsubido a, TbUsuario b,TbCliente c where  a.idCliente=c.idCliente and a
                     </button>
                 </div>
                 <div class="modal-body">
-                    Nombre del Documento<asp:TextBox class="req" ID="txtnombre" runat="server" ForeColor="Black"></asp:TextBox>
-                    Asunto<asp:TextBox ID="txtasunto" runat="server" ForeColor="Black"></asp:TextBox>
-                    Detalle<asp:TextBox ID="txtdetalle" runat="server" ForeColor="Black"></asp:TextBox>
+                    Nombre del Documento<asp:TextBox class="req" ID="txtnombre" runat="server" ForeColor="Black" required=""></asp:TextBox>
+                    Asunto<asp:TextBox ID="txtasunto" runat="server" ForeColor="Black" required=""></asp:TextBox>
+                    Detalle<asp:TextBox ID="txtdetalle" runat="server" ForeColor="Black" required=""></asp:TextBox>
                     Usuario<asp:TextBox ID="txtusuario" runat="server" ForeColor="Black" ReadOnly="True"></asp:TextBox>
                     <br>
                     centro de Costos:<asp:TextBox ID="txtcentrocostos" runat="server" ForeColor="Black" ReadOnly="True"></asp:TextBox><br>
@@ -253,8 +253,8 @@ from tbdocsubido a, TbUsuario b,TbCliente c where  a.idCliente=c.idCliente and a
                     </button>
                 </div>
                 <div class="modal-body">
-                    Nombre del Documento<asp:TextBox class="req" ID="txtnombresubido" runat="server" ForeColor="Black"></asp:TextBox>
-                    Detalle<asp:TextBox ID="txtdetallesubido" runat="server" ForeColor="Black"></asp:TextBox>
+                    Nombre del Documento<asp:TextBox class="req" ID="txtnombresubido" runat="server" ForeColor="Black" required=""></asp:TextBox>
+                    Detalle<asp:TextBox ID="txtdetallesubido" runat="server" ForeColor="Black" required=""></asp:TextBox>
                     Usuario que creo el Docuemento<asp:TextBox ID="txtusuario_subido" runat="server" ForeColor="Black" ReadOnly="True"></asp:TextBox>
                     <br>
                     centro de Costos:<asp:TextBox ID="txtcentro_costos" runat="server" ForeColor="Black" ReadOnly="True"></asp:TextBox>

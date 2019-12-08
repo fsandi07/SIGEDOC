@@ -102,12 +102,13 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    Nombre:<asp:TextBox  class="req" ID="txtnombre" runat="server" ForeColor="Black"></asp:TextBox>
-                    Encargado:<asp:TextBox ID="txtencargado" runat="server" ForeColor="Black"></asp:TextBox>
-                    Telefono:<asp:TextBox ID="txttelefono" runat="server" ForeColor="Black"></asp:TextBox>
-                    Correo:<asp:TextBox ID="txtcorreo" runat="server" ForeColor="Black"></asp:TextBox>
+                    Nombre:<asp:TextBox  class="req" ID="txtnombre" runat="server" ForeColor="Black" required=""></asp:TextBox>
+                    Encargado:<asp:TextBox ID="txtencargado" runat="server" ForeColor="Black" required=""></asp:TextBox>
+                    Telefono:<asp:TextBox ID="txttelefono" runat="server" ForeColor="Black" required=""></asp:TextBox>
+                    Correo:<asp:TextBox ID="txtcorreo" runat="server" ForeColor="Black" required=""></asp:TextBox>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="RegularExpressionValidator" BackColor="#FFCC00" ControlToValidate="txtcorreo" Text=" Debe ingresar un correo electronico valido"></asp:RegularExpressionValidator>
                     <br>
-                    Detalle:<asp:TextBox ID="txtdetalle" runat="server" ForeColor="Black" TextMode="MultiLine"></asp:TextBox><br>
+                    Detalle:<asp:TextBox ID="txtdetalle" runat="server" ForeColor="Black" TextMode="MultiLine" required=""></asp:TextBox><br>
                     Estado:
                       <asp:DropDownList ID="dptestado" runat="server" CssClass="alert-dark">
                           <asp:ListItem Value="1">Activo</asp:ListItem>

@@ -73,11 +73,12 @@ where a.idRol = b.IdRol "></asp:SqlDataSource>
                     </button>
                 </div>
                 <div class="modal-body">
-                    Nombre:<asp:TextBox  class="req" ID="txtnombre" runat="server" ForeColor="Black"></asp:TextBox>
-                    Apellido:<asp:TextBox  class="req" ID="txtapellido" runat="server" ForeColor="Black"></asp:TextBox>
+                    Nombre:<asp:TextBox  class="req" ID="txtnombre" runat="server" ForeColor="Black" required=""></asp:TextBox>
+                    Apellido:<asp:TextBox  class="req" ID="txtapellido" runat="server" ForeColor="Black" required=""></asp:TextBox>
                     Cedula:<asp:TextBox ID="txtcedula" runat="server" ReadOnly="True" ForeColor="Black"></asp:TextBox>
-                    Nickname:<asp:TextBox ID="txtnikcname" runat="server" ForeColor="Black"></asp:TextBox>
+                    Nickname:<asp:TextBox ID="txtnikcname" runat="server" ForeColor="Black" required=""></asp:TextBox>
                     Correo:<asp:TextBox ID="txtcorreo" runat="server" ForeColor="Black"></asp:TextBox>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="RegularExpressionValidator" BackColor="#FFCC00" Text="Debe ingresar un correo electronico valido" ControlToValidate="txtcorreo"></asp:RegularExpressionValidator>
                     Contacto:<asp:TextBox ID="txtcontacto" runat="server" ForeColor="Black"></asp:TextBox><br>
                     Estado:
                       <asp:DropDownList ID="dptestado" runat="server" AutoPostBack="True" CssClass="alert-dark">

@@ -17,12 +17,7 @@
     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 
-    <style type="text/css">
-        .auto-style1 {
-            width: 90%
-        }
-    </style>
-</asp:Content>
+    </asp:Content>
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -44,10 +39,13 @@
                 <form>
                     <div class="contenedor-input">
                         <asp:Label ID="Lblnombreproyecto" runat="server" Text="Nombre Proyecto"></asp:Label>
-                        <asp:TextBox class="req" ID="txtnombreproye" runat="server"></asp:TextBox>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" BackColor="#FFCC00" ControlToValidate="txtnombreproye" ErrorMessage="RequiredFieldValidator">este campo es requerido</asp:RequiredFieldValidator>
+&nbsp;<asp:TextBox class="req" ID="txtnombreproye" runat="server"></asp:TextBox>
                     </div>
                     <div class="contenedor-input">
                         <asp:Label ID="Lbllicitacion" runat="server" Text="Numero de Licitacion"></asp:Label>
+                        &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" BackColor="#FFCC00" ControlToValidate="txtLicitacion" ErrorMessage="RequiredFieldValidator">este campo es requerido</asp:RequiredFieldValidator>
                         <asp:TextBox class="req" ID="txtLicitacion" runat="server"></asp:TextBox>
                     </div>
 
@@ -63,17 +61,20 @@
                      </div> --%>
 
                     <div class="contenedor-input">
-                        <asp:Label ID="Label6" runat="server" Text="Descripción del Proyecto:"></asp:Label><br />
+                        <asp:Label ID="Label6" runat="server" Text="Descripción del Proyecto:"></asp:Label>&nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" BackColor="#FFCC00" ControlToValidate="txtDescripcion" ErrorMessage="RequiredFieldValidator">este campo es requerido</asp:RequiredFieldValidator>
+                        <br />
                         <asp:TextBox class="form-control form-control-user" runat="server" TextMode="MultiLine" Rows="5" MaxLength="0" Columns="62" BorderColor="#CCB210" CssClass="alert-dark" Width="775px" ID="txtDescripcion"></asp:TextBox>
                     </div>
                     <div class="contenedor-input">
                         <asp:Label ID="Label7" runat="server" Text="Fecha del Proyecto:"></asp:Label>
-                        <input id="dataproyec" class="auto-style1" />
+                   <%--     <input id="dataproyec" class="auto-style1" />
                         <script type="text/javascript">
                             $('#datepicker').datepicker({
                                 uiLibrary: 'bootstrap4'
                             });
-                        </script>
+                        </script>--%>
+                        &nbsp; <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" BackColor="#FFCC00" ControlToValidate="txtfecha" ErrorMessage="RequiredFieldValidator">este campo es requerido</asp:RequiredFieldValidator>
+                        &nbsp;<asp:TextBox ID="txtfecha" runat="server" TextMode="Date"></asp:TextBox>
                     </div>
                    
                     <div class="contenedor-input">

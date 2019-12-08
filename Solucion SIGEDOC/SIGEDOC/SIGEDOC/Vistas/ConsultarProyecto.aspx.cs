@@ -130,19 +130,39 @@ namespace SIGEDOC.Vistas
         {
             try
             {
-                datos = (DataTable)GridProyectos.DataSource;
+                datos = (DataTable)gridPbusquedas.DataSource;
                 this.proyecto.Centro_costos = int.Parse(Dptcentrocostos.SelectedValue);
                 this.proyecto.Opc = 1;
                 this.proyectoHelper = new ProyectoHelper(proyecto);
                 this.datos = new DataTable();
-                GridProyectos.DataSource = this.proyectoHelper.Busqueda();
-                GridProyectos.DataBind();
+                gridPbusquedas.DataSource = this.proyectoHelper.Busqueda();
+                gridPbusquedas.DataBind();
             }
             catch (Exception ex)
             {
-                this.lbcencostos.Text = ex.Message;
+                this.lblcentrocostos.Text = ex.Message;
 
             }
+        }
+
+        protected void DptnombreProtyecto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                datos = (DataTable)gridPbusquedas.DataSource;
+                this.proyecto.Centro_costos = int.Parse(DptnombreProtyecto.SelectedValue);
+                this.proyecto.Opc = 2;
+                this.proyectoHelper = new ProyectoHelper(proyecto);
+                this.datos = new DataTable();
+                gridPbusquedas.DataSource = this.proyectoHelper.Busqueda2();
+                gridPbusquedas.DataBind();
+            }
+            catch (Exception ex)
+            {
+                this.lblcentrocostos.Text = ex.Message;
+
+            }
+
         }
     }
 }

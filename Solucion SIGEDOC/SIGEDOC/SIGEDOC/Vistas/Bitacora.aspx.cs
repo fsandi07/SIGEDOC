@@ -12,7 +12,9 @@ namespace SIGEDOC.Vistas
         protected void Page_Load(object sender, EventArgs e)
         {
             RptBitacora rpt = new RptBitacora();
-             BitacoraRPT.ReportSource = rpt;
+            rpt.SetParameterValue("@opcion", 1);
+            BitacoraRPT.ReportSource = rpt;
+
         }
     }
 }

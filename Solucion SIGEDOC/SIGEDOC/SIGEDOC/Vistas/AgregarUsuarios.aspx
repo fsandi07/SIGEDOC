@@ -11,12 +11,7 @@
     <link rel="stylesheet" href="css/estilos.css">
 
   <link rel="stylesheet" href="./dist/style.css">
-       <style type="text/css">
-           .auto-style1 {
-               margin-top: 56;
-           }
-       </style>
-</asp:Content>
+       </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
          <!-- Formularios -->
     <div class="contenedor-formularios">
@@ -34,20 +29,27 @@
                 <form>
                      <div class="contenedor-input">
                         <asp:Label ID="Lblidentificacion" runat="server" Text="Identificación"></asp:Label>
+                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" BackColor="#FFCC00" ControlToValidate="txtidentifiaccion" ErrorMessage="RequiredFieldValidator">Este campo es requerido</asp:RequiredFieldValidator>
                          <asp:TextBox class="req" ID="txtidentifiaccion" runat="server" TextMode="Number"></asp:TextBox>
                      </div>  
 
                     <div class="contenedor-input">
                         <asp:Label ID="lblnombre" runat="server" Text="Nombre"></asp:Label>
-                         <asp:TextBox class="req" ID="txtnombre" runat="server"></asp:TextBox>
+                         &nbsp;
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" BackColor="#FFCC00" ControlToValidate="txtnombre" ErrorMessage="RequiredFieldValidator">Este campo es requerido</asp:RequiredFieldValidator>
+&nbsp;<asp:TextBox class="req" ID="txtnombre" runat="server"></asp:TextBox>
                      </div>
                      <div class="contenedor-input">
                         <asp:Label ID="lblapellidos" runat="server" Text="Apellidos"></asp:Label>
+                         &nbsp;
+                         <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" BackColor="#FFCC00" ControlToValidate="txtapellido" ErrorMessage="RequiredFieldValidator">Este campo es requerido</asp:RequiredFieldValidator>
                          <asp:TextBox class="req" ID="txtapellido" runat="server"></asp:TextBox>
                      </div>
                    
                     <div class="contenedor-input">
                         <asp:Label ID="lblnickname" runat="server" Text="Nombre de Usuario"></asp:Label>
+                         &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" BackColor="#FFCC00" ControlToValidate="txtnickname" ErrorMessage="RequiredFieldValidator">Este campo es requerido</asp:RequiredFieldValidator>
                          <asp:TextBox class="req" ID="txtnickname" runat="server"></asp:TextBox>
                      </div> 
                     <div class="contenedor-input">
@@ -58,11 +60,15 @@
                      </div> 
                     <div class="contenedor-input">
                         <asp:Label ID="Lblcorreo" runat="server" Text=" Correo Electronico"></asp:Label>
+                         &nbsp;
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" BackColor="#FFCC00" ControlToValidate="txtcorreo" ErrorMessage="RegularExpressionValidator" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">Bebe ingresar un correo Electronico valido</asp:RegularExpressionValidator>
                          <asp:TextBox class="req" ID="txtcorreo" runat="server"></asp:TextBox>
                      </div> 
                     <div class="contenedor-input">
                         <asp:Label ID="Lblcontacto" runat="server" Text="Contacto"></asp:Label>
-                         <asp:TextBox class="req" ID="txtcontacto" runat="server" TextMode="Number"></asp:TextBox>
+                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:CompareValidator ID="CompareValidator1" runat="server" BackColor="Red" ControlToValidate="txtcontacto" ErrorMessage="CompareValidator" Type="Double">este campo solo admite valores numericos</asp:CompareValidator>
+                         <asp:TextBox class="req" ID="txtcontacto" runat="server"></asp:TextBox>
                      </div> 
                       
                     <%--<input type="submit" class="button button-block" value="Iniciar Sesión">--%>

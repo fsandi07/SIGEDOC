@@ -6,6 +6,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
           
                    
- <CR:CrystalReportViewer class="req" ID="CrystalReportViewer1" runat="server" AutoDataBind="true" Height="50px" ToolPanelWidth="100px" Width="350px" />
+ <CR:CrystalReportViewer class="req" ID="RptProyectos" runat="server" AutoDataBind="true" ToolPanelWidth="100px" />
 
 </asp:Content>

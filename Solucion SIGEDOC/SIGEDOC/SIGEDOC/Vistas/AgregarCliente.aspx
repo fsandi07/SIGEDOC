@@ -1,153 +1,166 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Vistas/Menu.Master" AutoEventWireup="true" CodeBehind="AgregarCliente.aspx.cs" Inherits="SIGEDOC.Vistas.AgregarCliente" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
-     <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Raleway|Ubuntu" rel="stylesheet">
-     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <!-- Estilos -->
     <link rel="stylesheet" href="css/estilos.css">
-  <link rel="stylesheet" href="./dist/style.css">
+    <link rel="stylesheet" href="./dist/style.css">
     <script type="text/javascript" src="jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="sweetalert/sweetalert2.min.css">
     <script type="text/javascript" src="sweetalert/sweetalert2.min.js"></script>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-      <!-- Formularios -->
+    <!-- Formularios -->
     <div class="contenedor-formularios">
         <!-- Links de los formularios -->
-               <div id="iniciar-sesion">
-           <span class="login100-form-title">
-					<i class="far fa-address-card"></i>	Agregar Cliente Nuevo
-					</span>
-                   <br /><br /><br />
-        <!-- Contenido de los Formularios -->
-        <div class="contenido-tab">
-            <!-- Iniciar Sesion -->
-            
-                
+        <div id="iniciar-sesion">
+            <span class="login100-form-title">
+                <i class="far fa-address-card"></i>Agregar Cliente Nuevo
+            </span>
+            <br />
+            <br />
+            <br />
+            <!-- Contenido de los Formularios -->
+            <div class="contenido-tab">
+                <!-- Iniciar Sesion -->
+
+
                 <form>
                     <div class="contenedor-input">
                         <asp:Label ID="Label1" runat="server" Text="Nombre Del Cliente"></asp:Label>
-                         <asp:TextBox class="req" ID="txtnombrecliente" runat="server"></asp:TextBox>
-                     </div>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" BackColor="#FFCC00" ControlToValidate="txtnombrecliente" ErrorMessage="RequiredFieldValidator">Debe completar este campo </asp:RequiredFieldValidator>
+                        &nbsp;<asp:TextBox class="req" ID="txtnombrecliente" runat="server"></asp:TextBox>
+                    </div>
                     <div class="contenedor-input">
                         <asp:Label ID="Label2" runat="server" Text="Nombre de la Persona de Contacto"></asp:Label>
+                        &nbsp;&nbsp;&nbsp;
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" BackColor="#FFCC00" ControlToValidate="txtnombrecontacto" ErrorMessage="RequiredFieldValidator">Debe completar este campo </asp:RequiredFieldValidator>
+                        &nbsp;&nbsp;&nbsp;
                          <asp:TextBox class="req" ID="txtnombrecontacto" runat="server"></asp:TextBox>
-                     </div>  
-                    
-                    <div class="contenedor-input">
-                        <asp:Label ID="Label3" runat="server" Text="Número De Teléfono"></asp:Label>
-                        <asp:TextBox ID="txttelefono" runat="server" TextMode="Number"></asp:TextBox>
-                     </div> 
-                    <div class="contenedor-input">
-                        <asp:Label ID="Label5" runat="server" Text="Correo Electronico"></asp:Label>
-                          <asp:TextBox class="req" ID="txtcorreo" runat="server"></asp:TextBox>
-                     </div> 
+                    </div>
 
                     <div class="contenedor-input">
-                        <asp:Label ID="Label6" runat="server" Text="Observaciones"></asp:Label><br />
-                         <asp:TextBox ID="txtobservaciones" class="form-control form-control-user" runat="server" TextMode="MultiLine" Rows="5" MaxLength="0" Columns="62" BorderColor="#CCB210" CssClass="alert-dark" Width="775px"></asp:TextBox>
-                     </div>
+                        <asp:Label ID="Label3" runat="server" Text="Número De Teléfono"></asp:Label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;
+                        &nbsp;<asp:CompareValidator ID="CompareValidator1" runat="server" BackColor="Red" ControlToValidate="txttelefono" ErrorMessage="CompareValidator" Type="Double"> Este campo solo admite valores numericos</asp:CompareValidator>
+                        <asp:TextBox ID="txttelefono" runat="server" Required=""></asp:TextBox>
+                    </div>
+                    <div class="contenedor-input">
+                        <asp:Label ID="Label5" runat="server" Text="Correo Electronico"></asp:Label>
+                        &nbsp;&nbsp;
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" BackColor="#FFCC00" ControlToValidate="txtcorreo" ErrorMessage="RegularExpressionValidator" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">Debe ingresar una direccion de correo valida</asp:RegularExpressionValidator>
+&nbsp;<asp:TextBox class="req" ID="txtcorreo" runat="server"></asp:TextBox>
+                    </div>
+
+                    <div class="contenedor-input">
+                        <asp:Label ID="Label6" runat="server" Text="Observaciones"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" BackColor="#FFCC00" ControlToValidate="txtobservaciones" ErrorMessage="RequiredFieldValidator"> este campo es requerido</asp:RequiredFieldValidator>
+                        <br />
+                        <asp:TextBox ID="txtobservaciones" class="form-control form-control-user" runat="server" TextMode="MultiLine" Rows="5" MaxLength="0" Columns="62" BorderColor="#CCB210" CssClass="alert-dark" Width="775px"></asp:TextBox>
+                    </div>
                     <%--<input type="submit" class="button button-block" value="Iniciar Sesión">--%>
-                     <asp:Button  class="btn btn-primary btn-user btn-block"  ID="BtnCrear" runat="server" Text="Crear" BackColor="#CCB210" BorderColor="#CCB210" OnClick="BtnCrear_Click" />
+                    <asp:Button class="btn btn-primary btn-user btn-block" ID="BtnCrear" runat="server" Text="Crear" BackColor="#CCB210" BorderColor="#CCB210" OnClick="BtnCrear_Click" />
                 </form>
             </div>
 
-           
-
-   <script src="js/jquery.js"></script>
-   <script src="js/main.js"></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script><script  src="./dist/script.js"></script>
-
-          <script type="text/javascript">
-
-              function mensajeEspera() {
-                  let timerInterval
-                  Swal.fire({
-                      title: '¡Acceso Denegado! no cuenta con los permisos para Aceder a este Modulo, contacte al Administrador',
-
-                      timer: 4000,
-                      allowOutsideClick: false,
-                      onBeforeOpen: () => {
-
-                          Swal.showLoading()
-
-                          timerInterval = setInterval(() => {
-                              Swal.getContent().querySelector('strong')
-                                  .textContent = (Swal.getTimerLeft() / 1000)
-                                      .toFixed(0)
-                          }, 100)
-                      },
-                      onClose: () => {
-                          clearInterval(timerInterval)
-                      }
-
-                  })
 
 
-                  window.setTimeout('location.href="Menu.aspx"', 4000)
-              }
-              // mensaje espera2
+            <script src="js/jquery.js"></script>
+            <script src="js/main.js"></script>
+            <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+            <script src="./dist/script.js"></script>
 
-              function mensajeEspera2() {
-                  let timerInterval
-                  Swal.fire({
-                      title: '¡Acceso Interrumpido!, Actualmente no existe conexion Internet',
+            <script type="text/javascript">
 
-                      timer: 4000,
-                      allowOutsideClick: false,
-                      onBeforeOpen: () => {
+                function mensajeEspera() {
+                    let timerInterval
+                    Swal.fire({
+                        title: '¡Acceso Denegado! no cuenta con los permisos para Aceder a este Modulo, contacte al Administrador',
 
-                          Swal.showLoading()
+                        timer: 4000,
+                        allowOutsideClick: false,
+                        onBeforeOpen: () => {
 
-                          timerInterval = setInterval(() => {
-                              Swal.getContent().querySelector('strong')
-                                  .textContent = (Swal.getTimerLeft() / 1000)
-                                      .toFixed(0)
-                          }, 100)
-                      },
-                      onClose: () => {
-                          clearInterval(timerInterval)
-                      }
+                            Swal.showLoading()
 
-                  })
+                            timerInterval = setInterval(() => {
+                                Swal.getContent().querySelector('strong')
+                                    .textContent = (Swal.getTimerLeft() / 1000)
+                                        .toFixed(0)
+                            }, 100)
+                        },
+                        onClose: () => {
+                            clearInterval(timerInterval)
+                        }
 
-
-                  window.setTimeout('location.href="ErrorInternet.aspx"', 4000)
-              }
-
-
-        // mensaje de error
-        function mensajeError() {
-            swal.fire({
-                title: '¡Error!',
-                text: "¡" + " Lo sentimos a ocurrido un Error, por favor intentelo de nuevo,"+
-                   "Si el problema persiste contacte al Administrador " + "!",
-                type: 'error',
-                showConfirmButton: false,
-                allowOutsideClick: false,
-                timer: 4000,
-
-            })
-        }
-
-        //mensaje de conrfimacion
-        function mensajeDeconfirmacion() {
-            swal.fire({
-                title: "¡EXITO!",
-                text: "¡" + "Los Datos se Guardaron Con Exito" + "!",
-                type: 'success',
-                allowOutsideClick: false,
-            })
-
-        }
-
-    </script>           
-                    
+                    })
 
 
+                    window.setTimeout('location.href="Menu.aspx"', 4000)
+                }
+                // mensaje espera2
+
+                function mensajeEspera2() {
+                    let timerInterval
+                    Swal.fire({
+                        title: '¡Acceso Interrumpido!, Actualmente no existe conexion Internet',
+
+                        timer: 4000,
+                        allowOutsideClick: false,
+                        onBeforeOpen: () => {
+
+                            Swal.showLoading()
+
+                            timerInterval = setInterval(() => {
+                                Swal.getContent().querySelector('strong')
+                                    .textContent = (Swal.getTimerLeft() / 1000)
+                                        .toFixed(0)
+                            }, 100)
+                        },
+                        onClose: () => {
+                            clearInterval(timerInterval)
+                        }
+
+                    })
+
+
+                    window.setTimeout('location.href="ErrorInternet.aspx"', 4000)
+                }
+
+
+                // mensaje de error
+                function mensajeError() {
+                    swal.fire({
+                        title: '¡Error!',
+                        text: "¡" + " Lo sentimos a ocurrido un Error, por favor intentelo de nuevo," +
+                            "Si el problema persiste contacte al Administrador " + "!",
+                        type: 'error',
+                        showConfirmButton: false,
+                        allowOutsideClick: false,
+                        timer: 4000,
+
+                    })
+                }
+
+                //mensaje de conrfimacion
+                function mensajeDeconfirmacion() {
+                    swal.fire({
+                        title: "¡EXITO!",
+                        text: "¡" + "Los Datos se Guardaron Con Exito" + "!",
+                        type: 'success',
+                        allowOutsideClick: false,
+                    })
+
+                }
+
+            </script>
 </asp:Content>

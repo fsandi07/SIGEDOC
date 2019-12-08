@@ -67,7 +67,7 @@ namespace SIGEDOC.Vistas
                 this.pry.Numero_Licitacion = this.txtLicitacion.Text;
                 this.pry.Id_cliente = int.Parse(this.DptCliente.SelectedValue.ToString());
                 this.pry.Detalle_del_proyecto = this.txtDescripcion.Text;
-                this.pry.Fecha_Proyecto = DateTime.Today;
+                this.pry.Fecha_Proyecto = DateTime.Parse(this.txtfecha.Text);
                 this.pry.Estado_Proyecto = this.dptestado.SelectedValue.ToString();
                 this.pry.Usuario = Usuarios.GloIdUsuario;
                 this.pry.Status_proyecto = "1";

@@ -34,15 +34,21 @@
         <%--  <div class="contenido-tab">--%>
         <div class="contenedor-input">
             <asp:Label ID="lblNombreDoc" runat="server" Text="Nombre del Documento"></asp:Label>
-            <asp:TextBox class="req" ID="txtNombreDoc" runat="server"></asp:TextBox>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" BackColor="#FFCC00" ControlToValidate="txtNombreDoc" ErrorMessage="RequiredFieldValidator">Este campo es requerido</asp:RequiredFieldValidator>
+&nbsp;<asp:TextBox class="req" ID="txtNombreDoc" runat="server"></asp:TextBox>
         </div>
         <div class="contenedor-input">
             <asp:Label ID="lblAsunto" runat="server" Text="Asunto"></asp:Label>
+            &nbsp;&nbsp;&nbsp;
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" BackColor="#FFCC00" ControlToValidate="txtAsunto" ErrorMessage="RequiredFieldValidator">Este campo es requerido</asp:RequiredFieldValidator>
             <asp:TextBox class="req" ID="txtAsunto" runat="server"></asp:TextBox>
         </div>
 
         <div class="contenedor-input">
-            <asp:Label ID="lblDescrip" runat="server" Text="Descripcion"></asp:Label><br />
+            <asp:Label ID="lblDescrip" runat="server" Text="Descripcion"></asp:Label>&nbsp;
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" BackColor="#FFCC00" ControlToValidate="txtDescripcion" ErrorMessage="RequiredFieldValidator">Este campo es requerido</asp:RequiredFieldValidator>
+            <br />
             <asp:TextBox class="form-control form-control-user" runat="server" TextMode="MultiLine" Rows="5" MaxLength="0" Columns="62" BorderColor="#CCB210" CssClass="alert-dark" Width="772px" ID="txtDescripcion"></asp:TextBox>
         </div>
         <div class="contenedor-input">
