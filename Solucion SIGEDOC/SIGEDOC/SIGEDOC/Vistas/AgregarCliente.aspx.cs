@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using SIGEDOC.Negocio;
 using System.Data;
 
@@ -19,42 +15,16 @@ namespace SIGEDOC.Vistas
         // instacias para la insercion de nuevos clientes 
         SIGEDOC.Negocio.Clientes cl = new SIGEDOC.Negocio.Clientes();
         private ClienteHelper clh;
-
         protected void Page_Load(object sender, EventArgs e)
         {
-            //bool Internet = ValidarIntenrt();
-            //if (Internet)
-            //{
-            //    //ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('SI HAY INTERNET');", true);
-            //}
-            //else
-            //{
-            //    ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeEspera2", "mensajeEspera2('" + "" + "');", true);
-            //}
+            Num_Estado_Permiso();
 
-            //Num_Estado_Permiso();
-
-            //if (validar == 0 || Session["Idusuario"] == null)
-            //{
-
-            //    ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeEspera", "mensajeEspera('" + "" + "');", true);
-            //}
-            //else
-            //{
-
-            //}
-        }
-        public bool ValidarIntenrt()
-        {
-            try
+            if (validar == 0 || Session["Idusuario"] == null)
             {
-                System.Net.IPHostEntry host = System.Net.Dns.GetHostEntry("www.google.com");
-
-                return true;
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeEspera", "mensajeEspera('" + "" + "');", true);
             }
-            catch
+            else
             {
-                return false;
             }
         }
         private void Num_Estado_Permiso()
@@ -79,32 +49,42 @@ namespace SIGEDOC.Vistas
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError", "mensajeError('" + "" + "');", true);
             }
         }
-
+        public void Limpiar()
+        {
+            this.txtnombrecliente.Text = null;
+            this.txtnombrecontacto.Text = null;
+            this.txtcorreo.Text = null;
+            this.txttelefono.Text = null;
+            this.LblDetalle.Text = null;            
+            this.txtcorreo.Text = null;
+        }
         protected void BtnCrear_Click(object sender, EventArgs e)
         {
             try
             {
-                this.cl.Nombre_cliente = this.txtnombrecliente.Text;
-                this.cl.Nombre_de_Contacto = this.txtnombrecontacto.Text;
-                this.cl.Telefono_contacto = int.Parse(txttelefono.Text);
-                this.cl.Correo_cliente = this.txtcorreo.Text;
-                this.cl.Detalle_cliente = this.txtobservaciones.Text;
-                this.cl.Idusuario = Usuarios.GloIdUsuario;
-                this.cl.Estado_cliente = "1";
-                this.cl.Opc = 1;
-                this.clh = new ClienteHelper(cl);
-                this.clh.Agregar_Cliente();
-                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeDeconfirmacion", "mensajeDeconfirmacion('" + "" + "');", true);
+                if (this.txtnombrecliente.Text != "" && this.txtcorreo.Text != "" && this.txtnombrecontacto.Text != "")
+                {
+                    this.cl.Nombre_cliente = this.txtnombrecliente.Text;
+                    this.cl.Nombre_de_Contacto = this.txtnombrecontacto.Text;
+                    this.cl.Telefono_contacto = int.Parse(txttelefono.Text);
+                    this.cl.Correo_cliente = this.txtcorreo.Text;
+                    this.cl.Detalle_cliente = this.txtobservaciones.Text;
+                    this.cl.Idusuario = Usuarios.GloIdUsuario;
+                    this.cl.Estado_cliente = "1";
+                    this.cl.Opc = 1;
+                    this.clh = new ClienteHelper(cl);
+                    this.clh.Agregar_Cliente();
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeDeconfirmacion", "mensajeDeconfirmacion('" + "" + "');", true);
+                    Limpiar();
+                }
+                else {
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeErrorDatosVacios() ", "mensajeErrorDatosVacios() ('" + "" + "');", true);
+                }
             }
             catch (Exception)
             {
-
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError", "mensajeError('" + "" + "');", true);
             }
-    
-
-
         }
     }
-
 }

@@ -6,7 +6,6 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using SIGEDOC.Negocio;
 using System.Data;
-
 namespace SIGEDOC.Vistas
 {
     public partial class CrearProyecto : System.Web.UI.Page
@@ -21,30 +20,26 @@ namespace SIGEDOC.Vistas
         private ProyectoHelper pryh;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Num_Estado_Permiso();
+            Num_Estado_Permiso();
 
-            //if (validar == 0 || Session["Idusuario"] == null)
-            //{
-
-            //    ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeEspera", "mensajeEspera('" + "" + "');", true);
-            //}
-            //else
-            //{
-
-            //}
+            if (validar == 0 || Session["Idusuario"] == null)
+            {
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeEspera", "mensajeEspera('" + "" + "');", true);
+            }
+            else
+            {
+            }
         }
-
         private void Num_Estado_Permiso()
         {
             try
             {
                 this.pr.Opc = 1;
                 this.pr.IdRol = Usuarios.GlotIdRol;
-                this.pr.Nom_Per1 = "";
+                this.pr.Nom_Per1 = "Crear Proyecto";
                 this.prh = new PermisosHelper(pr);
                 this.datos = new DataTable();
                 this.datos = this.prh.Estado_Permisos();
-
                 if (datos.Rows.Count >= 0)
                 {
                     DataRow fila = datos.Rows[0];
@@ -55,32 +50,43 @@ namespace SIGEDOC.Vistas
             {
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError", "mensajeError('" + "" + "');", true);
             }
-
-
         }
-
+        public void Limpiar()
+        {
+            this.txtnombreproye.Text = null;
+            this.txtLicitacion.Text = null;
+            this.DptCliente.SelectedValue = null;
+            this.txtDescripcion.Text = null;
+            this.txtfecha.Text = null;
+            this.dptestado = null;           
+        }
         protected void BtnCrear_Click(object sender, EventArgs e)
         {
             try
             {
-                this.pry.Nombre_Proyecto = this.txtnombreproye.Text;
-                this.pry.Numero_Licitacion = this.txtLicitacion.Text;
-                this.pry.Id_cliente = int.Parse(this.DptCliente.SelectedValue.ToString());
-                this.pry.Detalle_del_proyecto = this.txtDescripcion.Text;
-                this.pry.Fecha_Proyecto = DateTime.Parse(this.txtfecha.Text);
-                this.pry.Estado_Proyecto = this.dptestado.SelectedValue.ToString();
-                this.pry.Usuario = Usuarios.GloIdUsuario;
-                this.pry.Status_proyecto = "1";
-                this.pry.Opc = 1;
-                this.pryh = new ProyectoHelper(pry);
-                this.pryh.Agregar_Proyecto();
-                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeDeconfirmacion", "mensajeDeconfirmacion('" + "" + "');", true);
+                if (this.txtnombreproye.Text != "" && this.txtLicitacion.Text != "")
+                {
+                    this.pry.Nombre_Proyecto = this.txtnombreproye.Text;
+                    this.pry.Numero_Licitacion = this.txtLicitacion.Text;
+                    this.pry.Id_cliente = int.Parse(this.DptCliente.SelectedValue.ToString());
+                    this.pry.Detalle_del_proyecto = this.txtDescripcion.Text;
+                    this.pry.Fecha_Proyecto = DateTime.Parse(this.txtfecha.Text);
+                    this.pry.Estado_Proyecto = this.dptestado.SelectedValue.ToString();
+                    this.pry.Usuario = Usuarios.GloIdUsuario;
+                    this.pry.Status_proyecto = "1";
+                    this.pry.Opc = 1;
+                    this.pryh = new ProyectoHelper(pry);
+                    this.pryh.Agregar_Proyecto();
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeDeconfirmacion", "mensajeDeconfirmacion('" + "" + "');", true);
+                    Limpiar();
+                }
+                else {
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeErrorDatosVacios() ", "mensajeErrorDatosVacios() ('" + "" + "');", true);
+                }
             }
             catch (Exception ex)
             {
-                this.txtDescripcion.Text = ex.Message;
-                //ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError", "mensajeError('" + "" + "');", true);
-
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError() ", "mensajeError() ('" + "" + "');", true);
             }
         }
     }

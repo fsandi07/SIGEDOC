@@ -25,7 +25,7 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body onload="startTime()">
+<body onload="startTime()" >
     <form id="form1" runat="server">
         <!-- Page Wrapper -->
         <div id="wrapper">

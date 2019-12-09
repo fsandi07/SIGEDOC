@@ -1,5 +1,4 @@
 ﻿using System;
-
 //Agregar 
 using System.Data;
 using System.Data.SqlClient;
@@ -9,33 +8,23 @@ namespace MVC.Modelo
     public class Datos
     {
         #region Declaracion de Variables
-
         SqlConnection cnnConexion = null;
         SqlCommand cmdComando = null;
         SqlDataAdapter daAdaptador = null;
         DataTable Dtt = null;
         string strCadenaConexion = string.Empty;
-
         #endregion
-
         #region Constructor
-
         public Datos()
         {
             strCadenaConexion = @"Data Source=SQL5041.site4now.net;Initial Catalog=DB_A4DE45_SIGEDOC;User Id=DB_A4DE45_SIGEDOC_admin;Password=sigedoc2019;";
         }
-
-
-
         #endregion
 
         #region Metodos a Ejecutar
-
-
         public void EjecutarSP(SqlParameter[] parParametros, string parSPName)
         {
             // dtDatos = new DataSet();
-
             try
             {
                 //Instanciamos el objeto conexion con la cadena de conexion.
@@ -53,30 +42,17 @@ namespace MVC.Modelo
                 cmdComando.Parameters.AddRange(parParametros);
                 //Ejecutamos el TSQL(Transaction SQL) en el servidor.
                 cmdComando.ExecuteNonQuery();
-
-
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
-
             finally
             {
                 cnnConexion.Dispose();
                 cmdComando.Dispose();
-
             }
-
         }
-
-
-
-
-
-
-
-
         public DataTable RetornaTabla(SqlParameter[] parParametros, string parTSQL)
         {
             Dtt = null;
@@ -111,10 +87,6 @@ namespace MVC.Modelo
             }
             return Dtt;
         }
-
-
         #endregion
-
-
     }
 }

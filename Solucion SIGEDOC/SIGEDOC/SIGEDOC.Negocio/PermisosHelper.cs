@@ -1,36 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 //librerias agrgadas 
 using System.Data.SqlClient;
 using MVC.Modelo;
 using System.Data;
-using System.IO;
-
 namespace SIGEDOC.Negocio
 {
-   public class PermisosHelper
+    public class PermisosHelper
     {
         Datos cnGneral = null;
         DataTable tbldatos = null;
         Permisos objPermisos;
-
         public PermisosHelper(Permisos parObjPermisos)
         {
             objPermisos = parObjPermisos;
         }
-
         public DataTable Numero_Rol()
         {
             tbldatos = new DataTable();
             try
             {
                 cnGneral = new Datos();
-
                 SqlParameter[] parParameter = new SqlParameter[1];
-
                 parParameter[0] = new SqlParameter();
                 parParameter[0].ParameterName = "@opcion";
                 parParameter[0].SqlDbType = SqlDbType.Int;
@@ -44,7 +34,6 @@ namespace SIGEDOC.Negocio
 
             return tbldatos;
         }
-
         public void IngresaPermiso()
         {
             try
@@ -317,7 +306,6 @@ namespace SIGEDOC.Negocio
                 throw new Exception(ex.Message);
             }
         }
-
         public void IngresarRoles()
         {
             try

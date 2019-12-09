@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using SIGEDOC.Negocio;
-using System.Data;
-
 namespace SIGEDOC.Vistas
 {
     public partial class Menu : System.Web.UI.MasterPage
@@ -32,6 +26,28 @@ namespace SIGEDOC.Vistas
             this.LblNick.Text = Usuarios.GloNicname;
             this.LblCorreo.Text = Usuarios.GloCorreo;
             this.LblContacto.Text = Usuarios.GloContacto.ToString();
+            bool Internet = ValidarIntenrt();
+            if (Internet)
+            {
+                //ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('SI HAY INTERNET');", true);
+            }
+            else
+            {
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeEspera2", "mensajeEspera2('" + "" + "');", true);
+            }
+        }
+        public bool ValidarIntenrt()
+        {
+            try
+            {
+                System.Net.IPHostEntry host = System.Net.Dns.GetHostEntry("www.google.com");
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
         protected void insertarMovimiento()
         {
@@ -58,7 +74,7 @@ namespace SIGEDOC.Vistas
         }
         protected void BtnSalir_Click(object sender, EventArgs e)
         {
-            insertarMovimiento();        
+            insertarMovimiento();
             Response.Redirect("Login.aspx");
         }
         protected void btnusuarios_Click(object sender, EventArgs e)
@@ -102,7 +118,7 @@ namespace SIGEDOC.Vistas
                     this.usu.Nombre_usuario = this.txtnombre.Text;
                     this.usu.Apellidos = this.txtapellido.Text;
                     this.usu.Cedula_usuario = Usuarios.GloIdUsuario;
-                    this.usu.Correo_usuario = this.txtcorreo.Text;                   
+                    this.usu.Correo_usuario = this.txtcorreo.Text;
                     this.usu.Contacto_usuario = int.Parse(this.txtcontacto.Text);
                     this.usu.Idusuario = Usuarios.GloIdUsuario;
                     this.usu.Clave_usuario = this.txtClave1.Text;

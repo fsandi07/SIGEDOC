@@ -21,30 +21,28 @@ namespace SIGEDOC.Vistas
         private static int cCostos;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Num_Estado_Permiso();
+            Num_Estado_Permiso();
 
-            //if (validar == 0 || Session["Idusuario"] == null)
-            //{
+            if (validar == 0 || Session["Idusuario"] == null)
+            {
 
-            //    ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeEspera", "mensajeEspera('" + "" + "');", true);
-            //}
-            //else
-            //{
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeEspera", "mensajeEspera('" + "" + "');", true);
+            }
+            else
+            {
 
-            //}
+            }
         }
-
         private void Num_Estado_Permiso()
         {
             try
             {
                 this.pr.Opc = 1;
                 this.pr.IdRol = Usuarios.GlotIdRol;
-                this.pr.Nom_Per1 = "";
+                this.pr.Nom_Per1 = "Consultar Proyecto";
                 this.prh = new PermisosHelper(pr);
                 this.datos = new DataTable();
                 this.datos = this.prh.Estado_Permisos();
-
                 if (datos.Rows.Count >= 0)
                 {
                     DataRow fila = datos.Rows[0];
@@ -55,11 +53,7 @@ namespace SIGEDOC.Vistas
             {
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError", "mensajeError('" + "" + "');", true);
             }
-
-
-
         }
-
         protected void GridProyectos_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -80,7 +74,6 @@ namespace SIGEDOC.Vistas
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError", "mensajeError('" + "" + "');", true);
             }
         }
-
         protected void btnActalizar_Click(object sender, EventArgs e)
         {
             if (IsValid)
@@ -100,12 +93,10 @@ namespace SIGEDOC.Vistas
                 }
                 catch (Exception)
                 {
-
                     ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError", "mensajeError('" + "" + "');", true);
                 }
             }
         }
-
         protected void GridProyectos_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
@@ -123,11 +114,9 @@ namespace SIGEDOC.Vistas
                     e.Row.ForeColor = System.Drawing.Color.Black;
                     e.Row.BackColor = System.Drawing.Color.Red;
                     e.Row.Font.Bold = true;
-
                 }
             }
         }
-
         protected void DptnombreProtyecto_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -143,11 +132,8 @@ namespace SIGEDOC.Vistas
             catch (Exception ex)
             {
                 this.lblcentrocostos.Text = ex.Message;
-
             }
-
         }
-
         protected void Dptcentrocostos_SelectedIndexChanged1(object sender, EventArgs e)
         {
             try

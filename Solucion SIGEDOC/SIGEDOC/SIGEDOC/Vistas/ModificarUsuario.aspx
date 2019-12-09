@@ -1,9 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Vistas/Menu.Master" AutoEventWireup="true" CodeBehind="ModificarUsuario.aspx.cs" Inherits="SIGEDOC.Vistas.ModificarUsuario" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Raleway|Ubuntu" rel="stylesheet">
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -15,9 +13,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
-
-
-
     <style type="text/css">
         .auto-style1 {
             color: #2f3037;
@@ -28,81 +23,77 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="card shadow mb-4">
-        <div class="card-body">
-            <a href="#collapseCardExample1" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="False" aria-controls="collapseCardExample">
-                <asp:Label ID="Label1" runat="server" Text="Label" ForeColor="#993300" Font-Bold="True">Ver Usuarios</asp:Label>
-            </a>
-            <div class="collapse show" id="collapseCardExample1">
-    <div class="contenedor-Grid">
-        <asp:GridView ID="GridUsuarios" runat="server" AutoGenerateColumns="False" CellPadding="5" DataKeyNames="cedulaUsu" DataSourceID="SqlDataUsuario" ForeColor="#333333" GridLines="Vertical" OnSelectedIndexChanged="GridUsuarios_SelectedIndexChanged" CssClass="auto-style1" Width="978px" BorderColor="#003300" BorderStyle="None" OnRowDataBound="GridUsuarios_RowDataBound">
-            <AlternatingRowStyle BackColor="White" />
-            <Columns>
-                <asp:CommandField HeaderText="Editar" SelectText="&lt;i class='fas fa-edit'&gt;&lt;/i&gt;" ShowSelectButton="True" />
-                <asp:BoundField DataField="cedulaUsu" HeaderText="Cedula" ReadOnly="True" SortExpression="cedulaUsu" />
-                <asp:BoundField DataField="nombreUsu" HeaderText="Nombre" SortExpression="nombreUsu" />
-                <asp:BoundField DataField="apellidosUsu" HeaderText="Apellido" SortExpression="apellidosUsu" />
-                <asp:BoundField DataField="nicknameUsu" HeaderText="Nickname" SortExpression="nicknameUsu" />
-                <asp:BoundField DataField="correoElectUsu" HeaderText="Correo" SortExpression="correoElectUsu" />
-                <asp:BoundField DataField="nombreRol" HeaderText="Rol" SortExpression="nombreRol" />
-                <asp:BoundField DataField="idRol" HeaderText="idRol" SortExpression="idRol" />
-                <asp:BoundField DataField="estadoUsu" HeaderText="Estado" SortExpression="estadoUsu" />
-                <asp:BoundField DataField="contactoUsu" HeaderText="Telefono" SortExpression="contactoUsu" />
-            </Columns>
-            <EditRowStyle BackColor="#2461BF" BorderStyle="Solid" HorizontalAlign="Center" VerticalAlign="Middle" />
-            <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-            <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" VerticalAlign="Middle" />
-            <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-            <RowStyle BackColor="#EFF3FB" />
-            <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-            <SortedAscendingCellStyle BackColor="#F5F7FB" />
-            <SortedAscendingHeaderStyle BackColor="#6D95E1" />
-            <SortedDescendingCellStyle BackColor="#E9EBEF" />
-            <SortedDescendingHeaderStyle BackColor="#4870BE" />
-        </asp:GridView>
-
-             </div>
-        </div>
-    </div>
-        <asp:SqlDataSource ID="SqlDataUsuario" runat="server" ConnectionString="<%$ ConnectionStrings:DB_A4DE45_SIGEDOCConnectionString %>" SelectCommand="select  a.cedulaUsu, a.nombreUsu,a.apellidosUsu,a.nicknameUsu,a.correoElectUsu,b.nombreRol,a.idRol,a.estadoUsu,a.contactoUsu 
+    <div class="contenedor-formularios">
+        <div class="card shadow mb-4">
+            <div class="card-body">
+                <a href="#collapseCardExample1" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="False" aria-controls="collapseCardExample">
+                    <asp:Label ID="Label1" runat="server" Text="Label" ForeColor="#993300" Font-Bold="True">Ver Usuarios</asp:Label>
+                </a>
+                <div class="collapse show" id="collapseCardExample1">
+                    <div class="contenedor-Grid">
+                        <asp:GridView ID="GridUsuarios" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="cedulaUsu" DataSourceID="SqlDataUsuario" ForeColor="Black" OnSelectedIndexChanged="GridUsuarios_SelectedIndexChanged" CssClass="auto-style1" Width="854px" BorderColor="#999999" BorderStyle="Solid" OnRowDataBound="GridUsuarios_RowDataBound" BackColor="#CCCCCC" BorderWidth="3px" CellSpacing="2">
+                            <Columns>
+                                <asp:CommandField HeaderText="Editar" SelectText="&lt;i class='fas fa-edit'&gt;&lt;/i&gt;" ShowSelectButton="True" />
+                                <asp:BoundField DataField="cedulaUsu" HeaderText="Cedula" ReadOnly="True" SortExpression="cedulaUsu" />
+                                <asp:BoundField DataField="nombreUsu" HeaderText="Nombre" SortExpression="nombreUsu" />
+                                <asp:BoundField DataField="apellidosUsu" HeaderText="Apellido" SortExpression="apellidosUsu" />
+                                <asp:BoundField DataField="nicknameUsu" HeaderText="Nickname" SortExpression="nicknameUsu" />
+                                <asp:BoundField DataField="correoElectUsu" HeaderText="Correo" SortExpression="correoElectUsu" />
+                                <asp:BoundField DataField="nombreRol" HeaderText="Rol" SortExpression="nombreRol" />
+                                <asp:BoundField DataField="idRol" HeaderText="idRol" SortExpression="idRol" />
+                                <asp:BoundField DataField="estadoUsu" HeaderText="Estado" SortExpression="estadoUsu" />
+                                <asp:BoundField DataField="contactoUsu" HeaderText="Telefono" SortExpression="contactoUsu" />
+                            </Columns>
+                            <EditRowStyle BorderStyle="Solid" HorizontalAlign="Center" VerticalAlign="Middle" />
+                            <FooterStyle BackColor="#CCCCCC" />
+                            <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" VerticalAlign="Middle" />
+                            <PagerStyle BackColor="#CCCCCC" ForeColor="Black" HorizontalAlign="Left" />
+                            <RowStyle BackColor="White" HorizontalAlign="Center" VerticalAlign="Middle" />
+                            <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+                            <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                            <SortedAscendingHeaderStyle BackColor="#808080" />
+                            <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                            <SortedDescendingHeaderStyle BackColor="#383838" />
+                        </asp:GridView>
+                    </div>
+                </div>
+            </div>
+            <asp:SqlDataSource ID="SqlDataUsuario" runat="server" ConnectionString="<%$ ConnectionStrings:DB_A4DE45_SIGEDOCConnectionString %>" SelectCommand="select  a.cedulaUsu, a.nombreUsu,a.apellidosUsu,a.nicknameUsu,a.correoElectUsu,b.nombreRol,a.idRol,a.estadoUsu,a.contactoUsu 
 from TbUsuario a, TbRol b
 where a.idRol = b.IdRol "></asp:SqlDataSource>
-
-        <asp:SqlDataSource ID="SqlDataRol" runat="server" ConnectionString="<%$ ConnectionStrings:DB_A4DE45_SIGEDOCConnectionString %>" SelectCommand="SELECT [nombreRol], [IdRol] FROM [TbRol]"></asp:SqlDataSource>
-    </div>
-    <%-- grid para busquedas --%>
-
-    <div class="card shadow mb-4">
-        <div class="card-body">
-            <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="False" aria-controls="collapseCardExample">
-                <asp:Label ID="Lblhead" runat="server" Text="Label" ForeColor="#993300" Font-Bold="True">Buscar Usuario</asp:Label>
-            </a>
-            <div class="collapse show" id="collapseCardExample">
-                <asp:Label ID="lblbuscarUsuario" runat="server" Text="Buscar por Nombre "></asp:Label>
-                <asp:DropDownList ID="DptBuscarUsuario" runat="server" AutoPostBack="True" DataSourceID="SqlDataBuscarusu" DataTextField="nombreUsu" DataValueField="nombreUsu" OnSelectedIndexChanged="DptBuscarUsuario_SelectedIndexChanged"></asp:DropDownList>
-                <asp:SqlDataSource ID="SqlDataBuscarusu" runat="server" ConnectionString="<%$ ConnectionStrings:DB_A4DE45_SIGEDOCConnectionString %>" SelectCommand="SELECT [nombreUsu] FROM [TbUsuario]"></asp:SqlDataSource>
-                <asp:Label ID="lblbusacarUsu2" runat="server" Text="Buscar por estado del Usuario"></asp:Label>
-                <asp:DropDownList ID="Dptbuscar2" runat="server" AutoPostBack="True" OnSelectedIndexChanged="Dptbuscar2_SelectedIndexChanged">
-                    <asp:ListItem Value="1">Activo</asp:ListItem>
-                    <asp:ListItem Value="2">Inactivo</asp:ListItem>
-                </asp:DropDownList>
-                <asp:GridView ID="GridBusquedaUsuarios" runat="server" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical">
-                    <AlternatingRowStyle BackColor="#CCCCCC" />
-                    <FooterStyle BackColor="#CCCCCC" />
-                    <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
-                    <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
-                    <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
-                    <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                    <SortedAscendingHeaderStyle BackColor="#808080" />
-                    <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                    <SortedDescendingHeaderStyle BackColor="#383838" />
-                </asp:GridView>
+            <asp:SqlDataSource ID="SqlDataRol" runat="server" ConnectionString="<%$ ConnectionStrings:DB_A4DE45_SIGEDOCConnectionString %>" SelectCommand="SELECT [nombreRol], [IdRol] FROM [TbRol]"></asp:SqlDataSource>
+        </div>
+        <%-- grid para busquedas --%>
+        <div class="card shadow mb-4">
+            <div class="card-body">
+                <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="False" aria-controls="collapseCardExample">
+                    <asp:Label ID="Lblhead" runat="server" Text="Label" ForeColor="#993300" Font-Bold="True">Buscar Usuario</asp:Label>
+                </a>
+                <div class="collapse show" id="collapseCardExample">
+                    <asp:Label ID="lblbuscarUsuario" runat="server" Text="Buscar por Nombre "></asp:Label>
+                    <asp:DropDownList ID="DptBuscarUsuario" runat="server" AutoPostBack="True" DataSourceID="SqlDataBuscarusu" DataTextField="nombreUsu" DataValueField="nombreUsu" OnSelectedIndexChanged="DptBuscarUsuario_SelectedIndexChanged"></asp:DropDownList>
+                    <asp:SqlDataSource ID="SqlDataBuscarusu" runat="server" ConnectionString="<%$ ConnectionStrings:DB_A4DE45_SIGEDOCConnectionString %>" SelectCommand="SELECT [nombreUsu] FROM [TbUsuario]"></asp:SqlDataSource>
+                    <asp:Label ID="lblbusacarUsu2" runat="server" Text="Buscar por estado del Usuario"></asp:Label>
+                    <asp:DropDownList ID="Dptbuscar2" runat="server" AutoPostBack="True" OnSelectedIndexChanged="Dptbuscar2_SelectedIndexChanged">
+                        <asp:ListItem Value="1">Activo</asp:ListItem>
+                        <asp:ListItem Value="2">Inactivo</asp:ListItem>
+                    </asp:DropDownList>
+                    <asp:GridView ID="GridBusquedaUsuarios" runat="server" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical">
+                        <AlternatingRowStyle BackColor="#CCCCCC" />
+                        <FooterStyle BackColor="#CCCCCC" />
+                        <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
+                        <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+                        <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+                        <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                        <SortedAscendingHeaderStyle BackColor="#808080" />
+                        <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                        <SortedDescendingHeaderStyle BackColor="#383838" />
+                    </asp:GridView>
+                </div>
             </div>
         </div>
     </div>
     <%-- Grid para busquedas   --%>
-
-
     <%-- inicio de modal--%>
     <div class="modal fade" id="ModalUsuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -141,20 +132,15 @@ where a.idRol = b.IdRol "></asp:SqlDataSource>
             </div>
         </div>
     </div>
-
     <script type="text/javascript">
-
         function mensajeEspera() {
             let timerInterval
             Swal.fire({
                 title: '¡Acceso Denegado!, no cuenta con los permisos para Aceder a este Modulo,contacte al Administrador',
-
                 timer: 4000,
                 allowOutsideClick: false,
                 onBeforeOpen: () => {
-
                     Swal.showLoading()
-
                     timerInterval = setInterval(() => {
                         Swal.getContent().querySelector('strong')
                             .textContent = (Swal.getTimerLeft() / 1000)
@@ -164,13 +150,9 @@ where a.idRol = b.IdRol "></asp:SqlDataSource>
                 onClose: () => {
                     clearInterval(timerInterval)
                 }
-
             })
-
-
             window.setTimeout('location.href="Menu.aspx"', 4000)
         }
-
         // mensaje de error
         function mensajeError() {
             swal.fire({
@@ -181,10 +163,8 @@ where a.idRol = b.IdRol "></asp:SqlDataSource>
                 showConfirmButton: false,
                 allowOutsideClick: false,
                 timer: 4000,
-
             })
         }
-
         //mensaje de conrfimacion
         function mensajeDeconfirmacion() {
             swal.fire({
@@ -192,13 +172,8 @@ where a.idRol = b.IdRol "></asp:SqlDataSource>
                 text: "¡" + "Los Datos se Guardaron Con Exito" + "!",
                 type: 'success',
                 allowOutsideClick: false,
-
             })
             window.setTimeout('location.href="ModificarUsuario.aspx"', 3000)
-
         }
-
     </script>
-
-
 </asp:Content>

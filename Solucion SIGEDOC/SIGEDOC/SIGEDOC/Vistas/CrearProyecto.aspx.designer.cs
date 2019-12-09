@@ -7,11 +7,13 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace SIGEDOC.Vistas {
-    
-    
-    public partial class CrearProyecto {
-        
+namespace SIGEDOC.Vistas
+{
+
+
+    public partial class CrearProyecto
+    {
+
         /// <summary>
         /// Control Lblnombreproyecto.
         /// </summary>
@@ -20,16 +22,7 @@ namespace SIGEDOC.Vistas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Lblnombreproyecto;
-        
-        /// <summary>
-        /// Control RequiredFieldValidator2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
-        
+
         /// <summary>
         /// Control txtnombreproye.
         /// </summary>
@@ -38,7 +31,7 @@ namespace SIGEDOC.Vistas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtnombreproye;
-        
+
         /// <summary>
         /// Control Lbllicitacion.
         /// </summary>
@@ -47,16 +40,7 @@ namespace SIGEDOC.Vistas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Lbllicitacion;
-        
-        /// <summary>
-        /// Control RequiredFieldValidator3.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
-        
+
         /// <summary>
         /// Control txtLicitacion.
         /// </summary>
@@ -65,7 +49,7 @@ namespace SIGEDOC.Vistas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtLicitacion;
-        
+
         /// <summary>
         /// Control DptCliente.
         /// </summary>
@@ -74,7 +58,7 @@ namespace SIGEDOC.Vistas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DptCliente;
-        
+
         /// <summary>
         /// Control SqlDataCliente.
         /// </summary>
@@ -83,7 +67,7 @@ namespace SIGEDOC.Vistas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataCliente;
-        
+
         /// <summary>
         /// Control Label6.
         /// </summary>
@@ -92,16 +76,7 @@ namespace SIGEDOC.Vistas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label6;
-        
-        /// <summary>
-        /// Control RequiredFieldValidator4.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
-        
+
         /// <summary>
         /// Control txtDescripcion.
         /// </summary>
@@ -110,7 +85,7 @@ namespace SIGEDOC.Vistas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDescripcion;
-        
+
         /// <summary>
         /// Control Label7.
         /// </summary>
@@ -119,16 +94,7 @@ namespace SIGEDOC.Vistas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label7;
-        
-        /// <summary>
-        /// Control RequiredFieldValidator5.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
-        
+
         /// <summary>
         /// Control txtfecha.
         /// </summary>
@@ -137,7 +103,7 @@ namespace SIGEDOC.Vistas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtfecha;
-        
+
         /// <summary>
         /// Control dptestado.
         /// </summary>
@@ -146,7 +112,7 @@ namespace SIGEDOC.Vistas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList dptestado;
-        
+
         /// <summary>
         /// Control BtnCrear.
         /// </summary>

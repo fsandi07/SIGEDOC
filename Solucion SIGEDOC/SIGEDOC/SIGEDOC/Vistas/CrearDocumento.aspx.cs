@@ -1,52 +1,41 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Reflection;
 using System.Diagnostics;
 using System.IO;
-using System.Threading;
-using System.Web.Services;
 using SIGEDOC.Negocio;
 using System.Data;
-
 namespace SIGEDOC.Vistas
 {
     public partial class CrearDocumento : System.Web.UI.Page
     {
-
         // instacia del hepler para los permisos de cada rol
         SIGEDOC.Negocio.Permisos pr = new SIGEDOC.Negocio.Permisos();
         private PermisosHelper prh;
         private static int validar;
-
         SIGEDOC.Negocio.CrearDocumento cd = new SIGEDOC.Negocio.CrearDocumento();
         private CrearDocHelper cdh;
         private DataTable datos;
-
         public static int numcosecu;
         public static int numtotaldocu;
         private static int id_cliente;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Num_Estado_Permiso();
+            Num_Estado_Permiso();
 
-            //if (validar == 0 || Session["Idusuario"] == null)
-            //{
+            if (validar == 0 || Session["Idusuario"] == null)
+            {
 
-            //    ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeEspera", "mensajeEspera('" + "" + "');", true);
-            //}
-            //else
-            //{
-             
-            //}
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeEspera", "mensajeEspera('" + "" + "');", true);
+            }
+            else
+            {
+            }
             for (int i = 2010; i <= 2050; i++)
             {
                 dptPeriodo.Items.Add(new ListItem(i.ToString(), i.ToString()));
             }
-
         }
         private void Num_Estado_Permiso()
         {
@@ -58,7 +47,6 @@ namespace SIGEDOC.Vistas
                 this.prh = new PermisosHelper(pr);
                 this.datos = new DataTable();
                 this.datos = this.prh.Estado_Permisos();
-
                 if (datos.Rows.Count >= 0)
                 {
                     DataRow fila = datos.Rows[0];
@@ -69,18 +57,14 @@ namespace SIGEDOC.Vistas
             {
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError", "mensajeError('" + "" + "');", true);
             }
-
-
         }        
         public void Limpiar()
         {
-
             this.txtNombreDoc.Text = null;
             this.txtAsunto.Text = null;
             this.txtDescripcion.Text = null;
             this.txtCenCos.Text = null;
             this.txtReferencia.Text = null;
-
         }
         private void FindAndReplace(Microsoft.Office.Interop.Word.Application wordApp, object ToFindText, object replaceWithText)
         {
@@ -99,8 +83,6 @@ namespace SIGEDOC.Vistas
             object visible = true;
             object replace = 2;
             object wrap = 1;
-
-
             wordApp.Selection.Find.Execute(ref ToFindText,
                 ref matchCase, ref matchWholeWord,
                 ref matchWildCards, ref matchSoundLike,
@@ -116,7 +98,6 @@ namespace SIGEDOC.Vistas
             Microsoft.Office.Interop.Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();
             object missing = Missing.Value;
             Microsoft.Office.Interop.Word.Document myWordDoc = null;
-
             if (File.Exists((string)filename))
             {
                 object readOnly = false;
@@ -160,8 +141,7 @@ namespace SIGEDOC.Vistas
             }
             catch (Exception)
             {
-                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError", "mensajeError('" + "" + "');", true);
-
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeErrorMachote", "mensajeErrorMachote('" + "" + "');", true);
             }
         }
         protected void BtnGuardar_Click(object sender, EventArgs e)
@@ -173,7 +153,10 @@ namespace SIGEDOC.Vistas
                     if (!FileSubirWord.HasFile)
                     {
                         ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeErrorDocumento", "mensajeErrorDocumento('" + "" + "');", true);
-                    }
+                    //    if (this.txtNombreDoc.Text!="" && this.txtAsunto.Text!=""&& this.txtDescripcion.Text !="" ) {
+                    //        ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeErrorDatosVacios", "mensajeErrorDatosVacios('" + "" + "');", true);
+                    //    }
+                    //}
                     else
                     {
                         Num_IdCliente();
@@ -209,12 +192,6 @@ namespace SIGEDOC.Vistas
                // ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError", "mensajeError('" + "" + "');", true);
             }
         }
-
-        protected void BtnPrueba_Click(object sender, EventArgs e)
-        {
-            //Num_consecu();
-        }
-
         private void Num_consecu()
         {
             try
@@ -224,7 +201,6 @@ namespace SIGEDOC.Vistas
                 this.cdh = new CrearDocHelper(cd);
                 this.datos = new DataTable();               
                 this.datos = this.cdh.Numero_Consecutivo();              
-
                 if (datos.Rows.Count > 0)
                 {
                     DataRow fila = datos.Rows[0];
@@ -253,11 +229,8 @@ namespace SIGEDOC.Vistas
             catch (Exception ex)
             {
                 this.txtDescripcion.Text = ex.Message;
-
             }
         }
-     
-
         private void Num_IdCliente()
         {
             try
@@ -267,20 +240,17 @@ namespace SIGEDOC.Vistas
                 this.cdh = new CrearDocHelper(cd);
                 this.datos = new DataTable();
                 this.datos = this.cdh.Numero_Consecutivo();
-
                 if (datos.Rows.Count >= 0)
                 {
                     DataRow fila = datos.Rows[0];
                     id_cliente = int.Parse(fila["idCliente"].ToString());
                 }
             }
-
             catch (Exception ex)
             {
                 this.txtDescripcion.Text = ex.Message;
             }
         }
-
         private void Num_Total_Documento()
         {
             try
@@ -289,21 +259,17 @@ namespace SIGEDOC.Vistas
                 this.cdh = new CrearDocHelper(cd);
                 this.datos = new DataTable();
                 this.datos = this.cdh.Numero_total_Doc();
-
                 if (datos.Rows.Count > 0)
                 {
                     DataRow fila = datos.Rows[0];
                     numtotaldocu = int.Parse(fila["numtotaldocu"].ToString());
                 }
             }
-
             catch (Exception ex)
             {
                 this.txtDescripcion.Text = ex.Message;
             }
         }
-
-
         protected void dptProyecto_SelectedIndexChanged(object sender, EventArgs e)
         {
             Num_consecu();

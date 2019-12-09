@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using SIGEDOC.Negocio;
@@ -15,28 +12,23 @@ namespace SIGEDOC.Vistas
         private PermisosHelper prh;
         private DataTable datos;
         private static int validar;
+        private static int validarModificacion;
         // variable global para capturar id de cliente y poderlo actualizar
         private static int idcliente;
-
         // instacias para la actualizacion de nuevos clientes 
         SIGEDOC.Negocio.Clientes cl = new SIGEDOC.Negocio.Clientes();
         private ClienteHelper clh;
-
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Num_Estado_Permiso();
-
-            //if (validar == 0 || Session["Idusuario"] == null)
-            //{
-
-            //    ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeEspera", "mensajeEspera('" + "" + "');", true);
-            //}
-            //else
-            //{
-
-            //}
+            Num_Estado_Permiso();
+            if (validar == 0 || Session["Idusuario"] == null)
+            {
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeEspera", "mensajeEspera('" + "" + "');", true);
+            }
+            else
+            {
+            }
         }
-
         private void Num_Estado_Permiso()
         {
             try
@@ -58,11 +50,29 @@ namespace SIGEDOC.Vistas
             {
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError", "mensajeError('" + "" + "');", true);
             }
-
-
-
         }
+        private void Num_Estado_Permiso_Modificar()
+        {
+            try
+            {
+                this.pr.Opc = 1;
+                this.pr.IdRol = Usuarios.GlotIdRol;
+                this.pr.Nom_Per1 = "Modificar Cliente";
+                this.prh = new PermisosHelper(pr);
+                this.datos = new DataTable();
+                this.datos = this.prh.Estado_Permisos();
 
+                if (datos.Rows.Count >= 0)
+                {
+                    DataRow fila = datos.Rows[0];
+                    validarModificacion = int.Parse(fila["estadoPermiso"].ToString());
+                }
+            }
+            catch (Exception)
+            {
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError", "mensajeError('" + "" + "');", true);
+            }
+        }
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
             ScriptManager.RegisterStartupScript(Page, Page.GetType(), "ModalCliente", "$('#ModalCliente').modal();", true);
@@ -82,43 +92,40 @@ namespace SIGEDOC.Vistas
             {
                 this.dptestado.SelectedValue = "1";
                 this.dptestado.Items.FindByText("Activo").Selected = true;
-
             }
-
         }
-
         protected void btnActualizar_Click(object sender, EventArgs e)
         {
             if (IsValid)
             {
-                try
+                Num_Estado_Permiso_Modificar();
+                if (validarModificacion == 1)
                 {
-                    this.cl.Nombre_cliente = this.txtnombre.Text;
-                    this.cl.Nombre_de_Contacto = this.txtencargado.Text;
-                    this.cl.Idcliente = idcliente;
-                    this.cl.Telefono_contacto = int.Parse(this.txttelefono.Text);
-                    this.cl.Correo_cliente = this.txtcorreo.Text;
-                    this.cl.Detalle_cliente = this.txtdetalle.Text;
-                    this.cl.Estado_cliente = this.dptestado.SelectedValue;
-                    this.cl.Idusuario = Usuarios.GloIdUsuario;
-                    this.cl.Opc = 3;
-                    this.clh = new ClienteHelper(cl);
-                    this.clh.Actualizar_Cliente();
-                    ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeDeconfirmacion", "mensajeDeconfirmacion('" + "" + "');", true);
-
-
+                    try
+                    {
+                        this.cl.Nombre_cliente = this.txtnombre.Text;
+                        this.cl.Nombre_de_Contacto = this.txtencargado.Text;
+                        this.cl.Idcliente = idcliente;
+                        this.cl.Telefono_contacto = int.Parse(this.txttelefono.Text);
+                        this.cl.Correo_cliente = this.txtcorreo.Text;
+                        this.cl.Detalle_cliente = this.txtdetalle.Text;
+                        this.cl.Estado_cliente = this.dptestado.SelectedValue;
+                        this.cl.Idusuario = Usuarios.GloIdUsuario;
+                        this.cl.Opc = 3;
+                        this.clh = new ClienteHelper(cl);
+                        this.clh.Actualizar_Cliente();
+                        ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeDeconfirmacion", "mensajeDeconfirmacion('" + "" + "');", true);
+                    }
+                    catch (Exception)
+                    {
+                        ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError", "mensajeError('" + "" + "');", true);
+                    }
                 }
-                catch (Exception)
-                {
-
-                    ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError", "mensajeError('" + "" + "');", true);
+                else {
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeEspera", "mensajeEspera('" + "" + "');", true);                    
                 }
-
-
             }
-
         }
-
         protected void GridCliente_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
@@ -134,15 +141,10 @@ namespace SIGEDOC.Vistas
                 }
                 else
                 {
-
                     e.Row.Cells[7].Text = "Activo";
-
                 }
-
             }
-
         }
-
         protected void DptbuscarCliente_SelectedIndexChanged(object sender, EventArgs e)
         {
             try

@@ -1,17 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 //librerias agregadas
 using System.Data.SqlClient;
 using MVC.Modelo;
 using System.Data;
-using System.IO;
 
 namespace SIGEDOC.Negocio
 {
-   public class UsuarioHelper
+    public class UsuarioHelper
     {
         Datos cnGeneral = null;
         DataTable tblDatos = null;
@@ -27,14 +22,11 @@ namespace SIGEDOC.Negocio
             try
             {
                 cnGeneral = new Datos();
-
                 SqlParameter[] parParameter = new SqlParameter[3];
-
                 parParameter[0] = new SqlParameter();
                 parParameter[0].ParameterName = "@opcion";
                 parParameter[0].SqlDbType = SqlDbType.Int;
                 parParameter[0].SqlValue = objUsuarios.Opc;
-
                 // validar usuarios.
                 parParameter[1] = new SqlParameter();
                 parParameter[1].ParameterName = "@nicknameUsu";
@@ -47,30 +39,21 @@ namespace SIGEDOC.Negocio
                 parParameter[2].SqlDbType = SqlDbType.VarChar;
                 parParameter[2].Size = 50;
                 parParameter[2].SqlValue = objUsuarios.Clave_usuario;
-
-                //para  mi proceso almacenado USUARIO
                 tblDatos = cnGeneral.RetornaTabla(parParameter,"SPValidacionUsu");
-
             }
             catch (Exception ex)
             {
-
                 throw new Exception(ex.Message);
             }
-
             return tblDatos;
         }
-
         // Agregar un Usuario Nuevo al sistema
-
         public void Agregar_Usuarios()
         {
             try
             {
                 cnGeneral = new Datos();
-
                 SqlParameter[] parParameter = new SqlParameter[11];
-
                 parParameter[0] = new SqlParameter();
                 parParameter[0].ParameterName = "@opcion";
                 parParameter[0].SqlDbType = SqlDbType.Int;
@@ -132,18 +115,14 @@ namespace SIGEDOC.Negocio
                 parParameter[10].SqlDbType = SqlDbType.VarChar;
                 parParameter[10].Size = 50;
                 parParameter[10].SqlValue = objUsuarios.Idusuario;
-
-
                 cnGeneral.EjecutarSP(parParameter, "SPUsuario");
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
-
             }
         }
         // Actualizar usuarios
-
         public void Actualizar_Usuario()
         {
             try
@@ -151,7 +130,6 @@ namespace SIGEDOC.Negocio
                 cnGeneral = new Datos();
 
                 SqlParameter[] parParameter = new SqlParameter[10];
-
                 parParameter[0] = new SqlParameter();
                 parParameter[0].ParameterName = "@opcion";
                 parParameter[0].SqlDbType = SqlDbType.Int;
@@ -208,14 +186,11 @@ namespace SIGEDOC.Negocio
                 parParameter[9].SqlDbType = SqlDbType.VarChar;
                 parParameter[9].Size = 50;
                 parParameter[9].SqlValue = objUsuarios.Idusuario;
-
-
                 cnGeneral.EjecutarSP(parParameter, "SPUsuario");
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
-
             }
         }
         public DataTable Listar_Usuarios()
@@ -224,9 +199,7 @@ namespace SIGEDOC.Negocio
             try
             {
                 cnGeneral = new Datos();
-
                 SqlParameter[] parParameter = new SqlParameter[1];
-
                 parParameter[0] = new SqlParameter();
                 parParameter[0].ParameterName = "@opcion";
                 parParameter[0].SqlDbType = SqlDbType.Int;
@@ -237,7 +210,6 @@ namespace SIGEDOC.Negocio
             {
                 throw new Exception(ex.Message);
             }
-
             return tblDatos;
         }
         public void Actualizar_Usuario_Personal()
@@ -245,7 +217,6 @@ namespace SIGEDOC.Negocio
             try
             {
                 cnGeneral = new Datos();
-
                 SqlParameter[] parParameter = new SqlParameter[8];
 
                 parParameter[0] = new SqlParameter();
@@ -298,10 +269,8 @@ namespace SIGEDOC.Negocio
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
-
             }
         }
-
         public DataTable Busqueda()
         {
             tblDatos = new DataTable();
@@ -321,24 +290,20 @@ namespace SIGEDOC.Negocio
                 parParameter[1].SqlDbType = SqlDbType.VarChar;
                 parParameter[1].Size = 50;
                 parParameter[1].SqlValue = objUsuarios.Nombre_usuario;
-
                 tblDatos = cnGeneral.RetornaTabla(parParameter, "SPBusquedas");
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
-
             return tblDatos;
         }
-
         public DataTable Busqueda2()
         {
             tblDatos = new DataTable();
             try
             {
                 cnGeneral = new Datos();
-
                 SqlParameter[] parParameter = new SqlParameter[2];
 
                 parParameter[0] = new SqlParameter();
@@ -350,14 +315,38 @@ namespace SIGEDOC.Negocio
                 parParameter[1].ParameterName = "@estado";
                 parParameter[1].SqlDbType = SqlDbType.Int;
                 parParameter[1].SqlValue = objUsuarios.Estado_usuarios;
-
                 tblDatos = cnGeneral.RetornaTabla(parParameter, "SPBusquedas");
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
+            return tblDatos;
+        }
+        public DataTable Valida_Cedula()
+        {
+            tblDatos = new DataTable();
+            try
+            {
+                cnGeneral = new Datos();
+                SqlParameter[] parParameter = new SqlParameter[2];
 
+                parParameter[0] = new SqlParameter();
+                parParameter[0].ParameterName = "@opcion";
+                parParameter[0].SqlDbType = SqlDbType.Int;
+                parParameter[0].SqlValue = objUsuarios.Opc;
+
+                parParameter[1] = new SqlParameter();
+                parParameter[1].ParameterName = "@cedulaUsu";
+                parParameter[1].SqlDbType = SqlDbType.VarChar;
+                parParameter[1].Size = 20;
+                parParameter[1].SqlValue = objUsuarios.Cedula_usuario;
+                tblDatos = cnGeneral.RetornaTabla(parParameter, "SPValidaCedu");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
             return tblDatos;
         }
     }

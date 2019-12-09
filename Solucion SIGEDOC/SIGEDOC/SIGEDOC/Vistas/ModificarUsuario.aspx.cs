@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using SIGEDOC.Negocio;
 using System.Data;
-using System.Text;
-
 namespace SIGEDOC.Vistas
 {
     public partial class ModificarUsuario : System.Web.UI.Page
@@ -19,21 +14,19 @@ namespace SIGEDOC.Vistas
         // instacia de calse y heper para modificar usuarios.
         SIGEDOC.Negocio.Usuarios usu = new SIGEDOC.Negocio.Usuarios();
         private UsuarioHelper usuh;
-
-
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Num_Estado_Permiso();
+            Num_Estado_Permiso();
 
-            //if (validar == 0 || Session["Idusuario"] == null)
-            //{
+            if (validar == 0 || Session["Idusuario"] == null)
+            {
 
-            //    ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeEspera", "mensajeEspera('" + "" + "');", true);
-            //}
-            //else
-            //{
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeEspera", "mensajeEspera('" + "" + "');", true);
+            }
+            else
+            {
 
-            //}
+            }
         }
         private void Num_Estado_Permiso()
         {
@@ -56,15 +49,10 @@ namespace SIGEDOC.Vistas
             {
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError", "mensajeError('" + "" + "');", true);
             }
-
-
-
         }
         protected void GridUsuarios_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
             ScriptManager.RegisterStartupScript(Page, Page.GetType(), "ModalUsuario", "$('#ModalUsuario').modal();", true);
-
             this.txtcedula.Text = this.GridUsuarios.Rows[GridUsuarios.SelectedIndex].Cells[1].Text;
             this.txtnombre.Text = this.GridUsuarios.Rows[GridUsuarios.SelectedIndex].Cells[2].Text;
             this.txtapellido.Text= this.GridUsuarios.Rows[GridUsuarios.SelectedIndex].Cells[3].Text;
@@ -83,7 +71,6 @@ namespace SIGEDOC.Vistas
             }
             this.txtcontacto.Text = int.Parse(this.GridUsuarios.Rows[GridUsuarios.SelectedIndex].Cells[9].Text).ToString();
         }
-
         protected void GridUsuarios_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
@@ -92,14 +79,11 @@ namespace SIGEDOC.Vistas
                 estado = (int)DataBinder.Eval(e.Row.DataItem,"estadoUsu");
                 if (estado==2)
                 {
-
                     e.Row.BackColor = System.Drawing.Color.Yellow;
                     e.Row.Font.Bold = true;
                 }
-
             }
         }
-
         protected void btningresar_Click(object sender, EventArgs e)
         {
             if (IsValid)
@@ -119,19 +103,14 @@ namespace SIGEDOC.Vistas
                     this.usuh = new UsuarioHelper(usu);
                     this.usuh.Actualizar_Usuario();
                     ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeDeconfirmacion", "mensajeDeconfirmacion('" + "" + "');", true);
-
-
                 }
                 catch (Exception)
                 {
 
                     ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError", "mensajeError('" + "" + "');", true);
                 }
-
-
             }
         }
-
         protected void DptBuscarUsuario_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -150,7 +129,6 @@ namespace SIGEDOC.Vistas
 
             }
         }
-
         protected void Dptbuscar2_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -166,7 +144,6 @@ namespace SIGEDOC.Vistas
             catch (Exception ex)
             {
                 this.lblbuscarUsuario.Text = ex.Message;
-
             }
         }
     }
