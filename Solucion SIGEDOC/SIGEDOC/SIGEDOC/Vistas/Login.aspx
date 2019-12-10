@@ -1,7 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="SIGEDOC.Vistas.Login" %>
-
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -20,19 +18,14 @@
      <script type="text/javascript" src="jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="sweetalert/sweetalert2.min.css"/>
     <script type="text/javascript" src="sweetalert/sweetalert2.min.js" ></script>
-
 </head>
 <body class="bg-gradient-primary" >
     <form id="form1" runat="server">
         <div>
-
              <div class="container">
-
     <!-- Outer Row -->
     <div class="row justify-content-center">
-
       <div class="col-xl-10 col-lg-12 col-md-5">
-
         <div class="card o-hidden border-0 shadow-lg my-5" >
           <div class="card-body p-0" >
             <!-- Nested Row within Card Body -->
@@ -71,38 +64,23 @@
       </div>
 
     </div>
-
   </div>
             <script language="JavaScript">
-
             var msg="¡El botón derecho está desactivado para este sitio !";
-
             function disableIE() {if (document.all) {alert(msg);return false;}
-
             }
             function disableNS(e) {
-
             if (document.layers||(document.getElementById&&!document.all)) {
-
             if (e.which==2||e.which==3) {return false;}
-
             }
-
             }
-
             if (document.layers) {
-
             document.captureEvents(Event.MOUSEDOWN);document.onmousedown=disableNS;
-
             } else {
-
             document.onmouseup=disableNS;document.oncontextmenu=disableIE;
-
             }
             document.oncontextmenu=new Function("return false")
-
             </script>
-
                   <%-- alerta de error --%>
              <script type="text/javascript">
 
@@ -115,11 +93,8 @@
                          allowOutsideClick: false,
                          timer: 4000,
                      })
-                                         
                  }
-
                  //alerta para el suario que ha sido dado de baja
-
                  function mensajeErrorInhabilitado() {
                      swal.fire({
                          title: '¡Error!',
@@ -129,22 +104,16 @@
                          allowOutsideClick: false,
                          timer: 4000,
                      })
-
                  }
-
                  //Alerta de espera                                  
-
                      function mensajeEspera() {
                          let timerInterval
                          Swal.fire({
                              title: '¡¡Acceso Interrumpido!, Actualmente no hay acceso a conexion de Internet',
-
                              timer: 4000,
                              allowOutsideClick: false,
                              onBeforeOpen: () => {
-
                                  Swal.showLoading()
-
                                  timerInterval = setInterval(() => {
                                      Swal.getContent().querySelector('strong')
                                          .textContent = (Swal.getTimerLeft() / 1000)
@@ -155,18 +124,14 @@
                                  clearInterval(timerInterval)
                              }
                          })
-                         
                          window.setTimeout('location.href="ErrorInternet.aspx"', 4000)
                      }
-
                  </script>
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
   <!-- Core plugin JavaScript-->
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>  
         </div>

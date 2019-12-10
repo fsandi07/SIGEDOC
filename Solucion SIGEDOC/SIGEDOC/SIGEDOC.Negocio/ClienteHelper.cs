@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 //librerias agregadas
 using System.Data.SqlClient;
 using MVC.Modelo;
 using System.Data;
-using System.IO;
-
 namespace SIGEDOC.Negocio
 {
     public class ClienteHelper
@@ -20,15 +14,12 @@ namespace SIGEDOC.Negocio
         {
             objCliente = parObjclientes;
         }
-
         public void Agregar_Cliente()
         {
             try
             {
                 cnGeneral = new Datos();
-
                 SqlParameter[] parParameter = new SqlParameter[8];
-
                 parParameter[0] = new SqlParameter();
                 parParameter[0].ParameterName = "@opcion";
                 parParameter[0].SqlDbType = SqlDbType.Int;
@@ -74,8 +65,6 @@ namespace SIGEDOC.Negocio
                 parParameter[7].SqlDbType = SqlDbType.VarChar;
                 parParameter[7].Size = 50;
                 parParameter[7].SqlValue = objCliente.Idusuario;
-
-
                 cnGeneral.EjecutarSP(parParameter,"SPCliente");
             }
             catch (Exception ex)
@@ -84,17 +73,13 @@ namespace SIGEDOC.Negocio
 
             }
         }
-
         // Actualizar cliente
-
         public void Actualizar_Cliente()
         {
             try
             {
                 cnGeneral = new Datos();
-
                 SqlParameter[] parParameter = new SqlParameter[9];
-
                 parParameter[0] = new SqlParameter();
                 parParameter[0].ParameterName = "@opcion";
                 parParameter[0].SqlDbType = SqlDbType.Int;
@@ -145,13 +130,11 @@ namespace SIGEDOC.Negocio
                 parParameter[8].SqlDbType = SqlDbType.VarChar;
                 parParameter[8].Size = 50;
                 parParameter[8].SqlValue = objCliente.Idusuario;
-
                 cnGeneral.EjecutarSP(parParameter, "SPCliente");
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
-
             }
         }
         public DataTable Listar_Cliente()
@@ -160,9 +143,7 @@ namespace SIGEDOC.Negocio
             try
             {
                 cnGeneral = new Datos();
-
                 SqlParameter[] parParameter = new SqlParameter[1];
-
                 parParameter[0] = new SqlParameter();
                 parParameter[0].ParameterName = "@opcion";
                 parParameter[0].SqlDbType = SqlDbType.Int;
@@ -173,19 +154,15 @@ namespace SIGEDOC.Negocio
             {
                 throw new Exception(ex.Message);
             }
-
             return tblDatos;
         }
-
         public DataTable Busqueda()
         {
             tblDatos = new DataTable();
             try
             {
                 cnGeneral = new Datos();
-
                 SqlParameter[] parParameter = new SqlParameter[2];
-
                 parParameter[0] = new SqlParameter();
                 parParameter[0].ParameterName = "@opcion";
                 parParameter[0].SqlDbType = SqlDbType.Int;
@@ -196,17 +173,13 @@ namespace SIGEDOC.Negocio
                 parParameter[1].SqlDbType = SqlDbType.VarChar;
                 parParameter[1].Size = 50;
                 parParameter[1].SqlValue = objCliente.Nombre_cliente;
-
                 tblDatos = cnGeneral.RetornaTabla(parParameter, "SPBusquedas");
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
-
             return tblDatos;
         }
-
-
     }
 }

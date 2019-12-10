@@ -3,7 +3,6 @@
 using System.Data.SqlClient;
 using MVC.Modelo;
 using System.Data;
-
 namespace SIGEDOC.Negocio
 {
     public class UsuarioHelper
@@ -39,7 +38,38 @@ namespace SIGEDOC.Negocio
                 parParameter[2].SqlDbType = SqlDbType.VarChar;
                 parParameter[2].Size = 50;
                 parParameter[2].SqlValue = objUsuarios.Clave_usuario;
-                tblDatos = cnGeneral.RetornaTabla(parParameter,"SPValidacionUsu");
+                tblDatos = cnGeneral.RetornaTabla(parParameter, "SPValidacionUsu");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return tblDatos;
+        }
+        public DataTable Olvido_Clave()
+        {
+            tblDatos = new DataTable();
+            try
+            {
+                cnGeneral = new Datos();
+                SqlParameter[] parParameter = new SqlParameter[3];
+                parParameter[0] = new SqlParameter();
+                parParameter[0].ParameterName = "@opcion";
+                parParameter[0].SqlDbType = SqlDbType.Int;
+                parParameter[0].SqlValue = objUsuarios.Opc;
+                // validar usuarios.
+                parParameter[1] = new SqlParameter();
+                parParameter[1].ParameterName = "@nicknameUsu";
+                parParameter[1].SqlDbType = SqlDbType.VarChar;
+                parParameter[1].Size = 20;
+                parParameter[1].SqlValue = objUsuarios.Nicname_usuario;
+
+                parParameter[2] = new SqlParameter();
+                parParameter[2].ParameterName = "@correoElect";
+                parParameter[2].SqlDbType = SqlDbType.VarChar;
+                parParameter[2].Size = 50;
+                parParameter[2].SqlValue = objUsuarios.Correo_usuario;
+                tblDatos = cnGeneral.RetornaTabla(parParameter, "SPOlvidoClave");
             }
             catch (Exception ex)
             {
@@ -222,7 +252,7 @@ namespace SIGEDOC.Negocio
                 parParameter[0] = new SqlParameter();
                 parParameter[0].ParameterName = "@opcion";
                 parParameter[0].SqlDbType = SqlDbType.Int;
-                parParameter[0].SqlValue = objUsuarios.Opc;               
+                parParameter[0].SqlValue = objUsuarios.Opc;
 
                 parParameter[1] = new SqlParameter();
                 parParameter[1].ParameterName = "@nombreUsu";
@@ -241,7 +271,7 @@ namespace SIGEDOC.Negocio
                 parParameter[3].SqlDbType = SqlDbType.VarChar;
                 parParameter[3].Size = 50;
                 parParameter[3].SqlValue = objUsuarios.Correo_usuario;
-                               
+
                 parParameter[4] = new SqlParameter();
                 parParameter[4].ParameterName = "@contactoUsu";
                 parParameter[4].SqlDbType = SqlDbType.Int;

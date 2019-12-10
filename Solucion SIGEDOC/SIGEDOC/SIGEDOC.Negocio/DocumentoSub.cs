@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace SIGEDOC.Negocio
 {
-   public  class DocumentoSub
+    public class DocumentoSub
     {
         private int opc;
         private int total_doc_creado;
@@ -24,7 +19,6 @@ namespace SIGEDOC.Negocio
         private string ModificadoPor;
         private string nombrerealWordSub;
         private string nombrerealPdfSub;
-
         public int Opc { get => opc; set => opc = value; }
         public int Total_doc_creado { get => total_doc_creado; set => total_doc_creado = value; }
         public string Nom_doc_creado { get => nom_doc_creado; set => nom_doc_creado = value; }
@@ -43,7 +37,7 @@ namespace SIGEDOC.Negocio
         public string NombrerealPdfSub { get => nombrerealPdfSub; set => nombrerealPdfSub = value; }
 
         public DocumentoSub(int opc, int total_doc_creado, string nom_doc_creado, string detalle_doc_creado, string id_usuario, int id_proyecto,
-            int num_consecutivo, byte[] word_doc_creado, byte[] pdf_doc_creado, DateTime fecha_doc_subido, int id_cliente, string periodo, 
+            int num_consecutivo, byte[] word_doc_creado, byte[] pdf_doc_creado, DateTime fecha_doc_subido, int id_cliente, string periodo,
             string num_referencia_creado, string modificadoPor, string nombrerealWordSub, string nombrerealPdfSub)
         {
             this.opc = opc;
@@ -80,9 +74,7 @@ namespace SIGEDOC.Negocio
             this.num_referencia_creado = "";
             this.ModificadoPor = "";
             this.nombrerealWordSub = "";
-            this.nombrerealPdfSub="";
+            this.nombrerealPdfSub = "";
         }
-
-
     }
 }

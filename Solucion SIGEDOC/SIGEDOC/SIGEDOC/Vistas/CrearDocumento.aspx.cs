@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.IO;
 using SIGEDOC.Negocio;
 using System.Data;
+using System.Threading;
 namespace SIGEDOC.Vistas
 {
     public partial class CrearDocumento : System.Web.UI.Page
@@ -20,6 +21,8 @@ namespace SIGEDOC.Vistas
         public static int numcosecu;
         public static int numtotaldocu;
         private static int id_cliente;
+        public static int ccostos;
+        public static string ccostostxt;
         protected void Page_Load(object sender, EventArgs e)
         {
             Num_Estado_Permiso();
@@ -32,7 +35,7 @@ namespace SIGEDOC.Vistas
             else
             {
             }
-            for (int i = 2010; i <= 2050; i++)
+            for (int i = 2020; i >= 2015; i--)
             {
                 dptPeriodo.Items.Add(new ListItem(i.ToString(), i.ToString()));
             }
@@ -57,7 +60,7 @@ namespace SIGEDOC.Vistas
             {
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError", "mensajeError('" + "" + "');", true);
             }
-        }        
+        }
         public void Limpiar()
         {
             this.txtNombreDoc.Text = null;
@@ -125,19 +128,21 @@ namespace SIGEDOC.Vistas
                             ref missing, ref missing, ref missing,
                             ref missing, ref missing, ref missing,
                             ref missing, ref missing, ref missing);
-            myWordDoc.Close();            
+            myWordDoc.Close();
             wordApp.Quit();
-            //Process.Start(@"C:\Users\fabio\OneDrive\Documentos\SIGEDOC_NEW\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\documentos word\documento creado\PQS.docx");
-            Process.Start(@"C:\Vistas\documentosWord\documentoCreado\PQS.docx");
+            ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeDeconfirmacionWord", "mensajeDeconfirmacionWord('" + "" + "');", true);
+            Thread.Sleep(4500);
+            Process.Start(@"C:\Users\fabio\OneDrive\Documentos\SIGEDOC_NEW\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\documentos word\documento creado\PQS.docx");
+            //Process.Start(@"C:\Vistas\documentosWord\documentoCreado\PQS.docx");
         }
         protected void Button1_Click(object sender, EventArgs e)
         {
-            try 
+            try
             {
-                //CreateWordDocument(@"C:\Users\fabio\OneDrive\Documentos\SIGEDOC_NEW\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\documentos word\temp1.docx",
-                //    @"C:\Users\fabio\OneDrive\Documentos\SIGEDOC_NEW\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\documentos word\documento creado\PQS.docx");
-                CreateWordDocument(@"C:\Vistas\documentosWord\temp1.docx",
-                    @"C:\Vistas\documentosWord\documentoCreado\PQS.docx");
+                CreateWordDocument(@"C:\Users\fabio\OneDrive\Documentos\SIGEDOC_NEW\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\documentos word\temp1.docx",
+                    @"C:\Users\fabio\OneDrive\Documentos\SIGEDOC_NEW\SIGEDOC_N\Solucion SIGEDOC\SIGEDOC\documentos word\documento creado\PQS.docx");
+                //CreateWordDocument(@"C:\Vistas\documentosWord\temp1.docx",
+                //    @"C:\Vistas\documentosWord\documentoCreado\PQS.docx");
             }
             catch (Exception)
             {
@@ -153,43 +158,43 @@ namespace SIGEDOC.Vistas
                     if (!FileSubirWord.HasFile)
                     {
                         ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeErrorDocumento", "mensajeErrorDocumento('" + "" + "');", true);
-                    //    if (this.txtNombreDoc.Text!="" && this.txtAsunto.Text!=""&& this.txtDescripcion.Text !="" ) {
-                    //        ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeErrorDatosVacios", "mensajeErrorDatosVacios('" + "" + "');", true);
-                    //    }
-                    //}
-                    else
-                    {
-                        Num_IdCliente();
-                        this.cd.Total_doc_creado = numtotaldocu;
-                        this.cd.Nom_doc_creado = this.txtNombreDoc.Text;
-                        this.cd.Asunto_doc_creado = this.txtAsunto.Text;
-                        this.cd.Detalle_doc_creado = this.txtDescripcion.Text;
-                        this.cd.Id_proyecto = int.Parse(this.dptProyecto.SelectedValue);
-                        this.cd.Periodo = this.dptPeriodo.SelectedValue;                       
-                        this.cd.Num_consecutivo = numcosecu;
-                        this.cd.Word_doc_creado = this.FileSubirWord.FileBytes;
-                        this.cd.NombreRealWord1 = this.FileSubirWord.FileName;
-                        this.cd.Pdf_doc_creado = this.FileSubirPdf.FileBytes;
-                        this.cd.NombreRealPdf1 = this.FileSubirPdf.FileName;
-                        this.cd.Estado_doc_creado = "En Proceso";
-                        this.cd.Fecha_doc_subido = DateTime.Now;
-                        this.cd.Id_cliente = id_cliente;
-                        this.cd.Id_usuario = int.Parse(Usuarios.GloIdUsuario);
-                        this.cd.Num_referencia_creado = this.txtReferencia.Text;
-                        this.cd.ModificadoPor1 = "Sin Modificar";
-                        this.cd.Habilitado = 1;
-                        this.cd.Opc = 1;
-                        this.cdh = new CrearDocHelper(cd);
-                        this.cdh.Ingresar_DocCreado();
-                        ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeDeconfirmacion", "mensajeDeconfirmacion('" + "" + "');", true);
-                        Limpiar();
+                        if (this.txtNombreDoc.Text == "" && this.txtAsunto.Text == "" && this.txtDescripcion.Text == "")
+                        {
+                            ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeErrorDatosVacios", "mensajeErrorDatosVacios('" + "" + "');", true);
+                        }
+                        else
+                        {
+                            Num_IdCliente();
+                            this.cd.Total_doc_creado = numtotaldocu;
+                            this.cd.Nom_doc_creado = this.txtNombreDoc.Text;
+                            this.cd.Asunto_doc_creado = this.txtAsunto.Text;
+                            this.cd.Detalle_doc_creado = this.txtDescripcion.Text;
+                            this.cd.Id_proyecto = int.Parse(this.dptProyecto.SelectedValue);
+                            this.cd.Periodo = this.dptPeriodo.SelectedValue;
+                            this.cd.Num_consecutivo = numcosecu;
+                            this.cd.Word_doc_creado = this.FileSubirWord.FileBytes;
+                            this.cd.NombreRealWord1 = this.FileSubirWord.FileName;
+                            this.cd.Pdf_doc_creado = this.FileSubirPdf.FileBytes;
+                            this.cd.NombreRealPdf1 = this.FileSubirPdf.FileName;
+                            this.cd.Estado_doc_creado = "En Proceso";
+                            this.cd.Fecha_doc_subido = DateTime.Now;
+                            this.cd.Id_cliente = id_cliente;
+                            this.cd.Id_usuario = int.Parse(Usuarios.GloIdUsuario);
+                            this.cd.Num_referencia_creado = this.txtReferencia.Text;
+                            this.cd.ModificadoPor1 = "Sin Modificar";
+                            this.cd.Habilitado = 1;
+                            this.cd.Opc = 1;
+                            this.cdh = new CrearDocHelper(cd);
+                            this.cdh.Ingresar_DocCreado();
+                            ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeDeconfirmacion", "mensajeDeconfirmacion('" + "" + "');", true);
+                            Limpiar();
+                        }
                     }
                 }
             }
             catch (Exception ex)
             {
-                this.txtDescripcion.Text = ex.Message;
-               // ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError", "mensajeError('" + "" + "');", true);
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError", "mensajeError('" + "" + "');", true);
             }
         }
         private void Num_consecu()
@@ -199,23 +204,38 @@ namespace SIGEDOC.Vistas
                 this.cd.Id_proyecto = int.Parse(this.dptProyecto.SelectedValue.ToString());
                 this.cd.Opc = 1;
                 this.cdh = new CrearDocHelper(cd);
-                this.datos = new DataTable();               
-                this.datos = this.cdh.Numero_Consecutivo();              
+                this.datos = new DataTable();
+                this.datos = this.cdh.Numero_Consecutivo();
                 if (datos.Rows.Count > 0)
                 {
                     DataRow fila = datos.Rows[0];
-                        Num_Total_Documento();
-                        numcosecu = int.Parse(fila["numConsecu"].ToString());
+                    Num_Total_Documento();
+                    numcosecu = int.Parse(fila["numConsecu"].ToString());
+                    ccostos = int.Parse(this.dptProyecto.SelectedValue);
+                    if (ccostos < 10)
+                    {
+                        ccostostxt = "0" + ccostos;
+                    }
+                    else
+                    {
+                        ccostostxt = ccostos.ToString();
+                    }
                     if (numcosecu == 0)
                     {
                         numcosecu = 1;
-                        this.txtReferencia.Text = this.dptPeriodo.SelectedValue + "-" + this.dptProyecto.SelectedValue + "-" +
-                            numcosecu + "-" + numtotaldocu;
+                        //this.txtReferencia.Text = this.dptPeriodo.SelectedValue + "-" + ccostostxt + "-" +
+                        //    numcosecu + "-" + numtotaldocu;
+                        if (numcosecu < 100 && numtotaldocu < 100)
+                        {
+                            this.txtReferencia.Text = this.dptPeriodo.SelectedValue + "-" + ccostostxt + "-" +
+                                   "0" + (numcosecu) + "-" + "0" + numtotaldocu;
+                        }
                     }
-                    else {
-                        this.txtReferencia.Text = this.dptPeriodo.SelectedValue + "-" + this.dptProyecto.SelectedValue + "-" +
-                            (numcosecu + 1) + "-" + numtotaldocu;
-                    }                                       
+                    else
+                    {
+                        this.txtReferencia.Text = this.dptPeriodo.SelectedValue + "-" + ccostostxt + "-" +
+                           "0" + (numcosecu + 1) + "-" + "0" + numtotaldocu;
+                    }
                 }
                 else
                 {
@@ -224,7 +244,7 @@ namespace SIGEDOC.Vistas
                     this.txtReferencia.Text = this.dptPeriodo.SelectedValue + "-" + this.dptProyecto.SelectedValue + "-" +
                     numcosecu + "-" + numtotaldocu;
                 }
-                this.txtCenCos.Text = this.dptProyecto.SelectedValue.ToString();
+                this.txtCenCos.Text = ccostostxt;
             }
             catch (Exception ex)
             {
@@ -248,7 +268,7 @@ namespace SIGEDOC.Vistas
             }
             catch (Exception ex)
             {
-                this.txtDescripcion.Text = ex.Message;
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError", "mensajeError('" + "" + "');", true);
             }
         }
         private void Num_Total_Documento()
@@ -267,12 +287,60 @@ namespace SIGEDOC.Vistas
             }
             catch (Exception ex)
             {
-                this.txtDescripcion.Text = ex.Message;
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError", "mensajeError('" + "" + "');", true);
             }
         }
         protected void dptProyecto_SelectedIndexChanged(object sender, EventArgs e)
         {
             Num_consecu();
+        }
+        protected void BtnGuarda_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (IsValid)
+                {
+                    if (!FileSubirWord.HasFile)
+                    {
+                        ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeErrorDocumento", "mensajeErrorDocumento('" + "" + "');", true);
+                        if (this.txtNombreDoc.Text == "" && this.txtAsunto.Text == "" && this.txtDescripcion.Text == "")
+                        {
+                            ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeErrorDatosVacios", "mensajeErrorDatosVacios('" + "" + "');", true);
+                        }
+                    }
+                    else
+                    {
+                        Num_IdCliente();
+                        this.cd.Total_doc_creado = numtotaldocu;
+                        this.cd.Nom_doc_creado = this.txtNombreDoc.Text;
+                        this.cd.Asunto_doc_creado = this.txtAsunto.Text;
+                        this.cd.Detalle_doc_creado = this.txtDescripcion.Text;
+                        this.cd.Id_proyecto = int.Parse(this.dptProyecto.SelectedValue);
+                        this.cd.Periodo = this.dptPeriodo.SelectedValue;
+                        this.cd.Num_consecutivo = numcosecu;
+                        this.cd.Word_doc_creado = this.FileSubirWord.FileBytes;
+                        this.cd.NombreRealWord1 = this.FileSubirWord.FileName;
+                        this.cd.Pdf_doc_creado = this.FileSubirPdf.FileBytes;
+                        this.cd.NombreRealPdf1 = this.FileSubirPdf.FileName;
+                        this.cd.Estado_doc_creado = "En Proceso";
+                        this.cd.Fecha_doc_subido = DateTime.Now;
+                        this.cd.Id_cliente = id_cliente;
+                        this.cd.Id_usuario = int.Parse(Usuarios.GloIdUsuario);
+                        this.cd.Num_referencia_creado = this.txtReferencia.Text;
+                        this.cd.ModificadoPor1 = "Sin Modificar";
+                        this.cd.Habilitado = 1;
+                        this.cd.Opc = 1;
+                        this.cdh = new CrearDocHelper(cd);
+                        this.cdh.Ingresar_DocCreado();
+                        ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeDeconfirmacion", "mensajeDeconfirmacion('" + "" + "');", true);
+                        Limpiar();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "mensajeError", "mensajeError('" + "" + "');", true);
+            }
         }
     }
 }

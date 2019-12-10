@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SIGEDOC.Negocio
+﻿namespace SIGEDOC.Negocio
 {
-     public class Usuarios
+    public class Usuarios
     {
         // opcion para el procedimiento almacenado;
         private int opc;
@@ -29,6 +23,7 @@ namespace SIGEDOC.Negocio
         public static string GloIdUsuario;
         public static int GloContacto;
         public static string GloCorreo;
+        public static string GloClave;
         // creacion de set y get para el uso de las variables.
         public int Opc { get => opc; set => opc = value; }
         public string Cedula_usuario { get => cedula_usuario; set => cedula_usuario = value; }
@@ -57,7 +52,6 @@ namespace SIGEDOC.Negocio
             this.apellidos = apellidos;
             this.idusuario = idusuario;
         }
-
         // contructor sin parametros
         public Usuarios()
         {
@@ -73,7 +67,6 @@ namespace SIGEDOC.Negocio
             this.apellidos = "";
             this.Idusuario = "";
         }
-
         // con estos metodos capturo los valores que ingresne a los get y set 
         public static void SetNombre(string nombre_usuario)
         {
@@ -104,8 +97,9 @@ namespace SIGEDOC.Negocio
         {
             GloContacto = contacto_usuario;
         }
-
-
-
+        public static void SetClave(string clave_usuario)
+        {
+            GloClave = clave_usuario;
+        }
     }
 }

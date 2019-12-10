@@ -95,9 +95,9 @@ namespace SIGEDOC.Vistas
         {
             this.c = new EnviosCorreo();
             this.c.Enviar_Correo(this.usu.Correo_usuario, "Registro SiGEDOC",
-               "<a href='https://imgbb.com/'><img src='https://i.ibb.co/s6P7VLC/PQS.png' alt='PQS' border='0'></a>" + "<br>" + "<br>" + "Estimado/a:" + " " + this.usu.Nombre_usuario + " " + this.usu.Apellidos + " <br>" + "Usted ha sido registrado/a para el ingreso al Sistema SIGEDOC-PQS." + "<br>" +
-               "Sus credenciales para ingresar son: " + "<br>" + "Usuario:  " + this.usu.Nicname_usuario + "<br>" + " Contraseña:  " + this.usu.Clave_usuario + "<br>" +
-               "Le Sugerimos cambiar su clave cuando ingrese al sistema,Consulte el manual antes de ingresar." + "<br>" + "Este es un correo Autogenerado,Por fabor no responder.");
+               "<a href='https://imgbb.com/'><img src='https://i.ibb.co/s6P7VLC/PQS.png' alt='PQS' border='0'></a>" + "<br>" + "<br>" + "Estimado/a:" + " " + this.usu.Nombre_usuario + " " + this.usu.Apellidos + " <br>" + 
+               "Usted ha sido registrado/a para el ingreso al Sistema SIGEDOC-PQS." + "<br>" +"Sus credenciales para ingresar son: " + "<br>" + "Usuario:  " + this.usu.Nicname_usuario + "<br>" + " Contraseña:  "
+               + this.usu.Clave_usuario + "<br>" +"Le Sugerimos cambiar su clave cuando ingrese al sistema" + "<br>" + "Este es un mensaje autogenerado,por favor no responder.");
         }
         protected void BtnCrear_Click(object sender, EventArgs e)
         {

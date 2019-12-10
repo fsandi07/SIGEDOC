@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SIGEDOC.Negocio
+﻿namespace SIGEDOC.Negocio
 {
-   public class Clientes
+    public class Clientes
     {
         // opcion para el procedimiento almacenado.
         private int opc;
@@ -18,7 +12,6 @@ namespace SIGEDOC.Negocio
         private string estado_cliente;
         private int idcliente;
         private string idusuario;
-        
         // Get y Set para usar las varibles de la clase.
         public int Opc { get => opc; set => opc = value; }
         public string Nombre_cliente { get => nombre_cliente; set => nombre_cliente = value; }
@@ -29,7 +22,6 @@ namespace SIGEDOC.Negocio
         public string Estado_cliente { get => estado_cliente; set => estado_cliente = value; }
         public int Idcliente { get => idcliente; set => idcliente = value; }
         public string Idusuario { get => idusuario; set => idusuario = value; }
-
         public Clientes(int opc, string nombre_cliente, string nombre_de_Contacto, int telefono_contacto, string correo_cliente, string detalle_cliente, string estado_cliente,int idcliente, string idusuario)
         {
             this.opc = opc;
@@ -41,8 +33,6 @@ namespace SIGEDOC.Negocio
             this.estado_cliente = estado_cliente;
             this.idcliente = idcliente;
             this.idusuario = idusuario;
-
-
         }
         public Clientes()
         {
@@ -56,7 +46,5 @@ namespace SIGEDOC.Negocio
             this.idcliente = 0;
             this.idusuario = "";
         }
-       
-
     }
 }

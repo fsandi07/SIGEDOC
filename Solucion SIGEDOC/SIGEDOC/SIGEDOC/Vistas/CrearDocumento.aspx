@@ -51,13 +51,15 @@
             <asp:TextBox class="form-control form-control-user" runat="server" TextMode="MultiLine" Rows="5" MaxLength="0" Columns="62" BorderColor="#CCB210" CssClass="alert-dark" Width="772px" ID="txtDescripcion"></asp:TextBox>
         </div>
         <div class="contenedor-input">
-         <asp:Label ID="lblPeriodo" runat="server" Text="*Periodo"></asp:Label><br />        
-        <asp:DropDownList ID="dptPeriodo" runat="server"  CssClass="alert-dark" Height="28px" Width="771px" AutoPostBack="False"></asp:DropDownList>
-        </div>
+           <asp:Label ID="lblPeriodo" runat="server" Text="Periodo"></asp:Label><br />        
+        <asp:DropDownList ID="dptPeriodo" runat="server"  CssClass="alert-dark" Height="28px" Width="771px" AutoPostBack="False">
+            <asp:ListItem>Seleccionar</asp:ListItem>
+            </asp:DropDownList>
         <div class="contenedor-input">
             <asp:Label ID="lblProyec" runat="server" Text="*Asociar Proyecto"></asp:Label><br />
             <asp:DropDownList ID="dptProyecto" runat="server" CssClass="alert-dark" DataSourceID="SqlDataProyecto" DataTextField="NombreProy" DataValueField="centroCostos" Height="35px" Width="775px" AutoPostBack="True" OnSelectedIndexChanged="dptProyecto_SelectedIndexChanged">
-            </asp:DropDownList>
+           <asp:ListItem>Seleccionar</asp:ListItem>
+             </asp:DropDownList>
             <asp:SqlDataSource ID="SqlDataProyecto" runat="server" ConnectionString="<%$ ConnectionStrings:DB_A4DE45_SIGEDOCConnectionString %>" SelectCommand="SELECT [centroCostos], [NombreProy] FROM [TbProyecto1]"></asp:SqlDataSource>
         </div>        
         <div class="contenedor-input">
@@ -71,13 +73,13 @@
         <asp:Button class="btn btn-primary btn-user btn-block" ID="Button1" runat="server" Text="Crear Machote Documento"
             BackColor="#666666" BorderColor="#CCB210" OnClick="Button1_Click" /><br />
         <hr class="sidebar-divider my-0">
-        <asp:Label ID="lblFileWord" runat="server" Text="">*Cargar documento Word</asp:Label><br />
+        <asp:Label ID="lblFileWord" runat="server" Text="">*Cargar documento Word</asp:Label>
         <asp:RegularExpressionValidator
             ID="RegularExpressionValidator1" runat="server"
             ValidationExpression=".*(\.doc|\.DOCX|\.docx)$"
             ControlToValidate="FileSubirWord">El formato del Archivo no es Word</asp:RegularExpressionValidator>
-        <asp:FileUpload class="btn btn-primary btn-user btn-block" ID="FileSubirWord" runat="server" />
-        <asp:Label ID="lblFilePdf" runat="server" Text="Cargar documento Pdf"></asp:Label><br />
+        <asp:FileUpload class="btn btn-primary btn-user btn-block" ID="FileSubirWord" runat="server" />        
+        <asp:Label ID="lblFilePdf" runat="server" Text="Cargar documento Pdf"></asp:Label>
         <asp:RegularExpressionValidator
             ID="RegularExpressionValidator2" runat="server"
             ValidationExpression=".*(\.pdf|\.PDF)$"
@@ -88,6 +90,7 @@
         *Datos Requeridos.
         <asp:Button class="btn btn-primary btn-user btn-block" ID="BtnGuardar" runat="server" Text="Guardar"
             BackColor="#CCB210" BorderColor="#CCB210" OnClick="BtnGuardar_Click" />
+        <asp:Button ID="BtnGuarda" runat="server" Text="Button" OnClick="BtnGuarda_Click" />
          </div>
    <%-- </div>--%>
     <script src="js/jquery.js"></script>
@@ -99,13 +102,10 @@
             let timerInterval
             Swal.fire({
                 title: '¡Acceso Denegado!, no cuenta con los permisos para Aceder a este Modulo, contacte al Administrador',
-
                 timer: 4000,
                 allowOutsideClick: false,
                 onBeforeOpen: () => {
-
                     Swal.showLoading()
-
                     timerInterval = setInterval(() => {
                         Swal.getContent().querySelector('strong')
                             .textContent = (Swal.getTimerLeft() / 1000)
@@ -158,6 +158,16 @@
                 text: "¡" + "Los Datos se Guardaron Con Exito" + "!",
                 type: 'success',
                 allowOutsideClick: false,
+            })
+        }
+        function mensajeDeconfirmacionWord() {
+            swal.fire({
+                title: "¡EXITO!",
+                text: "¡" + "Se esta creando el documento!" + "!",
+                type: 'success',
+                showConfirmButton: false,
+                allowOutsideClick: false,
+                timer: 4000,
             })
         }
         function mensajeErrorDatosVacios() {

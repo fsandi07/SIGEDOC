@@ -2,19 +2,16 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Raleway|Ubuntu" rel="stylesheet">
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <!-- Estilos -->
     <link rel="stylesheet" href="css/estilos.css">
-
     <link rel="stylesheet" href="./dist/style.css">
     <%--     </div>--%>
     <script type="text/javascript" src="jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="sweetalert/sweetalert2.min.css">
     <script type="text/javascript" src="sweetalert/sweetalert2.min.js"></script>
-
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      <!-- Formularios -->
@@ -35,7 +32,6 @@
             <asp:Label ID="lblNombreDoc" runat="server" Text="Nombre del Documento"></asp:Label>
             <asp:TextBox class="req" ID="txtNombreDoc" runat="server"></asp:TextBox>
         </div>     
-
         <div class="contenedor-input">
             <asp:Label ID="lblDescrip" runat="server" Text="Descripcion"></asp:Label><br />
             <asp:TextBox class="form-control form-control-user" runat="server" TextMode="MultiLine" Rows="5" MaxLength="0" Columns="62" BorderColor="#CCB210" CssClass="alert-dark" Width="772px" ID="txtDescripcion"></asp:TextBox>
@@ -77,27 +73,19 @@
 
         <%--     </div>--%>
     </div>
-
     <script src="js/jquery.js"></script>
     <script src="js/main.js"></script>
-
-
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
     <script src="./dist/script.js"></script>
-
     <script type="text/javascript">
-
         function mensajeEspera() {
             let timerInterval
             Swal.fire({
                 title: '¡Acceso Denegado!, no cuenta con los permisos para Aceder a este Modulo, contacte al Administrador',
-
                 timer: 4000,
                 allowOutsideClick: false,
                 onBeforeOpen: () => {
-
                     Swal.showLoading()
-
                     timerInterval = setInterval(() => {
                         Swal.getContent().querySelector('strong')
                             .textContent = (Swal.getTimerLeft() / 1000)
@@ -107,13 +95,9 @@
                 onClose: () => {
                     clearInterval(timerInterval)
                 }
-
             })
-
-
             window.setTimeout('location.href="Menu.aspx"', 4000)
         }
-
         // mensaje de error
         function mensajeError() {
             swal.fire({
@@ -124,11 +108,9 @@
                 showConfirmButton: false,
                 allowOutsideClick: false,
                 timer: 4000,
-
             })
         }
         // mensaje error Docmuento
-
         function mensajeErrorDocumento() {
             swal.fire({
                 title: '¡Error!',
@@ -140,7 +122,6 @@
 
             })
         }
-
         //mensaje de conrfimacion
         function mensajeDeconfirmacion() {
             swal.fire({
@@ -149,11 +130,6 @@
                 type: 'success',
                 allowOutsideClick: false,
             })
-
         }
-
     </script>    
-
-
-
 </asp:Content>

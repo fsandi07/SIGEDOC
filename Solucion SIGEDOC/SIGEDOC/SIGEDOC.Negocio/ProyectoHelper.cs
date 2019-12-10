@@ -20,9 +20,7 @@ namespace SIGEDOC.Negocio
             try
             {
                 cnGeneral = new Datos();
-
                 SqlParameter[] parParameter = new SqlParameter[9];
-
                 parParameter[0] = new SqlParameter();
                 parParameter[0].ParameterName = "@opcion";
                 parParameter[0].SqlDbType = SqlDbType.Int;
@@ -129,14 +127,11 @@ namespace SIGEDOC.Negocio
                 parParameter[6].SqlDbType = SqlDbType.VarChar;
                 parParameter[6].Size = 50;
                 parParameter[6].SqlValue = objproyecto.Estado_Proyecto;
-
-
                 cnGeneral.EjecutarSP(parParameter, "SPProyectoActualiza");
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
-
             }
         }
         //Mostrar Todos los Proyectos
@@ -146,9 +141,7 @@ namespace SIGEDOC.Negocio
             try
             {
                 cnGeneral = new Datos();
-
                 SqlParameter[] parParameter = new SqlParameter[2];
-
                 parParameter[0] = new SqlParameter();
                 parParameter[0].ParameterName = "@opcion";
                 parParameter[0].SqlDbType = SqlDbType.Int;
@@ -158,14 +151,12 @@ namespace SIGEDOC.Negocio
                 parParameter[1].ParameterName = "@centroCostos";
                 parParameter[1].SqlDbType = SqlDbType.Int;
                 parParameter[1].SqlValue = objproyecto.Centro_costos;
-
                 tblDatos = cnGeneral.RetornaTabla(parParameter,"SPBusquedas");
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
-
             return tblDatos;
         }
         public DataTable Busqueda2()
@@ -174,9 +165,7 @@ namespace SIGEDOC.Negocio
             try
             {
                 cnGeneral = new Datos();
-
                 SqlParameter[] parParameter = new SqlParameter[2];
-
                 parParameter[0] = new SqlParameter();
                 parParameter[0].ParameterName = "@opcion";
                 parParameter[0].SqlDbType = SqlDbType.Int;
@@ -187,14 +176,12 @@ namespace SIGEDOC.Negocio
                 parParameter[1].SqlDbType = SqlDbType.VarChar;
                 parParameter[1].Size = 50;
                 parParameter[1].SqlValue = objproyecto.Nombre_Proyecto;
-
                 tblDatos = cnGeneral.RetornaTabla(parParameter, "SPBusquedas");
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
-
             return tblDatos;
         }
     }

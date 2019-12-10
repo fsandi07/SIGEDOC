@@ -1,15 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MVC.Modelo;
 using System.Data;
 using System.Data.SqlClient;
-
 namespace SIGEDOC.Negocio
 {
-
     public class MoviBitacoraHelper
     {
         Datos cnGeneral = null;
@@ -19,14 +13,12 @@ namespace SIGEDOC.Negocio
         {
             objMoviBitacora = parobjMoviBitacora;
         }
-
         public void Agregar_Movimiento()
         {
             try
             {
                 cnGeneral = new Datos();
                 SqlParameter[] parParameter = new SqlParameter[5];
-
                 parParameter[0] = new SqlParameter();
                 parParameter[0].ParameterName = "@opcion";
                 parParameter[0].SqlDbType = SqlDbType.Int;
@@ -53,17 +45,12 @@ namespace SIGEDOC.Negocio
                 parParameter[4].SqlDbType = SqlDbType.VarChar;
                 parParameter[4].Size = 50;
                 parParameter[4].SqlValue = objMoviBitacora.Tipo;
-
-
                 cnGeneral.EjecutarSP(parParameter, "SPMovimiento");
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
-
             }
         }
-
-
     }
 }

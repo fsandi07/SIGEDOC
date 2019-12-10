@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Net.Mail;
-
+﻿using System.Net.Mail;
 namespace SIGEDOC.Negocio
 {
     public class EnviosCorreo
@@ -21,26 +15,16 @@ namespace SIGEDOC.Negocio
                 msg.SubjectEncoding = System.Text.Encoding.UTF8;
                 msg.Body = Cuerpo;
                 msg.BodyEncoding = System.Text.Encoding.Unicode;
-                msg.IsBodyHtml = true;
-                ///  //Hotmail: smtp.live.com puerto:25
-                //SmtpClient server = new SmtpClient();// para usar el smtp de hotmail
+                msg.IsBodyHtml = true;               
                 SmtpClient client = new SmtpClient();// para usar el smtp de gmail
                 // credenciales de gmail
                 client.UseDefaultCredentials = false;
-                client.Credentials = new System.Net.NetworkCredential("pqsdical@gmail.com", "pqsdical2019");
-                // credenciales de hotmail
-                //server.UseDefaultCredentials = false;
-                //server.Credentials = new System.Net.NetworkCredential("leonatro24@hotmail.com", "heredia12");
+                client.Credentials = new System.Net.NetworkCredential("pqsdical@gmail.com", "pqsdical2019");             
                 client.Port = 587;
-                client.Host = "smtp.gmail.com";
-                //client.Port = 25;
-                //client.Host = "smtp.live.com";
-                client.EnableSsl = true;
-                //server.EnableSsl = true;
+                client.Host = "smtp.gmail.com";               
+                client.EnableSsl = true;             
                 client.Send(msg);
-                client.Dispose();
-                //server.Send(msg);
-                //server.Dispose();
+                client.Dispose();           
                 return true;
             }
             catch (System.Net.Mail.SmtpException ex)

@@ -1,6 +1,4 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="OlvidoClave.aspx.cs" Inherits="SIGEDOC.Vistas.OlvidoClave" %>
-
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -19,14 +17,10 @@
 <body class="bg-gradient-primary" >
     <form id="form1" runat="server">
         <div>
-
              <div class="container">
-
     <!-- Outer Row -->
     <div class="row justify-content-center">
-
       <div class="col-xl-10 col-lg-12 col-md-5">
-
         <div class="card o-hidden border-0 shadow-lg my-5" >
           <div class="card-body p-0" >
             <!-- Nested Row within Card Body -->
@@ -41,7 +35,7 @@
                   </div>
                     <form id="form2">
                       <div class="form-group">
-                          <asp:Label ID="LblIndentificacion" runat="server" Text="Identificación:"></asp:Label>
+                          <asp:Label ID="LblIndentificacion" runat="server" Text="Ingrese su nombre Usuario:"></asp:Label>
                           <br />
                           <div class="form-group">
                           <asp:TextBox class="form-control form-control-user" ID="TxtIdenti" runat="server"></asp:TextBox>
@@ -52,7 +46,8 @@
                           <asp:TextBox class="form-control form-control-user" ID="TxtEmail" runat="server" TextMode="Email"></asp:TextBox>
                           </div>  
                     </div>
-                       <asp:Button class="btn btn-primary btn-user btn-block"  ID="BtnEnvio" runat="server" Text="Enviar" BackColor="#CCB210" BorderColor="#CCB210"  />
+                       <asp:Button class="btn btn-primary btn-user btn-block"  ID="BtnEnvio" runat="server" Text="Enviar" BackColor="#CCB210" BorderColor="#CCB210" OnClick="BtnEnvio_Click"  />
+                        <asp:Button class="btn btn-primary btn-user btn-block" ID="BtnCancela" runat="server" Text="Cancelar" BackColor="Red" OnClick="BtnCancela_Click"  />
                     </form>
                   <hr>
                   <div class="text-center">
@@ -63,20 +58,37 @@
             </div>
           </div>
         </div>
-
       </div>
-
     </div>
-
   </div>
+            <script type="text/javascript">
+                         // mensaje de error
+                         function mensajeError() {
+                             swal.fire({
+                                 title: '¡Error!',
+                                 text: "¡" + "Los Datos no coinciden" + "!",
+                                 type: 'error',
+                                 showConfirmButton: false,
+                                 allowOutsideClick: false,
+                                 timer: 4000,
 
+                             })
+                         }
+                         //mensaje de conrfimacion
+                         function mensajeDeconfirmacion() {
+                             swal.fire({
+                                 title: "¡EXITO!",
+                                 text: "¡" + "La contraseña se envio al Correo Electronico"+"!",
+                                 type: 'success',
+                                 allowOutsideClick: false,
+                             })
+                         }
+                 </script>         
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
   <!-- Core plugin JavaScript-->
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>  
         </div>

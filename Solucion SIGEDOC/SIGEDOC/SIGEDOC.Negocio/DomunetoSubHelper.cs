@@ -1,21 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 //librerias agrgadas 
 using System.Data.SqlClient;
 using MVC.Modelo;
 using System.Data;
-using System.IO;
 namespace SIGEDOC.Negocio
 {
-   public  class DomunetoSubHelper
+    public class DomunetoSubHelper
     {
         Datos cnGneral = null;
         DataTable tbldatos = null;
         DocumentoSub objdoDocumentoSub;
-
         public DomunetoSubHelper(DocumentoSub parObjdoDocumentoSub)
         {
             objdoDocumentoSub = parObjdoDocumentoSub;
@@ -26,9 +20,7 @@ namespace SIGEDOC.Negocio
             try
             {
                 cnGneral = new Datos();
-
                 SqlParameter[] parParameter = new SqlParameter[2];
-
                 parParameter[0] = new SqlParameter();
                 parParameter[0].ParameterName = "@opcion";
                 parParameter[0].SqlDbType = SqlDbType.Int;
@@ -38,14 +30,12 @@ namespace SIGEDOC.Negocio
                 parParameter[1].ParameterName = "@idProyecto";
                 parParameter[1].SqlDbType = SqlDbType.Int;
                 parParameter[1].SqlValue = objdoDocumentoSub.Id_proyecto;
-
                 tbldatos = cnGneral.RetornaTabla(parParameter, "SPNum_DocSub");
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
-
             return tbldatos;
         }
         public DataTable Numero_total_Doc()
@@ -54,24 +44,19 @@ namespace SIGEDOC.Negocio
             try
             {
                 cnGneral = new Datos();
-
                 SqlParameter[] parParameter = new SqlParameter[1];
-
                 parParameter[0] = new SqlParameter();
                 parParameter[0].ParameterName = "@opcion";
                 parParameter[0].SqlDbType = SqlDbType.Int;
                 parParameter[0].SqlValue = objdoDocumentoSub.Opc;
-
                 tbldatos = cnGneral.RetornaTabla(parParameter, "SPtotal_DocSub");
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
-
             return tbldatos;
         }
-
         public void Ingresar_DocSubido()
         {
             try
@@ -165,9 +150,7 @@ namespace SIGEDOC.Negocio
                 parParameter[15].SqlDbType = SqlDbType.VarChar;
                 parParameter[15].Size = 50;
                 parParameter[15].SqlValue = objdoDocumentoSub.NombrerealPdfSub;
-
                 cnGneral.EjecutarSP(parParameter, "SPDocsubido");
-
             }
             catch (Exception ex)
             {
@@ -175,7 +158,6 @@ namespace SIGEDOC.Negocio
                 throw new Exception(ex.Message);
             }
         }
-
         public void Actualizar_DocSubido()
         {
             try
@@ -242,18 +224,12 @@ namespace SIGEDOC.Negocio
                 parParameter[10].SqlDbType = SqlDbType.VarChar;
                 parParameter[10].Size = 50;
                 parParameter[10].SqlValue = objdoDocumentoSub.NombrerealPdfSub;
-
-
                 cnGneral.EjecutarSP(parParameter, "SPDocsubido");
-
             }
             catch (Exception ex)
             {
-
                 throw new Exception(ex.Message);
             }
         }
-
-
     }
 }

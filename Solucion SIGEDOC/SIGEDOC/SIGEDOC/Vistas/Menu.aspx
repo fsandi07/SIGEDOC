@@ -2,7 +2,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
     <div class="card shadow mb-4">
                 <!-- Card Header - Accordion -->
                 <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
@@ -25,7 +24,6 @@
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
       </ol>
-
       <div class="carousel-inner">
         <div class="carousel-item active">
           <img class="d-block w-100" src="img/ExpeLimon.jpg" alt="Screenshot 11">
@@ -94,25 +92,18 @@ Contrato: Administracción de las Obras Conexas de Obra Pública en la Carretera
                       onClose: () => {
                           clearInterval(timerInterval)
                       }
-
                   })
-
-
                   window.setTimeout('location.href="Menu.aspx"', 4000)
               }
               // mensaje espera2
-
               function mensajeEspera2() {
                   let timerInterval
                   Swal.fire({
                       title: '¡Acceso Interrumpido!, Actualmente no existe conexion Internet',
-
                       timer: 4000,
                       allowOutsideClick: false,
                       onBeforeOpen: () => {
-
                           Swal.showLoading()
-
                           timerInterval = setInterval(() => {
                               Swal.getContent().querySelector('strong')
                                   .textContent = (Swal.getTimerLeft() / 1000)
@@ -122,14 +113,10 @@ Contrato: Administracción de las Obras Conexas de Obra Pública en la Carretera
                       onClose: () => {
                           clearInterval(timerInterval)
                       }
-
                   })
-
 
                   window.setTimeout('location.href="ErrorInternet.aspx"', 4000)
               }
-
-
         // mensaje de error
         function mensajeError() {
             swal.fire({
@@ -140,10 +127,8 @@ Contrato: Administracción de las Obras Conexas de Obra Pública en la Carretera
                 showConfirmButton: false,
                 allowOutsideClick: false,
                 timer: 4000,
-
             })
         }
-
         //mensaje de conrfimacion
         function mensajeDeconfirmacion() {
             swal.fire({
@@ -152,9 +137,7 @@ Contrato: Administracción de las Obras Conexas de Obra Pública en la Carretera
                 type: 'success',
                 allowOutsideClick: false,
             })
-
           }
-
           // mensaje de error
           function mensajeError1() {
               swal.fire({
@@ -177,7 +160,5 @@ Contrato: Administracción de las Obras Conexas de Obra Pública en la Carretera
                   timer: 4000,
               })
           }
-
     </script>   
-
 </asp:Content>

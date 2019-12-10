@@ -40,7 +40,6 @@ namespace SIGEDOC.Negocio
             {
                 cnGneral = new Datos();
                 SqlParameter[] parParameter = new SqlParameter[47];
-
                 parParameter[0] = new SqlParameter();
                 parParameter[0].ParameterName = "@opcion";
                 parParameter[0].SqlDbType = SqlDbType.Int;
@@ -312,7 +311,6 @@ namespace SIGEDOC.Negocio
             {
                 cnGneral = new Datos();
                 SqlParameter[] parParameter = new SqlParameter[5];
-
                 parParameter[0] = new SqlParameter();
                 parParameter[0].ParameterName = "@opcion";
                 parParameter[0].SqlDbType = SqlDbType.Int;
@@ -354,7 +352,6 @@ namespace SIGEDOC.Negocio
             {
                 cnGneral = new Datos();
                 SqlParameter[] parParameter = new SqlParameter[3];
-
                 parParameter[0] = new SqlParameter();
                 parParameter[0].ParameterName = "@opcion";
                 parParameter[0].SqlDbType = SqlDbType.Int;

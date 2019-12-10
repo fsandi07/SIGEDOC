@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace SIGEDOC.Negocio
 {
     public class CrearDocumento
     {
-
         // opcion para el procedimiento almacenado;
         private int opc;
         private int total_doc_creado;
@@ -29,8 +23,6 @@ namespace SIGEDOC.Negocio
         private string ModificadoPor;
         private string NombreRealWord;
         private string NombreRealPdf;
-
-
         public int Opc { get => opc; set => opc = value; }
         public int Total_doc_creado { get => total_doc_creado; set => total_doc_creado = value; }
         public string Nom_doc_creado { get => nom_doc_creado; set => nom_doc_creado = value; }
@@ -75,9 +67,7 @@ namespace SIGEDOC.Negocio
             this.ModificadoPor = ModificadoPor;
             this.NombreRealWord = nombreRealWord;
             this.NombreRealPdf = nombreRealPdf;
-
         }
-
         public CrearDocumento()
         {
             this.opc = 0;
@@ -99,8 +89,6 @@ namespace SIGEDOC.Negocio
             this.ModificadoPor = "";
             NombreRealWord = "";
             NombreRealPdf = "";
-
         }
     }
-      
 }

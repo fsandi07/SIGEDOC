@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SIGEDOC.Negocio
 {
@@ -19,7 +15,6 @@ namespace SIGEDOC.Negocio
         private string estado_Proyecto;
         private DateTime fecha_Proyecto;
         private string status_proyecto;
-
         public int Opc { get => opc; set => opc = value; }
         public string Nombre_Proyecto { get => nombre_Proyecto; set => nombre_Proyecto = value; }
         public string Numero_Licitacion { get => numero_Licitacion; set => numero_Licitacion = value; }
@@ -43,8 +38,6 @@ namespace SIGEDOC.Negocio
             this.Fecha_Proyecto = fecha_Proyecto;
             this.Status_proyecto = status_proyecto;
             this.Centro_costos = centro_costos;
-
-
         }
         public Proyectos()
         {

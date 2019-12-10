@@ -1,15 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 //librerias agrgadas 
 using System.Data.SqlClient;
 using MVC.Modelo;
 using System.Data;
-using System.IO;
-
-
 namespace SIGEDOC.Negocio
 {
     public class CrearDocHelper
@@ -17,7 +10,6 @@ namespace SIGEDOC.Negocio
         Datos cnGneral = null;
         DataTable tbldatos = null;
         CrearDocumento objdocCreado;
-
         public CrearDocHelper(CrearDocumento parObjdocCreado)
         {
             objdocCreado = parObjdocCreado;
@@ -28,9 +20,7 @@ namespace SIGEDOC.Negocio
             try
             {
                 cnGneral = new Datos();
-
                 SqlParameter[] parParameter = new SqlParameter[2];
-
                 parParameter[0] = new SqlParameter();
                 parParameter[0].ParameterName = "@opcion";
                 parParameter[0].SqlDbType = SqlDbType.Int;
@@ -40,48 +30,39 @@ namespace SIGEDOC.Negocio
                 parParameter[1].ParameterName = "@idProyecto";
                 parParameter[1].SqlDbType = SqlDbType.Int;
                 parParameter[1].SqlValue = objdocCreado.Id_proyecto;
-
-                tbldatos = cnGneral.RetornaTabla(parParameter,"SPNum_Doc");
+                tbldatos = cnGneral.RetornaTabla(parParameter, "SPNum_Doc");
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
-
             return tbldatos;
         }
-
         public DataTable Numero_total_Doc()
         {
             tbldatos = new DataTable();
             try
             {
                 cnGneral = new Datos();
-
                 SqlParameter[] parParameter = new SqlParameter[1];
-
                 parParameter[0] = new SqlParameter();
                 parParameter[0].ParameterName = "@opcion";
                 parParameter[0].SqlDbType = SqlDbType.Int;
-                parParameter[0].SqlValue = objdocCreado.Opc;                
-
+                parParameter[0].SqlValue = objdocCreado.Opc;
                 tbldatos = cnGneral.RetornaTabla(parParameter, "SPtotal_Doc1");
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
-
             return tbldatos;
         }
-
         public void Ingresar_DocCreado()
         {
             try
             {
                 cnGneral = new Datos();
                 SqlParameter[] parParameter = new SqlParameter[19];
-
                 parParameter[0] = new SqlParameter();
                 parParameter[0].ParameterName = "@opcion";
                 parParameter[0].SqlDbType = SqlDbType.Int;
@@ -106,7 +87,7 @@ namespace SIGEDOC.Negocio
 
                 parParameter[4] = new SqlParameter();
                 parParameter[4].ParameterName = "@detalledCreadol";
-                parParameter[4].SqlDbType = SqlDbType.VarChar;            
+                parParameter[4].SqlDbType = SqlDbType.VarChar;
                 parParameter[4].SqlValue = objdocCreado.Detalle_doc_creado;
 
                 parParameter[5] = new SqlParameter();
@@ -131,7 +112,7 @@ namespace SIGEDOC.Negocio
 
                 parParameter[9] = new SqlParameter();
                 parParameter[9].ParameterName = "@documentoWord";
-                parParameter[9].SqlDbType = SqlDbType.VarBinary;                
+                parParameter[9].SqlDbType = SqlDbType.VarBinary;
                 parParameter[9].SqlValue = objdocCreado.Word_doc_creado;
 
                 parParameter[10] = new SqlParameter();
@@ -142,14 +123,14 @@ namespace SIGEDOC.Negocio
 
                 parParameter[11] = new SqlParameter();
                 parParameter[11].ParameterName = "@fecha";
-                parParameter[11].SqlDbType = SqlDbType.DateTime;                
+                parParameter[11].SqlDbType = SqlDbType.DateTime;
                 parParameter[11].SqlValue = objdocCreado.Fecha_doc_subido;
-                
+
                 parParameter[12] = new SqlParameter();
                 parParameter[12].ParameterName = "@idCliente";
                 parParameter[12].SqlDbType = SqlDbType.Int;
                 parParameter[12].SqlValue = objdocCreado.Id_cliente;
-                
+
                 parParameter[13] = new SqlParameter();
                 parParameter[13].ParameterName = "@periodo";
                 parParameter[13].SqlDbType = SqlDbType.VarChar;
@@ -184,19 +165,14 @@ namespace SIGEDOC.Negocio
                 parParameter[18].SqlDbType = SqlDbType.VarChar;
                 parParameter[18].Size = 50;
                 parParameter[18].SqlValue = objdocCreado.NombreRealPdf1;
-
-                cnGneral.EjecutarSP(parParameter, "SPCrearDoc");                
-
+                cnGneral.EjecutarSP(parParameter, "SPCrearDoc");
             }
             catch (Exception ex)
             {
-
                 throw new Exception(ex.Message);
             }
         }
-
         // actualizar documentos creados
-
         public void Actualizar_documento()
         {
             try
@@ -280,26 +256,20 @@ namespace SIGEDOC.Negocio
                 parParameter[13].SqlDbType = SqlDbType.VarChar;
                 parParameter[13].Size = 50;
                 parParameter[13].SqlValue = objdocCreado.NombreRealPdf1;
-
                 cnGneral.EjecutarSP(parParameter, "SPCrearDoc");
-
             }
             catch (Exception ex)
             {
-
                 throw new Exception(ex.Message);
             }
         }
-
         public DataTable Busqueda()
         {
             tbldatos = new DataTable();
             try
             {
                 cnGneral = new Datos();
-
                 SqlParameter[] parParameter = new SqlParameter[2];
-
                 parParameter[0] = new SqlParameter();
                 parParameter[0].ParameterName = "@opcion";
                 parParameter[0].SqlDbType = SqlDbType.Int;
@@ -310,26 +280,21 @@ namespace SIGEDOC.Negocio
                 parParameter[1].SqlDbType = SqlDbType.VarChar;
                 parParameter[1].Size = 50;
                 parParameter[1].SqlValue = objdocCreado.Num_referencia_creado;
-
-                tbldatos = cnGneral.RetornaTabla(parParameter,"SPBusquedas");
+                tbldatos = cnGneral.RetornaTabla(parParameter, "SPBusquedas");
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
-
             return tbldatos;
         }
-
         public DataTable Busqueda2()
         {
             tbldatos = new DataTable();
             try
             {
                 cnGneral = new Datos();
-
                 SqlParameter[] parParameter = new SqlParameter[2];
-
                 parParameter[0] = new SqlParameter();
                 parParameter[0].ParameterName = "@opcion";
                 parParameter[0].SqlDbType = SqlDbType.Int;
@@ -340,17 +305,13 @@ namespace SIGEDOC.Negocio
                 parParameter[1].SqlDbType = SqlDbType.VarChar;
                 parParameter[1].Size = 50;
                 parParameter[1].SqlValue = objdocCreado.Nom_doc_creado;
-
                 tbldatos = cnGneral.RetornaTabla(parParameter, "SPBusquedas");
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
-
             return tbldatos;
         }
-
-
     }
 }
